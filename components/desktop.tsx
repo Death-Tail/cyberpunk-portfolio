@@ -227,6 +227,20 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
     <>
       <canvas ref={canvasRef} className="fixed inset-0 z-0" style={{ pointerEvents: "none" }} />
 
+      {/* Centered Logo Overlay */}
+      <img
+        src="/logoT.png"
+        alt="LogoT"
+        className="fixed left-1/2 top-1/2 z-0"
+        style={{
+          transform: "translate(-50%, -50%)",
+          maxWidth: "30vw",
+          maxHeight: "30vh",
+          opacity: 0.85,
+          pointerEvents: "none",
+        }}
+      />
+
       {/* Desktop Icons */}
       <div className="fixed top-4 left-4 grid grid-cols-1 gap-4 z-10">
         {desktopIcons.map((icon) => (

@@ -103,9 +103,9 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
         {/* Start Button */}
         <button
           onClick={() => setStartMenuOpen(!startMenuOpen)}
-          className="h-8 px-4 bg-red-600/0  flex items-center mr-2"
+          className="h-8 px-4 bg-red-600/0  flex items-center mr-2  border-r-2 border-red-600/30"
         >
-          <div className="w-5 h-5 mr-2">
+          <div className="w-7 h-7 mr-2">
             <Image
               src="/logo.png"
               width={500}
