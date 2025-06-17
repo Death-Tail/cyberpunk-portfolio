@@ -28,15 +28,12 @@ export function ProfileWindow(props: ProfileWindowProps) {
           <div className="flex items-start space-x-4">
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=120&width=120"
+                src="/pfp.png?height=120&width=120"
                 alt="Profile"
                 width={120}
                 height={120}
                 className="border border-red-600/50 bg-zinc-800"
               />
-              <div className="absolute bottom-0 right-0 w-4 h-4 bg-blue-500 border border-blue-700 flex items-center justify-center">
-                <span className="text-white text-xs">✓</span>
-              </div>
             </div>
 
             <div>

@@ -1,11 +1,13 @@
 "use client"
 
 import { useState } from "react"
+import Image from 'next/image'
 import { User, FolderOpen, Terminal, Mail, Code, Settings, Power, Wifi, Battery, Volume2 } from "lucide-react"
 
 interface Window {
   id: string
   title: string
+  icon: string
   type: string
   isMinimized: boolean
   zIndex: number
@@ -61,13 +63,12 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
                   className="w-full flex items-center p-2 hover:bg-red-600/10 border border-red-600/30 transition-colors"
                 >
                   <div
-                    className={`p-2 border mr-3 ${
-                      app.color === "yellow"
+                    className={`p-2 border mr-3 ${app.color === "yellow"
                         ? "bg-yellow-500/20 border-yellow-500/50 text-yellow-400"
                         : app.color === "blue"
                           ? "bg-blue-500/20 border-blue-500/50 text-blue-400"
                           : "bg-red-600/20 border-red-600/50 text-red-400"
-                    }`}
+                      }`}
                   >
                     {app.icon}
                   </div>
@@ -102,10 +103,16 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
         {/* Start Button */}
         <button
           onClick={() => setStartMenuOpen(!startMenuOpen)}
-          className="h-8 px-4 bg-red-600/20 border border-red-600/50 hover:bg-red-600/30 transition-colors flex items-center mr-2"
+          className="h-8 px-4 bg-red-600/0  flex items-center mr-2"
         >
-          <div className="w-4 h-4 bg-gradient-to-br from-yellow-500 to-red-600 mr-2"></div>
-          <span className="text-red-400 text-sm font-mono">START</span>
+          <div className="w-5 h-5 mr-2">
+            <Image
+              src="/logo.png"
+              width={500}
+              height={500}
+              alt="Picture of the author"
+            />
+          </div>
         </button>
 
         {/* Window Buttons */}
@@ -114,13 +121,12 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
             <button
               key={window.id}
               onClick={() => handleWindowClick(window)}
-              className={`h-8 px-3 border transition-colors flex items-center ${
-                window.isMinimized
-                  ? "border-red-600/30 bg-red-600/5 text-red-400/70"
-                  : "border-red-600/50 bg-red-600/20 text-red-400"
-              }`}
+              className={`h-8 px-3 transition-colors flex items-center ${window.isMinimized
+                  ? "hover:bg-red-600/10 text-red-400/70"
+                  : "bg-red-600/20 text-red-400"
+                }`}
             >
-              <span className="text-xs font-mono truncate max-w-32">{window.title}</span>
+              <span className="text-xs font-mono truncate max-w-32">{applications.find(app => app.type === window.type)?.icon}</span>
             </button>
           ))}
         </div>

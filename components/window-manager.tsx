@@ -51,5 +51,13 @@ export function WindowManager({ windows, activeWindow, onClose, onMinimize, onFo
     }
   }
 
-  return <div className="fixed inset-0 z-20">{windows.map(renderWindow)}</div>
+  return (
+    <div className="fixed inset-0 z-20 pointer-events-none">
+      {windows.map((window) => (
+        <div key={window.id} style={{ position: "absolute", zIndex: window.zIndex, pointerEvents: "auto" }}>
+          {renderWindow(window)}
+        </div>
+      ))}
+    </div>
+  )
 }

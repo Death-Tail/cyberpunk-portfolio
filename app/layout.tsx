@@ -4,9 +4,8 @@ import type { Metadata } from "next"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
-  title: "ROCKYBARBARIAN | Cyberpunk Portfolio",
+  title: "LinGREED",
   description: "Full-stack developer portfolio with cyberpunk aesthetics",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({

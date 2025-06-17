@@ -34,153 +34,48 @@ export function CyberpunkBoot({ onComplete }: CyberpunkBootProps) {
   }, [loadingProgress, onComplete])
 
   return (
-    <div className="fixed inset-0 bg-black flex items-center justify-center z-50 overflow-hidden">
-      {/* Background geometric pattern */}
-      <div className="absolute inset-0">
-        {/* Grid lines */}
-        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1920 1080">
-          <defs>
-            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 0, 0, 0.1)" strokeWidth="1" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-
-          {/* Diagonal lines */}
-          <g stroke="rgba(255, 0, 0, 0.15)" strokeWidth="1" fill="none">
-            <line x1="0" y1="0" x2="1920" y2="1080" />
-            <line x1="0" y1="1080" x2="1920" y2="0" />
-            <line x1="960" y1="0" x2="960" y2="1080" />
-            <line x1="0" y1="540" x2="1920" y2="540" />
-          </g>
-
-          {/* Corner elements */}
-          <g stroke="rgba(255, 0, 0, 0.3)" strokeWidth="2" fill="none">
-            <rect x="50" y="50" width="30" height="30" />
-            <rect x="1840" y="50" width="30" height="30" />
-            <rect x="50" y="1000" width="30" height="30" />
-            <rect x="1840" y="1000" width="30" height="30" />
-          </g>
-        </svg>
-      </div>
-
-      {/* Main loading interface */}
-      <div className="relative z-10 w-[800px] h-[200px]">
-        {/* Top decorative elements */}
-        <div className="absolute -top-8 left-0 right-0 flex justify-between items-center">
-          <div className="flex space-x-2">
-            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-            <div className="w-2 h-2 bg-red-500/50 rounded-full"></div>
-          </div>
-          <div className="flex space-x-2">
-            <div className="w-2 h-2 bg-red-500/50 rounded-full"></div>
-            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-          </div>
+    <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
+      {/* Dramatic cyberpunk logo with glitch effect */}
+      <div className="mb-8 relative select-none">
+        <div className="text-4xl font-extrabold font-mono text-red-500 relative z-10 tracking-widest drop-shadow-lg uppercase" style={{letterSpacing: '0.2em'}}>
+          CYBERPUNK OS
         </div>
-
-        {/* Loading text and percentage */}
-        <div className="flex justify-between items-center mb-8">
-          <div className="text-red-500 font-mono text-xl tracking-wider">LOADING</div>
-          <div className="text-red-500 font-mono text-4xl font-bold">{loadingProgress}</div>
-        </div>
-
-        {/* Main loading bar container */}
-        <div className="relative">
-          {/* Side decorative elements */}
-          <div className="absolute -left-16 top-1/2 transform -translate-y-1/2">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-1 bg-red-500"></div>
-              <div className="w-4 h-4 border-2 border-red-500 bg-red-500/20"></div>
-              <div className="w-8 h-1 bg-red-500"></div>
-            </div>
-          </div>
-
-          <div className="absolute -right-16 top-1/2 transform -translate-y-1/2">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-1 bg-red-500"></div>
-              <div className="w-4 h-4 border-2 border-red-500 bg-red-500/20"></div>
-              <div className="w-8 h-1 bg-red-500"></div>
-            </div>
-          </div>
-
-          {/* Loading bar background */}
-          <div className="relative h-8 bg-zinc-900 border-2 border-red-500/30 overflow-hidden">
-            {/* Progress fill with diagonal stripes */}
-            <div
-              className="h-full bg-gradient-to-r from-red-600 to-orange-500 relative transition-all duration-200 ease-out"
-              style={{ width: `${loadingProgress}%` }}
-            >
-              {/* Diagonal stripe pattern */}
-              <div
-                className="absolute inset-0 opacity-60"
-                style={{
-                  backgroundImage: `repeating-linear-gradient(
-                    45deg,
-                    transparent,
-                    transparent 4px,
-                    rgba(255, 255, 255, 0.2) 4px,
-                    rgba(255, 255, 255, 0.2) 8px
-                  )`,
-                }}
-              ></div>
-
-              {/* Animated glow effect */}
-              {loadingProgress > 0 && (
-                <div className="absolute right-0 top-0 w-4 h-full bg-gradient-to-l from-white/50 to-transparent animate-pulse"></div>
-              )}
-            </div>
-
-            {/* Loading bar border glow */}
-            <div className="absolute inset-0 border-2 border-red-500 pointer-events-none"></div>
-          </div>
-        </div>
-
-        {/* Bottom status indicators */}
-        <div className="flex justify-between items-center mt-8">
-          <div className="flex space-x-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 border border-red-500 bg-red-500/20"></div>
-              <div className="text-red-500/70 font-mono text-xs">22:42</div>
-            </div>
-            <div className="w-px h-4 bg-red-500/30"></div>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 border border-red-500 bg-red-500/20"></div>
-              <div className="text-red-500/70 font-mono text-xs">47:39</div>
-            </div>
-          </div>
-
-          <div className="flex space-x-2">
-            <div className="w-3 h-3 border border-red-500 bg-red-500/20"></div>
-            <div className="w-3 h-3 border border-red-500 bg-red-500/20"></div>
-          </div>
-        </div>
-
-        {/* Additional UI elements */}
-        <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2">
-          <div className="flex items-center space-x-4">
-            <div className="w-8 h-1 bg-red-500/50"></div>
-            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-            <div className="w-8 h-1 bg-red-500/50"></div>
-          </div>
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+          <div className="text-4xl font-extrabold font-mono text-cyan-500 opacity-20 absolute left-1 top-1 select-none" style={{filter: 'blur(1px)'}}>CYBERPUNK OS</div>
+          <div className="text-4xl font-extrabold font-mono text-yellow-500 opacity-10 absolute left-2 top-2 select-none" style={{filter: 'blur(2px)'}}>CYBERPUNK OS</div>
         </div>
       </div>
 
-      {/* Completion effect */}
-      {isComplete && <div className="absolute inset-0 bg-red-500/10 animate-pulse pointer-events-none"></div>}
+      {/* Terminal-style boot text */}
+      <div className="w-[480px] max-w-full bg-black/90 border border-red-700 rounded-lg shadow-2xl mb-8 overflow-hidden relative">
+        <div className="bg-red-700/30 border-b border-red-700/50 p-2 flex items-center">
+          <div className="w-2 h-2 rounded-full bg-red-700 mr-2"></div>
+          <div className="w-2 h-2 rounded-full bg-yellow-600 mr-2"></div>
+          <div className="w-2 h-2 rounded-full bg-green-700 mr-2"></div>
+          <div className="text-xs text-red-400 font-mono tracking-widest">system_boot.sh</div>
+        </div>
+        <div className="p-4 font-mono text-xs text-green-400 h-32 overflow-hidden" style={{fontFamily: 'Fira Mono, monospace'}}>
+          <span className="text-red-600">[BOOT]</span> Initializing neural interface...<br/>
+          <span className="text-yellow-600">[SEC]</span> Loading encrypted modules...<br/>
+          <span className="text-cyan-600">[NET]</span> Establishing secure uplink...<br/>
+          <span className="text-green-600">[AUTH]</span> Authenticating user...<br/>
+          <span className="text-green-500">[SYS]</span> System integrity: <span className="text-green-400">OK</span><br/>
+          <span className="text-red-600">[ENV]</span> Launching desktop environment...
+        </div>
+      </div>
 
-      {/* Scan lines overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-20"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 2px,
-            rgba(255, 0, 0, 0.1) 2px,
-            rgba(255, 0, 0, 0.1) 4px
-          )`,
-        }}
-      ></div>
+      {/* Progress bar with scanline and flicker */}
+      <div className="w-72 h-2 bg-zinc-900 overflow-hidden mb-6 relative rounded shadow-inner border border-red-700">
+        <div className="h-full bg-gradient-to-r from-red-700 via-yellow-600 to-cyan-700 transition-all duration-300" style={{ width: `${loadingProgress}%` }}></div>
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-cyan-500/10 to-transparent" style={{opacity:0.3}}></div>
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-cyan-500/20 animate-[scanline_3s_linear_infinite]"></div>
+      </div>
+      <div className="text-red-400 text-xs font-mono mt-2 tracking-widest" style={{letterSpacing: '0.15em'}}>
+        SYSTEM BOOTING<span className="text-red-600">...</span>
+      </div>
+      <div className="text-yellow-600 text-xs font-mono mt-4 text-center max-w-xs opacity-80" style={{fontWeight:600, letterSpacing:'0.1em'}}>
+        Unauthorized access is strictly prohibited.<br/>All activities are monitored.<br/>Neural interface active.
+      </div>
     </div>
   )
 }

@@ -68,14 +68,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       name: "Tech Stack",
       icon: <Code className="w-5 h-5" />,
       color: "yellow",
-    },
-    {
-      id: "settings-icon",
-      type: "settings",
-      name: "Settings",
-      icon: <Settings className="w-5 h-5" />,
-      color: "blue",
-    },
+    }
   ]
 
   useEffect(() => {
@@ -86,6 +79,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
     if (!ctx) return
 
     const updateSize = () => {
+      if (!canvas || !ctx) return;
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
       drawBackground()
@@ -95,6 +89,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
     updateSize()
 
     function drawBackground() {
+      if (!canvas || !ctx) return;
       // Dark gradient background
       const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
       gradient.addColorStop(0, "#0f0f0f")
@@ -169,13 +164,8 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
     }
   }, [])
 
-  const handleIconClick = (iconId: string, iconType: string) => {
+  const handleIconClick = (iconId: string) => {
     setSelectedIcon(iconId)
-    // Add a small delay to simulate double-click
-    setTimeout(() => {
-      onOpenWindow(iconType)
-      setSelectedIcon(null)
-    }, 150)
   }
 
   const handleIconDoubleClick = (iconType: string) => {
@@ -235,7 +225,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
 
   return (
     <>
-      <canvas ref={canvasRef} className="fixed inset-0 z-0" />
+      <canvas ref={canvasRef} className="fixed inset-0 z-0" style={{ pointerEvents: "none" }} />
 
       {/* Desktop Icons */}
       <div className="fixed top-4 left-4 grid grid-cols-1 gap-4 z-10">
@@ -245,7 +235,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
             className={getIconColorClasses(icon.color, selectedIcon === icon.id)}
             onClick={(e) => {
               e.stopPropagation()
-              handleIconClick(icon.id, icon.type)
+              handleIconClick(icon.id)
             }}
             onDoubleClick={() => handleIconDoubleClick(icon.type)}
             onContextMenu={(e) => handleContextMenu(e, icon.id)}
