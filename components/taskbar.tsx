@@ -7,7 +7,6 @@ import { User, FolderOpen, Terminal, Mail, Code, Settings, Power, Wifi, Battery,
 interface Window {
   id: string
   title: string
-  icon: string
   type: string
   isMinimized: boolean
   zIndex: number

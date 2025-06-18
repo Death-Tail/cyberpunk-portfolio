@@ -5,6 +5,10 @@ import type React from "react"
 import { useState, useRef, useEffect } from "react"
 import { BaseWindow } from "./base-window"
 import { GitBranch } from "lucide-react"
+import {
+  SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiPostgresql, SiMysql, SiFlutter, SiGit
+} from "react-icons/si";
+import { DiJava } from "react-icons/di";
 
 interface TechStackWindowProps {
   id: string
@@ -32,80 +36,8 @@ interface SkillNode {
   iconColor: string
 }
 
-// Custom SVG icons for each technology
-const ReactIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-    <circle cx="12" cy="12" r="2" />
-    <path d="M12 1c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z" />
-    <ellipse cx="12" cy="12" rx="11" ry="4" fill="none" stroke="currentColor" strokeWidth="1" />
-    <ellipse
-      cx="12"
-      cy="12"
-      rx="11"
-      ry="4"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1"
-      transform="rotate(60 12 12)"
-    />
-    <ellipse
-      cx="12"
-      cy="12"
-      rx="11"
-      ry="4"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1"
-      transform="rotate(120 12 12)"
-    />
-  </svg>
-)
-
-const NextIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-  </svg>
-)
-
-const TypeScriptIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-    <rect x="2" y="2" width="20" height="20" rx="2" />
-    <path d="M8 8h8v2H8V8zm0 4h8v2H8v-2zm0 4h5v2H8v-2z" fill="white" />
-  </svg>
-)
-
-const NodeIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-    <path d="M12 2L2 7v10l10 5 10-5V7l-10-5zM6.5 7.5L12 5l5.5 2.5L12 10 6.5 7.5zM4 8.5l7 3.5v7l-7-3.5v-7zm16 0v7l-7 3.5v-7l7-3.5z" />
-  </svg>
-)
-
-const JavaIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-    <path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308 0 0 .384.389.987.602-5.679 1.661-12.007.13-7.942-1.218" />
-  </svg>
-)
-
-const PostgreSQLIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-    <path d="M17.128 0C15.892 0 14.758.256 13.726.768c-.515.256-1.03.64-1.288 1.152-.128.256-.128.512-.128.768v.384c0 .256.128.512.256.768.256.512.64.896 1.152 1.152.512.256 1.024.384 1.536.384h.384c.256 0 .512-.128.768-.256.512-.256.896-.64 1.152-1.152.256-.512.384-1.024.384-1.536V1.92c0-.256-.128-.512-.256-.768C16.616.64 16.232.256 15.72 0h-1.408z" />
-  </svg>
-)
-
-const MySQLIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-    <path d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.274.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 72.892 0 00-.195 4.41H.002c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 1.966.384 3.84.422 5.53z" />
-  </svg>
-)
-
-const FlutterIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-    <path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.37zm.159 11.871L11.91 14.456l4.132 4.132 4.135-4.132-2.263-2.263-2.441 2.44z" />
-  </svg>
-)
-
 const skillNodes: SkillNode[] = [
-  // Core center node
+  // ===== CORE =====
   {
     id: "core",
     name: "FULL STACK",
@@ -123,12 +55,12 @@ const skillNodes: SkillNode[] = [
     iconColor: "text-red-200",
   },
 
-  // Frontend branch
+  // ===== FRAMEWORKS / FRONTEND =====
   {
     id: "react",
     name: "REACT",
     level: "INTERMEDIATE",
-    icon: <ReactIcon />,
+    icon: <SiReact className="w-7 h-7" />,
     unlocked: true,
     x: 200,
     y: 150,
@@ -142,7 +74,7 @@ const skillNodes: SkillNode[] = [
     id: "nextjs",
     name: "NEXT.JS",
     level: "INTERMEDIATE",
-    icon: <NextIcon />,
+    icon: <SiNextdotjs className="w-7 h-7" />,
     unlocked: true,
     x: 100,
     y: 100,
@@ -156,7 +88,7 @@ const skillNodes: SkillNode[] = [
     id: "typescript",
     name: "TYPESCRIPT",
     level: "ADVANCED",
-    icon: <TypeScriptIcon />,
+    icon: <SiTypescript className="w-7 h-7" />,
     unlocked: true,
     x: 300,
     y: 100,
@@ -167,12 +99,12 @@ const skillNodes: SkillNode[] = [
     iconColor: "text-blue-200",
   },
 
-  // Backend branch
+  // ===== FRAMEWORKS / BACKEND =====
   {
     id: "nodejs",
     name: "NODE.JS",
     level: "ADVANCED",
-    icon: <NodeIcon />,
+    icon: <SiNodedotjs className="w-7 h-7" />,
     unlocked: true,
     x: 600,
     y: 150,
@@ -186,7 +118,7 @@ const skillNodes: SkillNode[] = [
     id: "java",
     name: "JAVA",
     level: "INTERMEDIATE",
-    icon: <JavaIcon />,
+    icon: <DiJava className="w-7 h-7" />,
     unlocked: true,
     x: 700,
     y: 100,
@@ -197,7 +129,7 @@ const skillNodes: SkillNode[] = [
     iconColor: "text-orange-200",
   },
 
-  // Database branch
+  // ===== DATABASE =====
   {
     id: "database",
     name: "SQL",
@@ -216,7 +148,7 @@ const skillNodes: SkillNode[] = [
     id: "postgresql",
     name: "POSTGRESQL",
     level: "INTERMEDIATE",
-    icon: <PostgreSQLIcon />,
+    icon: <SiPostgresql className="w-7 h-7" />,
     unlocked: true,
     x: 700,
     y: 500,
@@ -230,7 +162,7 @@ const skillNodes: SkillNode[] = [
     id: "mysql",
     name: "MYSQL",
     level: "INTERMEDIATE",
-    icon: <MySQLIcon />,
+    icon: <SiMysql className="w-7 h-7" />,
     unlocked: true,
     x: 500,
     y: 500,
@@ -241,12 +173,12 @@ const skillNodes: SkillNode[] = [
     iconColor: "text-blue-200",
   },
 
-  // Tools branch
+  // ===== TOOLS =====
   {
     id: "git",
     name: "GIT",
     level: "ADVANCED",
-    icon: <GitBranch className="w-5 h-5" />,
+    icon: <SiGit className="w-7 h-7" />,
     unlocked: true,
     x: 200,
     y: 450,
@@ -260,7 +192,7 @@ const skillNodes: SkillNode[] = [
     id: "flutter",
     name: "FLUTTER",
     level: "INTERMEDIATE",
-    icon: <FlutterIcon />,
+    icon: <SiFlutter className="w-7 h-7" />,
     unlocked: true,
     x: 100,
     y: 500,

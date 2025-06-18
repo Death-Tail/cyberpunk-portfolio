@@ -6,6 +6,8 @@ import { useState } from "react"
 import { ScanLines } from "@/components/scan-lines"
 import { HexBackground } from "@/components/hex-background"
 import { CyberpunkBoot } from "@/components/cyberpunk-boot"
+import { useIsMobile } from "@/hooks/use-mobile"
+import MobileOS from "@/components/mobile-os"
 
 interface WindowType {
   id: string
@@ -20,6 +22,7 @@ export default function Home() {
   const [activeWindow, setActiveWindow] = useState("")
   const [isBooting, setIsBooting] = useState(true)
   const [showDesktop, setShowDesktop] = useState(false)
+  const isMobile = useIsMobile()
 
   // Handle boot sequence completion
   const handleBootComplete = () => {
@@ -95,6 +98,10 @@ export default function Home() {
     const maxZ = Math.max(...openWindows.map((w) => w.zIndex), 0)
     setOpenWindows((prev) => prev.map((w) => (w.id === windowId ? { ...w, zIndex: maxZ + 1, isMinimized: false } : w)))
     setActiveWindow(windowId)
+  }
+
+  if (isMobile) {
+    return <MobileOS />
   }
 
   return (
