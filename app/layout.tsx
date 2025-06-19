@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     siteName: "SHIN尾",
     images: [
       {
-        url: "https://imgur.com/a/7L6FtZ6",
+        url: "https://death-tail.vercel.app/desktop%20logo/profile.avif",
         width: 1024,
         height: 1024,
         alt: "SHIN尾 Portfolio",
