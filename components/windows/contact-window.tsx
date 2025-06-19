@@ -27,7 +27,7 @@ export function ContactWindow(props: ContactWindowProps) {
       security: "PGP encrypted available",
       responseTime: "< 24 hours",
       availability: "Always available",
-      preferred: true,
+      preferred: false,
     },
     {
       platform: "GITHUB",
