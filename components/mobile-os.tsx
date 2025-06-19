@@ -11,15 +11,6 @@ import ContactPage from "./mobile/contact-page"
 type MobileOSProps = {};
 
 export default function MobileOS() {
-  const [time, setTime] = useState(new Date())
-  const [currentApp, setCurrentApp] = useState<string | null>(null)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(new Date())
-    }, 1000)
-    return () => clearInterval(timer)
-  }, [])
 
   const apps = [
     { type: "profile", icon: "/desktop logo/profile.avif", name: "Profile" },
@@ -60,9 +51,7 @@ export default function MobileOS() {
     <div className="relative h-screen w-full bg-zinc-900 overflow-hidden">
       {/* Status Bar */}
       <div className="fixed top-0 left-0 right-0 h-6 bg-zinc-900/80 backdrop-blur-sm flex items-center justify-between px-4 z-50 border-b border-red-600/30">
-        <div className="text-red-400 text-xs font-mono">
-          {time.toLocaleTimeString()}
-        </div>
+                  <div className="text-red-400 text-xs font-mono">{new Date().toLocaleTimeString()}</div>
         <div className="flex items-center gap-2">
           <Signal className="w-3 h-3 text-blue-400" />
           <Wifi className="w-3 h-3 text-yellow-400" />
