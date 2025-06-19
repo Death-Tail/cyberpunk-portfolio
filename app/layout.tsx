@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SHIN尾",
     description: "Full-stack developer portfolio with cyberpunk aesthetics",
-    url: "https://lingreed.vercel.app/",
+    url: "https://death-tail.vercel.app",
     siteName: "SHIN尾",
     images: [
       {
