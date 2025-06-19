@@ -1,5 +1,6 @@
 import { BaseWindow } from "./base-window"
 import { Globe, ExternalLink, Github } from "lucide-react"
+import { projects } from "../projects-data"
 
 interface ProjectsWindowProps {
   id: string
@@ -11,27 +12,6 @@ interface ProjectsWindowProps {
   onMinimize: () => void
   onFocus: () => void
 }
-
-const projects = [
-  {
-    title: "REKAN GROUP ENTERPRISE",
-    description: "Complete enterprise website with integrated dashboard system for business operations management.",
-    status: "DEPLOYED",
-    icon: <Globe className="w-4 h-4" />,
-    color: "red",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "MySQL", "Node.js"],
-    achievements: [
-      "Multi-language responsive website",
-      "Secure admin dashboard with authentication",
-      "Content management system for non-technical users",
-      "Production deployment & performance optimization",
-    ],
-    links: {
-      live: "https://rekangroup.com",
-      github: null, // No GitHub link available
-    },
-  },
-]
 
 export function ProjectsWindow(props: ProjectsWindowProps) {
   return (
@@ -55,13 +35,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-start space-x-3 flex-1">
                   <div
-                    className={`p-2 border ${
-                      project.color === "yellow"
-                        ? "bg-yellow-500/20 border-yellow-500/50 text-yellow-400"
-                        : project.color === "blue"
-                          ? "bg-blue-500/20 border-blue-500/50 text-blue-400"
-                          : "bg-red-600/20 border-red-600/50 text-red-400"
-                    }`}
+                    className={`p-2`}
                   >
                     {project.icon}
                   </div>

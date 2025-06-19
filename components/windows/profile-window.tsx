@@ -38,7 +38,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
 
             <div>
               <GlitchText
-                text="LINGREED"
+                text="SHIN尾"
                 className="text-xl font-bold mb-2"
                 glitchColors={["#dc2626", "#eab308", "#3b82f6"]}
               />

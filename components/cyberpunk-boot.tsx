@@ -2,80 +2,232 @@
 
 import { useState, useEffect } from "react"
 
-interface CyberpunkBootProps {
+interface SimpleBootProps {
   onComplete: () => void
 }
 
-export function CyberpunkBoot({ onComplete }: CyberpunkBootProps) {
+export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
   const [loadingProgress, setLoadingProgress] = useState(0)
   const [isComplete, setIsComplete] = useState(false)
+  const [showLogo, setShowLogo] = useState(false)
+  const [particles, setParticles] = useState<Array<{ left: number; top: number; delay: number; duration: number }>>([])
+
+  // Generate particles only on client side to avoid hydration mismatch
+  useEffect(() => {
+    const particleData = Array.from({ length: 20 }, () => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      delay: Math.random() * 3,
+      duration: 2 + Math.random() * 3,
+    }))
+    setParticles(particleData)
+  }, [])
+
+  // Show logo after initial delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLogo(true)
+    }, 500)
+    return () => clearTimeout(timer)
+  }, [])
 
   // Progress animation
   useEffect(() => {
-    if (loadingProgress < 100) {
+    if (showLogo && loadingProgress < 100) {
       const interval = setInterval(() => {
         setLoadingProgress((prev) => {
-          const increment = prev > 90 ? 2 : prev > 70 ? 3 : prev > 50 ? 4 : 5
+          const increment = prev > 85 ? 1 : prev > 60 ? 2 : 3
           const newProgress = Math.min(prev + increment, 100)
 
           if (newProgress === 100) {
             setIsComplete(true)
             setTimeout(() => {
               onComplete()
-            }, 1000)
+            }, 800)
           }
 
           return newProgress
         })
-      }, 100)
+      }, 120)
 
       return () => clearInterval(interval)
     }
-  }, [loadingProgress, onComplete])
+  }, [showLogo, loadingProgress, onComplete])
 
   return (
-    <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
-      {/* Dramatic cyberpunk logo with glitch effect */}
-      <div className="mb-8 relative select-none">
-        <div className="text-4xl font-extrabold font-mono text-red-500 relative z-10 tracking-widest drop-shadow-lg uppercase" style={{letterSpacing: '0.2em'}}>
-          CYBERPUNK OS
+    <div className="fixed inset-0 bg-black flex flex-col items-center justify-center p-4 overflow-hidden">
+      {/* Animated background layers */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Gradient base */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black"></div>
+
+        {/* Animated circuit lines */}
+        <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1000 1000">
+          <defs>
+            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#dc2626" stopOpacity="0" />
+              <stop offset="50%" stopColor="#dc2626" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#dc2626" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+
+          {/* Horizontal lines */}
+          <line x1="0" y1="200" x2="1000" y2="200" stroke="url(#lineGradient)" strokeWidth="1">
+            <animate attributeName="x2" values="0;1000;0" dur="8s" repeatCount="indefinite" />
+          </line>
+          <line x1="0" y1="400" x2="1000" y2="400" stroke="url(#lineGradient)" strokeWidth="1">
+            <animate attributeName="x2" values="1000;0;1000" dur="6s" repeatCount="indefinite" />
+          </line>
+          <line x1="0" y1="600" x2="1000" y2="600" stroke="url(#lineGradient)" strokeWidth="1">
+            <animate attributeName="x2" values="0;1000;0" dur="10s" repeatCount="indefinite" />
+          </line>
+          <line x1="0" y1="800" x2="1000" y2="800" stroke="url(#lineGradient)" strokeWidth="1">
+            <animate attributeName="x2" values="1000;0;1000" dur="7s" repeatCount="indefinite" />
+          </line>
+
+          {/* Vertical lines */}
+          <line x1="200" y1="0" x2="200" y2="1000" stroke="url(#lineGradient)" strokeWidth="1">
+            <animate attributeName="y2" values="0;1000;0" dur="9s" repeatCount="indefinite" />
+          </line>
+          <line x1="500" y1="0" x2="500" y2="1000" stroke="url(#lineGradient)" strokeWidth="1">
+            <animate attributeName="y2" values="1000;0;1000" dur="5s" repeatCount="indefinite" />
+          </line>
+          <line x1="800" y1="0" x2="800" y2="1000" stroke="url(#lineGradient)" strokeWidth="1">
+            <animate attributeName="y2" values="0;1000;0" dur="11s" repeatCount="indefinite" />
+          </line>
+        </svg>
+
+        {/* Floating particles */}
+        <div className="absolute inset-0">
+          {particles.map((particle, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-red-500/30 rounded-full animate-pulse"
+              style={{
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
+                animationDelay: `${particle.delay}s`,
+                animationDuration: `${particle.duration}s`,
+              }}
+            >
+              <div className="w-full h-full bg-red-400/50 rounded-full animate-ping"></div>
+            </div>
+          ))}
         </div>
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-          <div className="text-4xl font-extrabold font-mono text-cyan-500 opacity-20 absolute left-1 top-1 select-none" style={{filter: 'blur(1px)'}}>CYBERPUNK OS</div>
-          <div className="text-4xl font-extrabold font-mono text-yellow-500 opacity-10 absolute left-2 top-2 select-none" style={{filter: 'blur(2px)'}}>CYBERPUNK OS</div>
+
+        {/* Geometric shapes */}
+        <div
+          className="absolute top-10 left-10 w-32 h-32 border border-red-600/20 rotate-45 animate-spin"
+          style={{ animationDuration: "20s" }}
+        ></div>
+        <div className="absolute bottom-20 right-20 w-24 h-24 border border-red-500/15 rotate-12 animate-pulse"></div>
+        <div
+          className="absolute top-1/3 right-10 w-16 h-16 border-2 border-red-600/25 rounded-full animate-bounce"
+          style={{ animationDuration: "3s" }}
+        ></div>
+        <div className="absolute bottom-1/3 left-20 w-20 h-20 border border-red-400/20 transform rotate-45 animate-pulse"></div>
+
+        {/* Radial gradient overlays */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-red-500/3 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-600/2 rounded-full blur-3xl animate-pulse delay-500"></div>
+
+        {/* Tech grid pattern */}
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(239, 68, 68, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(239, 68, 68, 0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px",
+          }}
+        ></div>
+
+        {/* Diagonal lines */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-500 to-transparent transform rotate-12 origin-left"></div>
+          <div className="absolute top-20 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-400 to-transparent transform -rotate-12 origin-left"></div>
+          <div className="absolute bottom-20 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-600 to-transparent transform rotate-6 origin-left"></div>
         </div>
       </div>
 
-      {/* Terminal-style boot text */}
-      <div className="w-[480px] max-w-full bg-black/90 border border-red-700 rounded-lg shadow-2xl mb-8 overflow-hidden relative">
-        <div className="bg-red-700/30 border-b border-red-700/50 p-2 flex items-center">
-          <div className="w-2 h-2 rounded-full bg-red-700 mr-2"></div>
-          <div className="w-2 h-2 rounded-full bg-yellow-600 mr-2"></div>
-          <div className="w-2 h-2 rounded-full bg-green-700 mr-2"></div>
-          <div className="text-xs text-red-400 font-mono tracking-widest">system_boot.sh</div>
+      {/* Main content */}
+      <div className="relative z-10 flex flex-col items-center justify-center space-y-8 max-w-sm w-full">
+        {/* Logo container */}
+        <div
+          className={`relative transition-all duration-1000 ease-out ${
+            showLogo ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-4"
+          }`}
+        >
+          <div className="relative">
+            {/* Enhanced glow effect behind logo */}
+            <div className="absolute inset-0 bg-red-500/20 rounded-full blur-xl scale-150 animate-pulse"></div>
+            <div className="absolute inset-0 bg-red-400/10 rounded-full blur-2xl scale-200 animate-pulse delay-500"></div>
+
+            {/* Logo */}
+            <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48">
+              <img src="/logoT.avif" alt="Logo" className="object-contain drop-shadow-2xl" />
+            </div>
+
+            {/* Orbiting elements around logo */}
+            <div className="absolute inset-0 animate-spin" style={{ animationDuration: "15s" }}>
+              <div className="absolute -top-2 left-1/2 w-2 h-2 bg-red-500/60 rounded-full transform -translate-x-1/2"></div>
+            </div>
+            <div
+              className="absolute inset-0 animate-spin"
+              style={{ animationDuration: "12s", animationDirection: "reverse" }}
+            >
+              <div className="absolute top-1/2 -right-2 w-1.5 h-1.5 bg-red-400/60 rounded-full transform -translate-y-1/2"></div>
+            </div>
+          </div>
         </div>
-        <div className="p-4 font-mono text-xs text-green-400 h-32 overflow-hidden" style={{fontFamily: 'Fira Mono, monospace'}}>
-          <span className="text-red-600">[BOOT]</span> Initializing neural interface...<br/>
-          <span className="text-yellow-600">[SEC]</span> Loading encrypted modules...<br/>
-          <span className="text-cyan-600">[NET]</span> Establishing secure uplink...<br/>
-          <span className="text-green-600">[AUTH]</span> Authenticating user...<br/>
-          <span className="text-green-500">[SYS]</span> System integrity: <span className="text-green-400">OK</span><br/>
-          <span className="text-red-600">[ENV]</span> Launching desktop environment...
+
+        {/* Loading section */}
+        <div
+          className={`w-full space-y-4 transition-all duration-1000 delay-500 ${
+            showLogo ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}
+        >
+          {/* Progress bar */}
+          <div className="w-full space-y-2">
+            <div className="w-full h-1 bg-zinc-800/50 rounded-full overflow-hidden backdrop-blur-sm border border-red-900/20">
+              <div
+                className="h-full bg-gradient-to-r from-red-600 via-red-500 to-red-400 rounded-full transition-all duration-300 ease-out relative"
+                style={{ width: `${loadingProgress}%` }}
+              >
+                <div className="absolute inset-0 bg-white/20 animate-pulse rounded-full"></div>
+                <div className="absolute right-0 top-0 w-4 h-full bg-white/40 blur-sm rounded-full"></div>
+              </div>
+            </div>
+
+            {/* Progress text */}
+            <div className="flex justify-between items-center text-xs">
+              <span className="text-red-400/70 font-medium">{isComplete ? "Ready" : "Loading..."}</span>
+              <span className="text-red-400 font-mono">{loadingProgress}%</span>
+            </div>
+          </div>
+
+          {/* Status message */}
+          <div className="text-center">
+            <p className="text-red-300/80 text-sm font-light tracking-wide">
+              {isComplete
+                ? "Welcome back"
+                : loadingProgress > 80
+                  ? "Almost ready..."
+                  : loadingProgress > 50
+                    ? "Loading interface..."
+                    : "Starting up..."}
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Progress bar with scanline and flicker */}
-      <div className="w-72 h-2 bg-zinc-900 overflow-hidden mb-6 relative rounded shadow-inner border border-red-700">
-        <div className="h-full bg-gradient-to-r from-red-700 via-yellow-600 to-cyan-700 transition-all duration-300" style={{ width: `${loadingProgress}%` }}></div>
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-cyan-500/10 to-transparent" style={{opacity:0.3}}></div>
-        <div className="absolute top-0 left-0 w-full h-0.5 bg-cyan-500/20 animate-[scanline_3s_linear_infinite]"></div>
-      </div>
-      <div className="text-red-400 text-xs font-mono mt-2 tracking-widest" style={{letterSpacing: '0.15em'}}>
-        SYSTEM BOOTING<span className="text-red-600">...</span>
-      </div>
-      <div className="text-yellow-600 text-xs font-mono mt-4 text-center max-w-xs opacity-80" style={{fontWeight:600, letterSpacing:'0.1em'}}>
-        Unauthorized access is strictly prohibited.<br/>All activities are monitored.<br/>Neural interface active.
-      </div>
+      {/* Enhanced corner accents */}
+      <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-red-500/40 animate-pulse"></div>
+      <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-red-500/40 animate-pulse delay-300"></div>
+      <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-red-500/40 animate-pulse delay-700"></div>
+      <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-red-500/40 animate-pulse delay-1000"></div>
     </div>
   )
 }

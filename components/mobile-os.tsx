@@ -1,85 +1,127 @@
 "use client"
-import Image from "next/image"
-import { useState } from "react"
-import { Wifi, Battery, Signal } from "lucide-react"
 
-// Example app icons (replace with your own as needed)
-const apps = [
-  { name: "Profile", icon: "/pfp.png" },
-  { name: "Projects", icon: "/placeholder-logo.png" },
-  { name: "Contact", icon: "/logo.png" },
-  { name: "Tech Stack", icon: "/logoT.png" },
-  { name: "Terminal", icon: "/logoT.png" },
-]
+import { useState, useEffect } from "react"
+import { Battery, Signal, Wifi } from "lucide-react"
+import Image from "next/image"
+import ProfilePage from "./mobile/profile-page"
+import ProjectsPage from "./mobile/projects-page"
+import TechStackPage from "./mobile/tech-stack-page"
+import ContactPage from "./mobile/contact-page"
+
+type MobileOSProps = {};
 
 export default function MobileOS() {
-  const [activeApp, setActiveApp] = useState<string | null>(null)
+  const [time, setTime] = useState(new Date())
+  const [currentApp, setCurrentApp] = useState<string | null>(null)
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date())
+    }, 1000)
+    return () => clearInterval(timer)
+  }, [])
+
+  const apps = [
+    { type: "profile", icon: "/desktop logo/profile.avif", name: "Profile" },
+    { type: "projects", icon: "/desktop logo/project .avif", name: "Projects" },
+    { type: "contact", icon: "/desktop logo/contact.avif", name: "Contact" },
+    { type: "techstack", icon: "/desktop logo/techstack.avif", name: "Tech Stack" },
+  ]
+
+  const dockApps = apps.slice(0, 4)
+
+  const handleOpenApp = (type: string) => {
+    setCurrentApp(type)
+  }
+
+  const handleBack = () => {
+    setCurrentApp(null)
+  }
+
+  // Render current app page if one is selected
+  if (currentApp) {
+    switch (currentApp) {
+      case "profile":
+        return <ProfilePage onBack={handleBack} />
+      case "projects":
+        return <ProjectsPage onBack={handleBack} />
+      case "techstack":
+        return <TechStackPage onBack={handleBack} />
+      case "contact":
+        return <ContactPage onBack={handleBack} />
+      case "terminal":
+        handleBack() // Go back if terminal is selected as it's not implemented for mobile
+        return null
+    }
+  }
+
+  // Render home screen
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-zinc-900 via-zinc-950 to-black text-foreground flex flex-col">
+    <div className="relative h-screen w-full bg-zinc-900 overflow-hidden">
       {/* Status Bar */}
-      <div className="flex items-center justify-between px-4 py-2 bg-black/60 backdrop-blur-md border-b border-zinc-800 text-xs select-none">
-        <div className="flex items-center gap-2 text-zinc-300">
-          <Signal className="w-4 h-4" />
-          <Wifi className="w-4 h-4" />
+      <div className="fixed top-0 left-0 right-0 h-6 bg-zinc-900/80 backdrop-blur-sm flex items-center justify-between px-4 z-50 border-b border-red-600/30">
+        <div className="text-red-400 text-xs font-mono">
+          {time.toLocaleTimeString()}
         </div>
-        <span className="font-semibold tracking-widest text-zinc-100">{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
-        <div className="flex items-center gap-1 text-zinc-300">
-          <Battery className="w-4 h-4" />
-          <span className="text-xs">87%</span>
+        <div className="flex items-center gap-2">
+          <Signal className="w-3 h-3 text-blue-400" />
+          <Wifi className="w-3 h-3 text-yellow-400" />
+          <Battery className="w-4 h-4 text-red-400" />
         </div>
       </div>
 
-      {/* App Grid (Scrollable) */}
-      <div className="flex-1 overflow-y-auto py-6 px-4">
-        <div className="grid grid-cols-4 gap-6 justify-items-center">
+      {/* App Grid */}
+      <div className="pt-8 px-4 pb-20">
+        <div className="grid grid-cols-4 gap-4">
           {apps.map((app) => (
             <button
-              key={app.name}
-              className="flex flex-col items-center group"
-              onClick={() => setActiveApp(app.name)}
+              key={app.type}
+              onClick={() => handleOpenApp(app.type)}
+              className="flex flex-col items-center"
             >
-              <div className="rounded-2xl bg-zinc-800/80 shadow-lg p-3 group-hover:bg-zinc-700 transition-all">
-                <Image src={app.icon} alt={app.name} width={48} height={48} className="rounded-xl" />
+              <div className="w-16 h-16 rounded-2xl border border-red-600/30 bg-red-600/5 flex items-center justify-center mb-1 hover:bg-red-600/10 transition-colors">
+                <div className="w-10 h-10 relative">
+                  <Image
+                    src={app.icon}
+                    alt={app.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
-              <span className="mt-2 text-xs text-zinc-200 group-hover:text-yellow-400 font-medium drop-shadow">
-                {app.name}
-              </span>
+              <span className="text-red-400 text-xs">{app.name}</span>
             </button>
           ))}
         </div>
       </div>
 
       {/* Dock */}
-      <div className="fixed bottom-0 left-0 right-0 pb-4">
-        <div className="mx-auto w-fit px-6 py-2 rounded-3xl bg-black/60 backdrop-blur-md shadow-2xl flex gap-8 border border-zinc-800">
-          {apps.slice(0, 4).map((app) => (
+      <div className="fixed bottom-0 left-0 right-0 h-20 bg-zinc-900/80 backdrop-blur-sm border-t border-red-600/30">
+        <div className="h-full max-w-sm mx-auto flex items-center justify-around px-4">
+          {dockApps.map((app) => (
             <button
-              key={app.name + "-dock"}
+              key={app.type}
+              onClick={() => handleOpenApp(app.type)}
               className="flex flex-col items-center"
-              onClick={() => setActiveApp(app.name)}
             >
-              <Image src={app.icon} alt={app.name} width={36} height={36} className="rounded-xl" />
+              <div className="w-12 h-12 rounded-2xl border border-red-600/30 bg-red-600/5 flex items-center justify-center hover:bg-red-600/10 transition-colors">
+                <div className="w-8 h-8 relative">
+                  <Image
+                    src={app.icon}
+                    alt={app.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
             </button>
           ))}
         </div>
       </div>
 
-      {/* Simple App Modal */}
-      {activeApp && (
-        <div className="fixed inset-0 bg-black/80 flex flex-col items-center justify-center z-50">
-          <div className="bg-zinc-900 border border-yellow-500/30 rounded-2xl p-6 w-4/5 max-w-xs text-center shadow-2xl">
-            <h2 className="text-yellow-400 text-lg font-bold mb-2">{activeApp}</h2>
-            <p className="text-zinc-200/80 mb-4">This is a placeholder for the {activeApp} app.</p>
-            <button
-              className="mt-2 px-4 py-2 bg-yellow-500 text-black rounded-lg shadow hover:bg-yellow-400 transition"
-              onClick={() => setActiveApp(null)}
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+      {/* Accent Lines */}
+      <div className="fixed top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500/50 via-yellow-500/50 to-red-500/50"></div>
+      <div className="fixed bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-red-500/50 via-yellow-500/50 to-blue-500/50"></div>
     </div>
   )
 }

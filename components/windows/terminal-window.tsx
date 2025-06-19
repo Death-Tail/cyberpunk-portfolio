@@ -19,10 +19,10 @@ interface TerminalWindowProps {
 export function TerminalWindow(props: TerminalWindowProps) {
   const [lines, setLines] = useState([
     "CYBERPUNK TERMINAL v2.077",
-    "Copyright (c) 2077 Lingreed Systems Corp.",
+    "Copyright (c) 2077 SHIN尾 Systems Corp.",
     "",
     "Initializing neural interface...",
-    "Loading user profile: LINGREED",
+    "Loading user profile: SHIN尾",
     "Status: ONLINE | Security Level: MAXIMUM",
     "",
     "Available commands: help, whoami, skills, projects, experience, contact, clear",
@@ -172,10 +172,10 @@ export function TerminalWindow(props: TerminalWindowProps) {
           "COMMUNICATION PROTOCOLS:",
           "",
           "PRIMARY CHANNELS:",
-          "  ├── Email: contact@lingreed.dev",
-          "  ├── GitHub: github.com/lingreed",
-          "  ├── LinkedIn: linkedin.com/in/lingreed",
-          "  └── Discord: lingreed#0000",
+          "  ├── Email: dyarialitaher03@gmail.com",
+          "  ├── GitHub: linGREEDO",
+          "  ├── LinkedIn: Dyari Ali Tahir",
+          "  └── Discord: lin_greed",
           "",
           "SECURITY NOTICE:",
           "  ├── All communications encrypted",
@@ -186,7 +186,11 @@ export function TerminalWindow(props: TerminalWindowProps) {
         ])
         break
       case "clear":
-        setLines(["CYBERPUNK TERMINAL v2.077", "Copyright (c) 2077 Lingreed Systems Corp.", ""])
+        setLines([
+          `CYBERPUNK TERMINAL v2.077`,
+          `Copyright (c) ${new Date().getFullYear()} SHIN尾 Systems Corp.`,
+          ""
+        ])
         break
       default:
         setLines((prev) => [...prev, `Command not found: ${command}`, "Type 'help' for available commands.", ""])

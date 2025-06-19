@@ -38,35 +38,35 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       id: "profile-icon",
       type: "profile",
       name: "Profile",
-      icon: <User className="w-5 h-5" />,
+      icon: <img src="/desktop logo/profile.avif" />,
       color: "red",
     },
     {
       id: "projects-icon",
       type: "projects",
       name: "Projects",
-      icon: <FolderOpen className="w-5 h-5" />,
+      icon: <img src="/desktop logo/project.avif" />,
       color: "yellow",
     },
     {
       id: "terminal-icon",
       type: "terminal",
       name: "Terminal",
-      icon: <Terminal className="w-5 h-5" />,
+      icon: <img src="/desktop logo/terminal.avif" />,
       color: "blue",
     },
     {
       id: "contact-icon",
       type: "contact",
       name: "Contact",
-      icon: <Mail className="w-5 h-5" />,
+      icon: <img src="/desktop logo/contact.avif" />,
       color: "red",
     },
     {
       id: "techstack-icon",
       type: "techstack",
       name: "Tech Stack",
-      icon: <Code className="w-5 h-5" />,
+      icon: <img src="/desktop logo/techstack.avif" />,
       color: "yellow",
     }
   ]
@@ -229,7 +229,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
 
       {/* Centered Logo Overlay */}
       <img
-        src="/logoT.png"
+        src="/logoT.avif"
         alt="LogoT"
         className="fixed left-1/2 top-1/2 z-0"
         style={{

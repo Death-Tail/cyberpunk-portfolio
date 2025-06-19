@@ -1,5 +1,5 @@
 import { BaseWindow } from "./base-window"
-import { Mail, Github, Linkedin, MessageSquare, ExternalLink, Shield } from "lucide-react"
+import { Mail, ExternalLink, Shield } from "lucide-react"
 
 interface ContactWindowProps {
   id: string
@@ -15,37 +15,33 @@ interface ContactWindowProps {
 const contactMethods = [
   {
     platform: "EMAIL",
-    handle: "contact@lingreed.dev",
+    Link: "mailto:dyarialitaher03@gmail.com",
+    handle: "dyarialitaher03@gmail.com",
     icon: <Mail className="w-5 h-5" />,
-    color: "red",
-    status: "PRIMARY",
     description: "Professional inquiries & project discussions",
     security: "PGP encrypted available",
   },
   {
     platform: "GITHUB",
-    handle: "github.com/lingreed",
-    icon: <Github className="w-5 h-5" />,
-    color: "blue",
-    status: "ACTIVE",
+    Link: "https://github.com/linGREEDO",
+    handle: "linGREEDO",
+    icon: <img src="/icons/github.svg" alt="Github Icon" className="w-5 h-5" />,
     description: "Code repositories & open source contributions",
     security: "Public profile",
   },
   {
     platform: "LINKEDIN",
-    handle: "linkedin.com/in/lingreed",
-    icon: <Linkedin className="w-5 h-5" />,
-    color: "yellow",
-    status: "PROFESSIONAL",
+    Link: "https://www.linkedin.com/in/dyari-ali-tahir-b005352b5/",
+    handle: "Dyari Ali Tahir",
+    icon: <img src="/icons/linkedin.svg" alt="LinkedIn Icon" className="w-5 h-5" />,
     description: "Professional network & career updates",
     security: "Verified profile",
   },
   {
     platform: "DISCORD",
-    handle: "lingreed#0000",
-    icon: <MessageSquare className="w-5 h-5" />,
-    color: "blue",
-    status: "CASUAL",
+    Link: "https://discord.com/users/lin_greed",
+    handle: "lin_greed",
+    icon: <img src="/icons/discord.svg" alt="Discord Icon" className="w-5 h-5" />,
     description: "Real-time communication & collaboration",
     security: "End-to-end encrypted",
   },
@@ -70,29 +66,23 @@ export function ContactWindow(props: ContactWindowProps) {
             <span className="text-yellow-400 text-xs font-bold">SECURITY NOTICE</span>
           </div>
           <div className="text-yellow-400/70 text-xs">
-            All communications are monitored for security. Professional inquiries preferred via email. Response time:
-            &lt; 24 hours during business cycles.
+            Avg. response cycle: &lt; 24h (Earth Standard Time)
           </div>
         </div>
 
         {/* Contact Methods */}
         <div className="space-y-3">
           {contactMethods.map((contact, index) => (
-            <div
+            <a
               key={index}
-              className="border border-red-600/30 p-4 hover:bg-red-600/5 transition-colors cursor-pointer group"
+              href={contact.Link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block border border-red-600/30 p-4 hover:bg-red-600/5 transition-colors cursor-pointer group"
             >
               <div className="flex items-start justify-between">
                 <div className="flex items-start space-x-3 flex-1">
-                  <div
-                    className={`p-2 border ${
-                      contact.color === "yellow"
-                        ? "bg-yellow-500/20 border-yellow-500/50 text-yellow-400"
-                        : contact.color === "blue"
-                          ? "bg-blue-500/20 border-blue-500/50 text-blue-400"
-                          : "bg-red-600/20 border-red-600/50 text-red-400"
-                    }`}
-                  >
+                  <div>
                     {contact.icon}
                   </div>
 
@@ -100,32 +90,15 @@ export function ContactWindow(props: ContactWindowProps) {
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
                         <h3 className="text-red-400 font-bold text-sm">{contact.platform}</h3>
-                        <span
-                          className={`px-2 py-0.5 text-xs border ${
-                            contact.status === "PRIMARY"
-                              ? "border-red-500/50 text-red-400 bg-red-500/10"
-                              : contact.status === "PROFESSIONAL"
-                                ? "border-yellow-500/50 text-yellow-400 bg-yellow-500/10"
-                                : "border-blue-500/50 text-blue-400 bg-blue-500/10"
-                          }`}
-                        >
-                          {contact.status}
-                        </span>
                       </div>
                       <ExternalLink className="w-3 h-3 text-red-500/50 group-hover:text-red-400 transition-colors" />
                     </div>
 
                     <div className="text-red-400/70 text-xs mb-2 font-mono">{contact.handle}</div>
-                    <div className="text-red-400/60 text-xs mb-2">{contact.description}</div>
-
-                    <div className="flex items-center text-xs">
-                      <Shield className="w-3 h-3 text-green-400 mr-1" />
-                      <span className="text-green-400/70">{contact.security}</span>
-                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 

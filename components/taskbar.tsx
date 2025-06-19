@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from 'next/image'
 import { User, FolderOpen, Terminal, Mail, Code, Settings, Power, Wifi, Battery, Volume2 } from "lucide-react"
 
@@ -21,13 +21,22 @@ interface TaskbarProps {
 
 export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow }: TaskbarProps) {
   const [startMenuOpen, setStartMenuOpen] = useState(false)
+  const [time, setTime] = useState(new Date())
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date())
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [])
 
   const applications = [
-    { type: "profile", icon: <User className="w-4 h-4" />, name: "Profile", color: "red" },
+    { type: "profile", icon: <img src="/desktop logo/profile.avif" />, name: "Profile", color: "red" },
     { type: "projects", icon: <FolderOpen className="w-4 h-4" />, name: "Projects", color: "yellow" },
-    { type: "terminal", icon: <Terminal className="w-4 h-4" />, name: "Terminal", color: "blue" },
+    { type: "terminal", icon: <img src="/desktop logo/terminal.avif" />, name: "Terminal", color: "blue" },
     { type: "contact", icon: <Mail className="w-4 h-4" />, name: "Contact", color: "red" },
-    { type: "techstack", icon: <Code className="w-4 h-4" />, name: "Tech Stack", color: "yellow" },
+    { type: "techstack", icon: <img src="/desktop logo/techstack.avif" />, name: "Tech Stack", color: "yellow" },
   ]
 
   const handleWindowClick = (window: Window) => {
@@ -62,14 +71,16 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
                   className="w-full flex items-center p-2 hover:bg-red-600/10 border border-red-600/30 transition-colors"
                 >
                   <div
-                    className={`p-2 border mr-3 ${app.color === "yellow"
-                        ? "bg-yellow-500/20 border-yellow-500/50 text-yellow-400"
-                        : app.color === "blue"
-                          ? "bg-blue-500/20 border-blue-500/50 text-blue-400"
-                          : "bg-red-600/20 border-red-600/50 text-red-400"
-                      }`}
+                    className={`mr-3 flex items-center justify-center p-0 border-0 bg-transparent`}
+                    style={{ width: 32, height: 32 }}
                   >
-                    {app.icon}
+                    {typeof app.icon.type === 'string' && app.icon.type === 'img' ? (
+                      <span style={{ display: 'inline-block', width: 24, height: 24 }}>
+                        {app.icon}
+                      </span>
+                    ) : (
+                      <span className="w-6 h-6 flex items-center justify-center">{app.icon}</span>
+                    )}
                   </div>
                   <span className="text-red-400 text-sm">{app.name}.exe</span>
                 </button>
@@ -106,7 +117,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
         >
           <div className="w-7 h-7 mr-2">
             <Image
-              src="/logo.png"
+              src="/logoT.avif"
               width={500}
               height={500}
               alt="Picture of the author"
@@ -116,18 +127,23 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
 
         {/* Window Buttons */}
         <div className="flex space-x-1 flex-1">
-          {windows.map((window) => (
-            <button
-              key={window.id}
-              onClick={() => handleWindowClick(window)}
-              className={`h-8 px-3 transition-colors flex items-center ${window.isMinimized
+          {windows.map((window) => {
+            const app = applications.find(app => app.type === window.type);
+            return (
+              <button
+                key={window.id}
+                onClick={() => handleWindowClick(window)}
+                className={`h-8 px-3 transition-colors flex items-center ${window.isMinimized
                   ? "hover:bg-red-600/10 text-red-400/70"
                   : "bg-red-600/20 text-red-400"
                 }`}
-            >
-              <span className="text-xs font-mono truncate max-w-32">{applications.find(app => app.type === window.type)?.icon}</span>
-            </button>
-          ))}
+              >
+                <span className="flex items-center justify-center" style={{ width: 24, height: 24 }}>
+                  {app?.icon}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         {/* System Tray */}
@@ -137,7 +153,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
             <Volume2 className="w-4 h-4 text-yellow-400" />
             <Battery className="w-4 h-4 text-red-400" />
           </div>
-          <div className="text-red-400 text-xs font-mono">{new Date().toLocaleTimeString()}</div>
+          <div className="text-red-400 text-xs font-mono">{time.toLocaleTimeString()}</div>
         </div>
       </div>
     </>
