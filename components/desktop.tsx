@@ -38,35 +38,35 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       id: "profile-icon",
       type: "profile",
       name: "Profile",
-      icon: <img src="/desktop logo/profile.avif" />,
+      icon: <img src="/desktop logo/profile.avif" alt="profile logo"/>,
       color: "red",
     },
     {
       id: "projects-icon",
       type: "projects",
       name: "Projects",
-      icon: <img src="/desktop logo/project.avif" />,
+      icon: <img src="/desktop logo/project.avif" alt="project logo"/>,
       color: "yellow",
     },
     {
       id: "terminal-icon",
       type: "terminal",
       name: "Terminal",
-      icon: <img src="/desktop logo/terminal.avif" />,
+      icon: <img src="/desktop logo/terminal.avif" alt="terminal logo"/>,
       color: "blue",
     },
     {
       id: "contact-icon",
       type: "contact",
       name: "Contact",
-      icon: <img src="/desktop logo/contact.avif" />,
+      icon: <img src="/desktop logo/contact.avif" alt="contact logo"/>,
       color: "red",
     },
     {
       id: "techstack-icon",
       type: "techstack",
       name: "Tech Stack",
-      icon: <img src="/desktop logo/techstack.avif" />,
+      icon: <img src="/desktop logo/techstack.avif" alt="tech stack logo"/>,
       color: "yellow",
     }
   ]
@@ -229,13 +229,11 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
 
       {/* Centered Logo Overlay */}
       <img
-        src="/logoT.avif"
-        alt="LogoT"
+        src="/BackgroundLogo.avif"
+        alt="Background logo"
         className="fixed left-1/2 top-1/2 z-0"
         style={{
-          transform: "translate(-50%, -65%)",
-          maxWidth: "30vw",
-          maxHeight: "30vh",
+          transform: "translate(-50%, -50%)",
           opacity: 0.85,
           pointerEvents: "none",
         }}
