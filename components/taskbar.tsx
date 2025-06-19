@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Image from 'next/image'
 import { Settings, Power, Wifi, Battery, Volume2 } from "lucide-react"
 
@@ -21,15 +21,8 @@ interface TaskbarProps {
 
 export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow }: TaskbarProps) {
   const [startMenuOpen, setStartMenuOpen] = useState(false)
-  const [time, setTime] = useState(new Date())
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(new Date())
-    }, 1000)
 
-    return () => clearInterval(timer)
-  }, [])
 
   const applications = [
     { type: "profile", icon: <img src="/desktop logo/profile.avif" />, name: "Profile", color: "red" },
@@ -153,7 +146,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
             <Volume2 className="w-4 h-4 text-yellow-400" />
             <Battery className="w-4 h-4 text-red-400" />
           </div>
-          <div className="text-red-400 text-xs font-mono">{time.toLocaleTimeString()}</div>
+          <div className="text-red-400 text-xs font-mono">{new Date().toLocaleTimeString()}</div>
         </div>
       </div>
     </>
