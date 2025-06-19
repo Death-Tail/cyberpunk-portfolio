@@ -25,11 +25,11 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
 
 
   const applications = [
-    { type: "profile", icon: <img src="/desktop logo/profile.avif" />, name: "Profile", color: "red" },
-    { type: "projects", icon: <img src="/desktop logo/project.avif" />, name: "Projects", color: "yellow" },
-    { type: "terminal", icon: <img src="/desktop logo/terminal.avif" />, name: "Terminal", color: "blue" },
-    { type: "contact", icon: <img src="/desktop logo/contact.avif" />, name: "Contact", color: "red" },
-    { type: "techstack", icon: <img src="/desktop logo/techstack.avif" />, name: "Tech Stack", color: "yellow" },
+    { type: "profile", icon: <img src="/desktop logo/profile.avif" alt="profile Logo"/>, name: "Profile", color: "red" },
+    { type: "projects", icon: <img src="/desktop logo/project.avif" alt="projects Logo"/>, name: "Projects", color: "yellow" },
+    { type: "terminal", icon: <img src="/desktop logo/terminal.avif" alt="terminal Logo"/>, name: "Terminal", color: "blue" },
+    { type: "contact", icon: <img src="/desktop logo/contact.avif" alt="contact Logo"/>, name: "Contact", color: "red" },
+    { type: "techstack", icon: <img src="/desktop logo/techstack.avif" alt="techstack Logo"/>, name: "Tech Stack", color: "yellow" },
   ]
 
   const handleWindowClick = (window: Window) => {
@@ -124,6 +124,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
             const app = applications.find(app => app.type === window.type);
             return (
               <button
+                name={`${window.title}-button`}
                 key={window.id}
                 onClick={() => handleWindowClick(window)}
                 className={`h-8 px-3 transition-colors flex items-center ${window.isMinimized
