@@ -6,7 +6,7 @@ import { useState, useRef, useEffect } from "react"
 import { BaseWindow } from "./base-window"
 import { GitBranch } from "lucide-react"
 import {
-  SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiPostgresql, SiMysql, SiFlutter, SiGit
+  SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiPostgresql, SiMysql, SiFlutter, SiGit, SiFirebase,
 } from "react-icons/si";
 import { DiJava } from "react-icons/di";
 
@@ -93,7 +93,7 @@ const skillNodes: SkillNode[] = [
     x: 300,
     y: 100,
     connections: ["react", "nextjs", "nodejs"],
-    category: "frontend",
+    category: "backend",
     description: "Type-safe JavaScript development",
     bgColor: "bg-gradient-to-br from-blue-600/30 to-blue-800/30",
     iconColor: "text-blue-200",
@@ -131,18 +131,18 @@ const skillNodes: SkillNode[] = [
 
   // ===== DATABASE =====
   {
-    id: "database",
-    name: "SQL",
+    id: "firebase",
+    name: "FIREBASE",
     level: "INTERMEDIATE",
-    icon: <div className="w-5 h-5 border border-current rounded flex items-center justify-center text-xs">DB</div>,
+    icon: < SiFirebase className="w-7 h-7" />,
     unlocked: true,
     x: 600,
     y: 450,
     connections: ["postgresql", "mysql", "nodejs"],
     category: "database",
     description: "Database design and optimization",
-    bgColor: "bg-gradient-to-br from-blue-600/30 to-blue-800/30",
-    iconColor: "text-blue-200",
+    bgColor: "bg-gradient-to-br from-red-600/30 to-orange-800/30",
+    iconColor: "text-yellow-800",
   },
   {
     id: "postgresql",
@@ -628,11 +628,6 @@ export function TechStackWindow(props: TechStackWindowProps) {
                     </div>
                     <div>
                       <h3 className="text-red-400 font-bold text-lg">{node.name}</h3>
-                      <span
-                        className={`inline-block px-3 py-1 text-xs font-semibold rounded-full border ${getLevelColor(node.level, node.unlocked)} ${node.iconColor}`}
-                      >
-                        {node.level}
-                      </span>
                     </div>
                   </div>
                   <p className="text-red-400/70 text-sm mb-3">{node.description}</p>

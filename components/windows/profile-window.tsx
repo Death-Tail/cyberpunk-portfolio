@@ -26,7 +26,9 @@ export function ProfileWindow(props: ProfileWindowProps) {
           </div>
 
           <div className="flex items-start space-x-4">
-            <div className="relative">
+            <div className="relative" style={{
+                clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
+              }}>
               <Image
                 src="/pfp.png?height=120&width=120"
                 alt="Profile"

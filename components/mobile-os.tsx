@@ -23,7 +23,7 @@ export default function MobileOS() {
 
   const apps = [
     { type: "profile", icon: "/desktop logo/profile.avif", name: "Profile" },
-    { type: "projects", icon: "/desktop logo/project .avif", name: "Projects" },
+    { type: "projects", icon: "/desktop logo/project.avif", name: "Projects" },
     { type: "contact", icon: "/desktop logo/contact.avif", name: "Contact" },
     { type: "techstack", icon: "/desktop logo/techstack.avif", name: "Tech Stack" },
   ]

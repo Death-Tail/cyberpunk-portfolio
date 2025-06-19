@@ -3,10 +3,10 @@ import { Globe } from "lucide-react"
 
 export const projects = [
   {
-    title: "REKAN GROUP ENTERPRISE",
-    description: "Complete enterprise website with integrated dashboard system for business operations management.",
+    title: "REKAN GROUP WEBSITE",
+    description: "Complete website with integrated dashboard system for content operations management.",
     status: "DEPLOYED",
-    icon: <img src="/Projects/rekangroup.avif" alt="Discord Icon" className="w-10 h-5" />,
+    icon: <img src="/Projects/rekangroup.avif" alt="REKAN GROUP Icon" className="w-10 h-5" />,
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "MySQL", "Node.js"],
     achievements: [
       "Multi-language responsive website",

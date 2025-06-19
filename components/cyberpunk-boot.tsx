@@ -36,7 +36,7 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
     if (showLogo && loadingProgress < 100) {
       const interval = setInterval(() => {
         setLoadingProgress((prev) => {
-          const increment = prev > 85 ? 1 : prev > 60 ? 2 : 3
+          const increment = prev > 85 ? 5 : prev > 60 ? 7 : 9
           const newProgress = Math.min(prev + increment, 100)
 
           if (newProgress === 100) {

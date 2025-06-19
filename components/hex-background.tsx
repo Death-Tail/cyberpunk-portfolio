@@ -14,6 +14,7 @@ export function HexBackground() {
 
     // Set canvas dimensions
     const updateSize = () => {
+      if (!canvas) return
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
       drawHexPattern()
@@ -24,6 +25,7 @@ export function HexBackground() {
 
     // Draw hex pattern
     function drawHexPattern() {
+      if (!canvas || !ctx) return
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       const hexSize = 40
@@ -50,6 +52,7 @@ export function HexBackground() {
     }
 
     function drawHexagon(x: number, y: number, size: number) {
+      if (!ctx) return
       ctx.beginPath()
       ctx.strokeStyle = "rgba(249, 115, 22, 0.1)" // Orange
       ctx.lineWidth = 1

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from 'next/image'
-import { User, FolderOpen, Terminal, Mail, Code, Settings, Power, Wifi, Battery, Volume2 } from "lucide-react"
+import { Settings, Power, Wifi, Battery, Volume2 } from "lucide-react"
 
 interface Window {
   id: string
@@ -33,9 +33,9 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
 
   const applications = [
     { type: "profile", icon: <img src="/desktop logo/profile.avif" />, name: "Profile", color: "red" },
-    { type: "projects", icon: <FolderOpen className="w-4 h-4" />, name: "Projects", color: "yellow" },
+    { type: "projects", icon: <img src="/desktop logo/project.avif" />, name: "Projects", color: "yellow" },
     { type: "terminal", icon: <img src="/desktop logo/terminal.avif" />, name: "Terminal", color: "blue" },
-    { type: "contact", icon: <Mail className="w-4 h-4" />, name: "Contact", color: "red" },
+    { type: "contact", icon: <img src="/desktop logo/contact.avif" />, name: "Contact", color: "red" },
     { type: "techstack", icon: <img src="/desktop logo/techstack.avif" />, name: "Tech Stack", color: "yellow" },
   ]
 

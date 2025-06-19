@@ -205,7 +205,7 @@ export function TerminalWindow(props: TerminalWindowProps) {
   }
 
   return (
-    <BaseWindow {...props} initialPosition={{ x: 300, y: 200 }} initialSize={{ width: 700, height: 500 }}>
+    <BaseWindow {...props} initialPosition={{ x: 300, y: 200 }} initialSize={{ width: 700, height: 350 }} >
       <div ref={terminalRef} className="bg-black p-4 h-full font-mono text-sm overflow-y-auto">
         <div className="space-y-1">
           {lines.map((line, index) => (
@@ -215,7 +215,7 @@ export function TerminalWindow(props: TerminalWindowProps) {
           ))}
 
           <div className="flex items-center text-green-400">
-            <span className="text-red-400">lingreed@cyberpunk:~$ </span>
+            <span className="text-red-400">SHIN尾@cyberpunk:~$ </span>
             <input
               type="text"
               value={currentLine}
