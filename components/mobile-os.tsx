@@ -11,6 +11,7 @@ import ContactPage from "./mobile/contact-page"
 type MobileOSProps = {};
 
 export default function MobileOS() {
+const [currentApp, setCurrentApp] = useState<string | null>(null)
 
   const apps = [
     { type: "profile", icon: "/desktop logo/profile.avif", name: "Profile" },
