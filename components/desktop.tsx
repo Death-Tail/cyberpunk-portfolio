@@ -233,7 +233,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
         alt="LogoT"
         className="fixed left-1/2 top-1/2 z-0"
         style={{
-          transform: "translate(-50%, -50%)",
+          transform: "translate(-50%, -65%)",
           maxWidth: "30vw",
           maxHeight: "30vh",
           opacity: 0.85,
