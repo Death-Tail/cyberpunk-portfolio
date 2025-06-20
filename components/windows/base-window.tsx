@@ -177,6 +177,7 @@ export function BaseWindow({
 
         <div className="flex items-center space-x-1">
           <button
+          aria-label="Minimize window"
           name="minimize-button"
             onClick={handleMinimize}
             className="w-6 h-6 bg-yellow-500/20 border border-yellow-500/50 hover:bg-yellow-500/30 flex items-center justify-center transition-colors"
@@ -184,6 +185,7 @@ export function BaseWindow({
             <Minus className="w-3 h-3 text-yellow-400" />
           </button>
           <button
+          aria-label="Close window"
             name="close-button"
             onClick={handleClose}
             className="w-6 h-6 bg-red-600/20 border border-red-600/50 hover:bg-red-600/30 flex items-center justify-center transition-colors"
