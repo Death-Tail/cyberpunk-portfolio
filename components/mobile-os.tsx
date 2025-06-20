@@ -98,7 +98,7 @@ const [currentApp, setCurrentApp] = useState<string | null>(null)
                 <div className="w-8 h-8 relative">
                   <Image
                     src={app.icon}
-                    alt={app.name}
+                    alt={`${app.name} screen Icon`}
                     fill
                     className="object-contain"
                   />
