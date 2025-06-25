@@ -7,6 +7,11 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
   title: "SHIN尾",
+  authors: [{ name: "Dyari Ali Tahir", url: "https://dyarialitahir.com" }],
+  colorScheme: "dark",
+  applicationName: "SHIN尾 Portfolio",
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
   description: "Full-stack developer portfolio with cyberpunk aesthetics",
   keywords: "full-stack, developer, portfolio, cyberpunk",
   creator: "Dyari Ali Tahir",
