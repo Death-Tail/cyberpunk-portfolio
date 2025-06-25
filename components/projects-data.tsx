@@ -6,7 +6,7 @@ export const projects = [
     title: "REKAN GROUP WEBSITE",
     description: "Complete website with integrated dashboard system for content operations management.",
     status: "DEPLOYED",
-    icon: <img src="/Projects/rekangroup.avif" alt="REKAN GROUP Icon" className="w-10 h-5" />,
+    icon: <img src="/projects/rekangroup.avif" alt="REKAN GROUP Icon" className="w-10 h-5" />,
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "MySQL", "Node.js"],
     achievements: [
       "Multi-language responsive website",
