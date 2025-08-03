@@ -35,36 +35,6 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
     }))
   }
 
-  // Enhanced project data with additional details
-  const enhancedProjects = projects.map((project, index) => ({
-    ...project,
-    images: [
-      `/placeholder.svg?height=200&width=300&text=Project+${index + 1}+Screenshot+1`,
-      `/placeholder.svg?height=200&width=300&text=Project+${index + 1}+Screenshot+2`,
-      `/placeholder.svg?height=200&width=300&text=Project+${index + 1}+Screenshot+3`,
-    ],
-    timeline: "3-6 months",
-    teamSize: index === 0 ? "Solo Project" : `${Math.floor(Math.random() * 4) + 2} developers`,
-    challenges: [
-      "Complex state management",
-      "Performance optimization",
-      "Cross-browser compatibility",
-      "Responsive design implementation",
-    ].slice(0, Math.floor(Math.random() * 3) + 2),
-    features: [
-      "Real-time data synchronization",
-      "Advanced user authentication",
-      "Responsive mobile design",
-      "SEO optimization",
-      "Performance monitoring",
-    ].slice(0, Math.floor(Math.random() * 3) + 3),
-    metrics: {
-      performance: Math.floor(Math.random() * 20) + 80,
-      accessibility: Math.floor(Math.random() * 15) + 85,
-      seo: Math.floor(Math.random() * 25) + 75,
-    },
-  }))
-
   return (
     <BasePage title="PROJECTS" onBack={onBack}>
       <div className="relative space-y-6">
@@ -88,9 +58,9 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
           </div>
         </div>
 
-        {/* Enhanced Projects List */}
+        {/* Projects List */}
         <div className="space-y-6">
-          {enhancedProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <div
               key={index}
               className="relative border border-red-600/40 bg-gradient-to-br from-zinc-950/90 to-red-900/20 rounded-xl overflow-hidden"
