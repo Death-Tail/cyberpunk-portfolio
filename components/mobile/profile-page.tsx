@@ -41,7 +41,7 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
               }}
             />
             <Image
-              src="/pfp.png"
+              src="/pfp.avif"
               alt="Profile"
               width={96}
               height={96}

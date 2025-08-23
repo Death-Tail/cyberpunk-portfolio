@@ -30,7 +30,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
                 clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
               }}>
               <Image
-                src="/pfp.png?height=120&width=120"
+                src="/pfp.avif?height=120&width=120"
                 alt="Profile"
                 width={120}
                 height={120}
