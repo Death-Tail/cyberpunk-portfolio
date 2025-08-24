@@ -3,6 +3,7 @@
 import BasePage from "./base-page"
 import Image from "next/image"
 import { Award } from "lucide-react"
+import pfp from "../../public/pfp.avif"
 
 interface ProfilePageProps {
   onBack: () => void
@@ -41,10 +42,12 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
               }}
             />
             <Image
-              src="/pfp.avif"
+              src={pfp}
               alt="Profile"
-              width={96}
-              height={96}
+              placeholder="blur"
+              fill
+              quality={100}
+              priority
               className="relative object-cover"
               style={{
                 clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
