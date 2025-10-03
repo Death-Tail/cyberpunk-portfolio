@@ -6,26 +6,26 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
-  title: "SHIN尾",
+  title: "Dyari Ali Tahir",
   authors: [{ name: "Dyari Ali Tahir", url: "https://dyarialitahir.com" }],
   colorScheme: "dark",
-  applicationName: "SHIN尾 Portfolio",
+  applicationName: "Dyari Ali Tahir Portfolio",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
   description: "Full-stack developer portfolio with cyberpunk aesthetics",
   keywords: "full-stack, developer, portfolio, cyberpunk",
   creator: "Dyari Ali Tahir",
   openGraph: {
-    title: "SHIN尾",
+    title: "Dyari Ali Tahir",
     description: "Full-stack developer portfolio with cyberpunk aesthetics",
     url: "https://death-tail.vercel.app",
-    siteName: "SHIN尾",
+    siteName: "Dyari Ali Tahir Portfolio",
     images: [
       {
         url: "https://death-tail.vercel.app/desktop%20logo/profile.avif",
         width: 1024,
         height: 1024,
-        alt: "SHIN尾 Portfolio",
+        alt: "Dyari Ali Tahir Portfolio",
       },
     ],
     locale: "en_US",

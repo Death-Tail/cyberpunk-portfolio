@@ -41,7 +41,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
 
             <div>
               <GlitchText
-                text="SHIN尾"
+                text="Dyari Ali Tahir"
                 className="text-xl font-bold mb-2"
                 glitchColors={["#dc2626", "#eab308", "#3b82f6"]}
               />
@@ -75,7 +75,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
               complete website development with integrated dashboard systems for business operations.
             </p>
             <p>
-              <span className="text-red-500">&gt;</span> Certified in advanced English communication (B2 Upper
+              <span className="text-purple-500">&gt;</span> Certified in advanced English communication (B2 Upper
               Intermediate) and holds BSc in Computer Science. Specialized in bridging technical complexity with
               user-friendly interfaces.
             </p>
@@ -124,14 +124,14 @@ export function ProfileWindow(props: ProfileWindowProps) {
           </div>
 
           <div className="grid grid-cols-2 gap-3">
-            <div className="p-3 bg-gradient-to-br from-red-600/20 to-red-800/20 border border-red-500/30 relative overflow-hidden">
+            <div className="p-3 bg-gradient-to-br from-pink-600/20 to-pink-800/20 border border-pink-500/30 relative overflow-hidden">
               <div className="flex items-center justify-between mb-1">
-                <Zap className="w-4 h-4 text-red-400" />
-                <div className="text-xs text-red-400/70">CORE</div>
+                <Zap className="w-4 h-4 text-pink-400" />
+                <div className="text-xs text-pink-400/70">CORE</div>
               </div>
-              <div className="text-lg font-bold text-red-400">INTERMEDIATE</div>
-              <div className="text-red-500/70 text-xs">Development Level</div>
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-red-500/50"></div>
+              <div className="text-lg font-bold text-pink-400">INTERMEDIATE</div>
+              <div className="text-pink-500/70 text-xs">Development Level</div>
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-pink-500/50"></div>
             </div>
 
             <div className="p-3 bg-gradient-to-br from-emerald-600/20 to-emerald-800/20 border border-emerald-500/30 relative overflow-hidden">
