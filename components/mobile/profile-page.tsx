@@ -2,7 +2,7 @@
 
 import BasePage from "./base-page"
 import Image from "next/image"
-import { Award } from "lucide-react"
+import { Award, Send } from "lucide-react"
 import pfp from "../../public/pfp.avif"
 
 interface ProfilePageProps {
@@ -118,10 +118,19 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
             </div>
             <div className="flex items-center p-2 bg-yellow-500/10 border border-yellow-500/30">
               <Award className="w-4 h-4 text-yellow-400 mr-2" />
-              <div>
+              <div className="flex-1 flex flex-col">
                 <div className="text-yellow-400 text-xs font-bold">B2 ENGLISH CERTIFIED</div>
                 <div className="text-yellow-400/70 text-xs">EF SET Upper Intermediate</div>
               </div>
+              <a
+                href="https://cert.efset.org/en/vguDfH"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center h-full ml-2 text-yellow-400/80 hover:text-yellow-300 transition-colors"
+                style={{ minWidth: 32 }}
+              >
+                <Send className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </div>

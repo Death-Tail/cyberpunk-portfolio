@@ -143,7 +143,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                       className="flex items-center gap-1 px-3 py-1 text-xs bg-green-500/20 border border-green-500/50 text-green-400 rounded hover:bg-green-500/30 transition-colors"
                     >
                       <ExternalLink className="w-3 h-3" />
-                      LIVE DEMO
+                      LIVE SITE
                     </a>
                   )}
                   {project.links.github && (
@@ -157,16 +157,12 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                       SOURCE CODE
                     </a>
                   )}
-                  <button className="flex items-center gap-1 px-3 py-1 text-xs bg-purple-500/20 border border-purple-500/50 text-purple-400 rounded hover:bg-purple-500/30 transition-colors">
-                    <Eye className="w-3 h-3" />
-                    PREVIEW
-                  </button>
                 </div>
               </div>
 
               {/* Expanded Content */}
               <div
-                className={`overflow-hidden transition-all duration-300 ${expandedProjects[index] ? "max-h-96" : "max-h-0"}`}
+                className={`overflow-hidden transition-all duration-300 ${expandedProjects[index] ? "max-h-none" : "max-h-0"}`}
               >
                 <div className="px-4 pb-4 space-y-4">
                   {/* Project Metrics */}

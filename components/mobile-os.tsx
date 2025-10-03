@@ -7,11 +7,26 @@ import ProfilePage from "./mobile/profile-page"
 import ProjectsPage from "./mobile/projects-page"
 import TechStackPage from "./mobile/tech-stack-page"
 import ContactPage from "./mobile/contact-page"
+import { CyberpunkBoot } from "./cyberpunk-boot"
 
 type MobileOSProps = {};
 
 export default function MobileOS() {
-const [currentApp, setCurrentApp] = useState<string | null>(null)
+  const [currentApp, setCurrentApp] = useState<string | null>(null)
+  const [isBooting, setIsBooting] = useState(true)
+
+  useEffect(() => {
+    // Simulate boot time (matches desktop boot duration)
+    // CyberpunkBoot will call onComplete after animation
+  }, [])
+
+  const handleBootComplete = () => {
+    setIsBooting(false)
+  }
+
+  if (isBooting) {
+    return <CyberpunkBoot onComplete={handleBootComplete} />
+  }
 
   const apps = [
     { type: "profile", icon: "/desktop logo/profile.avif", name: "Profile" },

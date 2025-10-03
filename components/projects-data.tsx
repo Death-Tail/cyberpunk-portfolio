@@ -3,47 +3,62 @@ import { Globe } from "lucide-react"
 
 export const projects = [
   {
-    title: "REKAN GROUP WEBSITE",
-    description: "Complete website with integrated dashboard system for content operations management.",
+    title: "Rekan Group Official Website",
+    description:
+      "A modern corporate website for Rekan Group, featuring a multi-language platform, secure content management system, and responsive design optimized for SEO and performance.",
     status: "DEPLOYED",
-    icon: <img src="/projects/rekangroup.avif" alt="REKAN GROUP Icon" className="w-10 h-5" />,
+    icon: (
+      <img
+        src="/projects/rekangroup.avif"
+        alt="Rekan Group Logo"
+        className="w-10 h-5 object-contain"
+      />
+    ),
     images: [
-      "/projects/rekangroup1.avif",
-      "/projects/rekangroup2.avif",
-      "/projects/rekangroup3.avif",
+      "/projects/Rekangroup/rekanGroupLandingpic.avif",
+      "/projects/Rekangroup/RekangroupAboutus.avif",
+      "/projects/Rekangroup/RekangroupProjects.avif",
     ],
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "MySQL", "Node.js"],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "MySQL",
+      "Framer Motion",
+    ],
     achievements: [
-      "Multi-language responsive website",
-      "Secure admin dashboard with authentication",
-      "Content management system for non-technical users",
-      "Production deployment & performance optimization",
+      "Built a bilingual, mobile-first website for global accessibility",
+      "Developed a secure admin dashboard with role-based authentication",
+      "Implemented a CMS so non-technical staff can manage content",
+      "Optimized for SEO, performance, and accessibility",
+      "Deployed to production with full HTTPS/SSL integration",
     ],
     links: {
       live: "https://rekangroup.com",
-      github: null, // No GitHub link available
+      github: null, // private codebase
     },
-    // Additional fields for richer data
-    timeline: "3-6 months",
+    timeline: "3–6 months",
     teamSize: "Solo Project",
     challenges: [
-      "Complex state management",
-      "Performance optimization",
-      "Cross-browser compatibility",
-      "Responsive design implementation",
+      "Designing a scalable multi-language system",
+      "Managing dynamic state across pages",
+      "Ensuring cross-browser and device compatibility",
+      "Balancing animations with performance",
     ],
     features: [
-      "Real-time data synchronization",
-      "Advanced user authentication",
-      "Responsive mobile design",
-      "SEO optimization",
-      "Performance monitoring",
+      "Multi-language support (English & Kurdish/Arabic)",
+      "Real-time content updates via dashboard",
+      "Advanced user authentication & authorization",
+      "Responsive and mobile-friendly design",
+      "SEO optimization with structured metadata",
+      "Performance monitoring and analytics integration",
     ],
     metrics: {
-      performance: 95,
-      accessibility: 90,
-      seo: 85,
+      performance: 95, // Lighthouse
+      accessibility: 92,
+      seo: 90,
     },
   },
-  // Add more projects here as needed, with the same structure
+  // Add more projects here with the same structure
 ]
