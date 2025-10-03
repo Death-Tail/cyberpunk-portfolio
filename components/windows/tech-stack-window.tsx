@@ -209,7 +209,7 @@ const skillNodes: SkillNode[] = [
     y: 475,
     connections: ["database"],
     category: "database",
-    description: "Web application database",
+    description: "Popular relational database management",
     bgColor: "bg-gradient-to-br from-blue-600/30 to-blue-800/30",
     iconColor: "text-blue-200",
   },

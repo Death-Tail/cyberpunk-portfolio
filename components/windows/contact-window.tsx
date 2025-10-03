@@ -59,7 +59,7 @@ export function ContactWindow(props: ContactWindowProps) {
       description: "Real-time communication & collaboration",
       security: "End-to-end encrypted",
       responseTime: "Few hours",
-      availability: "Evening GMT+3",
+      availability: "always",
       preferred: false,
     },
   ]

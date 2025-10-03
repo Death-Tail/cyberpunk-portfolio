@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useEffect, useRef, useState } from "react"
-import { User, FolderOpen, Terminal, Mail, Code, Settings, ChevronRight } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface DesktopProps {
@@ -260,7 +260,6 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
             >
               {icon.name}
             </span>
-
             {/* Selection indicator */}
             {selectedIcon === icon.id && (
               <div className="absolute inset-0 border border-red-500 rounded pointer-events-none"></div>
@@ -299,7 +298,6 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
                 <span>Open</span>
                 <ChevronRight className="w-3 h-3 ml-auto" />
               </button>
-
               <button
                 className="w-full text-left px-3 py-1.5 text-sm text-yellow-400 hover:bg-yellow-500/20 flex items-center"
                 onClick={() => {

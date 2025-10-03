@@ -31,7 +31,7 @@ export default function Home() {
       setShowDesktop(true)
       // Generate unique IDs for initial windows
       const profileId = `profile-${Date.now()}`
-      setOpenWindows([{ id: profileId, title: "Profile.exe", type: "profile", isMinimized: false, zIndex: 3 }])
+      setOpenWindows([{ id: profileId, title: "Profile", type: "profile", isMinimized: false, zIndex: 3 }])
       setActiveWindow(profileId)
     }, 500)
   }
@@ -54,7 +54,7 @@ export default function Home() {
 
     const newWindow = {
       id: windowId,
-      title: `${windowType.charAt(0).toUpperCase() + windowType.slice(1)}.exe`,
+      title: `${windowType.charAt(0).toUpperCase() + windowType.slice(1)}`,
       type: windowType,
       isMinimized: false,
       zIndex: Math.max(...openWindows.map((w) => w.zIndex), 0) + 1,

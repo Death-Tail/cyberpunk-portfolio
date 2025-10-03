@@ -92,7 +92,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                         href={project.links.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 px-2 py-1 bg-red-600/20 border border-red-600/50 text-red-400 text-xs hover:bg-red-600/30 transition-colors"
+                        className="flex items-center gap-1 px-2 py-1 bg-pink-600/20 border border-pink-600/50 text-pink-400 text-xs hover:bg-pink-600/30 transition-colors"
                       >
                         <ExternalLink className="w-3 h-3" />
                         LIVE

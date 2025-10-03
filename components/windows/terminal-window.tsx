@@ -25,7 +25,7 @@ export function TerminalWindow(props: TerminalWindowProps) {
     "Loading user profile: SHIN尾",
     "Status: ONLINE | Security Level: MAXIMUM",
     "",
-    "Available commands: help, whoami, skills, projects, experience, contact, clear",
+    "Available commands: help, whoami, skills, projects, contact, clear",
     "",
   ])
 
@@ -63,7 +63,7 @@ export function TerminalWindow(props: TerminalWindowProps) {
 
   const handleCommand = (command: string) => {
     const cmd = command.toLowerCase().trim()
-    setLines((prev) => [...prev, `lingreed@cyberpunk:~$ ${command}`, ""])
+    setLines((prev) => [...prev, `SHIN尾@leeni:~$ ${command}`, ""])
 
     switch (cmd) {
       case "help":
@@ -74,7 +74,6 @@ export function TerminalWindow(props: TerminalWindowProps) {
           "  whoami      - Display user information",
           "  skills      - Show technical competencies",
           "  projects    - List current and completed projects",
-          "  experience  - Display work experience",
           "  contact     - Show contact information",
           "  clear       - Clear terminal",
           "",
@@ -84,7 +83,7 @@ export function TerminalWindow(props: TerminalWindowProps) {
         setLines((prev) => [
           ...prev,
           "USER PROFILE:",
-          "  Name: Lingreed",
+          "  Name: Dyari Ali Tahir",
           "  Role: Full-Stack Developer",
           "  Specialization: Next.js, TypeScript, Database Architecture",
           "  Education: BSc Computer Science",
@@ -132,38 +131,13 @@ export function TerminalWindow(props: TerminalWindowProps) {
           "    ├── Admin panel with user authentication",
           "    └── Tech: Next.js, TypeScript, MySQL, Tailwind",
           "",
-          "[2] CYBERPUNK PORTFOLIO [ACTIVE]",
-          "    ├── Desktop OS simulation with window management",
-          "    ├── Cyberpunk 2077 inspired design system",
-          "    ├── Interactive terminal with real commands",
-          "    └── Tech: Next.js, TypeScript, Tailwind CSS",
+          "[2] ALSAMADI [DEPLOYED]",
+          "    ├── Personal/business informational website",
+          "    ├── Domain setup & SSL integration",
+          "    ├── Basic content management system",
+          "    └── Tech: Next.js, TypeScript, Tailwind, Node.js",
           "",
-          "[3] DATABASE ARCHITECTURE [ONGOING]",
-          "    ├── Advanced database design & optimization",
-          "    ├── SQL/NoSQL hybrid solutions",
-          "    ├── Performance optimization strategies",
-          "    └── Tech: PostgreSQL, MySQL, Node.js",
-          "",
-        ])
-        break
-      case "experience":
-        setLines((prev) => [
-          ...prev,
-          "WORK EXPERIENCE:",
-          "",
-          "REKAN GROUP - Full-Stack Developer",
-          "  ├── Designed & built complete enterprise website",
-          "  ├── Developed integrated dashboard system",
-          "  ├── Implemented multi-language support",
-          "  ├── Created secure admin authentication",
-          "  └── Managed production deployment",
-          "",
-          "CORE COMPETENCIES:",
-          "  ├── Frontend Architecture: React ecosystem, State management",
-          "  ├── Backend Systems: Server-side development & infrastructure",
-          "  ├── Database Design: SQL/NoSQL solutions",
-          "  └── Development Ecosystem: Tooling & workflow optimization",
-          "",
+
         ])
         break
       case "contact":

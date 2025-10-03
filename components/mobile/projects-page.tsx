@@ -52,7 +52,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
           </div>
           <div className="p-3 bg-yellow-500/10 border border-yellow-500/30 text-center rounded-lg">
             <div className="text-lg font-bold text-yellow-400">
-              {projects.reduce((acc, p) => acc + p.tech.length, 0)}
+              6
             </div>
             <div className="text-yellow-400/70 text-xs">Technologies</div>
           </div>
@@ -73,7 +73,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                     <div>
                       <h3 className="text-red-400 font-bold text-lg">{project.title}</h3>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="text-xs font-mono px-2 py-0.5 rounded border border-yellow-500/30 bg-yellow-500/10 text-yellow-400">
+                        <span className="text-xs font-mono px-2 py-0.5 rounded border border-green-500/30 bg-green-500/10 text-green-400">
                           {project.status}
                         </span>
                         <div className="flex items-center text-xs text-red-400/60">

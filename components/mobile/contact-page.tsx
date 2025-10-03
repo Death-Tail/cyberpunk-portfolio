@@ -29,7 +29,7 @@ export default function ContactPage({ onBack }: ContactPageProps) {
       icon: <Mail className="w-6 h-6" />,
       responseTime: "< 24 hours",
       availability: "Always available",
-      preferred: true,
+      preferred: false,
       description: "Best for detailed project discussions and formal inquiries",
     },
     {
@@ -59,7 +59,7 @@ export default function ContactPage({ onBack }: ContactPageProps) {
       icon: <img src="/Icons/discord.avif" alt="Discord Icon" className="w-6 h-6" />,
       responseTime: "Few hours",
       availability: "Evening GMT+3",
-      preferred: false,
+      preferred: true,
       description: "Quick questions and casual conversations",
     },
   ]
