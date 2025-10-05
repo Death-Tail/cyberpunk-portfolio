@@ -15,7 +15,7 @@ export const projects = [
       />
     ),
     images: [
-      "/projects/Rekangroup/rekanGroupLandingpic.avif",
+      "/projects/Rekangroup/RekanGroupLandingpic.avif",
       "/projects/Rekangroup/RekangroupAboutus.avif",
       "/projects/Rekangroup/RekangroupProjects.avif",
     ],
