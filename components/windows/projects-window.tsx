@@ -1,6 +1,10 @@
+"use client"
+
 import { BaseWindow } from "./base-window"
-import { Globe, ExternalLink, Github } from "lucide-react"
+import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react"
 import { projects } from "../projects-data"
+import Image from "next/image"
+import { useState, useEffect } from "react"
 
 interface ProjectsWindowProps {
   id: string
@@ -12,6 +16,91 @@ interface ProjectsWindowProps {
   onMinimize: () => void
   onFocus: () => void
 }
+
+function ImageCarousel({ images, projectTitle }: { images: string[]; projectTitle: string }) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  // Auto-scroll functionality
+  useEffect(() => {
+    if (images.length <= 1) return
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length)
+    }, 3000) // Change image every 3 seconds
+
+    return () => clearInterval(interval)
+  }, [images.length])
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
+  }
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length)
+  }
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index)
+  }
+
+  if (!images || images.length === 0) return null
+
+  return (
+    <div className="mb-3">
+      <div className="text-xs text-purple-400 mb-2">PROJECT_PREVIEW:</div>
+      <div className="relative aspect-video border border-purple-500/30 bg-zinc-900/50 overflow-hidden group">
+        {/* Image Display */}
+        <Image
+          src={images[currentIndex] || "/placeholder.svg"}
+          alt={`${projectTitle} screenshot ${currentIndex + 1}`}
+          fill
+          className="object-cover transition-opacity duration-500"
+        />
+        <div className="absolute inset-0 bg-purple-600/0 group-hover:bg-purple-600/5 transition-colors" />
+
+        {/* Navigation Buttons - Only show if more than 1 image */}
+        {images.length > 1 && (
+          <>
+            <button
+              onClick={goToPrevious}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 border border-purple-500/50 p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-4 h-4 text-purple-400" />
+            </button>
+            <button
+              onClick={goToNext}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 border border-purple-500/50 p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-4 h-4 text-purple-400" />
+            </button>
+
+            {/* Indicator Dots */}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-1.5 h-1.5 transition-all ${
+                    index === currentIndex ? "bg-purple-400 w-4" : "bg-purple-400/30 hover:bg-purple-400/50"
+                  }`}
+                  aria-label={`Go to image ${index + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* Image Counter */}
+        <div className="absolute top-2 right-2 bg-black/50 border border-purple-500/30 px-2 py-0.5 text-xs text-purple-400">
+          {currentIndex + 1}/{images.length}
+        </div>
+      </div>
+    </div>
+  )
+}
+// </CHANGE>
 
 export function ProjectsWindow(props: ProjectsWindowProps) {
   return (
@@ -34,11 +123,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-start space-x-3 flex-1">
-                  <div
-                    className={`p-2`}
-                  >
-                    {project.icon}
-                  </div>
+                  <div className="p-2">{project.icon}</div>
 
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-2">
@@ -57,6 +142,11 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                     </div>
 
                     <p className="text-red-400/70 text-xs mb-3">{project.description}</p>
+
+                    {project.images && project.images.length > 0 && (
+                      <ImageCarousel images={project.images} projectTitle={project.title} />
+                    )}
+                    {/* </CHANGE> */}
 
                     {/* Tech Stack */}
                     <div className="mb-3">
