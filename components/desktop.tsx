@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import Image from "next/image"
 
 import { useEffect, useRef, useState } from "react"
 import { ChevronRight } from "lucide-react"
@@ -225,91 +226,90 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
 
   return (
     <>
-      <canvas ref={canvasRef} className="fixed inset-0 z-0" style={{ pointerEvents: "none" }} />
+      <canvas ref={canvasRef} className="fixed  inset-0 z-0" style={{ pointerEvents: "none" }} />
 
-      {/* Centered Logo Overlay */}
-      <img
-        src="/BackgroundLogo.avif"
-        alt="Background logo"
-        className="fixed left-1/2 top-1/2 z-0"
-        style={{
-          transform: "translate(-50%, -50%)",
-          opacity: 0.85,
-          pointerEvents: "none",
-        }}
-      />
+     {/* Background Image Overlay */}
+<div className="fixed inset-0 z-0 opacity-85 overflow-hidden">
+  <Image
+    src="/backgroundImage.png"
+    alt="Background logo"
+    fill
+    className="object-cover object-center select-none pointer-events-none"
+    priority
+  />
+</div>
 
       {/* Desktop Icons */}
       <div className="fixed top-4 left-4 grid grid-cols-1 gap-4 z-10">
-        {desktopIcons.map((icon) => (
-          <div
-            key={icon.id}
-            className={getIconColorClasses(icon.color, selectedIcon === icon.id)}
-            onClick={(e) => {
-              e.stopPropagation()
-              handleIconClick(icon.id)
-            }}
-            onDoubleClick={() => handleIconDoubleClick(icon.type)}
-            onContextMenu={(e) => handleContextMenu(e, icon.id)}
-          >
-            <div className={`w-10 h-10 border ${getIconBgClasses(icon.color)} flex items-center justify-center mb-1`}>
-              {icon.icon}
-            </div>
-            <span
-              className={`text-${icon.color === "yellow" ? "yellow" : icon.color === "blue" ? "blue" : "red"}-400 text-xs text-center px-1`}
-            >
-              {icon.name}
-            </span>
-            {/* Selection indicator */}
-            {selectedIcon === icon.id && (
-              <div className="absolute inset-0 border border-red-500 rounded pointer-events-none"></div>
-            )}
-          </div>
-        ))}
+      {desktopIcons.map((icon) => (
+        <div
+        key={icon.id}
+        className={getIconColorClasses(icon.color, selectedIcon === icon.id)}
+        onClick={(e) => {
+          e.stopPropagation()
+          handleIconClick(icon.id)
+        }}
+        onDoubleClick={() => handleIconDoubleClick(icon.type)}
+        onContextMenu={(e) => handleContextMenu(e, icon.id)}
+        >
+        <div className={`w-10 h-10 border ${getIconBgClasses(icon.color)} flex items-center justify-center mb-1`}>
+          {icon.icon}
+        </div>
+        <span
+          className={`text-${icon.color === "yellow" ? "yellow" : icon.color === "blue" ? "blue" : "red"}-400 text-xs text-center px-1`}
+        >
+          {icon.name}
+        </span>
+        {/* Selection indicator */}
+        {selectedIcon === icon.id && (
+          <div className="absolute inset-0 border border-red-500 rounded pointer-events-none"></div>
+        )}
+        </div>
+      ))}
       </div>
 
       {/* Context Menu */}
       {contextMenu.visible && (
-        <div
-          className="fixed z-50 bg-zinc-900 border border-red-600 shadow-lg py-1 w-48"
-          style={{
-            left: `${contextMenu.x}px`,
-            top: `${contextMenu.y}px`,
-            transform: `translate(${contextMenu.x + 192 > window.innerWidth ? "-100%" : "0"}, 0)`,
-          }}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {contextMenu.iconId && (
-            <>
-              <div className="px-3 py-1 text-xs text-red-500 border-b border-red-600/30">
-                {desktopIcons.find((icon) => icon.id === contextMenu.iconId)?.name || "Options"}
-              </div>
+      <div
+        className="fixed z-50 bg-zinc-900 border border-red-600 shadow-lg py-1 w-48"
+        style={{
+        left: `${contextMenu.x}px`,
+        top: `${contextMenu.y}px`,
+        transform: `translate(${contextMenu.x + 192 > window.innerWidth ? "-100%" : "0"}, 0)`,
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {contextMenu.iconId && (
+        <>
+          <div className="px-3 py-1 text-xs text-red-500 border-b border-red-600/30">
+          {desktopIcons.find((icon) => icon.id === contextMenu.iconId)?.name || "Options"}
+          </div>
 
-              <button
-                className="w-full text-left px-3 py-1.5 text-sm text-red-400 hover:bg-red-600/20 flex items-center"
-                onClick={() => {
-                  const icon = desktopIcons.find((icon) => icon.id === contextMenu.iconId)
-                  if (icon) {
-                    onOpenWindow(icon.type)
-                    setContextMenu({ ...contextMenu, visible: false })
-                  }
-                }}
-              >
-                <span>Open</span>
-                <ChevronRight className="w-3 h-3 ml-auto" />
-              </button>
-              <button
-                className="w-full text-left px-3 py-1.5 text-sm text-yellow-400 hover:bg-yellow-500/20 flex items-center"
-                onClick={() => {
-                  setContextMenu({ ...contextMenu, visible: false })
-                }}
-              >
-                <span>Properties</span>
-                <ChevronRight className="w-3 h-3 ml-auto" />
-              </button>
-            </>
-          )}
-        </div>
+          <button
+          className="w-full text-left px-3 py-1.5 text-sm text-red-400 hover:bg-red-600/20 flex items-center"
+          onClick={() => {
+            const icon = desktopIcons.find((icon) => icon.id === contextMenu.iconId)
+            if (icon) {
+            onOpenWindow(icon.type)
+            setContextMenu({ ...contextMenu, visible: false })
+            }
+          }}
+          >
+          <span>Open</span>
+          <ChevronRight className="w-3 h-3 ml-auto" />
+          </button>
+          <button
+          className="w-full text-left px-3 py-1.5 text-sm text-yellow-400 hover:bg-yellow-500/20 flex items-center"
+          onClick={() => {
+            setContextMenu({ ...contextMenu, visible: false })
+          }}
+          >
+          <span>Properties</span>
+          <ChevronRight className="w-3 h-3 ml-auto" />
+          </button>
+        </>
+        )}
+      </div>
       )}
     </>
   )

@@ -60,7 +60,7 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradient base */}
         <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black"></div>
-
+        
         {/* Animated circuit lines */}
         <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1000 1000">
           <defs>
@@ -222,8 +222,6 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
           </div>
         </div>
       </div>
-
-
     </div>
   )
 }

@@ -114,6 +114,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
               width={500}
               height={500}
               alt="Logo of the start menu button"
+              className="object-cover object-center select-none pointer-events-none"
             />
           </div>
         </button>

@@ -100,7 +100,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                       fill
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent select-none pointer-events-none" />
 
                     {/* Image Navigation */}
                     <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1">

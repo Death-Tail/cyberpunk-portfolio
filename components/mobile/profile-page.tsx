@@ -48,7 +48,7 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
               fill
               quality={100}
               priority
-              className="relative object-cover"
+              className="relative object-cover select-none pointer-events-none"
               style={{
                 clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
               }}
