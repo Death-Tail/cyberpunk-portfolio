@@ -4,10 +4,12 @@ import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
 import { BaseWindow } from "./base-window"
-import { Code, Database, Layers, PenTool, Server, Workflow, WorkflowIcon, Wrench } from "lucide-react"
+import { Code, Database, Film, Gamepad2, Layers, PenTool, Server, Workflow, WorkflowIcon, Wrench } from "lucide-react"
 import {
   SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiPostgresql, SiMysql, SiFlutter, SiGit, SiFirebase, SiUikit,
-  SiDart
+  SiDart,
+  SiBlender,
+  SiUnrealengine
 } from "react-icons/si";
 import { DiJava } from "react-icons/di";
 
@@ -302,6 +304,62 @@ const skillNodes: SkillNode[] = [
     bgColor: "bg-gradient-to-br from-orange-600/30 to-red-600/30",
     iconColor: "text-orange-200",
   },
+  {
+    id: "gaming",
+    name: "GAMING & 3D DESIGN",
+    level: "BEGINNER",
+    icon: <Gamepad2 className="w-7 h-7" />,
+    unlocked: false,
+    x: 900,
+    y: 350,
+    connections: ["core"],
+    category: "tools",
+    description: "Game development and 3D content creation",
+    bgColor: "bg-gradient-to-br from-indigo-700/30 to-purple-800/30",
+    iconColor: "text-purple-300",
+  },
+  {
+    id: "unreal",
+    name: "UNREAL ENGINE",
+    level: "BEGINNER",
+    icon: <SiUnrealengine className="w-7 h-7" />,
+    unlocked: false,
+    x: 925,
+    y: 200,
+    connections: ["gaming"],
+    category: "tools",
+    description: "AAA game development engine",
+    bgColor: "bg-gradient-to-br from-blue-800/30 to-gray-900/30",
+    iconColor: "text-white",
+  },
+  {
+    id: "blender",
+    name: "BLENDER",
+    level: "BEGINNER",
+    icon: <SiBlender className="w-7 h-7" />,
+    unlocked: false,
+    x: 1050,
+    y: 350,
+    connections: ["gaming"],
+    category: "tools",
+    description: "3D modeling and animation software",
+    bgColor: "bg-gradient-to-br from-orange-600/30 to-yellow-700/30",
+    iconColor: "text-orange-200",
+  },
+  {
+    id: "animation",
+    name: "ANIMATION",
+    level: "BEGINNER",
+    icon: <Film className="w-7 h-7" />,
+    unlocked: false,
+    x: 925,
+    y: 500,
+    connections: ["gaming", "blender"],
+    category: "tools",
+    description: "Character and motion animation fundamentals",
+    bgColor: "bg-gradient-to-br from-pink-600/30 to-red-700/30",
+    iconColor: "text-pink-200",
+  },
 ]
 
 // Define the virtual map boundaries
@@ -482,15 +540,6 @@ export function TechStackWindow(props: TechStackWindowProps) {
 
             {/* Neural pathways - extended across entire map */}
             <div className="map-background absolute inset-0 pointer-events-none">
-              {/* Main neural pathways */}
-              <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-red-500/20 via-red-500/40 to-red-500/20"></div>
-              <div className="absolute top-2/4 left-0 w-full h-px bg-gradient-to-r from-red-600/15 via-red-600/35 to-red-600/15"></div>
-              <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-red-500/20 via-red-500/40 to-red-500/20"></div>
-
-              <div className="absolute left-1/4 top-0 w-px h-full bg-gradient-to-b from-red-500/20 via-red-500/40 to-red-500/20"></div>
-              <div className="absolute left-2/4 top-0 w-px h-full bg-gradient-to-b from-red-600/15 via-red-600/35 to-red-600/15"></div>
-              <div className="absolute left-3/4 top-0 w-px h-full bg-gradient-to-b from-red-500/20 via-red-500/40 to-red-500/20"></div>
-
               {/* Diagonal neural connections */}
               <div className="absolute inset-0">
                 {Array.from({ length: 8 }).map((_, i) => (
@@ -587,23 +636,25 @@ export function TechStackWindow(props: TechStackWindowProps) {
 
                 return (
                   <g key={`${node.id}-${connectionId}`}>
-                    {/* Main connection line */}
+                    {/* Main connection line with smoother curve and glow */}
                     <path
-                      d={getConnectionPath(node, targetNode)}
+                      d={getConnectionPath(node, targetNode)} // Keep your function
                       stroke={
                         isActive && bothUnlocked
                           ? "rgba(220, 38, 38, 0.9)"
                           : bothUnlocked
-                            ? "rgba(220, 38, 38, 0.5)"
+                            ? "rgba(106, 90, 205, 0.5)"
                             : "rgba(113, 113, 122, 0.2)"
                       }
                       strokeWidth={isActive ? "3" : "2"}
                       fill="none"
                       filter={isActive ? "url(#connectionGlow)" : "none"}
                       className="transition-all duration-300"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
 
-                    {/* Neural pattern overlay */}
+                    {/* Neural pattern overlay with subtle animation */}
                     {bothUnlocked && (
                       <path
                         d={getConnectionPath(node, targetNode)}
@@ -612,10 +663,12 @@ export function TechStackWindow(props: TechStackWindowProps) {
                         fill="none"
                         opacity={isActive ? "0.8" : "0.4"}
                         className="transition-all duration-300"
+                        strokeLinecap="round"
                       />
                     )}
                   </g>
-                )
+                );
+
               }),
             )}
           </svg>
