@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   applicationName: "Dyari Ali Tahir Portfolio",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
-  description: " Full-stack developer specializing in Next.js ecosystem and modern web architecture.",
+  description: "Full-stack developer specializing in Next.js ecosystem and modern web architecture.",
   keywords: "full-stack, developer, portfolio, cyberpunk, web architecture , Next.js, React, Node.js, TypeScript, JavaScript, Tailwind CSS, Prisma, PostgreSQL",
   creator: "Dyari Ali Tahir",
   openGraph: {
     title: "Dyari Ali Tahir",
-    description: " Full-stack developer specializing in Next.js ecosystem and modern web architecture.",
+    description: "Full-stack developer specializing in Next.js ecosystem and modern web architecture.",
     url: "https://death-tail.vercel.app",
     siteName: "Dyari Ali Tahir Portfolio",
     images: [
