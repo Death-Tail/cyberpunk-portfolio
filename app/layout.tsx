@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     site: "@LinGREED0331", // Replace with your Twitter handle if available
     creator: "@LinGREED0331",
     images: [
-      "https://death-tail.vercel.app/desktop%20logo/profile.avif",
+      "https://death-tail.vercel.app/SHIN.png",
     ],
   },
 }
