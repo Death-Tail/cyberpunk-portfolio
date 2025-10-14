@@ -46,7 +46,6 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
               alt="Profile"
               placeholder="blur"
               fill
-              quality={100}
               priority
               className="relative object-cover select-none pointer-events-none"
               style={{

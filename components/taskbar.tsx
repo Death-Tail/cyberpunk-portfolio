@@ -25,11 +25,11 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
 
 
   const applications = [
-    { type: "profile", icon: <img src="/desktop logo/profile.avif" alt="profile Logo"/>, name: "Profile", color: "red" },
-    { type: "projects", icon: <img src="/desktop logo/project.avif" alt="projects Logo"/>, name: "Projects", color: "yellow" },
-    { type: "terminal", icon: <img src="/desktop logo/terminal.avif" alt="terminal Logo"/>, name: "Terminal", color: "blue" },
-    { type: "contact", icon: <img src="/desktop logo/contact.avif" alt="contact Logo"/>, name: "Contact", color: "red" },
-    { type: "techstack", icon: <img src="/desktop logo/techstack.avif" alt="techstack Logo"/>, name: "Tech Stack", color: "yellow" },
+    { type: "profile", icon: <Image src="/desktop logo/profile.avif" alt="profile Logo" property="true"/>, name: "Profile", color: "red" },
+    { type: "projects", icon: <Image src="/desktop logo/project.avif" alt="projects Logo" property="true"/>, name: "Projects", color: "yellow" },
+    { type: "terminal", icon: <Image src="/desktop logo/terminal.avif" alt="terminal Logo" property="true"/>, name: "Terminal", color: "blue" },
+    { type: "contact", icon: <Image src="/desktop logo/contact.avif" alt="contact Logo" property="true"/>, name: "Contact", color: "red" },
+    { type: "techstack", icon: <Image src="/desktop logo/techstack.avif" alt="techstack Logo" property="true"/>, name: "Tech Stack", color: "yellow" },
   ]
 
   const handleWindowClick = (window: Window) => {

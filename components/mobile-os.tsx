@@ -120,7 +120,7 @@ export default function MobileOS() {
             <button key={app.type} onClick={() => handleOpenApp(app.type)} className="flex flex-col items-center">
               <div className="w-16 h-16 rounded-2xl border border-red-600/30 bg-red-600/5 flex items-center justify-center mb-1 hover:bg-red-600/10 transition-colors">
                 <div className="w-10 h-10 relative">
-                  <Image src={app.icon || "/placeholder.svg"} alt={app.name} fill className="object-contain" />
+                  <Image src={app.icon || "/placeholder.svg"} alt={app.name} fill className="object-contain" priority />
                 </div>
               </div>
               <span className="text-red-400 text-xs">{app.name}</span>

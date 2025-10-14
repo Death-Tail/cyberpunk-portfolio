@@ -18,6 +18,7 @@ export const projects = [
       "/projects/Rekangroup/RekanGroupLandingpic.avif",
       "/projects/Rekangroup/RekangroupAboutus.avif",
       "/projects/Rekangroup/RekangroupProjects.avif",
+      "/projects/Rekangroup/project image.png",
     ],
     tech: [
       "Next.js",

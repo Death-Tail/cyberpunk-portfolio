@@ -28,8 +28,19 @@ export const metadata: Metadata = {
         alt: "Dyari Ali Tahir Portfolio",
       },
     ],
+
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image", // Options: summary, summary_large_image, app, player
+    title: "Dyari Ali Tahir",
+    description: "Full-stack developer specializing in Next.js ecosystem and modern web architecture.",
+    site: "@LinGREED0331", // Replace with your Twitter handle if available
+    creator: "@LinGREED0331",
+    images: [
+      "https://death-tail.vercel.app/desktop%20logo/profile.avif",
+    ],
   },
 }
 
