@@ -60,7 +60,7 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradient base */}
         <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black"></div>
-        
+
         {/* Animated circuit lines */}
         <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1000 1000">
           <defs>
@@ -167,7 +167,7 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
 
             {/* Logo */}
             <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48">
-              <img src="/BackgroundLogo.avif" alt="Logo" className="object-contain drop-shadow-2xl" />
+              <img src="/logo.avif" alt="Logo" className="object-contain drop-shadow-2xl" />
             </div>
 
             {/* Orbiting elements around logo */}
