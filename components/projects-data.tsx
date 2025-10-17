@@ -18,7 +18,7 @@ export const projects = [
       "/projects/Rekangroup/RekanGroupLandingpic.avif",
       "/projects/Rekangroup/RekangroupAboutus.avif",
       "/projects/Rekangroup/RekangroupProjects.avif",
-      "/projects/Rekangroup/project image.png",
+      "/projects/Rekangroup/projectImage.avif",
     ],
     tech: [
       "Next.js",
@@ -112,6 +112,61 @@ export const projects = [
       accessibility: 88,
       seo: 80
     }
+  },
+  {
+    title: "Portfolio Website",
+    description:
+      "A cyberpunk-themed portfolio website showcasing my skills, projects, and experience as a full-stack developer, built with modern web technologies and optimized for performance and accessibility.",
+    status: "DEPLOYED",
+    icon: (
+      <img
+        src="/bgLogo.avif"
+        alt="Portfolio Logo"
+        className="w-10 h-10 object-contain"
+      />
+    ),
+    images: [
+      "/projects/DeathTail/portfolio1.avif",
+      "/projects/DeathTail/portfolio2.avif",
+      "/projects/DeathTail/portfolio3.avif",
+    ],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "PostgreSQL",
+      "Framer Motion",
+    ],
+    achievements: [
+      "Designed and implemented a unique cyberpunk aesthetic",
+      "Showcased a variety of projects with detailed case studies",
+      "Optimized for performance, accessibility, and SEO",
+      "Deployed with continuous integration and HTTPS/SSL",
+    ],
+    links: {
+      live: null, // this website
+      github: "https://github.com/Death-Tail/cyberpunk-portfolio"
+    },
+    timeline: "1–4 months",
+    teamSize: "Solo Project",
+    challenges: [
+      "Creating a cohesive cyberpunk design language",
+      "Balancing visual effects with performance",
+      "Implementing responsive layouts for all devices",
+    ],
+    features: [
+      "Cyberpunk-themed UI design",
+      "Responsive design for mobile and desktop",
+      "SEO optimization and performance tuning",
+      "Detailed project case studies",
+      "Continuous deployment with Vercel",
+    ],
+    metrics: {
+      performance: 93,
+      accessibility: 90,
+      seo: 88,
+    },
   }
 
   // Add more projects here with the same structure
