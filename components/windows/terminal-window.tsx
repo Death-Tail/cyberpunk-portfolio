@@ -193,7 +193,7 @@ export function TerminalWindow(props: TerminalWindowProps) {
           "",
           "PRIMARY CHANNELS:",
           "  ├── Email: dyarialitaher03@gmail.com",
-          "  ├── GitHub: linGREEDO",
+          "  ├── GitHub: Death-Tail",
           "  ├── LinkedIn: Dyari Ali Tahir",
           "  ├── X: @Death_Tail0331",
           "  ├── Instagram: @dyari_ali_taher",

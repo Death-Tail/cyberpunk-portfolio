@@ -31,8 +31,8 @@ export function ContactWindow(props: ContactWindowProps) {
     },
     {
       platform: "GITHUB",
-      link: "https://github.com/linGREEDO",
-      handle: "linGREEDO",
+      link: "https://github.com/Death-Tail",
+      handle: "Death-Tail",
       icon: <img src="/Icons/github.avif" alt="Github Icon" className="w-10 h-10" />,
       description: "Code repositories & open source contributions",
       security: "Public profile",
