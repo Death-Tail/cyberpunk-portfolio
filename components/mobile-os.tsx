@@ -7,32 +7,36 @@ import ProfilePage from "./mobile/profile-page"
 import ProjectsPage from "./mobile/projects-page"
 import TechStackPage from "./mobile/tech-stack-page"
 import ContactPage from "./mobile/contact-page"
-import { CyberpunkBoot } from "./cyberpunk-boot"
 
 type MobileOSProps = {}
 
 export default function MobileOS() {
   const [currentApp, setCurrentApp] = useState<string | null>(null)
   const [isBooting, setIsBooting] = useState(true)
-
-  useEffect(() => {
-    // Simulate boot time (matches desktop boot duration)
-    // CyberpunkBoot will call onComplete after animation
-  }, [])
+  const [currentTime, setCurrentTime] = useState<string>("")
 
   const handleBootComplete = () => {
     setIsBooting(false)
   }
 
-  if (isBooting) {
-    return <CyberpunkBoot onComplete={handleBootComplete} />
-  }
+  // Update time on client side only
+  useEffect(() => {
+    // Set initial time
+    setCurrentTime(new Date().toLocaleTimeString())
+
+    // Update time every second
+    const interval = setInterval(() => {
+      setCurrentTime(new Date().toLocaleTimeString())
+    }, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   const apps = [
-    { type: "profile", icon: "/desktop logo/profile.avif", name: "Profile" },
-    { type: "projects", icon: "/desktop logo/project.avif", name: "Projects" },
-    { type: "contact", icon: "/desktop logo/contact.avif", name: "Contact" },
-    { type: "techstack", icon: "/desktop logo/techstack.avif", name: "Tech Stack" },
+    { type: "profile", icon: "/desktopLogo/profile.avif", name: "Profile" },
+    { type: "projects", icon: "/desktopLogo/project.avif", name: "Projects" },
+    { type: "contact", icon: "/desktopLogo/contact.avif", name: "Contact" },
+    { type: "techstack", icon: "/desktopLogo/techstack.avif", name: "Tech Stack" },
   ]
 
   const dockApps = apps.slice(0, 4)
@@ -105,7 +109,7 @@ export default function MobileOS() {
 
       {/* Status Bar */}
       <div className="fixed top-0 left-0 right-0 h-6 bg-zinc-900/80 backdrop-blur-sm flex items-center justify-between px-4 z-50 border-b border-red-600/30">
-        <div className="text-red-400 text-xs font-mono">{new Date().toLocaleTimeString()}</div>
+        <div className="text-red-400 text-xs font-mono">{currentTime}</div>
         <div className="flex items-center gap-2">
           <Signal className="w-3 h-3 text-blue-400" />
           <Wifi className="w-3 h-3 text-yellow-400" />
@@ -120,7 +124,7 @@ export default function MobileOS() {
             <button key={app.type} onClick={() => handleOpenApp(app.type)} className="flex flex-col items-center">
               <div className="w-16 h-16 rounded-2xl border border-red-600/30 bg-red-600/5 flex items-center justify-center mb-1 hover:bg-red-600/10 transition-colors">
                 <div className="w-10 h-10 relative">
-                  <Image src={app.icon || "/placeholder.svg"} alt={app.name} fill className="object-contain" priority />
+                  <Image src={app.icon || "/placeholder.svg"} alt={app.name} fill className="object-contain" priority  />
                 </div>
               </div>
               <span className="text-red-400 text-xs">{app.name}</span>

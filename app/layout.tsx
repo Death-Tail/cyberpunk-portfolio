@@ -8,7 +8,6 @@ import { ThemeProvider } from "@/components/theme-provider"
 export const metadata: Metadata = {
   title: "Dyari Ali Tahir",
   authors: [{ name: "Dyari Ali Tahir", url: "https://dyarialitahir.com" }],
-  colorScheme: "dark",
   applicationName: "Dyari Ali Tahir Portfolio",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
@@ -33,11 +32,11 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary_large_image", // Options: summary, summary_large_image, app, player
+    card: "summary_large_image",
     title: "Dyari Ali Tahir",
     description: "Full-stack developer specializing in Next.js ecosystem and modern web architecture.",
-    site: "@LinGREED0331", // Replace with your Twitter handle if available
-    creator: "@LinGREED0331",
+    site: "@LinGREED0331",
+    creator: "@death_tail0331",
     images: [
       "https://death-tail.vercel.app/SHIN.png",
     ],

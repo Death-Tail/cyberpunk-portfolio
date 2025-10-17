@@ -39,35 +39,65 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       id: "profile-icon",
       type: "profile",
       name: "Profile",
-      icon: <img src="/desktop logo/profile.avif" alt="profile logo"property="true"/>,
+      icon: <Image
+      src="/desktopLogo/profile.avif"
+      alt="profile logo"
+      property="true"
+      width={100}
+      height={100}
+      />,
       color: "red",
     },
     {
       id: "projects-icon",
       type: "projects",
       name: "Projects",
-      icon: <Image src="/desktop logo/project.avif" alt="project logo" property="true"/>,
+      icon: <Image
+      src="/desktopLogo/project.avif"
+      alt="project logo"
+      property="true"
+      width={100}
+      height={100}
+      />,
       color: "yellow",
     },
     {
       id: "terminal-icon",
       type: "terminal",
       name: "Terminal",
-      icon: <img src="/desktop logo/terminal.avif" alt="terminal logo" property="true"/>,
+      icon: <Image
+      src="/desktopLogo/terminal.avif"
+      alt="terminal logo"
+      property="true"
+      width={100}
+      height={100}
+      />,
       color: "blue",
     },
     {
       id: "contact-icon",
       type: "contact",
       name: "Contact",
-      icon: <img src="/desktop logo/contact.avif" alt="contact logo" property="true"/>,
+      icon: <Image
+      src="/desktopLogo/contact.avif"
+      alt="contact logo"
+      property="true"
+      width={100}
+      height={100}
+      />,
       color: "red",
     },
     {
       id: "techstack-icon",
       type: "techstack",
       name: "Tech Stack",
-      icon: <img src="/desktop logo/techstack.avif" alt="tech stack logo" property="true"/>,
+      icon: <Image
+      src="/desktopLogo/techstack.avif"
+      alt="tech stack logo"
+      property="true"
+      width={100}
+      height={100}
+      />,
       color: "yellow",
     }
   ]

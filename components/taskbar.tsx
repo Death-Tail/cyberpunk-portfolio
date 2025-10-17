@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from 'next/image'
 import { Settings, Power, Wifi, Battery, Volume2 } from "lucide-react"
 
@@ -21,15 +21,34 @@ interface TaskbarProps {
 
 export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow }: TaskbarProps) {
   const [startMenuOpen, setStartMenuOpen] = useState(false)
+  const [currentTime, setCurrentTime] = useState<string>("")
 
+  // Update time on client side only
+  useEffect(() => {
+    // Set initial time
+    setCurrentTime(new Date().toLocaleTimeString())
 
+    // Update time every second
+    const interval = setInterval(() => {
+      setCurrentTime(new Date().toLocaleTimeString())
+    }, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   const applications = [
-    { type: "profile", icon: <Image src="/desktop logo/profile.avif" alt="profile Logo" property="true"/>, name: "Profile", color: "red" },
-    { type: "projects", icon: <Image src="/desktop logo/project.avif" alt="projects Logo" property="true"/>, name: "Projects", color: "yellow" },
-    { type: "terminal", icon: <Image src="/desktop logo/terminal.avif" alt="terminal Logo" property="true"/>, name: "Terminal", color: "blue" },
-    { type: "contact", icon: <Image src="/desktop logo/contact.avif" alt="contact Logo" property="true"/>, name: "Contact", color: "red" },
-    { type: "techstack", icon: <Image src="/desktop logo/techstack.avif" alt="techstack Logo" property="true"/>, name: "Tech Stack", color: "yellow" },
+    { type: "profile", icon:
+    <Image
+    src="/desktopLogo/profile.avif"
+      alt="profile Logo"
+      property="true"
+      width={100}
+      height={100}
+      />, name: "Profile", color: "red" },
+    { type: "projects", icon: <Image src="/desktopLogo/project.avif" alt="projects Logo" property="true" width={100} height={100}/>, name: "Projects", color: "yellow" },
+    { type: "terminal", icon: <Image src="/desktopLogo/terminal.avif" alt="terminal Logo" property="true" width={100} height={100}/>, name: "Terminal", color: "blue" },
+    { type: "contact", icon: <Image src="/desktopLogo/contact.avif" alt="contact Logo" property="true" width={100} height={100}/>, name: "Contact", color: "red" },
+    { type: "techstack", icon: <Image src="/desktopLogo/techstack.avif" alt="techstack Logo" property="true" width={100} height={100}/>, name: "Tech Stack", color: "yellow" },
   ]
 
   const handleWindowClick = (window: Window) => {
@@ -148,7 +167,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
             <Volume2 className="w-4 h-4 text-yellow-400" />
             <Battery className="w-4 h-4 text-red-400" />
           </div>
-          <div className="text-red-400 text-xs font-mono">{new Date().toLocaleTimeString()}</div>
+          <div className="text-red-400 text-xs font-mono">{currentTime}</div>
         </div>
       </div>
     </>

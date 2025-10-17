@@ -30,8 +30,7 @@ export const projects = [
     ],
     achievements: [
       "Built a bilingual, mobile-first website for global accessibility",
-      "Developed a secure admin dashboard with role-based authentication",
-      "Implemented a CMS so non-technical staff can manage content",
+      "Built a custom CMS that allows non-technical users to manage website content",
       "Optimized for SEO, performance, and accessibility",
       "Deployed to production with full HTTPS/SSL integration",
     ],

@@ -3,9 +3,6 @@ import { Desktop } from "@/components/desktop"
 import { Taskbar } from "@/components/taskbar"
 import { WindowManager } from "@/components/window-manager"
 import { useState } from "react"
-import { ScanLines } from "@/components/scan-lines"
-import { HexBackground } from "@/components/hex-background"
-import { CyberpunkBoot } from "@/components/cyberpunk-boot"
 import { useIsMobile } from "@/hooks/use-mobile"
 import MobileOS from "@/components/mobile-os"
 
@@ -20,21 +17,8 @@ interface WindowType {
 export default function Home() {
   const [openWindows, setOpenWindows] = useState<WindowType[]>([])
   const [activeWindow, setActiveWindow] = useState("")
-  const [isBooting, setIsBooting] = useState(true)
-  const [showDesktop, setShowDesktop] = useState(false)
   const isMobile = useIsMobile()
 
-  // Handle boot sequence completion
-  const handleBootComplete = () => {
-    setIsBooting(false)
-    setTimeout(() => {
-      setShowDesktop(true)
-      // Generate unique IDs for initial windows
-      const profileId = `profile-${Date.now()}`
-      setOpenWindows([{ id: profileId, title: "Profile", type: "profile", isMinimized: false, zIndex: 3 }])
-      setActiveWindow(profileId)
-    }, 500)
-  }
 
   const openWindow = (windowType: string) => {
     // Check if window of this type already exists
@@ -106,14 +90,9 @@ export default function Home() {
 
   return (
     <main className="fixed inset-0 bg-zinc-900 text-red-50 overflow-hidden font-mono">
-      {isBooting ? (
-        <CyberpunkBoot onComplete={handleBootComplete} />
-      ) : (
-        <>
           {/* Desktop Background */}
-          <div className={`transition-opacity duration-1000 ${showDesktop ? "opacity-100" : "opacity-0"}`}>
+          <div className="transition-opacity duration-1000">
             <Desktop onOpenWindow={openWindow} />
-            <HexBackground />
 
             {/* Window Manager */}
             <WindowManager
@@ -133,10 +112,7 @@ export default function Home() {
             />
 
             {/* Scan Lines Effect */}
-            <ScanLines />
           </div>
-        </>
-      )}
     </main>
   )
 }
