@@ -129,7 +129,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
         >
           <div className="w-7 h-7 mr-2">
             <Image
-              src="/logo.avif"
+              src="/BgLogo.avif"
               width={500}
               height={500}
               alt="Logo of the start menu button"
