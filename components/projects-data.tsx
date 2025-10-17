@@ -114,7 +114,7 @@ export const projects = [
     }
   },
   {
-    title: "Portfolio Website",
+    title: "SHIN尾",
     description:
       "A cyberpunk-themed portfolio website showcasing my skills, projects, and experience as a full-stack developer, built with modern web technologies and optimized for performance and accessibility.",
     status: "DEPLOYED",
@@ -135,8 +135,6 @@ export const projects = [
       "TypeScript",
       "Tailwind CSS",
       "Node.js",
-      "PostgreSQL",
-      "Framer Motion",
     ],
     achievements: [
       "Designed and implemented a unique cyberpunk aesthetic",

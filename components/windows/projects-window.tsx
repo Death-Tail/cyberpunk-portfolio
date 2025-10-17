@@ -18,35 +18,40 @@ interface ProjectsWindowProps {
 }
 
 function ImageCarousel({ images, projectTitle }: { images: string[]; projectTitle: string }) {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Auto-scroll functionality
   useEffect(() => {
-    if (images.length <= 1) return
+    if (images.length <= 1 || isPaused) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length)
-    }, 3000) // Change image every 3 seconds
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 3000); // Change image every 3 seconds
 
-    return () => clearInterval(interval)
-  }, [images.length])
+    return () => clearInterval(interval);
+  }, [images.length, isPaused]);
 
   const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
-  }
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length)
-  }
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
 
   const goToSlide = (index: number) => {
-    setCurrentIndex(index)
-  }
+    setCurrentIndex(index);
+  };
 
-  if (!images || images.length === 0) return null
+  if (!images || images.length === 0) return null;
 
   return (
-    <div className="mb-3">
+    <div
+      className="mb-3"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <div className="text-xs text-purple-400 mb-2">PROJECT_PREVIEW:</div>
       <div className="relative aspect-video border border-purple-500/30 bg-zinc-900/50 overflow-hidden group">
         {/* Image Display */}
@@ -98,9 +103,8 @@ function ImageCarousel({ images, projectTitle }: { images: string[]; projectTitl
         </div>
       </div>
     </div>
-  )
+  );
 }
-// </CHANGE>
 
 export function ProjectsWindow(props: ProjectsWindowProps) {
   return (
@@ -146,7 +150,6 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                     {project.images && project.images.length > 0 && (
                       <ImageCarousel images={project.images} projectTitle={project.title} />
                     )}
-                    {/* </CHANGE> */}
 
                     {/* Tech Stack */}
                     <div className="mb-3">
@@ -179,15 +182,26 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                     {/* Links */}
                     <div className="flex items-center gap-2">
                       <a
-                        href={project.links.live}
+                        href={project.links.live || undefined}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 px-2 py-1 bg-pink-600/20 border border-pink-600/50 text-pink-400 text-xs hover:bg-pink-600/30 transition-colors"
+                        className={`flex items-center gap-1 px-2 py-1 border text-xs transition-colors ${
+                          project.links.live
+                            ? "bg-pink-600/20 border-pink-600/50 text-pink-400 hover:bg-pink-600/30"
+                            : "bg-zinc-800/50 border-zinc-600/50 text-zinc-500 cursor-not-allowed"
+                        }`}
+                        title={project.links.live ? "View live project" : "Live project not available"}
+                        aria-disabled={!project.links.live}
                       >
                         <ExternalLink className="w-3 h-3" />
                         LIVE
                       </a>
                       <button
+                        onClick={() => {
+                          if (project.links.github) {
+                            window.open(project.links.github, "_blank", "noopener,noreferrer");
+                          }
+                        }}
                         disabled={!project.links.github}
                         className={`flex items-center gap-1 px-2 py-1 border text-xs transition-colors ${
                           project.links.github
@@ -195,6 +209,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                             : "bg-zinc-800/50 border-zinc-600/50 text-zinc-500 cursor-not-allowed"
                         }`}
                         title={project.links.github ? "View source code" : "Source code not available"}
+                        aria-disabled={!project.links.github}
                       >
                         <Github className="w-3 h-3" />
                         CODE
