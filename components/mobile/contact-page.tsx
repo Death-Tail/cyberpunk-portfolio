@@ -62,6 +62,27 @@ export default function ContactPage({ onBack }: ContactPageProps) {
       preferred: true,
       description: "Quick questions and casual conversations",
     },
+    {
+      platform: "X",
+      link: "https://x.com/Death_Tail0331",
+      handle: "@Death_Tail0331",
+      icon: <img src="/Icons/x.avif" alt="Twitter Icon" className="w-6 h-6" />,
+      responseTime: "Varies",
+      availability: "Active",
+      preferred: false,
+      description: "Social media updates & interactions",
+    },
+
+    {
+      platform: "Instagram",
+      link: "https://www.instagram.com/dyari_ali_taher/",
+      handle: "@dyari_ali_taher",
+      icon: <img src="/Icons/instagram.avif" alt="Instagram Icon" className="w-6 h-6" />,
+      responseTime: "Varies",
+      availability: "Active",
+      preferred: false,
+      description: "Connect with me on Instagram",
+    },
   ]
 
 

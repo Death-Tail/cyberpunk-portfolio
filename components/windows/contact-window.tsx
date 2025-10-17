@@ -22,7 +22,7 @@ export function ContactWindow(props: ContactWindowProps) {
       platform: "EMAIL",
       link: "mailto:dyarialitaher03@gmail.com",
       handle: "dyarialitaher03@gmail.com",
-      icon: <Mail className="w-5 h-5" />,
+      icon: <img src="/Icons/gmail.avif" alt="Gmail Icon" className="w-10 h-10" />,
       description: "Professional inquiries & project discussions",
       security: "PGP encrypted available",
       responseTime: "< 24 hours",
@@ -33,7 +33,7 @@ export function ContactWindow(props: ContactWindowProps) {
       platform: "GITHUB",
       link: "https://github.com/linGREEDO",
       handle: "linGREEDO",
-      icon: <img src="/Icons/github.avif" alt="Github Icon" className="w-5 h-5" />,
+      icon: <img src="/Icons/github.avif" alt="Github Icon" className="w-10 h-10" />,
       description: "Code repositories & open source contributions",
       security: "Public profile",
       responseTime: "1-3 days",
@@ -44,7 +44,7 @@ export function ContactWindow(props: ContactWindowProps) {
       platform: "LINKEDIN",
       link: "https://www.linkedin.com/in/dyari-ali-tahir-b005352b5/",
       handle: "Dyari Ali Tahir",
-      icon: <img src="/Icons/linkedin.avif" alt="LinkedIn Icon" className="w-5 h-5" />,
+      icon: <img src="/Icons/linkedin.avif" alt="LinkedIn Icon" className="w-10 h-10" />,
       description: "Professional network & career updates",
       security: "Verified profile",
       responseTime: "1-2 days",
@@ -55,19 +55,42 @@ export function ContactWindow(props: ContactWindowProps) {
       platform: "DISCORD",
       link: "https://discord.com/users/lin_greed",
       handle: "lin_greed",
-      icon: <img src="/Icons/discord.avif" alt="Discord Icon" className="w-5 h-5" />,
+      icon: <img src="/Icons/discord.avif" alt="Discord Icon" className="w-10 h-10" />,
       description: "Real-time communication & collaboration",
       security: "End-to-end encrypted",
       responseTime: "Few hours",
       availability: "always",
       preferred: false,
     },
+    {
+      platform: "X",
+      link: "https://x.com/Death_Tail0331",
+      handle: "@Death_Tail0331",
+      icon: <img src="/Icons/x.avif" alt="Twitter Icon" className="w-10 h-10" />,
+      description: "Social media updates & interactions",
+      security: "Public profile",
+      responseTime: "Varies",
+      availability: "Active",
+      preferred: false,
+    },
+    {
+      platform: "Instagram",
+      link: "https://www.instagram.com/dyari_ali_taher/",
+      handle: "@dyari_ali_taher",
+      icon: <img src="/Icons/instagram.avif" alt="Instagram Icon" className="w-10 h-10" />,
+      description: "Connect with me on Instagram",
+      security: "Public profile",
+      responseTime: "Varies",
+      availability: "Active",
+      preferred: false,
+    },
+
   ]
 
   return (
     <BaseWindow
       {...props} initialSize={{ width: 600, height: 800 }} >
-      <div className="space-y-6 h-full">
+      <div className="space-y-8 h-full flex flex-col">
         {/* Header */}
         <div className="border-l-2 border-red-600 pl-4">
           <div className="flex items-center justify-between mb-4">
