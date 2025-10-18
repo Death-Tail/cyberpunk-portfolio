@@ -58,8 +58,6 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
     <div className="fixed inset-0 bg-black flex flex-col items-center justify-center p-4 overflow-hidden">
       {/* Animated background layers */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Gradient base */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black"></div>
 
         {/* Animated circuit lines */}
         <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1000 1000">
@@ -127,10 +125,6 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
         ></div>
         <div className="absolute bottom-1/3 left-20 w-20 h-20 border border-red-400/20 transform rotate-45 animate-pulse"></div>
 
-        {/* Radial gradient overlays */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-red-500/3 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-600/2 rounded-full blur-3xl animate-pulse delay-500"></div>
 
         {/* Tech grid pattern */}
         <div
