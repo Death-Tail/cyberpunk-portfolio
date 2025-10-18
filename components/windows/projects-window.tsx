@@ -53,13 +53,13 @@ function ImageCarousel({ images, projectTitle }: { images: string[]; projectTitl
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="text-xs text-purple-400 mb-2">PROJECT_PREVIEW:</div>
-      <div className="relative aspect-video border border-purple-500/30 bg-zinc-900/50 overflow-hidden group">
+      <div className="relative w-full aspect-video border border-purple-500/30 bg-zinc-900/50 overflow-hidden group">
         {/* Image Display */}
         <Image
           src={images[currentIndex] || "/placeholder.svg"}
           alt={`${projectTitle} screenshot ${currentIndex + 1}`}
           fill
-          className="object-cover transition-opacity duration-500"
+          className="object-fill transition-opacity duration-500"
         />
         <div className="absolute inset-0 bg-purple-600/0 group-hover:bg-purple-600/5 transition-colors" />
 

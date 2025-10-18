@@ -98,7 +98,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                       src={project.images[selectedImageIndex[index] || 0]}
                       alt={`${project.title} screenshot`}
                       fill
-                      className="object-cover"
+                      className="object-fill"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent select-none pointer-events-none" />
 
