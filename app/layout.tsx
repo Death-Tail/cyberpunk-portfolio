@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://dyariali.com"),
   referrer: "origin-when-cross-origin",
   description: "Full-stack developer specializing in Next.js ecosystem and modern web architecture.",
-  keywords: "full-stack, developer, portfolio, cyberpunk, web architecture , Next.js, React, Node.js, TypeScript, JavaScript, Tailwind CSS, Prisma, PostgreSQL",
+  keywords: "full-stack, developer, portfolio, cyberpunk, web architecture , Next.js, React, Node.js, TypeScript, Tailwind CSS, PostgreSQL, erbil, hawler, death tail, SHIN尾, dyari ali, dyari ali taher, dyari",
   creator: "Dyari Ali Tahir",
   openGraph: {
     title: "Dyari Ali Tahir",
