@@ -66,6 +66,7 @@ export default function MobileOS() {
       case "techstack":
         return <TechStackPage onBack={handleBack} />
       case "contact":
+        return <ContactPage onBack={handleBack} />
         handleBack() // Go back if terminal is selected as it's not implemented for mobile
         return null
     }
