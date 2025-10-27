@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
   title: "Dyari Ali Tahir",
-  authors: [{ name: "Dyari Ali Tahir", url: "https://dyarialitahir.com" }],
+  authors: [{ name: "Dyari Ali Tahir", url: "https://dyariali.com" }],
   applicationName: "Dyari Ali Tahir Portfolio",
   generator: "Next.js",
   metadataBase: new URL("https://dyariali.com"),
@@ -53,8 +53,28 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-      <link rel="manifest" href="/manifest.json" />
+        <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
+
+        {/* JSON-LD structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Dyari Ali",
+              "url": "https://dyariali.com",
+              "sameAs": [
+                "https://github.com/Death-Tail",
+                "https://www.linkedin.com/in/dyari-ali-tahir-b005352b5/",
+                "https://discord.com/users/lin_greed",
+                "https://x.com/Death_Tail0331",
+                "https://www.instagram.com/dyari_ali_taher/"
+              ]
+            })
+          }}
+        />
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>

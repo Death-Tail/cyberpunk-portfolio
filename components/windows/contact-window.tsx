@@ -173,7 +173,7 @@ export function ContactWindow(props: ContactWindowProps) {
                       <a
                         href={contact.link}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener noreferrer me"
                         className="inline-flex items-center gap-2 px-3 py-2 bg-red-500/20 border border-red-500/50 text-red-400 rounded hover:bg-red-500/30 transition-colors text-sm"
                       >
                         <span>Contact via {contact.platform}</span>
