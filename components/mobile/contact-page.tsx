@@ -54,7 +54,7 @@ export default function ContactPage({ onBack }: ContactPageProps) {
     },
     {
       platform: "DISCORD",
-      link: "https://discord.com/users/lin_greed",
+      link: "https://discord.com/users/death_tail",
       handle: "lin_greed",
       icon: <img src="/Icons/discord.avif" alt="Discord Icon" className="w-6 h-6" />,
       responseTime: "Few hours",
