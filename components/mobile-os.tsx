@@ -7,7 +7,6 @@ import ProfilePage from "./mobile/profile-page"
 import ProjectsPage from "./mobile/projects-page"
 import TechStackPage from "./mobile/tech-stack-page"
 import ContactPage from "./mobile/contact-page"
-import { CyberpunkBoot } from "./cyberpunk-boot"
 
 type MobileOSProps = {}
 
@@ -17,10 +16,7 @@ export default function MobileOS() {
   const [currentTime, setCurrentTime] = useState<string>("")
 
   const handleBootComplete = () => {
-    setIsBooting(false);
-    setTimeout(() => {
-      setCurrentApp(null); // Ensure the mobile layout is reset properly
-    }, 100); // Small delay to ensure smooth transition
+    setIsBooting(false)
   }
 
   // Update time on client side only
@@ -52,9 +48,6 @@ export default function MobileOS() {
   const handleBack = () => {
     setCurrentApp(null)
   }
-  if (isBooting) {
-    return <CyberpunkBoot onComplete={handleBootComplete} />
-  }
 
   // Render current app page if one is selected
   if (currentApp) {
@@ -67,6 +60,7 @@ export default function MobileOS() {
         return <TechStackPage onBack={handleBack} />
       case "contact":
         return <ContactPage onBack={handleBack} />
+      case "terminal":
         handleBack() // Go back if terminal is selected as it's not implemented for mobile
         return null
     }
