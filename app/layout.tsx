@@ -23,8 +23,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://dyariali.com/OG.webp",
-        width: 1536,
-        height: 1024,
+        width: 3000,
+        height: 2000,
         alt: "Dyari Ali Tahir Portfolio",
       },
     ],
