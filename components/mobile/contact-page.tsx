@@ -55,7 +55,7 @@ export default function ContactPage({ onBack }: ContactPageProps) {
     {
       platform: "DISCORD",
       link: "https://discord.com/users/death_tail",
-      handle: "lin_greed",
+      handle: "death_tail",
       icon: <img src="/Icons/discord.avif" alt="Discord Icon" className="w-6 h-6" />,
       responseTime: "Few hours",
       availability: "Evening GMT+3",
@@ -169,7 +169,7 @@ export default function ContactPage({ onBack }: ContactPageProps) {
             <p>• Include project timeline and budget range for faster response</p>
             <p>• Provide detailed requirements and technical specifications</p>
             <p>• Mention preferred communication method and timezone</p>
-            <p>• For urgent matters, use <a href="https://discord.com/users/lin_greed"><span className="text-blue-500">Discord</span></a>.</p>
+            <p>• For urgent matters, use <a href="https://discord.com/users/death_tail"><span className="text-blue-500">Discord</span></a>.</p>
           </div>
         </div>
       </div>

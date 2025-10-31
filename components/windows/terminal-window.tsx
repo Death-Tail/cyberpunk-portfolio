@@ -197,7 +197,7 @@ export function TerminalWindow(props: TerminalWindowProps) {
           "  ├── LinkedIn: Dyari Ali Tahir",
           "  ├── X: @Death_Tail0331",
           "  ├── Instagram: @dyari_ali_taher",
-          "  └── Discord: lin_greed",
+          "  └── Discord: death_tail",
           "",
           "SECURITY NOTICE:",
           "  ├── All communications encrypted",

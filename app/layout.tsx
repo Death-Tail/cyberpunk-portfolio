@@ -54,7 +54,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon"/>
+        <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <meta name="theme-color" content="#0a0a0a" />
+
 
         {/* JSON-LD structured data */}
         <script
@@ -68,7 +74,7 @@ export default function RootLayout({
               "sameAs": [
                 "https://github.com/Death-Tail",
                 "https://www.linkedin.com/in/dyari-ali-tahir-b005352b5/",
-                "https://discord.com/users/lin_greed",
+                "https://discord.com/users/death_tail",
                 "https://x.com/Death_Tail0331",
                 "https://www.instagram.com/dyari_ali_taher/"
               ]
@@ -81,7 +87,7 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
         <Analytics />
-        <SpeedInsights/>
+        <SpeedInsights />
       </body>
     </html>
   )
