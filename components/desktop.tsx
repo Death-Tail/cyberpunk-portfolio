@@ -261,7 +261,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
      {/* Background Image Overlay */}
 <div className="fixed inset-0 z-0 opacity-85 overflow-hidden">
   <Image
-    src="/backgroundImage.png"
+    src="/backgroundImage.avif"
     alt="Background logo"
     fill
     className="object-cover object-center select-none pointer-events-none"
