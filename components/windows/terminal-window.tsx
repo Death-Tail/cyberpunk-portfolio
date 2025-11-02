@@ -18,17 +18,21 @@ interface TerminalWindowProps {
 
 export function TerminalWindow(props: TerminalWindowProps) {
   const [lines, setLines] = useState<(string | { type: string; text: string })[]>([
-    "DEATH TAIL NEURAL INTERFACE v2.077",
-    "Copyright (c) 2077 SHIN尾 Systems Corp.",
-    "Nine-Tailed Fox Cybernetic Protocol Active",
-    "",
-    "Initializing consciousness matrix...",
-    "Loading user profile: SHIN尾",
-    "Status: ONLINE | Security Level: MAXIMUM",
-    "Fox Entity: DEATH TAIL [CONNECTED]",
-    "",
-    "Available commands: help, whoami, skills, projects, contact, foxstats, deathtail, clear",
-    "",
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠏⡇⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠠⡀⠀⠀⠀⠀⣼⣿⣿⣿⣸⣴⡀⠀⠀⠀⠀⢀⠄⠢⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠈⠂⢄⠀⠀⢿⡼⣿⠻⣿⣧⡇⠀⠀⡠⠔⠁⠀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⢠⡀⠀⠀⠀⠀⠀⠀⠀⠂⠀⠀⢁⠑⠐⡄⠙⠟⠀⠻⠋⢠⠂⠊⠠⠀⠀⠀⡁⠀⠀⠀⠀⠀⠀⢀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⢸⠑⣄⡀⠀⠀⠀⠀⠀⡁⠀⠵⣦⡈⡐⣸⡄⣶⠶⣶⢠⡏⠀⢌⣴⠮⠀⠀⡀⠀⠀⠀⠀⢀⣠⠊⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⠸⣧⣸⢿⣷⣶⣤⡄⠀⠀⠀⢀⡌⠻⣦⢿⣷⠏⡀⠹⣞⣿⣴⠏⢡⡀⠀⠀⠀⣠⣤⣶⣾⣿⡇⣼⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⠀⢚⢮⣷⣝⠿⣿⣿⡱⠀⢀⣴⣿⣷⣼⣿⣿⠀⠠⢁⣿⣿⣿⣶⣿⣦⡀⠀⢺⢿⣿⠿⣫⣾⡷⡓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⠀⠻⢿⣿⠿⠄⠀⢀⣤⣬⣭⢯⣿⣿⣿⠹⡄⠐⢐⠏⣿⣿⣿⡽⢭⣥⣄⡄⠀⠀⠠⠾⣿⡿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⢀⢀⡁⠀⠀⠈⠑⠃⠀⠉⠛⠿⢿⢾⣦⠈⠋⠻⣆⣿⣀⣾⣰⠟⠏⠁⣰⣷⡿⠿⠛⠉⠁⠘⠃⠁⠀⠀⢀⡀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀Copyright (c) 2077 SHIN尾 Systems Corp.",
+    "⠀⠀⠀⢣⡩⣻⣳⣶⣶⣶⣖⣄⠀⠉⠋⢖⣿⣶⣠⣀⡘⡻⣛⠟⢁⣀⣀⣴⣾⡳⠙⠉⠀⠀⢶⣶⣶⣶⣞⣟⢉⡜⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀Loading user profile: SHIN尾",
+    "⠀⠀⠀⠀⢻⣷⡻⣽⣛⡿⠿⠻⠟⠂⠀⠀⠀⠈⠙⠻⣟⣯⣿⣿⣾⠟⠛⠁⠀⠀⢠⣆⠀⢳⡈⠻⢟⣻⣽⡾⡫⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀Available commands: help, whoami, skills,",
+    "⠀⠀⠀⠀⠀⠘⠻⢚⣭⠿⡟⠆⢀⣴⢦⡄⠀⠀⠀⠀⠙⣿⣿⣿⡟⠀⠀⠀⡠⢦⣛⣳⡄⣩⢷⠀⢹⡓⠏⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ projects, contact, foxstats, deathtail, clear",
+    "⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⣀⣴⣿⣿⣏⡥⡞ ⠀⡀⠀⡀⠙⣿⠟  ⠀⡽⢉⢧⣿⣷⣿⡿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⠐⠀⠀⠀⠀⠀⠀⠀       ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   ⠀⢰⢤⠤⠤⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "System ready. Awaiting command...",
   ])
 
   const [currentLine, setCurrentLine] = useState("")
@@ -320,14 +324,6 @@ export function TerminalWindow(props: TerminalWindowProps) {
         case "kill":
           setLines((prev) => [...prev, `kill: need to specify target`, ""])
           break
-        case "clear":
-          setLines([
-            `DEATH TAIL NEURAL INTERFACE v2.077`,
-            `Copyright (c) ${new Date().getFullYear()} SHIN尾 Systems Corp.`,
-            `Nine-Tailed Fox Cybernetic Protocol Active`,
-            ""
-          ])
-        break
       case "clear":
         setLines([
           `DEATH TAIL NEURAL INTERFACE v2.077`,
@@ -349,7 +345,7 @@ export function TerminalWindow(props: TerminalWindowProps) {
   }
 
   return (
-    <BaseWindow {...props} initialPosition={{ x: 300, y: 200 }} initialSize={{ width: 700, height: 350 }} >
+    <BaseWindow {...props} initialPosition={{ x: 200, y: 0 }} initialSize={{ width:1000, height: 500 }} >
       <div ref={terminalRef} className="bg-black p-4 h-full font-mono text-sm overflow-y-auto">
         <div className="space-y-1">
           {lines.map((line, index) => {
@@ -379,3 +375,4 @@ export function TerminalWindow(props: TerminalWindowProps) {
     </BaseWindow>
   )
 }
+
