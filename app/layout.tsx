@@ -73,7 +73,7 @@ export default function RootLayout({
               "url": "https://dyariali.com",
               "sameAs": [
                 "https://github.com/Death-Tail",
-                "https://www.linkedin.com/in/dyari-ali-tahir-b005352b5/",
+                "https://www.linkedin.com/in/dyarialitahir/",
                 "https://discord.com/users/death_tail",
                 "https://x.com/Death_Tail0331",
                 "https://www.instagram.com/dyari_ali_taher/"

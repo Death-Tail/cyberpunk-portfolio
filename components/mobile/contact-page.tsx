@@ -44,7 +44,7 @@ export default function ContactPage({ onBack }: ContactPageProps) {
     },
     {
       platform: "LINKEDIN",
-      link: "https://www.linkedin.com/in/dyari-ali-tahir-b005352b5/",
+      link: "https://www.linkedin.com/in/dyarialitahir/",
       handle: "Dyari Ali Tahir",
       icon: <img src="/Icons/linkedin.avif" alt="LinkedIn Icon" className="w-6 h-6" />,
       responseTime: "1-2 days",
