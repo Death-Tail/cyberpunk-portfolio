@@ -71,14 +71,14 @@ export default function BasePage({ title, onBack, children }: BasePageProps) {
 
         <div className="relative text-center">
           <div
-            className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent"
+            className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-red-500/50 to-transparent"
             style={{ top: -8 }}
           />
           <h1 className="text-red-400 font-bold tracking-wider drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]">
             {title}
           </h1>
           <div
-            className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent"
+            className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-red-500/50 to-transparent"
             style={{ bottom: -8 }}
           />
         </div>

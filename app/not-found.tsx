@@ -239,7 +239,7 @@ export default function NotFound() {
           </div>
 
           {/* Error Terminal */}
-          <div className="border-2 border-red-500/30 bg-gradient-to-br from-red-950/20 to-black/80 backdrop-blur-sm">
+          <div className="border-2 border-red-500/30 bg-linear-to-br from-red-950/20 to-black/80 backdrop-blur-sm">
             <div className="border-b border-red-500/30 p-3 bg-red-500/10">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -285,7 +285,7 @@ export default function NotFound() {
         {/* Right Side - Visual Content */}
         <div className="space-y-6">
           {/* Nine-Tailed Fox Visual Area */}
-          <div className="border-2 border-red-500/40 bg-gradient-to-br from-red-950/10 to-black/60 backdrop-blur-sm">
+          <div className="border-2 border-red-500/40 bg-linear-to-br from-red-950/10 to-black/60 backdrop-blur-sm">
             <div className="border-b border-red-500/30 p-3 bg-red-500/5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -305,7 +305,7 @@ export default function NotFound() {
 
             <div className="p-8">
               {/* Placeholder for Nine-Tailed Fox Image/GIF */}
-              <div className="relative w-full h-80 border-2 border-dashed border-red-400/30 rounded-lg flex items-center justify-center bg-gradient-to-br from-red-900/20 to-yellow-900/10">
+              <div className="relative w-full h-80 border-2 border-dashed border-red-400/30 rounded-lg flex items-center justify-center bg-linear-to-br from-red-900/20 to-yellow-900/10">
                 <div className="text-center">
                   {/* ASCII Fox Art */}
                   <div className="text-red-400  text-sm mb-4 leading-tight">

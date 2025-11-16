@@ -120,7 +120,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
       {/* Taskbar */}
       <div className="fixed bottom-0 left-0 right-0 h-12 bg-zinc-900 border-t-2 border-red-600 flex items-center px-2 z-40">
         {/* Accent line */}
-        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500/50 via-yellow-500/50 to-red-500/50"></div>
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-blue-500/50 via-yellow-500/50 to-red-500/50"></div>
 
         {/* Start Button */}
         <button

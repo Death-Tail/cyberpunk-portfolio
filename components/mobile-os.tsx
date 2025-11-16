@@ -80,7 +80,7 @@ export default function MobileOS() {
         />
       </div>
 
-      <div className="fixed inset-0 pointer-events-none opacity-5 z-[1]">
+      <div className="fixed inset-0 pointer-events-none opacity-5 z-1">
         <div
           className="absolute inset-0"
           style={{
@@ -95,7 +95,7 @@ export default function MobileOS() {
       </div>
 
       <div
-        className="fixed inset-0 pointer-events-none opacity-10 z-[1]"
+        className="fixed inset-0 pointer-events-none opacity-10 z-1"
         style={{
           backgroundImage: `repeating-linear-gradient(
             0deg,
@@ -154,8 +154,8 @@ export default function MobileOS() {
       </div>
 
       {/* Accent Lines */}
-      <div className="fixed top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500/50 via-yellow-500/50 to-red-500/50 z-50"></div>
-      <div className="fixed bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-red-500/50 via-yellow-500/50 to-blue-500/50 z-50"></div>
+      <div className="fixed top-0 left-0 w-full h-0.5 bg-linear-to-r from-blue-500/50 via-yellow-500/50 to-red-500/50 z-50"></div>
+      <div className="fixed bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-red-500/50 via-yellow-500/50 to-blue-500/50 z-50"></div>
     </div>
   )
 }

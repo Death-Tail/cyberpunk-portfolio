@@ -187,7 +187,7 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
           <div className="w-full space-y-2">
             <div className="w-full h-1 bg-zinc-800/50 rounded-full overflow-hidden backdrop-blur-sm border border-red-900/20">
               <div
-                className="h-full bg-gradient-to-r from-red-600 via-red-500 to-red-400 rounded-full transition-all duration-300 ease-out relative"
+                className="h-full bg-linear-to-r from-red-600 via-red-500 to-red-400 rounded-full transition-all duration-300 ease-out relative"
                 style={{ width: `${loadingProgress}%` }}
               >
                 <div className="absolute inset-0 bg-white/20 animate-pulse rounded-full"></div>

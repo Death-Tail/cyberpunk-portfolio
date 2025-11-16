@@ -124,7 +124,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
           </div>
 
           <div className="grid grid-cols-2 gap-3">
-            <div className="p-3 bg-gradient-to-br from-pink-600/20 to-pink-800/20 border border-pink-500/30 relative overflow-hidden">
+            <div className="p-3 bg-linear-to-br from-pink-600/20 to-pink-800/20 border border-pink-500/30 relative overflow-hidden">
               <div className="flex items-center justify-between mb-1">
                 <Zap className="w-4 h-4 text-pink-400" />
                 <div className="text-xs text-pink-400/70">CORE</div>
@@ -134,7 +134,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
               <div className="absolute bottom-0 left-0 w-full h-1 bg-pink-500/50"></div>
             </div>
 
-            <div className="p-3 bg-gradient-to-br from-emerald-600/20 to-emerald-800/20 border border-emerald-500/30 relative overflow-hidden">
+            <div className="p-3 bg-linear-to-br from-emerald-600/20 to-emerald-800/20 border border-emerald-500/30 relative overflow-hidden">
               <div className="flex items-center justify-between mb-1">
                 <Shield className="w-4 h-4 text-emerald-400" />
                 <div className="text-xs text-emerald-400/70">LANG</div>
@@ -144,7 +144,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
               <div className="absolute bottom-0 left-0 w-full h-1 bg-emerald-500/50"></div>
             </div>
 
-            <div className="p-3 bg-gradient-to-br from-blue-600/20 to-blue-800/20 border border-blue-500/30 relative overflow-hidden">
+            <div className="p-3 bg-linear-to-br from-blue-600/20 to-blue-800/20 border border-blue-500/30 relative overflow-hidden">
               <div className="flex items-center justify-between mb-1">
                 <Target className="w-4 h-4 text-blue-400" />
                 <div className="text-xs text-blue-400/70">BACK</div>
@@ -154,7 +154,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
               <div className="absolute bottom-0 left-0 w-full h-1 bg-blue-500/50"></div>
             </div>
 
-            <div className="p-3 bg-gradient-to-br from-cyan-600/20 to-cyan-800/20 border border-cyan-500/30 relative overflow-hidden">
+            <div className="p-3 bg-linear-to-br from-cyan-600/20 to-cyan-800/20 border border-cyan-500/30 relative overflow-hidden">
               <div className="flex items-center justify-between mb-1">
                 <div className="w-4 h-4 rounded-full bg-cyan-400 animate-pulse"></div>
                 <div className="text-xs text-cyan-400/70">SYS</div>

@@ -201,8 +201,8 @@ export function BaseWindow({
       </div>
 
       {/* Accent borders */}
-      <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500/30 via-yellow-500/30 to-red-500/30"></div>
-      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-red-500/30 via-yellow-500/30 to-blue-500/30"></div>
+      <div className="absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-blue-500/30 via-yellow-500/30 to-red-500/30"></div>
+      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-red-500/30 via-yellow-500/30 to-blue-500/30"></div>
     </div>
   )
 }

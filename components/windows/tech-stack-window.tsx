@@ -52,8 +52,8 @@ const skillNodes: SkillNode[] = [
     connections: [],
     category: "core",
     description: "Core development competencies",
-    bgColor: "bg-gradient-to-br from-red-500/30 to-orange-600/30",
-    iconColor: "text-red-200",
+    bgColor: "bg-linear-to-br from-red-500/30 to-orange-600/30",
+    iconColor: "text-",
   },
 
   // ===== FRAMEWORKS / FRONTEND =====
@@ -68,7 +68,7 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "frontend",
     description: "User interface and experience design",
-    bgColor: "bg-gradient-to-br from-pink-500/30 to-purple-600/30",
+    bgColor: "bg-linear-to-br from-pink-500/30 to-purple-600/30",
     iconColor: "text-white",
   },
   {
@@ -82,7 +82,7 @@ const skillNodes: SkillNode[] = [
     connections: ["frontend"],
     category: "frontend",
     description: "Component-based UI development",
-    bgColor: "bg-gradient-to-br from-cyan-500/30 to-blue-600/30",
+    bgColor: "bg-linear-to-br from-cyan-500/30 to-blue-600/30",
     iconColor: "text-cyan-200",
   },
   {
@@ -96,7 +96,7 @@ const skillNodes: SkillNode[] = [
     connections: ["frontend"],
     category: "frontend",
     description: "Full-stack React framework",
-    bgColor: "bg-gradient-to-br from-gray-800/80 to-black/80",
+    bgColor: "bg-linear-to-br from-gray-800/80 to-black/80",
     iconColor: "text-white",
   },
   {
@@ -110,7 +110,7 @@ const skillNodes: SkillNode[] = [
     connections: ["frontend", "dart"],
     category: "tools",
     description: "Cross-platform mobile development",
-    bgColor: "bg-gradient-to-br from-blue-500/10 to-cyan-600/10",
+    bgColor: "bg-linear-to-br from-blue-500/10 to-cyan-600/10",
     iconColor: "text-blue-600",
   },
 
@@ -126,8 +126,8 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "backend",
     description: "Server-side development and APIs",
-    bgColor: "bg-gradient-to-br from-green-600/30 to-green-800/30",
-    iconColor: "text-green-200",
+    bgColor: "bg-linear-to-br from-green-600/30 to-green-800/30",
+    iconColor: "text-red-200",
   },
   {
     id: "nodejs",
@@ -140,7 +140,7 @@ const skillNodes: SkillNode[] = [
     connections: ["backend"],
     category: "backend",
     description: "Server-side JavaScript runtime",
-    bgColor: "bg-gradient-to-br from-green-600/30 to-green-800/30",
+    bgColor: "bg-linear-to-br from-green-600/30 to-green-800/30",
     iconColor: "text-green-200",
   },
   {
@@ -154,7 +154,7 @@ const skillNodes: SkillNode[] = [
     connections: ["backend"],
     category: "backend",
     description: "Server-side JavaScript runtime",
-    bgColor: "bg-gradient-to-br from-green-600/30 to-green-800/30",
+    bgColor: "bg-linear-to-br from-green-600/30 to-green-800/30",
     iconColor: "text-green-200",
   },
 
@@ -170,7 +170,7 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "database",
     description: "Database design and optimization",
-    bgColor: "bg-gradient-to-br from-blue-600/30 to-blue-800/30",
+    bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
     iconColor: "text-blue-200",
   },
   {
@@ -184,7 +184,7 @@ const skillNodes: SkillNode[] = [
     connections: ["database"],
     category: "database",
     description: "Realtime NoSQL database",
-    bgColor: "bg-gradient-to-br from-red-600/30 to-orange-800/30",
+    bgColor: "bg-linear-to-br from-red-600/30 to-orange-800/30",
     iconColor: "text-yellow-800",
   },
   {
@@ -198,7 +198,7 @@ const skillNodes: SkillNode[] = [
     connections: ["database"],
     category: "database",
     description: "Advanced relational database",
-    bgColor: "bg-gradient-to-br from-blue-600/30 to-blue-800/30",
+    bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
     iconColor: "text-blue-200",
   },
   {
@@ -212,7 +212,7 @@ const skillNodes: SkillNode[] = [
     connections: ["database"],
     category: "database",
     description: "Popular relational database management",
-    bgColor: "bg-gradient-to-br from-blue-600/30 to-blue-800/30",
+    bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
     iconColor: "text-blue-200",
   },
 
@@ -228,7 +228,7 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "tools",
     description: "Development and collaboration tools",
-    bgColor: "bg-gradient-to-br from-gray-800/80 to-black/80",
+    bgColor: "bg-linear-to-br from-gray-800/80 to-black/80",
     iconColor: "text-white",
   },
   {
@@ -242,7 +242,7 @@ const skillNodes: SkillNode[] = [
     connections: ["tools"],
     category: "tools",
     description: "Version control workflows",
-    bgColor: "bg-gradient-to-br from-gray-800/80 to-black/80",
+    bgColor: "bg-linear-to-br from-gray-800/80 to-black/80",
     iconColor: "text-white",
   },
 
@@ -259,7 +259,7 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "backend",
     description: "Proficient in multiple programming languages",
-    bgColor: "bg-gradient-to-br from-gray-600/30 to-gray-800/30",
+    bgColor: "bg-linear-to-br from-gray-600/30 to-gray-800/30",
     iconColor: "text-gray-200",
   },
   {
@@ -273,7 +273,7 @@ const skillNodes: SkillNode[] = [
     connections: ["language"],
     category: "backend",
     description: "Cross-platform mobile development",
-    bgColor: "bg-gradient-to-br from-blue-500/10 to-cyan-600/10",
+    bgColor: "bg-linear-to-br from-blue-500/10 to-cyan-600/10",
     iconColor: "text-blue-600",
   },
    {
@@ -287,7 +287,7 @@ const skillNodes: SkillNode[] = [
     connections: ["language"],
     category: "backend",
     description: "Type-safe JavaScript development",
-    bgColor: "bg-gradient-to-br from-blue-600/30 to-blue-800/30",
+    bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
     iconColor: "text-blue-200",
   },
   {
@@ -301,7 +301,7 @@ const skillNodes: SkillNode[] = [
     connections: ["language"],
     category: "backend",
     description: "Enterprise application development",
-    bgColor: "bg-gradient-to-br from-orange-600/30 to-red-600/30",
+    bgColor: "bg-linear-to-br from-orange-600/30 to-red-600/30",
     iconColor: "text-orange-200",
   },
   {
@@ -315,7 +315,7 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "tools",
     description: "Game development and 3D content creation",
-    bgColor: "bg-gradient-to-br from-indigo-700/30 to-purple-800/30",
+    bgColor: "bg-linear-to-br from-indigo-700/30 to-purple-800/30",
     iconColor: "text-purple-300",
   },
   {
@@ -329,7 +329,7 @@ const skillNodes: SkillNode[] = [
     connections: ["gaming"],
     category: "tools",
     description: "AAA game development engine",
-    bgColor: "bg-gradient-to-br from-blue-800/30 to-gray-900/30",
+    bgColor: "bg-linear-to-br from-blue-800/30 to-gray-900/30",
     iconColor: "text-white",
   },
   {
@@ -343,7 +343,7 @@ const skillNodes: SkillNode[] = [
     connections: ["gaming"],
     category: "tools",
     description: "3D modeling and animation software",
-    bgColor: "bg-gradient-to-br from-orange-600/30 to-yellow-700/30",
+    bgColor: "bg-linear-to-br from-orange-600/30 to-yellow-700/30",
     iconColor: "text-orange-200",
   },
   {
@@ -357,7 +357,7 @@ const skillNodes: SkillNode[] = [
     connections: ["gaming", "blender"],
     category: "tools",
     description: "Character and motion animation fundamentals",
-    bgColor: "bg-gradient-to-br from-pink-600/30 to-red-700/30",
+    bgColor: "bg-linear-to-br from-pink-600/30 to-red-700/30",
     iconColor: "text-pink-200",
   },
 ]
@@ -516,7 +516,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
         >
           {/* Extended Neural Network Background */}
           <div
-            className="map-background absolute bg-gradient-to-br from-black via-zinc-950 to-red-950/20"
+            className="map-background absolute bg-linear-to-br from-black via-zinc-950 to-red-950/20"
             style={{
               width: MAP_BOUNDS.width,
               height: MAP_BOUNDS.height,
@@ -545,7 +545,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
                 {Array.from({ length: 8 }).map((_, i) => (
                   <div
                     key={`diagonal-${i}`}
-                    className="absolute bg-gradient-to-br from-red-500/20 to-transparent"
+                    className="absolute bg-linear-to-br from-red-500/20 to-transparent"
                     style={{
                       width: "2px",
                       height: "120px",
@@ -589,7 +589,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
             </div>
 
             {/* Ambient neural glow */}
-            <div className="map-background absolute inset-0 bg-gradient-to-br from-red-950/10 via-transparent to-red-900/5 pointer-events-none"></div>
+            <div className="map-background absolute inset-0 bg-linear-to-br from-red-950/10 via-transparent to-red-900/5 pointer-events-none"></div>
 
             {/* Subtle scan lines for cyberpunk effect */}
             <div

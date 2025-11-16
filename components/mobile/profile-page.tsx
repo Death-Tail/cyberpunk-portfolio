@@ -36,7 +36,7 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
                 clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
               }}
             />
-            <div className="absolute inset-[2px] bg-gradient-to-br from-red-500/10 to-red-900/20"
+            <div className="absolute inset-[2px] bg-linear-to-br from-red-500/10 to-red-900/20"
               style={{
                 clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
               }}

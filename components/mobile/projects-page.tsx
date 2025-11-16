@@ -63,7 +63,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="relative border border-red-600/40 bg-gradient-to-br from-zinc-950/90 to-red-900/20 rounded-xl overflow-hidden"
+              className="relative border border-red-600/40 bg-linear-to-br from-zinc-950/90 to-red-900/20 rounded-xl overflow-hidden"
             >
               {/* Project Header */}
               <div className="p-4">
@@ -100,7 +100,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                       fill
                       className="object-fill"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent select-none pointer-events-none" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent select-none pointer-events-none" />
 
                     {/* Image Navigation */}
                     <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1">
