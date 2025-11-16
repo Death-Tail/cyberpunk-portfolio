@@ -168,8 +168,8 @@ export function BaseWindow({
         onMouseDown={handleMouseDown}
       >
         <div className="flex items-center">
-          <div className="w-4 h-4 bg-yellow-500/20 border border-yellow-500/50 mr-2 flex items-center justify-center">
-            <span className="text-yellow-400 text-xs">⚡</span>
+          <div className="w-5 h-5 mr-2 flex items-center justify-center">
+            <img src={`/desktopLogo/${title}.avif`} alt={`${title} logo`} />
           </div>
           <span className="text-red-400 text-sm font-mono">{title}</span>
           {isDragging && <span className="ml-2 text-blue-400 text-xs animate-pulse">MOVING...</span>}

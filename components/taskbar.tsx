@@ -45,10 +45,10 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
       width={100}
       height={100}
       />, name: "Profile", color: "red" },
-    { type: "projects", icon: <Image src="/desktopLogo/project.avif" alt="projects Logo" property="true" width={100} height={100}/>, name: "Projects", color: "yellow" },
-    { type: "terminal", icon: <Image src="/desktopLogo/terminal.avif" alt="terminal Logo" property="true" width={100} height={100}/>, name: "Terminal", color: "blue" },
-    { type: "contact", icon: <Image src="/desktopLogo/contact.avif" alt="contact Logo" property="true" width={100} height={100}/>, name: "Contact", color: "red" },
-    { type: "techstack", icon: <Image src="/desktopLogo/techstack.avif" alt="techstack Logo" property="true" width={100} height={100}/>, name: "Tech Stack", color: "yellow" },
+    { type: "projects", icon: <Image src="/desktopLogo/Projects.avif" alt="projects Logo" property="true" width={100} height={100}/>, name: "Projects", color: "yellow" },
+    { type: "terminal", icon: <Image src="/desktopLogo/Terminal.avif" alt="terminal Logo" property="true" width={100} height={100}/>, name: "Terminal", color: "blue" },
+    { type: "contact", icon: <Image src="/desktopLogo/Contact.avif" alt="contact Logo" property="true" width={100} height={100}/>, name: "Contact", color: "red" },
+    { type: "techstack", icon: <Image src="/desktopLogo/Techstack.avif" alt="techstack Logo" property="true" width={100} height={100}/>, name: "Tech Stack", color: "yellow" },
   ]
 
   const handleWindowClick = (window: Window) => {

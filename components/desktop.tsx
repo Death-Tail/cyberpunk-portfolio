@@ -40,7 +40,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       type: "profile",
       name: "Profile",
       icon: <Image
-      src="/desktopLogo/profile.avif"
+      src="/desktopLogo/Profile.avif"
       alt="profile logo"
       property="true"
       width={100}
@@ -53,7 +53,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       type: "projects",
       name: "Projects",
       icon: <Image
-      src="/desktopLogo/project.avif"
+      src="/desktopLogo/Projects.avif"
       alt="project logo"
       property="true"
       width={100}
@@ -66,7 +66,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       type: "terminal",
       name: "Terminal",
       icon: <Image
-      src="/desktopLogo/terminal.avif"
+      src="/desktopLogo/Terminal.avif"
       alt="terminal logo"
       property="true"
       width={100}
@@ -79,7 +79,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       type: "contact",
       name: "Contact",
       icon: <Image
-      src="/desktopLogo/contact.avif"
+      src="/desktopLogo/Contact.avif"
       alt="contact logo"
       property="true"
       width={100}
@@ -92,7 +92,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       type: "techstack",
       name: "Tech Stack",
       icon: <Image
-      src="/desktopLogo/techstack.avif"
+      src="/desktopLogo/Techstack.avif"
       alt="tech stack logo"
       property="true"
       width={100}
@@ -246,11 +246,11 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
 
   const getIconBgClasses = (color: string) => {
     if (color === "yellow") {
-      return "bg-yellow-500/20 border-yellow-500/50 text-yellow-400"
+      return "bg-yellow-500/20 text-yellow-400"
     } else if (color === "blue") {
-      return "bg-blue-500/20 border-blue-500/50 text-blue-400"
+      return "bg-blue-500/20  text-blue-400"
     } else {
-      return "bg-red-600/20 border-red-600/50 text-red-400"
+      return "bg-red-600/20  text-red-400"
     }
   }
 
@@ -282,12 +282,26 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
         onDoubleClick={() => handleIconDoubleClick(icon.type)}
         onContextMenu={(e) => handleContextMenu(e, icon.id)}
         >
-        <div className={`w-10 h-10 border ${getIconBgClasses(icon.color)} flex items-center justify-center mb-1`}>
+        <div
+  className={cn(
+    "w-14 h-14 rounded-md flex items-center justify-center mb-1",
+    "backdrop-blur-sm bg-black/20 border",
+    "shadow-[0_0_8px_var(--glow-color),inset_0_0_8px_var(--glow-color)]",
+    icon.color === "red" && "border-red-500/50 [--glow-color:rgba(220,38,38,0.5)]",
+    icon.color === "yellow" && "border-yellow-400/50 [--glow-color:rgba(234,179,8,0.5)]",
+    icon.color === "blue" && "border-blue-500/50 [--glow-color:rgba(59,130,246,0.5)]"
+  )}
+>
           {icon.icon}
         </div>
         <span
-          className={`text-${icon.color === "yellow" ? "yellow" : icon.color === "blue" ? "blue" : "red"}-400 text-xs text-center px-1`}
-        >
+  className={cn(
+    "text-[12px] mt-1 text-center font-mono tracking-wide",
+    icon.color === "red" && "text-red-400",
+    icon.color === "yellow" && "text-yellow-400",
+    icon.color === "blue" && "text-blue-400"
+  )}
+>
           {icon.name}
         </span>
         {/* Selection indicator */}

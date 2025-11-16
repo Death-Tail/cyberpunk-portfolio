@@ -60,59 +60,7 @@ export const projects = [
       seo: 90,
     },
   },
-  {
-    title: "Alsamadi Official Website",
-    description:
-      "A personal/business informational website built for Alsamadi, providing a professional online presence with basic content management, domain setup, and SSL integration.",
-    status: "DEPLOYED",
-    icon: (
-      <img
-        src="/projects/Alsamadi/alsamadi-logo.avif"
-        alt="Alsamadi Logo"
-        className="w-10 h-10 object-contain"
-      />
-    ),
-    images: [
-      "/projects/Alsamadi/alsamadiHero.avif",
-      "/projects/Alsamadi/alsamadiAboutUs.avif",
-      "/projects/Alsamadi/AlsamadiAboutUs2.avif",
-    ],
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Node.js",
-      "Framer Motion",
-    ],
-    achievements: [
-      "Successfully set up custom domain with DNS configuration",
-      "Installed and configured SSL/TLS certificates for secure browsing",
-      "Deployed a responsive and professional informational website",
-      "Optimized for basic SEO and fast loading times"
-    ],
-    links: {
-      live: "https://alsamadi.info",
-      github: null // private / not published
-    },
-    timeline: "1 months",
-    teamSize: "Solo Project",
-    challenges: [
-      "Configuring DNS records and email setup with Namecheap",
-      "Maintaining fast performance on shared hosting"
-    ],
-    features: [
-      "Clean, mobile-friendly design",
-      "Basic informational sections (Home, About, Contact)",
-      "SSL encryption for secure connections",
-      "Custom domain integration",
-      "SEO-ready structure for indexing"
-    ],
-    metrics: {
-      performance: 85,
-      accessibility: 88,
-      seo: 80
-    }
-  },
+
   {
     title: "SHIN尾",
     description:
@@ -143,7 +91,7 @@ export const projects = [
       "Deployed with continuous integration and HTTPS/SSL",
     ],
     links: {
-      live: null, // this website
+      live: null,
       github: "https://github.com/Death-Tail/cyberpunk-portfolio"
     },
     timeline: "1–4 months",
