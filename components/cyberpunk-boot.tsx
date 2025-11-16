@@ -140,9 +140,9 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
 
         {/* Diagonal lines */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-500 to-transparent transform rotate-12 origin-left"></div>
-          <div className="absolute top-20 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-400 to-transparent transform -rotate-12 origin-left"></div>
-          <div className="absolute bottom-20 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-600 to-transparent transform rotate-6 origin-left"></div>
+          <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-red-500 to-transparent transform rotate-12 origin-left"></div>
+          <div className="absolute top-20 left-0 w-full h-px bg-linear-to-r from-transparent via-red-400 to-transparent transform -rotate-12 origin-left"></div>
+          <div className="absolute bottom-20 left-0 w-full h-px bg-linear-to-r from-transparent via-red-600 to-transparent transform rotate-6 origin-left"></div>
         </div>
       </div>
 

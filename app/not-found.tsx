@@ -172,11 +172,11 @@ export default function NotFound() {
         {isScanning && (
           <>
             <div
-              className="absolute left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-80 transition-all duration-75"
+              className="absolute left-0 w-full h-0.5 bg-linear-to-r from-transparent via-red-500 to-transparent opacity-80 transition-all duration-75"
               style={{ top: `${scanLines}%` }}
             />
             <div
-              className="absolute left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-yellow-500/60 to-transparent opacity-60 transition-all duration-75"
+              className="absolute left-0 w-full h-0.5 bg-linear-to-r from-transparent via-yellow-500/60 to-transparent opacity-60 transition-all duration-75"
               style={{ top: `${(scanLines + 10) % 100}%` }}
             />
           </>
@@ -335,7 +335,7 @@ export default function NotFound() {
 
             <button
               onClick={() => router.back()}
-              className="w-full flex items-center justify-center gap-3 p-4 border-2 border-red-500/40 bg-gradient-to-r from-red-500/10 to-red-600/5 text-red-400 hover:from-red-500/20 hover:to-red-600/10 transition-all duration-300 group backdrop-blur-sm"
+              className="w-full flex items-center justify-center gap-3 p-4 border-2 border-red-500/40 bg-linear-to-r from-red-500/10 to-red-600/5 text-red-400 hover:from-red-500/20 hover:to-red-600/10 transition-all duration-300 group backdrop-blur-sm"
             >
               <ArrowLeft className="w-5 h-5 group-hover:scale-110 group-hover:-translate-x-1 transition-transform" />
               <span className=" text-sm tracking-wide">RETURN_TO_PREVIOUS_DIMENSION</span>
