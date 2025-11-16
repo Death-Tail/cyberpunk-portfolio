@@ -39,7 +39,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
   const applications = [
     { type: "profile", icon:
     <Image
-    src="/desktopLogo/profile.avif"
+    src="/desktopLogo/Profile.avif"
       alt="profile Logo"
       property="true"
       width={100}

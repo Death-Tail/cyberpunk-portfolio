@@ -33,10 +33,10 @@ export default function MobileOS() {
   }, [])
 
   const apps = [
-    { type: "profile", icon: "/desktopLogo/profile.avif", name: "Profile" },
+    { type: "profile", icon: "/desktopLogo/Profile.avif", name: "Profile" },
     { type: "projects", icon: "/desktopLogo/Projects.avif", name: "Projects" },
-    { type: "contact", icon: "/desktopLogo/contact.avif", name: "Contact" },
-    { type: "techstack", icon: "/desktopLogo/techstack.avif", name: "Tech Stack" },
+    { type: "contact", icon: "/desktopLogo/Contact.avif", name: "Contact" },
+    { type: "techstack", icon: "/desktopLogo/Techstack.avif", name: "Tech Stack" },
   ]
 
   const dockApps = apps.slice(0, 4)
