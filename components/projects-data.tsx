@@ -1,6 +1,3 @@
-// Shared project data for both desktop and mobile
-
-
 export const projects = [
   {
     title: "Rekan Group Official Website",
