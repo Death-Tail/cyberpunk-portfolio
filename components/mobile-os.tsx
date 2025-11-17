@@ -33,10 +33,10 @@ export default function MobileOS() {
   }, [])
 
   const apps = [
-    { type: "profile", icon: "/desktopLogo/Profile.avif", name: "Profile" },
-    { type: "projects", icon: "/desktopLogo/Projects.avif", name: "Projects" },
-    { type: "contact", icon: "/desktopLogo/Contact.avif", name: "Contact" },
-    { type: "techstack", icon: "/desktopLogo/Techstack.avif", name: "Tech Stack" },
+    { type: "profile", icon: "/desktopLogo/Profile.webp", name: "Profile" },
+    { type: "projects", icon: "/desktopLogo/Projects.webp", name: "Projects" },
+    { type: "contact", icon: "/desktopLogo/Contact.webp", name: "Contact" },
+    { type: "techstack", icon: "/desktopLogo/Techstack.webp", name: "Tech Stack" },
   ]
 
   const dockApps = apps.slice(0, 4)
@@ -71,7 +71,7 @@ export default function MobileOS() {
     <div className="relative h-screen w-full bg-zinc-900 overflow-hidden">
       <div className="fixed inset-0 z-0">
         <Image
-          src="/bg.png"
+          src="/bg.webp"
           alt="Anime background"
           fill
           priority

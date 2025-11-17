@@ -38,18 +38,11 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
   }, [])
 
   const applications = [
-    { type: "profile", icon:
-    <Image
-    src="/desktopLogo/Profile.avif"
-      alt="profile Logo"
-      property="true"
-      width={100}
-      height={100}
-      />, name: "Profile", color: "slate" },
-    { type: "projects", icon: <Image src="/desktopLogo/Projects.avif" alt="projects Logo" property="true" width={100} height={100}/>, name: "Projects", color: "teal" },
-    { type: "terminal", icon: <Image src="/desktopLogo/Terminal.avif" alt="terminal Logo" property="true" width={100} height={100}/>, name: "Terminal", color: "emerald" },
-    { type: "contact", icon: <Image src="/desktopLogo/Contact.avif" alt="contact Logo" property="true" width={100} height={100}/>, name: "Contact", color: "slate" },
-    { type: "techstack", icon: <Image src="/desktopLogo/Techstack.avif" alt="techstack Logo" property="true" width={100} height={100}/>, name: "Tech Stack", color: "cyan" },
+    { type: "profile", icon: <Image src="/desktopLogo/Profile.webp" alt="profile Logo" property="true" width={100} height={100} />, name: "Profile" },
+    { type: "projects", icon: <Image src="/desktopLogo/Projects.webp" alt="projects Logo" property="true" width={100} height={100}/>, name: "Projects"},
+    { type: "terminal", icon: <Image src="/desktopLogo/Terminal.webp" alt="terminal Logo" property="true" width={100} height={100}/>, name: "Terminal" },
+    { type: "contact", icon: <Image src="/desktopLogo/Contact.webp" alt="contact Logo" property="true" width={100} height={100}/>, name: "Contact" },
+    { type: "techstack", icon: <Image src="/desktopLogo/Techstack.webp" alt="techstack Logo" property="true" width={100} height={100}/>, name: "Tech Stack" },
   ]
 
   const handleWindowClick = (window: Window) => {
@@ -128,7 +121,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
         >
           <div className="w-7 h-7 mr-2">
             <Image
-              src="/bgLogo.avif"
+              src="/LogoP.png"
               width={500}
               height={500}
               alt="Logo of the start menu button"
@@ -169,7 +162,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
             <Battery className="w-4 h-4 text-red-700" />
             <div className="pr-1"></div>
           </div>
-                    <div className="text-white text-xs font-mono">{currentTime}</div>
+          <div className="text-white text-xs font-mono">{currentTime}</div>
         </div>
       </div>
     </>

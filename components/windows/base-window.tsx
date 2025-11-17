@@ -37,6 +37,18 @@ export function BaseWindow({
   const windowRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
 
+  const constrainPosition = (x: number, y: number) => {
+    const BOUNDARY_TOP = 20
+    const BOUNDARY_BOTTOM = 20
+    const maxX = Math.max(0, window.innerWidth - size.width)
+    const maxY = Math.max(BOUNDARY_TOP, window.innerHeight - size.height - BOUNDARY_BOTTOM)
+
+    return {
+      x: Math.max(0, Math.min(x, maxX)),
+      y: Math.max(BOUNDARY_TOP, Math.min(y, maxY))
+    }
+  }
+
   useEffect(() => {
     const header = headerRef.current
     if (!header) return
@@ -51,12 +63,14 @@ export function BaseWindow({
       onFocus()
     }
 
+
+
     const handleMouseMove = (e: MouseEvent) => {
       if (!isDragging) return
-      setPosition({
-        x: e.clientX - dragOffset.x,
-        y: e.clientY - dragOffset.y
-      })
+      const newX = e.clientX - dragOffset.x
+      const newY = e.clientY - dragOffset.y
+      const constrained = constrainPosition(newX, newY)
+      setPosition(constrained)
     }
 
     const handleMouseUp = () => {
@@ -72,8 +86,14 @@ export function BaseWindow({
       document.removeEventListener('mousemove', handleMouseMove)
       document.removeEventListener('mouseup', handleMouseUp)
     }
-  }, [isDragging, dragOffset, position, onFocus])
+  }, [isDragging, dragOffset, position, onFocus, size])
 
+  const handleMinimize = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    e.preventDefault()
+    onMinimize()
+  }
+  if (isMinimized) return null
   return (
     <div
       ref={windowRef}
@@ -96,7 +116,7 @@ export function BaseWindow({
         <h2 className="text-sm font-semibold text-slate-100">{title}</h2>
         <div className="flex gap-2">
           <button
-            onClick={onMinimize}
+            onClick={handleMinimize}
             className="hover:bg-slate-700 p-1 rounded text-slate-400 hover:text-slate-100 transition-colors"
             title="Minimize"
           >

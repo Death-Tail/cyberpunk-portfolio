@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Dyari Ali Tahir Portfolio",
     images: [
       {
-        url: "https://dyariali.com/OG.webp",
+        url: "https://dyariali.com/OGbanner.webp",
         width: 3000,
         height: 2000,
         alt: "Dyari Ali Tahir Portfolio",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     site: "@dyariali",
     creator: "@death_tail0331",
     images: [
-      "https://dyariali.com/OG.webp",
+      "https://dyariali.com/OGbanner.webp",
     ],
   },
   manifest: "/manifest.json",

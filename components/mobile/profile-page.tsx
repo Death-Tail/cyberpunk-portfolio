@@ -3,7 +3,7 @@
 import BasePage from "./base-page"
 import Image from "next/image"
 import { Award, Send } from "lucide-react"
-import pfp from "../../public/pfp.avif"
+import pfp from "../../public/pfp.webp"
 
 interface ProfilePageProps {
   onBack: () => void

@@ -61,19 +61,19 @@ export const projects = [
   {
     title: "SHIN尾",
     description:
-      "A cyberpunk-themed portfolio website showcasing my skills, projects, and experience as a full-stack developer, built with modern web technologies and optimized for performance and accessibility.",
+      "An aesthetic OS portfolio website showcasing my skills, projects, and experience as a full-stack developer, built with modern web technologies and optimized for performance and accessibility.",
     status: "DEPLOYED",
     icon: (
       <img
-        src="/bgLogo.avif"
+        src="/LogoWeb.webp"
         alt="Portfolio Logo"
         className="w-10 h-10 object-contain"
       />
     ),
     images: [
-      "/projects/DeathTail/portfolio1.avif",
-      "/projects/DeathTail/portfolio2.avif",
-      "/projects/DeathTail/portfolio3.avif",
+      "/projects/DeathTail/portfolio1.webp",
+      "/projects/DeathTail/portfolio2.webp",
+      "/projects/DeathTail/portfolio3.webp",
     ],
     tech: [
       "Next.js",
@@ -82,33 +82,29 @@ export const projects = [
       "Node.js",
     ],
     achievements: [
-      "Designed and implemented a unique cyberpunk aesthetic",
-      "Showcased a variety of projects with detailed case studies",
+      "Designed and developed an aesthetic OS Portfolio",
       "Optimized for performance, accessibility, and SEO",
-      "Deployed with continuous integration and HTTPS/SSL",
     ],
     links: {
       live: null,
       github: "https://github.com/Death-Tail/cyberpunk-portfolio"
     },
-    timeline: "1–4 months",
+    timeline: "1–5 months",
     teamSize: "Solo Project",
     challenges: [
-      "Creating a cohesive cyberpunk design language",
       "Balancing visual effects with performance",
       "Implementing responsive layouts for all devices",
     ],
     features: [
-      "Cyberpunk-themed UI design",
+      "Aesthetic OS UI design",
       "Responsive design for mobile and desktop",
       "SEO optimization and performance tuning",
-      "Detailed project case studies",
       "Continuous deployment with Vercel",
     ],
     metrics: {
       performance: 93,
       accessibility: 90,
-      seo: 88,
+      seo: 100,
     },
   }
 

@@ -16,7 +16,6 @@ interface DesktopIcon {
   type: string
   name: string
   icon: React.ReactNode
-  color: "red" | "yellow" | "blue" | "teal"
 }
 
 export function Desktop({ onOpenWindow }: DesktopProps) {
@@ -40,65 +39,60 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       type: "profile",
       name: "Profile",
       icon: <Image
-      src="/desktopLogo/Profile.avif"
+      src="/desktopLogo/Profile.webp"
       alt="profile logo"
       property="true"
       width={100}
       height={100}
-      />,
-      color: "red",
+      />
     },
     {
       id: "projects-icon",
       type: "projects",
       name: "Projects",
       icon: <Image
-      src="/desktopLogo/Projects.avif"
+      src="/desktopLogo/Projects.webp"
       alt="project logo"
       property="true"
       width={100}
       height={100}
-      />,
-      color: "yellow",
+      />
     },
     {
       id: "terminal-icon",
       type: "terminal",
       name: "Terminal",
       icon: <Image
-      src="/desktopLogo/Terminal.avif"
+      src="/desktopLogo/Terminal.webp"
       alt="terminal logo"
       property="true"
       width={100}
       height={100}
-      />,
-      color: "blue",
+      />
     },
     {
       id: "contact-icon",
       type: "contact",
       name: "Contact",
       icon: <Image
-      src="/desktopLogo/Contact.avif"
+      src="/desktopLogo/Contact.webp"
       alt="contact logo"
       property="true"
       width={100}
       height={100}
-      />,
-      color: "red",
+      />
     },
     {
       id: "techstack-icon",
       type: "techstack",
       name: "Tech Stack",
       icon: <Image
-      src="/desktopLogo/Techstack.avif"
+      src="/desktopLogo/Techstack.webp"
       alt="tech stack logo"
       property="true"
       width={100}
       height={100}
-      />,
-      color: "yellow",
+      />
     }
   ]
 
@@ -113,82 +107,10 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       if (!canvas || !ctx) return;
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
-      drawBackground()
     }
 
     window.addEventListener("resize", updateSize)
     updateSize()
-
-    function drawBackground() {
-      if (!canvas || !ctx) return;
-      // Dark gradient background
-      const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
-      gradient.addColorStop(0, "#0f0f0f")
-      gradient.addColorStop(0.5, "#1a1a1a")
-      gradient.addColorStop(1, "#0f0f0f")
-
-      ctx.fillStyle = gradient
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-      // Add circuit-like lines
-      ctx.strokeStyle = "rgba(220, 38, 38, 0.1)"
-      ctx.lineWidth = 1
-
-      // Horizontal lines
-      for (let i = 0; i < canvas.height; i += 100) {
-        if (Math.random() > 0.7) {
-          ctx.beginPath()
-          ctx.moveTo(0, i)
-          ctx.lineTo(canvas.width, i)
-          ctx.stroke()
-        }
-      }
-
-      // Vertical lines
-      for (let i = 0; i < canvas.width; i += 100) {
-        if (Math.random() > 0.7) {
-          ctx.beginPath()
-          ctx.moveTo(i, 0)
-          ctx.lineTo(i, canvas.height)
-          ctx.stroke()
-        }
-      }
-
-      // Add some yellow lines
-      ctx.strokeStyle = "rgba(234, 179, 8, 0.1)"
-      for (let i = 0; i < 10; i++) {
-        const x1 = Math.random() * canvas.width
-        const y1 = Math.random() * canvas.height
-        const x2 = x1 + (Math.random() * 200 - 100)
-        const y2 = y1 + (Math.random() * 200 - 100)
-
-        ctx.beginPath()
-        ctx.moveTo(x1, y1)
-        ctx.lineTo(x2, y2)
-        ctx.stroke()
-      }
-
-      // Add some blue dots
-      ctx.fillStyle = "rgba(59, 130, 246, 0.2)"
-      for (let i = 0; i < 20; i++) {
-        const x = Math.random() * canvas.width
-        const y = Math.random() * canvas.height
-        const radius = Math.random() * 3 + 1
-        ctx.beginPath()
-        ctx.arc(x, y, radius, 0, Math.PI * 2)
-        ctx.fill()
-      }
-
-      // Add some glowing red dots
-      ctx.fillStyle = "rgba(220, 38, 38, 0.3)"
-      for (let i = 0; i < 15; i++) {
-        const x = Math.random() * canvas.width
-        const y = Math.random() * canvas.height
-        ctx.beginPath()
-        ctx.arc(x, y, 2, 0, Math.PI * 2)
-        ctx.fill()
-      }
-    }
 
     return () => {
       window.removeEventListener("resize", updateSize)
@@ -244,15 +166,6 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
     }
   }
 
-  const getIconBgClasses = (color: string) => {
-    if (color === "yellow") {
-      return "bg-yellow-500/20 text-yellow-400"
-    } else if (color === "blue") {
-      return "bg-blue-500/20  text-blue-400"
-    } else {
-      return "bg-red-600/20  text-red-400"
-    }
-  }
 
   return (
     <>
@@ -261,7 +174,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
      {/* Background Image Overlay */}
 <div className="fixed inset-0 z-0 opacity-85 overflow-hidden">
   <Image
-    src="/bg.png"
+    src="/bg.webp"
     alt="Background logo"
     fill
     className="object-cover object-center select-none pointer-events-none"
@@ -274,7 +187,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       {desktopIcons.map((icon) => (
         <div
         key={icon.id}
-        className={getIconColorClasses(icon.color, selectedIcon === icon.id)}
+        className={getIconColorClasses(icon.type, selectedIcon === icon.id)}
         onClick={(e) => {
           e.stopPropagation()
           handleIconClick(icon.id)
@@ -285,11 +198,8 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
         <div
   className={cn(
     "w-14 h-14 rounded-md flex items-center justify-center mb-1",
-    "backdrop-blur-sm bg-black/20 border",
+    "backdrop-blur-sm bg-black/20",
     "shadow-[0_0_8px_var(--glow-color),inset_0_0_8px_var(--glow-color)]",
-    icon.color === "red" && "border-red-500/50 [--glow-color:rgba(220,38,38,0.5)]",
-    icon.color === "yellow" && "border-yellow-400/50 [--glow-color:rgba(234,179,8,0.5)]",
-    icon.color === "blue" && "border-blue-500/50 [--glow-color:rgba(59,130,246,0.5)]"
   )}
 >
           {icon.icon}

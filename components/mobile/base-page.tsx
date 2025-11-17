@@ -21,7 +21,7 @@ export default function BasePage({ title, onBack, children }: BasePageProps) {
     <div className="relative min-h-screen bg-zinc-950 text-white p-4 overflow-hidden z-0">
       <div className="fixed inset-0 z-0">
         <Image
-          src="/bg.png" // ← place your mobile vertical image here
+          src="/bg.webp" // ← place your mobile vertical image here
           alt="Anime background"
           fill
           priority
