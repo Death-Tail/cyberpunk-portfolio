@@ -1,7 +1,7 @@
 {
   "name": "death-tail",
   "version": "4.0.1",
-  "description": "portfolio of SHIN尾, with cyberpunk athetic and ninetail fox theme.",
+  "description": "portfolio of SHIN尾, with aesthetic and ninetail fox theme.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

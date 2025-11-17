@@ -591,7 +591,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
             {/* Ambient neural glow */}
             <div className="map-background absolute inset-0 bg-linear-to-br from-teal-950/10 via-transparent to-teal-900/5 pointer-events-none"></div>
 
-            {/* Subtle scan lines for cyberpunk effect */}
+            {/* Subtle grid overlay */}
             <div
               className="map-background absolute inset-0 opacity-5 pointer-events-none"
               style={{
