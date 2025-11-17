@@ -1,14 +1,11 @@
-"use client"
+'use client'
 
-import type React from "react"
-
-import { useState, useRef, useEffect, type ReactNode } from "react"
-import { Minus, X } from "lucide-react"
+import { useState, useRef, useEffect } from 'react'
+import { X, Minus } from 'lucide-react'
 
 interface BaseWindowProps {
   id: string
   title: string
-  children: ReactNode
   isActive: boolean
   isMinimized: boolean
   zIndex: number
@@ -17,12 +14,12 @@ interface BaseWindowProps {
   onFocus: () => void
   initialPosition?: { x: number; y: number }
   initialSize?: { width: number; height: number }
+  children: React.ReactNode
 }
 
 export function BaseWindow({
   id,
   title,
-  children,
   isActive,
   isMinimized,
   zIndex,
@@ -30,179 +27,97 @@ export function BaseWindow({
   onMinimize,
   onFocus,
   initialPosition = { x: 100, y: 100 },
-  initialSize = { width: 600, height: 400 },
+  initialSize = { width: 500, height: 400 },
+  children
 }: BaseWindowProps) {
   const [position, setPosition] = useState(initialPosition)
+  const [size, setSize] = useState(initialSize)
   const [isDragging, setIsDragging] = useState(false)
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 })
-  const [hasInitialized, setHasInitialized] = useState(false)
   const windowRef = useRef<HTMLDivElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!hasInitialized) {
-      // Calculate proper offset based on window type and existing windows
-      let baseOffset = 0
+    const header = headerRef.current
+    if (!header) return
 
-      // Different base positions for different window types
-      switch (id.split("-")[0]) {
-        case "profile":
-          baseOffset = 0
-          break
-        case "projects":
-          baseOffset = 50
-          break
-        case "terminal":
-          baseOffset = 100
-          break
-        case "contact":
-          baseOffset = 150
-          break
-        case "techstack":
-          baseOffset = 200
-          break
-        default:
-          baseOffset = 0
-      }
-
-      // Add additional offset based on window number
-      const windowNumber = Number.parseInt(id.split("-")[1] || "0") || Date.now()
-      const additionalOffset = (windowNumber % 10) * 30
-
-      setPosition({
-        x: initialPosition.x + baseOffset + additionalOffset,
-        y: initialPosition.y + baseOffset + additionalOffset,
-      })
-      setHasInitialized(true)
-    }
-  }, [id, initialPosition, hasInitialized])
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    const target = e.target as HTMLElement
-    if (target.closest(".window-header") && !target.closest("button")) {
-      e.preventDefault()
+    const handleMouseDown = (e: MouseEvent) => {
+      if ((e.target as HTMLElement).closest('button')) return
       setIsDragging(true)
       setDragOffset({
         x: e.clientX - position.x,
-        y: e.clientY - position.y,
+        y: e.clientY - position.y
       })
       onFocus()
     }
-  }
 
-  const handleMinimize = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    e.preventDefault()
-    onMinimize()
-  }
-
-  const handleClose = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    e.preventDefault()
-    onClose()
-  }
-
-  useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (isDragging) {
-        e.preventDefault()
-        const newX = e.clientX - dragOffset.x
-        const newY = e.clientY - dragOffset.y
-
-        // Allow windows to go outside viewport bounds
-        // Only constrain the top to prevent losing the title bar
-        const minY = -initialSize.height + 40 // Keep at least title bar visible
-        const maxX = window.innerWidth + initialSize.width - 100 // Allow most of window to go off-screen
-        const minX = -initialSize.width + 100 // Allow most of window to go off-screen
-
-        setPosition({
-          x: Math.max(minX, Math.min(newX, maxX)),
-          y: Math.max(minY, newY), // No max Y constraint - can go below screen
-        })
-      }
+      if (!isDragging) return
+      setPosition({
+        x: e.clientX - dragOffset.x,
+        y: e.clientY - dragOffset.y
+      })
     }
 
-    const handleMouseUp = (e: MouseEvent) => {
-      if (isDragging) {
-        e.preventDefault()
-        setIsDragging(false)
-      }
+    const handleMouseUp = () => {
+      setIsDragging(false)
     }
 
-    if (isDragging) {
-      document.addEventListener("mousemove", handleMouseMove)
-      document.addEventListener("mouseup", handleMouseUp)
-      document.body.style.userSelect = "none"
-    }
+    header.addEventListener('mousedown', handleMouseDown)
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseup', handleMouseUp)
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove)
-      document.removeEventListener("mouseup", handleMouseUp)
-      document.body.style.userSelect = ""
+      header.removeEventListener('mousedown', handleMouseDown)
+      document.removeEventListener('mousemove', handleMouseMove)
+      document.removeEventListener('mouseup', handleMouseUp)
     }
-  }, [isDragging, dragOffset, initialSize.width, initialSize.height])
-
-  if (isMinimized) return null
+  }, [isDragging, dragOffset, position, onFocus])
 
   return (
     <div
       ref={windowRef}
-      className={`absolute bg-zinc-900 border-2 ${
-        isActive
-          ? "border-red-600 shadow-[0_0_20px_rgba(220,38,38,0.3)]"
-          : "border-red-600/50 shadow-[0_0_10px_rgba(220,38,38,0.1)]"
-      } transition-shadow duration-200`}
       style={{
-        left: position.x,
-        top: position.y,
-        width: initialSize.width,
-        height: initialSize.height,
-        zIndex,
+        position: 'absolute',
+        left: `${position.x}px`,
+        top: `${position.y}px`,
+        width: `${size.width}px`,
+        height: isMinimized ? 'auto' : `${size.height}px`,
+        zIndex: isActive ? zIndex : zIndex - 1,
       }}
+      className="bg-slate-900/95 border border-slate-700 rounded shadow-lg flex flex-col"
       onClick={onFocus}
     >
       {/* Window Header */}
       <div
-        className={`window-header flex items-center justify-between p-2 ${
-          isActive ? "bg-red-600/20" : "bg-red-600/10"
-        } border-b border-red-600/30 cursor-move select-none`}
-        onMouseDown={handleMouseDown}
+        ref={headerRef}
+        className="bg-linear-to-r from-slate-800 to-slate-900 border-b border-slate-700 p-3 flex items-center justify-between cursor-grab active:cursor-grabbing"
       >
-        <div className="flex items-center">
-          <div className="w-5 h-5 mr-2 flex items-center justify-center">
-            <img src={`/desktopLogo/${title}.avif`} alt={`${title} logo`} />
-          </div>
-          <span className="text-red-400 text-sm font-mono">{title}</span>
-          {isDragging && <span className="ml-2 text-blue-400 text-xs animate-pulse">MOVING...</span>}
-        </div>
-
-        <div className="flex items-center space-x-1">
+        <h2 className="text-sm font-semibold text-slate-100">{title}</h2>
+        <div className="flex gap-2">
           <button
-          aria-label="Minimize window"
-          name="minimize-button"
-            onClick={handleMinimize}
-            className="w-6 h-6 bg-yellow-500/20 border border-yellow-500/50 hover:bg-yellow-500/30 flex items-center justify-center transition-colors"
+            onClick={onMinimize}
+            className="hover:bg-slate-700 p-1 rounded text-slate-400 hover:text-slate-100 transition-colors"
+            title="Minimize"
           >
-            <Minus className="w-3 h-3 text-yellow-400" />
+            <Minus className="w-4 h-4" />
           </button>
           <button
-          aria-label="Close window"
-            name="close-button"
-            onClick={handleClose}
-            className="w-6 h-6 bg-red-600/20 border border-red-600/50 hover:bg-red-600/30 flex items-center justify-center transition-colors"
+            onClick={onClose}
+            className="hover:bg-red-500/20 p-1 rounded text-slate-400 hover:text-red-400 transition-colors"
+            title="Close"
           >
-            <X className="w-3 h-3 text-red-400" />
+            <X className="w-4 h-4" />
           </button>
         </div>
       </div>
 
       {/* Window Content */}
-      <div className="p-4 overflow-auto bg-zinc-900/95" style={{ height: `calc(100% - 40px)` }}>
-        {children}
-      </div>
-
-      {/* Accent borders */}
-      <div className="absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-blue-500/30 via-yellow-500/30 to-red-500/30"></div>
-      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-red-500/30 via-yellow-500/30 to-blue-500/30"></div>
+      {!isMinimized && (
+        <div className="flex-1 overflow-auto p-4 text-slate-100">
+          {children}
+        </div>
+      )}
     </div>
   )
 }

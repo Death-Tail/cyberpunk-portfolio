@@ -63,7 +63,7 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       name: "JAVA",
       icon: <DiJava className="w-7 h-7" />,
       category: "language",
-      bgColor: "bg-linear-to-br from-red-600/30 to-yellow-600/30",
+      bgColor: "bg-linear-to-br from-teal-600/30 to-yellow-600/30",
       iconColor: "text-yellow-200",
       experience: "6+ Months",
       projects: 0,
@@ -179,9 +179,9 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       <div className="relative space-y-6">
         {/* Tech Overview Stats */}
         <div className="grid grid-cols-4 gap-2 mb-6">
-          <div className="p-2 bg-red-500/10 border border-red-500/30 text-center rounded">
-            <div className="text-sm font-bold text-red-400">{skillNodes.length}</div>
-            <div className="text-red-400/70 text-xs">Technologies</div>
+          <div className="p-2 bg-teal-500/10 border border-teal-500/30 text-center rounded">
+            <div className="text-sm font-bold text-teal-400">{skillNodes.length}</div>
+            <div className="text-teal-400/70 text-xs">Technologies</div>
           </div>
           <div className="p-2 bg-blue-500/10 border border-blue-500/30 text-center rounded">
           <div className="text-sm font-bold text-blue-400">2+Years</div>
@@ -207,8 +207,8 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
               onClick={() => setSelectedCategory(category)}
               className={`px-3 py-1 text-xs rounded-full border transition-colors whitespace-nowrap ${
                 selectedCategory === category
-                  ? "bg-red-500/20 border-red-500/50 text-red-400"
-                  : "bg-zinc-800/50 border-zinc-600/50 text-zinc-400 hover:text-red-400"
+                  ? "bg-teal-500/20 border-teal-500/50 text-teal-400"
+                  : "bg-zinc-800/50 border-zinc-600/50 text-zinc-400 hover:text-teal-400"
               }`}
             >
               {category.toUpperCase()}
@@ -219,7 +219,7 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
         {/* Enhanced Tech Stack */}
         <div className="space-y-4">
           {filteredSkills.map((skill) => (
-            <div key={skill.name} className="relative border border-red-600/30 bg-red-500/5 rounded-lg overflow-hidden">
+            <div key={skill.name} className="relative border border-teal-600/30 bg-teal-500/5 rounded-lg overflow-hidden">
               {/* Tech Header */}
               <div className="p-4">
                 <div className="flex items-center justify-between mb-3">
@@ -228,13 +228,13 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
                       <div className={skill.iconColor}>{skill.icon}</div>
                     </div>
                     <div>
-                      <h3 className="text-red-400 font-bold text-sm">{skill.name}</h3>
+                      <h3 className="text-teal-400 font-bold text-sm">{skill.name}</h3>
 
                     </div>
                   </div>
                   <button
                     onClick={() => toggleTech(skill.name)}
-                    className="p-2 text-red-400 hover:text-red-300 transition-colors"
+                    className="p-2 text-teal-400 hover:text-teal-300 transition-colors"
                   >
                     {expandedTech[skill.name] ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                   </button>
@@ -243,27 +243,27 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
                 {/* Quick Stats */}
                 <div className="grid grid-cols-3 gap-3 mb-3">
                   <div className="text-center">
-                    <div className="text-red-400 text-sm font-bold">{skill.experience}</div>
-                    <div className="text-red-400/70 text-xs">Experience</div>
+                    <div className="text-teal-400 text-sm font-bold">{skill.experience}</div>
+                    <div className="text-teal-400/70 text-xs">Experience</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-red-400 text-sm font-bold">{skill.projects}</div>
-                    <div className="text-red-400/70 text-xs">Projects</div>
+                    <div className="text-teal-400 text-sm font-bold">{skill.projects}</div>
+                    <div className="text-teal-400/70 text-xs">Projects</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-red-400 text-sm font-bold">{skill.category}</div>
-                    <div className="text-red-400/70 text-xs">Category</div>
+                    <div className="text-teal-400 text-sm font-bold">{skill.category}</div>
+                    <div className="text-teal-400/70 text-xs">Category</div>
                   </div>
                 </div>
 
-                <p className="text-red-400/80 text-sm">{skill.description}</p>
+                <p className="text-teal-400/80 text-sm">{skill.description}</p>
               </div>
 
               {/* Expanded Content */}
               <div
                 className={`overflow-hidden transition-all duration-300 ${expandedTech[skill.name] ? "max-h-96" : "max-h-0"}`}
               >
-                <div className="px-4 pb-4 space-y-4 border-t border-red-600/20">
+                <div className="px-4 pb-4 space-y-4 border-t border-teal-600/20">
                   {/* Key Features */}
                   <div>
                     <div className="text-xs text-blue-400 mb-2 font-bold flex items-center">

@@ -16,7 +16,7 @@ interface DesktopIcon {
   type: string
   name: string
   icon: React.ReactNode
-  color: "red" | "yellow" | "blue"
+  color: "red" | "yellow" | "blue" | "teal"
 }
 
 export function Desktop({ onOpenWindow }: DesktopProps) {
@@ -236,11 +236,11 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
     }
 
     if (color === "yellow") {
-      return cn(baseClasses, "hover:bg-yellow-500/20")
+      return cn(baseClasses, "hover:bg-teal-500/20")
     } else if (color === "blue") {
-      return cn(baseClasses, "hover:bg-blue-500/20")
+      return cn(baseClasses, "hover:bg-teal-500/20")
     } else {
-      return cn(baseClasses, "hover:bg-red-500/20")
+      return cn(baseClasses, "hover:bg-teal-500/20")
     }
   }
 
@@ -261,7 +261,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
      {/* Background Image Overlay */}
 <div className="fixed inset-0 z-0 opacity-85 overflow-hidden">
   <Image
-    src="/backgroundImage.avif"
+    src="/bg.png"
     alt="Background logo"
     fill
     className="object-cover object-center select-none pointer-events-none"
@@ -295,12 +295,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
           {icon.icon}
         </div>
         <span
-  className={cn(
-    "text-[12px] mt-1 text-center font-mono tracking-wide",
-    icon.color === "red" && "text-red-400",
-    icon.color === "yellow" && "text-yellow-400",
-    icon.color === "blue" && "text-blue-400"
-  )}
+  className="text-[12px] mt-1 text-center font-mono tracking-wide text-white"
 >
           {icon.name}
         </span>

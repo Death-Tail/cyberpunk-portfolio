@@ -63,20 +63,20 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="relative border border-red-600/40 bg-linear-to-br from-zinc-950/90 to-red-900/20 rounded-xl overflow-hidden"
+              className="relative border border-teal-600/40 bg-linear-to-br from-zinc-950/90 to-teal-900/20 rounded-xl overflow-hidden"
             >
               {/* Project Header */}
               <div className="p-4">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 bg-red-600/10 border border-red-600/30 rounded">{project.icon}</div>
+                    <div className="p-2 bg-teal-600/10 border border-teal-600/30 rounded">{project.icon}</div>
                     <div>
-                      <h3 className="text-red-400 font-bold text-lg">{project.title}</h3>
+                      <h3 className="text-teal-400 font-bold text-lg">{project.title}</h3>
                       <div className="flex items-center gap-2 mt-1">
                         <span className="text-xs font-mono px-2 py-0.5 rounded border border-green-500/30 bg-green-500/10 text-green-400">
                           {project.status}
                         </span>
-                        <div className="flex items-center text-xs text-red-400/60">
+                        <div className="flex items-center text-xs text-teal-400/60">
                           <Calendar className="w-3 h-3 mr-1" />
                           {project.timeline}
                         </div>
@@ -85,7 +85,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                   </div>
                   <button
                     onClick={() => toggleProject(index)}
-                    className="p-2 text-red-400 hover:text-red-300 transition-colors"
+                    className="p-2 text-teal-400 hover:text-teal-300 transition-colors"
                   >
                     {expandedProjects[index] ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
                   </button>
@@ -109,7 +109,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                           key={imgIndex}
                           onClick={() => setSelectedImageIndex((prev) => ({ ...prev, [index]: imgIndex }))}
                           className={`w-2 h-2 rounded-full transition-colors ${
-                            (selectedImageIndex[index] || 0) === imgIndex ? "bg-red-400" : "bg-white/30"
+                            (selectedImageIndex[index] || 0) === imgIndex ? "bg-teal-400" : "bg-white/30"
                           }`}
                         />
                       ))}
@@ -131,7 +131,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                   </div>
                 </div>
 
-                <p className="text-red-400/80 text-sm mb-3">{project.description}</p>
+                <p className="text-white text-sm mb-3">{project.description}</p>
 
                 {/* Quick Actions */}
                 <div className="flex gap-2 mb-4">
@@ -140,7 +140,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                       href={project.links.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 px-3 py-1 text-xs bg-green-500/20 border border-green-500/50 text-green-400 rounded hover:bg-green-500/30 transition-colors"
+                      className="flex items-center gap-1 px-3 py-1 text-xs bg-red-500/20 text-red-400 rounded hover:bg-red-500/30 transition-colors"
                     >
                       <ExternalLink className="w-3 h-3" />
                       LIVE SITE
@@ -151,7 +151,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                       href={project.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 px-3 py-1 text-xs bg-blue-500/20 border border-blue-500/50 text-blue-400 rounded hover:bg-blue-500/30 transition-colors"
+                      className="flex items-center gap-1 px-3 py-1 text-xs bg-black text-white rounded hover:bg-blue-500/30 transition-colors"
                     >
                       <Github className="w-3 h-3" />
                       SOURCE CODE
@@ -210,7 +210,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                       <div className="space-y-1">
                         {project.features.map((feature, i) => (
                           <div key={i} className="text-blue-400/80 text-xs flex items-start">
-                            <span className="text-blue-500 mr-1">•</span>
+                            <span className="text-blue-050 mr-1">•</span>
                             {feature}
                           </div>
                         ))}
@@ -219,11 +219,11 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
 
                     {/* Challenges & Solutions */}
                     <div>
-                      <div className="text-xs text-red-400 mb-2 font-bold">CHALLENGES SOLVED</div>
+                      <div className="text-xs text-teal-400 mb-2 font-bold">CHALLENGES SOLVED</div>
                       <div className="space-y-1">
                         {project.challenges.map((challenge, i) => (
-                          <div key={i} className="text-red-400/80 text-xs flex items-start">
-                            <span className="text-red-500 mr-1">▸</span>
+                          <div key={i} className="text-teal-400/80 text-xs flex items-start">
+                            <span className="text-teal-500 mr-1">▸</span>
                             {challenge}
                           </div>
                         ))}
@@ -231,14 +231,14 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                     </div>
 
                     {/* Project Info */}
-                    <div className="grid grid-cols-2 gap-3 pt-2 border-t border-red-600/20">
+                    <div className="grid grid-cols-2 gap-3 pt-2 border-t border-teal-600/20">
                       <div>
-                        <div className="text-xs text-purple-400 mb-1">Team Size</div>
-                        <div className="text-purple-400/80 text-xs">{project.teamSize}</div>
+                        <div className="text-xs text-white mb-1">Team Size</div>
+                        <div className="text-white text-xs">{project.teamSize}</div>
                       </div>
                       <div>
-                        <div className="text-xs text-purple-400 mb-1">Duration</div>
-                        <div className="text-purple-400/80 text-xs">{project.timeline}</div>
+                        <div className="text-xs text-white mb-1">Duration</div>
+                        <div className="text-white text-xs">{project.timeline}</div>
                       </div>
                     </div>
                   </div>

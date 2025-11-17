@@ -440,13 +440,13 @@ export function TechStackWindow(props: TechStackWindowProps) {
 
     switch (level) {
       case "MASTER":
-        return "border-red-400 shadow-[0_0_15px_rgba(248,113,113,0.4)]"
+        return "border-teal-400 shadow-[0_0_15px_rgba(248,113,113,0.4)]"
       case "ADVANCED":
         return "border-orange-400 shadow-[0_0_15px_rgba(251,146,60,0.4)]"
       case "INTERMEDIATE":
         return "border-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.4)]"
       default:
-        return "border-red-300 shadow-[0_0_15px_rgba(252,165,165,0.4)]"
+        return "border-teal-300 shadow-[0_0_15px_rgba(252,165,165,0.4)]"
     }
   }
 
@@ -496,27 +496,27 @@ export function TechStackWindow(props: TechStackWindowProps) {
     <BaseWindow {...props} initialPosition={{ x: 250, y: 120 }} initialSize={{ width: 800, height: 600 }}>
       <div className="space-y-4 h-none overflow-hidden">
         {/* Header */}
-        <div className="border-l-2 border-red-500 pl-4">
+        <div className="border-l-2 border-teal-500 pl-4">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center">
-              <div className="w-2 h-2 bg-red-500 mr-2"></div>
-              <span className="text-red-400 text-xs tracking-wider">NEURAL_INTERFACE</span>
+              <div className="w-2 h-2 bg-teal-500 mr-2"></div>
+              <span className="text-teal-400 text-xs tracking-wider">NEURAL_INTERFACE</span>
             </div>
-            <div className="text-red-400 text-xs">RELIC_v2.077 | DRAG TO NAVIGATE</div>
+            <div className="text-teal-400 text-xs">RELIC_v2.077 | DRAG TO NAVIGATE</div>
           </div>
         </div>
 
         {/* Skill Map Container */}
         <div
           ref={mapRef}
-          className={`relative h-96 overflow-hidden rounded-lg border border-red-500/30 ${
+          className={`relative h-96 overflow-hidden rounded-lg border border-teal-500/30 ${
             isDragging ? "cursor-grabbing" : "cursor-grab"
           }`}
           onMouseDown={handleMapMouseDown}
         >
           {/* Extended Neural Network Background */}
           <div
-            className="map-background absolute bg-linear-to-br from-black via-zinc-950 to-red-950/20"
+            className="map-background absolute bg-linear-to-br from-black via-zinc-950 to-teal-950/20"
             style={{
               width: MAP_BOUNDS.width,
               height: MAP_BOUNDS.height,
@@ -545,7 +545,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
                 {Array.from({ length: 8 }).map((_, i) => (
                   <div
                     key={`diagonal-${i}`}
-                    className="absolute bg-linear-to-br from-red-500/20 to-transparent"
+                    className="absolute bg-linear-to-br from-teal-500/20 to-transparent"
                     style={{
                       width: "2px",
                       height: "120px",
@@ -564,7 +564,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
               {neuralNodes.map((node) => (
                 <div
                   key={`neural-${node.id}`}
-                  className="absolute w-1 h-1 bg-red-500/60 rounded-full animate-pulse"
+                  className="absolute w-1 h-1 bg-teal-500/60 rounded-full animate-pulse"
                   style={{
                     left: `${node.x}px`,
                     top: `${node.y}px`,
@@ -578,7 +578,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
               {neuralClusters.map((cluster) => (
                 <div
                   key={`cluster-${cluster.id}`}
-                  className="absolute w-2 h-2 bg-red-400/40 rounded-full"
+                  className="absolute w-2 h-2 bg-teal-400/40 rounded-full"
                   style={{
                     left: `${cluster.x}px`,
                     top: `${cluster.y}px`,
@@ -589,7 +589,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
             </div>
 
             {/* Ambient neural glow */}
-            <div className="map-background absolute inset-0 bg-linear-to-br from-red-950/10 via-transparent to-red-900/5 pointer-events-none"></div>
+            <div className="map-background absolute inset-0 bg-linear-to-br from-teal-950/10 via-transparent to-teal-900/5 pointer-events-none"></div>
 
             {/* Subtle scan lines for cyberpunk effect */}
             <div
@@ -730,7 +730,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
                   {/* Selection indicator */}
                   {isSelected && (
                     <div
-                      className="absolute inset-0 border-2 border-red-300 animate-pulse opacity-75"
+                      className="absolute inset-0 border-2 border-teal-300 animate-pulse opacity-75"
                       style={{
                         clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
                       }}
@@ -738,10 +738,10 @@ export function TechStackWindow(props: TechStackWindowProps) {
                   )}
 
                   {/* Corner indicators */}
-                  <div className="absolute -top-1 -left-1 w-2 h-2 bg-red-400 rounded-full opacity-60"></div>
-                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-400 rounded-full opacity-60"></div>
-                  <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-red-400 rounded-full opacity-60"></div>
-                  <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-red-400 rounded-full opacity-60"></div>
+                  <div className="absolute -top-1 -left-1 w-2 h-2 bg-teal-400 rounded-full opacity-60"></div>
+                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-teal-400 rounded-full opacity-60"></div>
+                  <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-teal-400 rounded-full opacity-60"></div>
+                  <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-teal-400 rounded-full opacity-60"></div>
                 </div>
 
                 {/* Node label */}
@@ -758,7 +758,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
             mapPosition.x >= MAP_BOUNDS.maxX - 10 ||
             mapPosition.y <= MAP_BOUNDS.minY + 10 ||
             mapPosition.y >= MAP_BOUNDS.maxY - 10) && (
-            <div className="absolute top-2 right-2 text-red-400 text-xs bg-red-500/10 border border-red-500/30 px-2 py-1 rounded">
+            <div className="absolute top-2 right-2 text-teal-400 text-xs bg-teal-500/10 border border-teal-500/30 px-2 py-1 rounded">
               MAP BOUNDARY REACHED
             </div>
           )}
@@ -766,7 +766,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
 
         {/* Selected Node Details */}
         {selectedNode && (
-          <div className="border border-red-500/30 p-4 bg-red-500/5 rounded-lg">
+          <div className="border border-teal-500/30 p-4 bg-teal-500/5 rounded-lg">
             {(() => {
               const node = skillNodes.find((n) => n.id === selectedNode)
               if (!node) return null
@@ -780,13 +780,13 @@ export function TechStackWindow(props: TechStackWindowProps) {
                       <div className={node.iconColor}>{node.icon}</div>
                     </div>
                     <div>
-                      <h3 className="text-red-400 font-bold text-lg">{node.name}</h3>
+                      <h3 className="text-teal-400 font-bold text-lg">{node.name}</h3>
                     </div>
                   </div>
-                  <p className="text-red-400/70 text-sm mb-3">{node.description}</p>
+                  <p className="text-teal-400/70 text-sm mb-3">{node.description}</p>
 
                   {/* Connected skills */}
-                  <div className="text-xs text-red-400/50">
+                  <div className="text-xs text-teal-400/50">
                     CONNECTED TO:{" "}
                     {node.connections
                       .map((id) => {
@@ -803,9 +803,9 @@ export function TechStackWindow(props: TechStackWindowProps) {
 
         {/* Stats */}
         <div className="grid grid-cols-4 gap-2 text-center">
-          <div className="p-2 bg-red-500/10 border border-red-500/30 rounded">
-            <div className="text-sm font-bold text-red-400">{skillNodes.filter((n) => n.unlocked).length}</div>
-            <div className="text-red-500/70 text-xs">UNLOCKED</div>
+          <div className="p-2 bg-teal-500/10 border border-teal-500/30 rounded">
+            <div className="text-sm font-bold text-teal-400">{skillNodes.filter((n) => n.unlocked).length}</div>
+            <div className="text-teal-500/70 text-xs">UNLOCKED</div>
           </div>
           <div className="p-2 bg-orange-500/10 border border-orange-500/30 rounded">
             <div className="text-sm font-bold text-orange-400">
@@ -819,9 +819,9 @@ export function TechStackWindow(props: TechStackWindowProps) {
             </div>
             <div className="text-yellow-500/70 text-xs">INTERMEDIATE</div>
           </div>
-          <div className="p-2 bg-red-400/10 border border-red-400/30 rounded">
-            <div className="text-sm font-bold text-red-300">85%</div>
-            <div className="text-red-400/70 text-xs">MASTERY</div>
+          <div className="p-2 bg-teal-400/10 border border-teal-400/30 rounded">
+            <div className="text-sm font-bold text-teal-300">85%</div>
+            <div className="text-teal-400/70 text-xs">MASTERY</div>
           </div>
         </div>
       </div>
