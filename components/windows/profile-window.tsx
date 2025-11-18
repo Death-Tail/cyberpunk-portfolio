@@ -32,6 +32,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
               <Image
                 src="/pfp.webp?height=120&width=120"
                 alt="Profile"
+                placeholder="blur"
                 width={120}
                 height={120}
 

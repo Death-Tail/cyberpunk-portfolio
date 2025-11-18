@@ -42,6 +42,7 @@ function ImageCarousel({ images, projectTitle }: { images: string[]; projectTitl
       <div className="text-xs text-teal-400 mb-2">PROJECT_PREVIEW:</div>
       <div className="relative w-full aspect-video border border-teal-500/30 bg-slate-900/50 overflow-hidden group">
         <Image
+          placeholder="blur"
           src={images[currentIndex] || "/placeholder.svg"}
           alt={`${projectTitle} screenshot ${currentIndex + 1}`}
           fill
@@ -71,9 +72,8 @@ function ImageCarousel({ images, projectTitle }: { images: string[]; projectTitl
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-1.5 h-1.5 transition-all ${
-                    index === currentIndex ? "bg-teal-400 w-4" : "bg-teal-400/30 hover:bg-teal-400/50"
-                  }`}
+                  className={`w-1.5 h-1.5 transition-all ${index === currentIndex ? "bg-teal-400 w-4" : "bg-teal-400/30 hover:bg-teal-400/50"
+                    }`}
                   aria-label={`Go to image ${index + 1}`}
                 />
               ))}
@@ -114,14 +114,13 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                     <div className="flex items-center justify-between mb-2">
                       <h3 className="text-teal-300 font-bold text-sm">{project.title}</h3>
                       <span
-                        className={`px-2 py-1 text-xs border ${
-                          project.status === "DEPLOYED"
+                        className={`px-2 py-1 text-xs border ${project.status === "DEPLOYED"
                             ? "border-emerald-500/50 text-green-500 bg-green-700/10"
                             : project.status === "ON-GOING"
                               ? "border-amber-500/50 text-amber-300 bg-amber-500/10"
                               : "border-red-500/50 text-red-300 bg-red-500/10"
 
-                        }`}
+                          }`}
                       >
                         {project.status}
                       </span>
@@ -164,11 +163,10 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                         href={project.links.live || undefined}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex items-center gap-1 px-2 py-1 border text-xs transition-colors ${
-                          project.links.live
+                        className={`flex items-center gap-1 px-2 py-1 border text-xs transition-colors ${project.links.live
                             ? "bg-emerald-600/20 border-emerald-600/50 text-emerald-400 hover:bg-emerald-600/30"
                             : "bg-slate-700/50 border-slate-600/50 text-slate-500 cursor-not-allowed"
-                        }`}
+                          }`}
                         title={project.links.live ? "View live project" : "Live project not available"}
                         aria-disabled={!project.links.live}
                       >
@@ -179,11 +177,10 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                         href={project.links.github || undefined}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex items-center gap-1 px-2 py-1 border text-xs transition-colors ${
-                          project.links.github
+                        className={`flex items-center gap-1 px-2 py-1 border text-xs transition-colors ${project.links.github
                             ? "bg-cyan-500/20 border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/30"
                             : "bg-slate-700/50 border-slate-600/50 text-slate-500 cursor-not-allowed"
-                        }`}
+                          }`}
                         title={project.links.github ? "View source code" : "Source code not available"}
                         aria-disabled={!project.links.github}
                       >

@@ -39,6 +39,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       type: "profile",
       name: "Profile",
       icon: <Image
+      placeholder="blur"
       src="/desktopLogo/Profile.webp"
       alt="profile logo"
       property="true"
@@ -51,6 +52,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       type: "projects",
       name: "Projects",
       icon: <Image
+      placeholder="blur"
       src="/desktopLogo/Projects.webp"
       alt="project logo"
       property="true"
@@ -63,6 +65,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       type: "terminal",
       name: "Terminal",
       icon: <Image
+      placeholder="blur"
       src="/desktopLogo/Terminal.webp"
       alt="terminal logo"
       property="true"
@@ -76,6 +79,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       name: "Contact",
       icon: <Image
       src="/desktopLogo/Contact.webp"
+      placeholder="blur"
       alt="contact logo"
       property="true"
       width={100}
@@ -87,6 +91,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       type: "techstack",
       name: "Tech Stack",
       icon: <Image
+      placeholder="blur"
       src="/desktopLogo/Techstack.webp"
       alt="tech stack logo"
       property="true"
@@ -175,6 +180,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
 <div className="fixed inset-0 z-0 opacity-85 overflow-hidden">
   <Image
     src="/bg.webp"
+    placeholder="blur"
     alt="Background logo"
     fill
     className="object-cover object-center select-none pointer-events-none"
