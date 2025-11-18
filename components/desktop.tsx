@@ -154,7 +154,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
     const baseClasses = "flex flex-col items-center p-2 rounded cursor-pointer transition-all duration-150"
 
     if (isSelected) {
-      return cn(baseClasses, "bg-red-600/30 shadow-[0_0_10px_rgba(220,38,38,0.3)]")
+      return cn(baseClasses, "bg-teal-600/30 shadow-[0_0_10px_rgba(220,38,38,0.3)]")
     }
 
     if (color === "yellow") {
@@ -211,7 +211,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
         </span>
         {/* Selection indicator */}
         {selectedIcon === icon.id && (
-          <div className="absolute inset-0 border border-red-500 rounded pointer-events-none"></div>
+          <div className="absolute inset-0 border border-teal-500 rounded pointer-events-none"></div>
         )}
         </div>
       ))}
@@ -220,7 +220,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       {/* Context Menu */}
       {contextMenu.visible && (
       <div
-        className="fixed z-50 bg-zinc-900 border border-red-600 shadow-lg py-1 w-48"
+        className="fixed z-50 bg-zinc-900 border border-teal-600 shadow-lg py-1 w-48"
         style={{
         left: `${contextMenu.x}px`,
         top: `${contextMenu.y}px`,
@@ -230,12 +230,12 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       >
         {contextMenu.iconId && (
         <>
-          <div className="px-3 py-1 text-xs text-red-500 border-b border-red-600/30">
+          <div className="px-3 py-1 text-xs text-purple-300 border-b border-teal-600/30">
           {desktopIcons.find((icon) => icon.id === contextMenu.iconId)?.name || "Options"}
           </div>
 
           <button
-          className="w-full text-left px-3 py-1.5 text-sm text-red-400 hover:bg-red-600/20 flex items-center"
+          className="w-full text-left px-3 py-1.5 text-sm text-white hover:bg-teal-600/20 flex items-center"
           onClick={() => {
             const icon = desktopIcons.find((icon) => icon.id === contextMenu.iconId)
             if (icon) {
@@ -248,7 +248,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
           <ChevronRight className="w-3 h-3 ml-auto" />
           </button>
           <button
-          className="w-full text-left px-3 py-1.5 text-sm text-yellow-400 hover:bg-yellow-500/20 flex items-center"
+          className="w-full text-left px-3 py-1.5 text-sm text-white hover:bg-teal-500/20 flex items-center"
           onClick={() => {
             setContextMenu({ ...contextMenu, visible: false })
           }}

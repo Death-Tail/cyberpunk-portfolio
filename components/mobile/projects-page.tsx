@@ -73,7 +73,14 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                     <div>
                       <h3 className="text-teal-400 font-bold text-lg">{project.title}</h3>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="text-xs font-mono px-2 py-0.5 rounded border border-green-500/30 bg-green-500/10 text-green-400">
+                        <span                         className={`px-2 py-1 text-xs border ${
+                          project.status === "DEPLOYED"
+                            ? "border-emerald-500/50 text-green-500 bg-green-700/10"
+                            : project.status === "ON-GOING"
+                              ? "border-amber-500/50 text-amber-300 bg-amber-500/10"
+                              : "border-red-500/50 text-red-300 bg-red-500/10"
+
+                        }`}>
                           {project.status}
                         </span>
                         <div className="flex items-center text-xs text-teal-400/60">

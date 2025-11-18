@@ -116,17 +116,18 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                       <span
                         className={`px-2 py-1 text-xs border ${
                           project.status === "DEPLOYED"
-                            ? "border-emerald-500/50 text-emerald-300 bg-emerald-500/10"
-                            : project.status === "ACTIVE"
+                            ? "border-emerald-500/50 text-green-500 bg-green-700/10"
+                            : project.status === "ON-GOING"
                               ? "border-amber-500/50 text-amber-300 bg-amber-500/10"
-                              : "border-cyan-500/50 text-cyan-300 bg-cyan-500/10"
+                              : "border-red-500/50 text-red-300 bg-red-500/10"
+
                         }`}
                       >
                         {project.status}
                       </span>
                     </div>
 
-                    <p className="text-teal-300/70 text-xs mb-3">{project.description}</p>
+                    <p className="text-white text-xs mb-3">{project.description}</p>
 
                     {project.images && project.images.length > 0 && (
                       <ImageCarousel images={project.images} projectTitle={project.title} />
@@ -150,7 +151,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                       <div className="text-xs text-teal-400 mb-1">KEY_ACHIEVEMENTS:</div>
                       <div className="space-y-1">
                         {project.achievements.map((achievement, achIndex) => (
-                          <div key={achIndex} className="text-xs text-teal-300/70 flex items-start">
+                          <div key={achIndex} className="text-xs text-white flex items-start">
                             <span className="text-teal-500 mr-1">•</span>
                             {achievement}
                           </div>
