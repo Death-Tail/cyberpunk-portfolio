@@ -305,7 +305,7 @@ export default function NotFound() {
                 <div className="text-center">
                   {/* ASCII Fox Art */}
                   <div className="text-teal-400  text-sm mb-4 leading-tight">
-                    <img src="/SHIN尾.avif" alt="Nine Tailed Fox" className="w-40 h-40 mx-auto mb-2" />
+                    <img src="/pfp.webp" alt="Nine Tailed Fox" className="w-40 h-40 mx-auto mb-2" />
                   </div>
                   <div className="text-yellow-400/70 text-xs ">NINE_TAILED_FOX_OFFLINE</div>
                 </div>

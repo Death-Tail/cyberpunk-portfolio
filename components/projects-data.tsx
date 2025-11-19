@@ -1,3 +1,8 @@
+import { Icons } from "@/public/projects/Rekangroup";
+import { IconsP } from "@/public/projects/DeathTail";
+
+
+
 export const projects = [
   {
     title: "Rekan Group Official Website",
@@ -12,10 +17,10 @@ export const projects = [
       />
     ),
     images: [
-      "/projects/Rekangroup/RekanGroupLandingpic.avif",
-      "/projects/Rekangroup/RekangroupAboutus.avif",
-      "/projects/Rekangroup/RekangroupProjects.avif",
-      "/projects/Rekangroup/projectImage.avif",
+      Icons.pI,
+      Icons.aU,
+      Icons.lP,
+      Icons.p,
     ],
     tech: [
       "Next.js",
@@ -71,9 +76,10 @@ export const projects = [
       />
     ),
     images: [
-      "/projects/DeathTail/portfolio1.webp",
-      "/projects/DeathTail/portfolio2.webp",
-      "/projects/DeathTail/portfolio3.webp",
+      IconsP.img1,
+      IconsP.img2,
+      IconsP.img3,
+
     ],
     tech: [
       "Next.js",

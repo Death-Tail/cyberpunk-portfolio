@@ -7,6 +7,8 @@ import ProfilePage from "./mobile/profile-page"
 import ProjectsPage from "./mobile/projects-page"
 import TechStackPage from "./mobile/tech-stack-page"
 import ContactPage from "./mobile/contact-page"
+import bgImg from "@/public/bg.webp"
+import { Icons } from "@/public/desktopLogo";
 
 type MobileOSProps = {}
 
@@ -71,7 +73,7 @@ export default function MobileOS() {
     <div className="relative h-screen w-full bg-zinc-900 overflow-hidden">
       <div className="fixed inset-0 z-0">
         <Image
-          src="/bg.webp"
+          src={bgImg}
           alt="Anime background"
           placeholder="blur"
           fill
@@ -99,7 +101,7 @@ export default function MobileOS() {
             <button key={app.type} onClick={() => handleOpenApp(app.type)} className="flex flex-col items-center">
               <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-1 hover:bg-teal-600/10 transition-colors">
                 <div className="w-10 h-10 relative">
-                  <Image src={app.icon || "/placeholder.svg"} alt={app.name} fill className="object-contain" priority placeholder="blur" />
+                  <Image src={app.icon || "/placeholder.svg"} alt={app.name} fill className="object-contain" priority />
                 </div>
               </div>
               <span className="text-white text-xs">{app.name}</span>

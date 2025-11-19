@@ -2,6 +2,7 @@ import Image from "next/image"
 import { BaseWindow } from "./base-window"
 import { GlitchText } from "../glitch-text"
 import { Award, MapPin, Zap, Shield, Target, Send } from "lucide-react"
+import pfpImg from "@/public/pfp.webp"
 
 interface ProfileWindowProps {
   id: string
@@ -30,7 +31,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
                 clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
               }}>
               <Image
-                src="/pfp.webp?height=120&width=120"
+                src={pfpImg}
                 alt="Profile"
                 placeholder="blur"
                 width={120}

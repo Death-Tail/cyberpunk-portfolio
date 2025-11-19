@@ -2,7 +2,8 @@
 
 import type React from "react"
 import Image from "next/image"
-
+import { Icons } from "@/public/desktopLogo";
+import bgImg from "@/public/bg.webp"
 import { useEffect, useRef, useState } from "react"
 import { ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -40,7 +41,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       name: "Profile",
       icon: <Image
       placeholder="blur"
-      src="/desktopLogo/Profile.webp"
+      src={Icons.Profile}
       alt="profile logo"
       property="true"
       width={100}
@@ -53,7 +54,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       name: "Projects",
       icon: <Image
       placeholder="blur"
-      src="/desktopLogo/Projects.webp"
+      src={Icons.Projects}
       alt="project logo"
       property="true"
       width={100}
@@ -66,7 +67,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       name: "Terminal",
       icon: <Image
       placeholder="blur"
-      src="/desktopLogo/Terminal.webp"
+      src={Icons.Terminal}
       alt="terminal logo"
       property="true"
       width={100}
@@ -78,8 +79,8 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       type: "contact",
       name: "Contact",
       icon: <Image
-      src="/desktopLogo/Contact.webp"
       placeholder="blur"
+      src={Icons.Contact}
       alt="contact logo"
       property="true"
       width={100}
@@ -92,7 +93,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       name: "Tech Stack",
       icon: <Image
       placeholder="blur"
-      src="/desktopLogo/Techstack.webp"
+      src={Icons.Techstack}
       alt="tech stack logo"
       property="true"
       width={100}
@@ -179,7 +180,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
      {/* Background Image Overlay */}
 <div className="fixed inset-0 z-0 opacity-85 overflow-hidden">
   <Image
-    src="/bg.webp"
+    src={bgImg}
     placeholder="blur"
     alt="Background logo"
     fill

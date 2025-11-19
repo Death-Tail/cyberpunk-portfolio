@@ -63,7 +63,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#0a0a0a" />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
         <link rel="canonical" href="https://dyariali.com" />
-        <link property="fb:app_id" content="1574339983752418" />
+        <meta property="fb:app_id" content="1574339983752418" />
 
 
         {/* JSON-LD structured data */}

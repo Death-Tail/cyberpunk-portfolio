@@ -2,7 +2,8 @@
 
 import { BaseWindow } from "./base-window"
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from 'lucide-react'
-import Image from "next/image"
+// 1. Import StaticImageData type
+import Image, { StaticImageData } from "next/image"
 import { useState, useEffect } from "react"
 import { projects } from "../projects-data"
 
@@ -17,7 +18,14 @@ interface ProjectsWindowProps {
   onFocus: () => void
 }
 
-function ImageCarousel({ images, projectTitle }: { images: string[]; projectTitle: string }) {
+// 2. Update the Props interface to accept both strings and StaticImageData
+function ImageCarousel({
+  images,
+  projectTitle
+}: {
+  images: (string | StaticImageData)[];
+  projectTitle: string
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -33,6 +41,10 @@ function ImageCarousel({ images, projectTitle }: { images: string[]; projectTitl
 
   if (!images || images.length === 0) return null;
 
+  // Helper to determine if we can blur (only works easily with StaticImageData)
+  const currentImage = images[currentIndex];
+  const shouldBlur = typeof currentImage !== 'string';
+
   return (
     <div
       className="mb-3"
@@ -42,10 +54,13 @@ function ImageCarousel({ images, projectTitle }: { images: string[]; projectTitl
       <div className="text-xs text-teal-400 mb-2">PROJECT_PREVIEW:</div>
       <div className="relative w-full aspect-video border border-teal-500/30 bg-slate-900/50 overflow-hidden group">
         <Image
-          placeholder="blur"
-          src={images[currentIndex] || "/placeholder.svg"}
+          // 3. The src prop in Next/Image natively supports both types
+          src={currentImage || "/placeholder.svg"}
           alt={`${projectTitle} screenshot ${currentIndex + 1}`}
           fill
+          // Only apply blur placeholder if it is a Static Import (object),
+          // otherwise string URLs need a manual blurDataURL which is complex to handle dynamically
+          placeholder={shouldBlur ? "blur" : "empty"}
           className="object-fill transition-opacity duration-500"
         />
         <div className="absolute inset-0 bg-teal-600/0 group-hover:bg-teal-600/5 transition-colors" />
@@ -108,6 +123,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-start space-x-3 flex-1">
+                  {/* Note: Ensure project.icon is rendered correctly if it contains JSX */}
                   <div className="p-2">{project.icon}</div>
 
                   <div className="flex-1">
@@ -119,7 +135,6 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                             : project.status === "ON-GOING"
                               ? "border-amber-500/50 text-amber-300 bg-amber-500/10"
                               : "border-red-500/50 text-red-300 bg-red-500/10"
-
                           }`}
                       >
                         {project.status}
@@ -128,6 +143,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
 
                     <p className="text-white text-xs mb-3">{project.description}</p>
 
+                    {/* Pass images down; they now accept StaticImageData */}
                     {project.images && project.images.length > 0 && (
                       <ImageCarousel images={project.images} projectTitle={project.title} />
                     )}

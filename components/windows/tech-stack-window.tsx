@@ -730,7 +730,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
                   {/* Selection indicator */}
                   {isSelected && (
                     <div
-                      className="absolute inset-0 border-2 border-teal-300 animate-pulse opacity-75"
+                      className="absolute inset-0 border-2 border-yellow-300 animate-pulse opacity-75"
                       style={{
                         clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
                       }}
