@@ -12,18 +12,17 @@ import ContactPage from "./mobile/contact-page"
 import WeatherWidget from "./mobile/widgets/weather"
 import SystemWidget from "./mobile/widgets/system"
 import MusicWidget from "./mobile/widgets/music"
-import { useSearchParams, useRouter, usePathname } from "next/navigation"
+import { useSearchParams, useRouter } from "next/navigation"
 
 import bgImg from "@/public/bg.webp"
+import { CyberpunkBoot } from "./cyberpunk-boot"
 
 function OSContent() {
   const [currentTime, setCurrentTime] = useState<string>("")
 
-  // Routing Hooks
   const router = useRouter()
   const searchParams = useSearchParams()
 
-  // Get current app from URL (default to null if empty)
   const currentApp = searchParams.get("app")
 
   useEffect(() => {
@@ -42,6 +41,7 @@ function OSContent() {
     { type: "techstack", icon: "/desktopLogo/Techstack.webp", name: "Tech Stack" },
     { type: "contact", icon: "/desktopLogo/Contact.webp", name: "Contact" },
     { type: "resume", icon: "/desktopLogo/Resume.webp", name: "Resume" },
+
   ]
 
   const handleOpenApp = (type: string) => {
@@ -102,7 +102,6 @@ function OSContent() {
         </div>
       </div>
 
-      {/* --- APP OVERLAY --- */}
       <div
         className={`fixed left-0 right-0 bottom-0 z-50 bg-black transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] ${
           currentApp ? 'translate-y-0' : 'translate-y-full'
@@ -111,11 +110,6 @@ function OSContent() {
       >
         <div className="h-full w-full overflow-y-auto no-scrollbar">
            <div className="w-full max-w-md mx-auto min-h-full px-4 pb-10">
-
-              {/* THE FIX:
-                  We render ALL components, but hide the ones that aren't active.
-                  This preserves their internal state (scroll position, expanded accordions, etc.)
-              */}
 
               <div style={{ display: currentApp === 'profile' ? 'block' : 'none' }}>
                 <ProfilePage onBack={handleBack} />
@@ -132,18 +126,18 @@ function OSContent() {
               <div style={{ display: currentApp === 'contact' ? 'block' : 'none' }}>
                 <ContactPage onBack={handleBack} />
               </div>
-
            </div>
         </div>
       </div>
-
     </div>
   )
 }
 
 export default function MobileOS() {
   return (
-    <Suspense fallback={<div className="h-screen w-full bg-zinc-950 flex items-center justify-center text-white">Loading OS...</div>}>
+    <Suspense fallback={<div className="h-screen w-full bg-zinc-950 flex items-center justify-center text-white"><CyberpunkBoot onComplete={function (): void {
+      throw new Error("Function not implemented.")
+    } }/></div>}>
       <OSContent />
     </Suspense>
   )

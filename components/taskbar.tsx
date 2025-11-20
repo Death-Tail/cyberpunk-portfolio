@@ -44,6 +44,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
     { type: "terminal", icon: <Image src="/desktopLogo/Terminal.webp" alt="terminal Logo" property="true" width={100} height={100}/>, name: "Terminal" },
     { type: "contact", icon: <Image src="/desktopLogo/Contact.webp" alt="contact Logo" property="true" width={100} height={100}/>, name: "Contact" },
     { type: "techstack", icon: <Image src="/desktopLogo/Techstack.webp" alt="techstack Logo" property="true" width={100} height={100}/>, name: "Tech Stack" },
+    { type: "resume", icon: <Image src="/desktopLogo/Resume.webp" alt="resume Logo" property="true" width={100} height={100}/>, name: "Resume" },
   ]
 
   const handleWindowClick = (window: Window) => {
@@ -71,6 +72,10 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
                 <button
                   key={app.type}
                   onClick={() => {
+                    if(app.type === "resume") {
+                      window.open("/resume/Dyari Ali - Web Developer.pdf", "_blank")
+                      return
+                    }
                     onOpenWindow(app.type)
                     setStartMenuOpen(false)
                   }}
