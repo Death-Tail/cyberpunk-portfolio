@@ -58,7 +58,7 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
             <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-teal-400 rounded-full opacity-60" />
           </div>
 
-          <div className="text-center mb-6 mt-20">
+          <div className="text-center mt-5">
             <h2 className="text-xl font-bold text-teal-400 mb-1">Dyari Ali Tahir</h2>
             <p className="text-teal-400/70 text-sm">Full Stack Web Developer</p>
           </div>
