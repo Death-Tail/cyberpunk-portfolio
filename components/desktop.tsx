@@ -266,8 +266,12 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
           onClick={() => {
             const icon = desktopIcons.find((icon) => icon.id === contextMenu.iconId)
             if (icon) {
-            onOpenWindow(icon.type)
-            setContextMenu({ ...contextMenu, visible: false })
+              if (icon.type === "resume") {
+                window.open("/resume/Dyari Ali - Web Developer.pdf", "_blank");
+              } else {
+                onOpenWindow(icon.type)
+              }
+              setContextMenu({ ...contextMenu, visible: false })
             }
           }}
           >
