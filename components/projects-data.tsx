@@ -17,10 +17,10 @@ export const projects = [
       />
     ),
     images: [
-      Icons.pI,
-      Icons.aU,
       Icons.lP,
+      Icons.aU,
       Icons.p,
+      Icons.pI,
     ],
     tech: [
       "Next.js",

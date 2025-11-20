@@ -3,6 +3,7 @@ import Terminal from "./Terminal.webp";
 import Projects from "./Projects.webp";
 import Contact from "./Contact.webp";
 import Techstack from "./Techstack.webp";
+import Resume from "./Resume.webp";
 
 export const Icons = {
   Profile,
@@ -10,4 +11,5 @@ export const Icons = {
   Projects,
   Contact,
   Techstack,
+  Resume,
 };

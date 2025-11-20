@@ -34,6 +34,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
     iconId: null,
   })
 
+
   const desktopIcons: DesktopIcon[] = [
     {
       id: "profile-icon",
@@ -99,7 +100,21 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       width={100}
       height={100}
       />
+    },
+    {
+      id: "Resume",
+      type: "resume",
+      name: "Resume",
+      icon: <Image
+      placeholder="blur"
+      src={Icons.Resume}
+      alt="resume logo"
+      property="true"
+      width={100}
+      height={100}
+      />
     }
+
   ]
 
   useEffect(() => {
@@ -128,9 +143,14 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
   }
 
   const handleIconDoubleClick = (iconType: string) => {
-    onOpenWindow(iconType)
-    setSelectedIcon(null)
-  }
+    if (iconType === "resume") {
+      window.open("/resume/Dyari Ali - Web Developer.pdf", "_blank");
+      return;
+    }
+
+    onOpenWindow(iconType);
+    setSelectedIcon(null);
+  };
 
   const handleContextMenu = (e: React.MouseEvent, iconId: string) => {
     e.preventDefault()
