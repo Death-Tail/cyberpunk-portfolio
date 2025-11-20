@@ -3,110 +3,114 @@
 import { useState, useEffect } from "react"
 import { Battery, Signal, Wifi } from "lucide-react"
 import Image from "next/image"
+// App Imports
 import ProfilePage from "./mobile/profile-page"
 import ProjectsPage from "./mobile/projects-page"
 import TechStackPage from "./mobile/tech-stack-page"
 import ContactPage from "./mobile/contact-page"
-import bgImg from "@/public/bg.webp"
-import { Icons } from "@/public/desktopLogo";
+// Widget Imports
+import WeatherWidget from "./mobile/widgets/weather"
+import SystemWidget from "./mobile/widgets/system"
+import MusicWidget from "./mobile/widgets/music"
 
-type MobileOSProps = {}
+import bgImg from "@/public/bg.webp"
 
 export default function MobileOS() {
   const [currentApp, setCurrentApp] = useState<string | null>(null)
-  const [isBooting, setIsBooting] = useState(true)
   const [currentTime, setCurrentTime] = useState<string>("")
 
-  const handleBootComplete = () => {
-    setIsBooting(false)
-  }
-
-  // Update time on client side only
   useEffect(() => {
-    // Set initial time
-    setCurrentTime(new Date().toLocaleTimeString())
-
-    // Update time every second
-    const interval = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString())
-    }, 1000)
-
+    const updateTime = () => {
+        const now = new Date()
+        setCurrentTime(now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }))
+    }
+    updateTime()
+    const interval = setInterval(updateTime, 1000)
     return () => clearInterval(interval)
   }, [])
 
   const apps = [
     { type: "profile", icon: "/desktopLogo/Profile.webp", name: "Profile" },
     { type: "projects", icon: "/desktopLogo/Projects.webp", name: "Projects" },
-    { type: "contact", icon: "/desktopLogo/Contact.webp", name: "Contact" },
     { type: "techstack", icon: "/desktopLogo/Techstack.webp", name: "Tech Stack" },
+    { type: "contact", icon: "/desktopLogo/Contact.webp", name: "Contact" },
+    { type: "resume", icon: "/desktopLogo/Resume.webp", name: "Resume" },
   ]
 
-  const dockApps = apps.slice(0, 4)
-
   const handleOpenApp = (type: string) => {
+    if (type === "resume") {
+      window.open("/resume/Dyari Ali - Web Developer.pdf", "_blank")
+      return
+    }
     setCurrentApp(type)
   }
 
-  const handleBack = () => {
-    setCurrentApp(null)
-  }
+  const handleBack = () => setCurrentApp(null)
 
-  // Render current app page if one is selected
+  // App Rendering Logic
   if (currentApp) {
     switch (currentApp) {
-      case "profile":
-        return <ProfilePage onBack={handleBack} />
-      case "projects":
-        return <ProjectsPage onBack={handleBack} />
-      case "techstack":
-        return <TechStackPage onBack={handleBack} />
-      case "contact":
-        return <ContactPage onBack={handleBack} />
-      case "terminal":
-        handleBack() // Go back if terminal is selected as it's not implemented for mobile
-        return null
+      case "profile": return <ProfilePage onBack={handleBack} />
+      case "projects": return <ProjectsPage onBack={handleBack} />
+      case "techstack": return <TechStackPage onBack={handleBack} />
+      case "contact": return <ContactPage onBack={handleBack} />
     }
   }
 
-  // Render home screen
   return (
-    <div className="relative h-screen w-full bg-zinc-900 overflow-hidden">
+    <div className="relative h-screen w-full bg-zinc-950 overflow-hidden font-sans">
+
+      {/* Wallpaper */}
       <div className="fixed inset-0 z-0">
-        <Image
-          src={bgImg}
-          alt="Anime background"
-          placeholder="blur"
-          fill
-          priority
-          className="object-cover opacity-50"
-          sizes="100vw"
-        />
+        <Image src={bgImg} alt="Background" fill priority className="object-cover opacity-70" />
+        <div className="absolute inset-0 bg-linear-to-t from-zinc-950/90 via-transparent to-zinc-950/30" />
       </div>
 
-
       {/* Status Bar */}
-      <div className="fixed top-0 left-0 right-0 h-6 bg-zinc-900/80 backdrop-blur-sm flex items-center justify-between px-4 z-50 border-b border-teal-600/30">
-        <div className="text-white text-xs font-mono">{currentTime}</div>
-        <div className="flex items-center gap-2">
-          <Signal className="w-3 h-3 text-white" />
-          <Wifi className="w-3 h-3 text-white" />
-          <Battery className="w-4 h-4 text-red-600" />
+      <div className="fixed top-0 left-0 right-0 h-12 flex items-center justify-between px-6 z-50 text-white font-medium text-sm tracking-wide">
+        <span>{currentTime}</span>
+        <div className="flex items-center gap-2.5">
+          <Signal className="w-4 h-4" />
+          <Wifi className="w-4 h-4" />
+          <Battery className="w-5 h-5" />
         </div>
       </div>
 
-      {/* App Grid */}
-      <div className="pt-8 px-4 pb-20 relative z-10">
-        <div className="grid grid-cols-4 gap-4">
-          {apps.map((app) => (
-            <button key={app.type} onClick={() => handleOpenApp(app.type)} className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-1 hover:bg-teal-600/10 transition-colors">
-                <div className="w-10 h-10 relative">
-                  <Image src={app.icon || "/placeholder.svg"} alt={app.name} fill className="object-contain" priority />
-                </div>
-              </div>
-              <span className="text-white text-xs">{app.name}</span>
-            </button>
-          ))}
+      {/* Main Grid */}
+      <div className="relative z-10 h-full overflow-y-auto pt-16 pb-8 px-5 no-scrollbar">
+        <div className="grid grid-cols-4 gap-4 max-w-md mx-auto">
+
+            {/* Widgets */}
+            <WeatherWidget />
+            <SystemWidget />
+            <MusicWidget />
+
+            <div className="col-span-4 h-4" />
+
+            {/* Apps */}
+            {apps.map((app) => (
+                <button
+                    key={app.type}
+                    onClick={() => handleOpenApp(app.type)}
+                    className="col-span-1 flex flex-col items-center gap-2 group"
+                >
+                    <div className="w-full aspect-square rounded-[1.2rem] bg-zinc-800/40 backdrop-blur-md border border-white/5 flex items-center justify-center shadow-lg shadow-black/20 group-active:scale-95 transition-transform duration-200 relative overflow-hidden">
+                        <div className="w-full h-full relative z-10">
+                            <Image
+                                src={app.icon || "/placeholder.svg"}
+                                alt={app.name}
+                                fill
+                                className="object-contain drop-shadow-md"
+                            />
+                        </div>
+                        <div className="absolute inset-0 bg-linear-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+
+                    <span className="text-zinc-200 text-[11px] font-medium tracking-wide drop-shadow">
+                        {app.name}
+                    </span>
+                </button>
+            ))}
         </div>
       </div>
     </div>

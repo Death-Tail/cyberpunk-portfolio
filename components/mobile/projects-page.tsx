@@ -5,6 +5,7 @@ import { projects } from "../projects-data"
 import { useState } from "react"
 import { ChevronDown, ChevronUp, ExternalLink, Github, Calendar, Users, Zap, Eye } from "lucide-react"
 import Image from "next/image"
+import type { StaticImageData } from "next/image"
 
 interface ProjectsPageProps {
   onBack: () => void
@@ -21,14 +22,14 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
     }))
   }
 
-  const nextImage = (projectIndex: number, images: string[]) => {
+  const nextImage = (projectIndex: number, images: (string | StaticImageData)[]) => {
     setSelectedImageIndex((prev) => ({
       ...prev,
       [projectIndex]: ((prev[projectIndex] || 0) + 1) % images.length,
     }))
   }
 
-  const prevImage = (projectIndex: number, images: string[]) => {
+  const prevImage = (projectIndex: number, images: (string | StaticImageData)[]) => {
     setSelectedImageIndex((prev) => ({
       ...prev,
       [projectIndex]: ((prev[projectIndex] || 0) - 1 + images.length) % images.length,
