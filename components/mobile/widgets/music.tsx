@@ -9,7 +9,7 @@ const MusicWidget = () => {
   // Initialize Audio
   useEffect(() => {
     // This is a direct stream URL for "Lofi Girl" or similar 24/7 lofi radio
-    audioRef.current = new Audio("https://stream.zeno.fm/0r0xa792kwzuv")
+    audioRef.current = new Audio("https://play.streamafrica.net/lofiradio")
     audioRef.current.volume = 0.6
 
     // Cleanup on unmount
