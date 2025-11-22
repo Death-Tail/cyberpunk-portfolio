@@ -247,8 +247,8 @@ const skillNodes: SkillNode[] = [
   },
 
 
-   // ===== Languages =====
-   {
+  // ===== Languages =====
+  {
     id: "language",
     name: "PROGRAMMING LANGUAGES",
     level: "ADVANCED",
@@ -276,7 +276,7 @@ const skillNodes: SkillNode[] = [
     bgColor: "bg-linear-to-br from-blue-500/10 to-cyan-600/10",
     iconColor: "text-blue-600",
   },
-   {
+  {
     id: "typescript",
     name: "TYPESCRIPT",
     level: "ADVANCED",
@@ -456,19 +456,16 @@ export function TechStackWindow(props: TechStackWindowProps) {
     const toX = to.x + mapPosition.x
     const toY = to.y + mapPosition.y
 
-    // Create circuit-like path with multiple segments
     const midX = (fromX + toX) / 2
     const midY = (fromY + toY) / 2
 
-    // Add some circuit-like bends
-    const bendOffset = 15
+    const dx = Math.abs(toX - fromX)
+    const dy = Math.abs(toY - fromY)
 
-    if (Math.abs(fromX - toX) > Math.abs(fromY - toY)) {
-      // Horizontal dominant path
-      return `M ${fromX} ${fromY} L ${fromX + bendOffset} ${fromY} L ${fromX + bendOffset} ${midY} L ${toX - bendOffset} ${midY} L ${toX - bendOffset} ${toY} L ${toX} ${toY}`
+    if (dy > dx) {
+      return `M ${fromX} ${fromY} L ${fromX} ${midY} L ${toX} ${midY} L ${toX} ${toY}`
     } else {
-      // Vertical dominant path
-      return `M ${fromX} ${fromY} L ${fromX} ${fromY + bendOffset} L ${midX} ${fromY + bendOffset} L ${midX} ${toY - bendOffset} L ${toX} ${toY - bendOffset} L ${toX} ${toY}`
+      return `M ${fromX} ${fromY} L ${midX} ${fromY} L ${midX} ${toY} L ${toX} ${toY}`
     }
   }
 
@@ -509,9 +506,8 @@ export function TechStackWindow(props: TechStackWindowProps) {
         {/* Skill Map Container */}
         <div
           ref={mapRef}
-          className={`relative h-96 overflow-hidden rounded-lg border border-teal-500/30 ${
-            isDragging ? "cursor-grabbing" : "cursor-grab"
-          }`}
+          className={`relative h-96 overflow-hidden rounded-lg border border-teal-500/30 ${isDragging ? "cursor-grabbing" : "cursor-grab"
+            }`}
           onMouseDown={handleMapMouseDown}
         >
           {/* Extended Neural Network Background */}
@@ -608,7 +604,16 @@ export function TechStackWindow(props: TechStackWindowProps) {
 
           {/* SVG for connections */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none">
+            <style>
+              {`
+                @keyframes dashDraw {
+                  to { stroke-dashoffset: -20; }
+                }
+              `}
+            </style>
+
             <defs>
+              {/* Keep your existing filters if you want, but we are using CSS filters for the main lines now */}
               <filter id="connectionGlow">
                 <feGaussianBlur stdDeviation="2" result="coloredBlur" />
                 <feMerge>
@@ -616,14 +621,6 @@ export function TechStackWindow(props: TechStackWindowProps) {
                   <feMergeNode in="SourceGraphic" />
                 </feMerge>
               </filter>
-
-              {/* Neural circuit pattern for connections */}
-              <pattern id="neuralPattern" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
-                <rect width="6" height="6" fill="none" />
-                <circle cx="3" cy="3" r="0.8" fill="rgba(220, 38, 38, 0.6)" />
-                <circle cx="1" cy="1" r="0.3" fill="rgba(220, 38, 38, 0.4)" />
-                <circle cx="5" cy="5" r="0.3" fill="rgba(220, 38, 38, 0.4)" />
-              </pattern>
             </defs>
 
             {skillNodes.map((node) =>
@@ -634,41 +631,65 @@ export function TechStackWindow(props: TechStackWindowProps) {
                 const isActive = isConnectionActive(node.id, connectionId)
                 const bothUnlocked = node.unlocked && targetNode.unlocked
 
+                // 2. Define state logic locally for readability
+                const getConnectionState = () => {
+                  if (isActive && bothUnlocked) return {
+                    color: "#ef4444", // Red (Active) - Matches your theme's active state
+                    width: 3,
+                    opacity: 1,
+                    dashed: true
+                  };
+                  if (bothUnlocked) return {
+                    color: "#0F172A", // Indigo/Violet (Unlocked)
+                    width: 3,
+                    dashed: true
+
+                  };
+                  return {
+                    color: "#ffffff", // Zinc-600 (Locked)
+                    width: 1,
+                    opacity: 0.3,
+                    dashed: false
+                  };
+                };
+
+                const style = getConnectionState();
+
                 return (
                   <g key={`${node.id}-${connectionId}`}>
-                    {/* Main connection line with smoother curve and glow */}
+                    {/* Layer 1: Background Path (Creates a border/shadow effect for better visibility) */}
                     <path
-                      d={getConnectionPath(node, targetNode)} // Keep your function
-                      stroke={
-                        isActive && bothUnlocked
-                          ? "rgba(220, 38, 38, 0.9)"
-                          : bothUnlocked
-                            ? "rgba(106, 90, 205, 0.5)"
-                            : "rgba(113, 113, 122, 0.2)"
-                      }
-                      strokeWidth={isActive ? "3" : "2"}
+                      d={getConnectionPath(node, targetNode)}
+                      stroke="#000000"
+                      strokeWidth={style.width + 2}
+                      strokeOpacity={0.5}
                       fill="none"
-                      filter={isActive ? "url(#connectionGlow)" : "none"}
-                      className="transition-all duration-300"
                       strokeLinecap="round"
                       strokeLinejoin="round"
+                      className="transition-all duration-300"
                     />
 
-                    {/* Neural pattern overlay with subtle animation */}
-                    {bothUnlocked && (
-                      <path
-                        d={getConnectionPath(node, targetNode)}
-                        stroke="url(#neuralPattern)"
-                        strokeWidth="1"
-                        fill="none"
-                        opacity={isActive ? "0.8" : "0.4"}
-                        className="transition-all duration-300"
-                        strokeLinecap="round"
-                      />
-                    )}
+                    {/* Layer 2: Main Connection Line with Data Flow Animation */}
+                    <path
+                      d={getConnectionPath(node, targetNode)}
+                      stroke={style.color}
+                      strokeWidth={style.width}
+                      strokeOpacity={style.opacity}
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      // Create dashed pattern if active
+                      strokeDasharray={style.dashed ? "10, 10" : "none"}
+                      style={{
+                        // Animate the dash offset to create "flow"
+                        animation: style.dashed ? "dashDraw 1s linear infinite" : "none",
+                        // Apply glow via CSS drop-shadow which is often smoother than SVG filters
+                        filter: isActive ? "drop-shadow(0 0 6px rgba(239, 68, 68, 0.8))" : "none"
+                      }}
+                      className="transition-all duration-500 ease-in-out"
+                    />
                   </g>
                 );
-
               }),
             )}
           </svg>
@@ -681,9 +702,8 @@ export function TechStackWindow(props: TechStackWindowProps) {
             return (
               <div
                 key={node.id}
-                className={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 z-10 ${
-                  node.unlocked ? "hover:scale-110" : "opacity-60"
-                } ${isSelected ? "scale-110" : ""}`}
+                className={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 z-10 ${node.unlocked ? "hover:scale-110" : "opacity-60"
+                  } ${isSelected ? "scale-110" : ""}`}
                 style={{
                   left: node.x + mapPosition.x,
                   top: node.y + mapPosition.y,
@@ -758,10 +778,10 @@ export function TechStackWindow(props: TechStackWindowProps) {
             mapPosition.x >= MAP_BOUNDS.maxX - 10 ||
             mapPosition.y <= MAP_BOUNDS.minY + 10 ||
             mapPosition.y >= MAP_BOUNDS.maxY - 10) && (
-            <div className="absolute top-2 right-2 text-teal-400 text-xs bg-teal-500/10 border border-teal-500/30 px-2 py-1 rounded">
-              MAP BOUNDARY REACHED
-            </div>
-          )}
+              <div className="absolute top-2 right-2 text-teal-400 text-xs bg-teal-500/10 border border-teal-500/30 px-2 py-1 rounded">
+                MAP BOUNDARY REACHED
+              </div>
+            )}
         </div>
 
         {/* Selected Node Details */}
