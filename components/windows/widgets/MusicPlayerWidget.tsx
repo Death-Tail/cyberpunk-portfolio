@@ -25,6 +25,7 @@ export function MusicPlayerWidget({ className }: { className?: string }) {
 
   // Initialize Audio
   useEffect(() => {
+    if (audioRef.current) return; // prevent double mount init
     // Create a local variable to ensure we clean up the EXACT instance we created
     const audioInstance = new Audio(STREAM_URL)
     audioInstance.preload = "none"
