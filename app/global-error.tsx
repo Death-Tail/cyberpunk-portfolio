@@ -1,10 +1,13 @@
 "use client"
 
 import { useEffect } from "react"
-import { AlertTriangle, RefreshCw, Home } from "lucide-react"
+import { RefreshCw, Home, AlertTriangle } from "lucide-react"
 import Link from "next/link"
 
+const errorId = globalThis.crypto.randomUUID()
+
 export default function GlobalError({
+
   error,
   reset,
 }: {
@@ -17,72 +20,90 @@ export default function GlobalError({
 
   return (
     <html>
-      <body className="bg-black text-blue-400 font-mono">
-        <div className="min-h-screen flex items-center justify-center p-4">
-          <div className="max-w-2xl mx-auto text-center">
-            {/* Error Animation */}
-            <div className="mb-8">
-              <div className="text-6xl font-bold text-blue-500 mb-4 animate-pulse">SYSTEM ERROR</div>
-              <div className="flex items-center justify-center gap-2 mb-6">
-                <AlertTriangle className="w-6 h-6 text-yellow-400 animate-bounce" />
-                <span className="text-yellow-400 text-sm tracking-wider">CRITICAL_FAILURE</span>
-                <AlertTriangle className="w-6 h-6 text-yellow-400 animate-bounce" />
+      <body className="bg-black text-white">
+        <div className="min-h-screen flex items-center justify-center p-6">
+          <div className="
+            w-full max-w-lg text-center
+            bg-zinc-900/40 backdrop-blur-xl
+            border border-white/10
+            rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.4)]
+            p-8 relative
+          ">
+
+            {/* Soft glowing orb background */}
+            <div className="absolute inset-0 -z-10 bg-linear-to-br from-teal-600/20 to-emerald-500/10 blur-3xl" />
+
+            {/* Header */}
+            <div className="mb-6">
+              <div className="text-3xl font-bold text-white drop-shadow-lg">
+                Something Went Wrong
+              </div>
+              <p className="text-teal-400/80 text-sm mt-2">
+                The system encountered an unexpected problem
+              </p>
+            </div>
+
+            {/* Icon */}
+            <div className="flex justify-center mb-6">
+              <div className="
+                h-20 w-20 flex items-center justify-center rounded-2xl
+                bg-zinc-900/70 border border-white/5
+                shadow-[0_0_20px_rgba(0,255,200,0.08)]
+              ">
+                <AlertTriangle className="w-10 h-10 text-teal-400 animate-pulse" />
               </div>
             </div>
 
             {/* Error Details */}
-            <div className="border border-red-600/30 bg-red-600/5 p-6 mb-8">
-              <div className="flex items-center mb-4">
-                <div className="w-2 h-2 bg-red-600 mr-2"></div>
-                <span className="text-blue-500 text-xs tracking-wider">SYSTEM_DIAGNOSTIC</span>
+            <div className="bg-black/30 border border-white/10 rounded-2xl p-5 mb-8 text-left">
+              <div className="text-xs text-teal-400/70 mb-3 tracking-wider">
+                ERROR DETAILS
               </div>
 
-              <h1 className="text-xl font-bold text-blue-400 mb-4">NEURAL INTERFACE MALFUNCTION</h1>
+              <p className="text-sm text-zinc-300 leading-relaxed">
+                {error.message || "Unknown error occurred."}
+              </p>
 
-              <div className="text-blue-400/80 text-sm space-y-2">
-                <p>
-                  <span className="text-yellow-500">&gt;</span> Critical system error detected
+              {error.digest && (
+                <p className="text-xs text-zinc-500 mt-3">
+                  DIGEST: {error.digest}
                 </p>
-                <p>
-                  <span className="text-blue-500">&gt;</span> Error: {error.message || "Unknown system failure"}
-                </p>
-                {error.digest && (
-                  <p>
-                    <span className="text-green-500">&gt;</span> Digest: {error.digest}
-                  </p>
-                )}
-              </div>
+              )}
             </div>
 
-            {/* Recovery Options */}
-            <div className="space-y-4">
-              <div className="flex items-center mb-4">
-                <div className="w-2 h-2 bg-blue-500 mr-2"></div>
-                <span className="text-blue-400 text-xs tracking-wider">RECOVERY_PROTOCOLS</span>
-              </div>
+            {/* Actions */}
+            <div className="space-y-3">
+              <button
+                onClick={reset}
+                className="
+                  w-full flex items-center justify-center gap-2 py-3
+                  bg-teal-500/10 border border-teal-500/20
+                  rounded-xl text-teal-400
+                  hover:bg-teal-500/20 transition-all duration-300
+                  shadow-[0_0_15px_rgba(0,255,200,0.05)]
+                "
+              >
+                <RefreshCw className="w-4 h-4" />
+                <span className="text-sm">Try Again</span>
+              </button>
 
-              <div className="grid gap-3">
-                <button
-                  onClick={reset}
-                  className="flex items-center justify-center gap-3 p-4 border border-green-500/30 bg-green-500/5 text-green-400 hover:bg-green-500/10 transition-all duration-300 group"
-                >
-                  <RefreshCw className="w-4 h-4 group-hover:rotate-180 transition-transform duration-500" />
-                  <span className="text-sm tracking-wide">RESTART SYSTEM</span>
-                </button>
-
-                <Link
-                  href="/"
-                  className="flex items-center justify-center gap-3 p-4 border border-blue-500/30 bg-blue-500/5 text-blue-400 hover:bg-blue-500/10 transition-all duration-300 group"
-                >
-                  <Home className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  <span className="text-sm tracking-wide">RETURN TO BASE</span>
-                </Link>
-              </div>
+              <Link
+                href="/"
+                className="
+                  flex w-full items-center justify-center gap-2 py-3
+                  bg-zinc-800/40 border border-white/10
+                  rounded-xl text-white
+                  hover:bg-zinc-700/40 transition-all duration-300
+                "
+              >
+                <Home className="w-4 h-4" />
+                <span className="text-sm">Go Home</span>
+              </Link>
             </div>
 
             {/* Error ID */}
-            <div className="mt-8 text-center">
-              <div className="text-blue-400/60 text-xs">ERROR_ID: {Date.now().toString(16).toUpperCase()}</div>
+            <div className="mt-6 text-xs text-zinc-500">
+              ERROR ID: {errorId}
             </div>
           </div>
         </div>
