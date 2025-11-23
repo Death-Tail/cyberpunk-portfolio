@@ -134,10 +134,9 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       <div className="fixed inset-0 z-0 opacity-85 overflow-hidden">
         <Image
           src={bgImg}
-          placeholder="blur"
           alt="Background logo"
           fill
-          className="object-cover object-center select-none pointer-events-none"
+          className="object-cover object-bottom select-none pointer-events-none"
           priority
         />
       </div>

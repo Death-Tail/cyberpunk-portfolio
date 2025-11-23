@@ -161,7 +161,7 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
 
             {/* Logo */}
             <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48">
-              <img src="/bgLogo.avif" alt="Logo" className="object-contain drop-shadow-2xl" />
+              <img src="/Logop.webp" alt="Logo" className="object-contain drop-shadow-2xl" />
             </div>
 
             {/* Orbiting elements around logo */}

@@ -61,7 +61,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="theme-color" content="#0a0a0a" />
-        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
         <link rel="canonical" href="https://dyariali.com" />
         <meta property="fb:app_id" content="1574339983752418" />
 

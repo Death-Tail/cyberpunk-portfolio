@@ -1,25 +1,29 @@
 // Add useRef to your imports at the top
 import { Pause, Play, SkipForward } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
+import { createAudioInstance, getAudioInstance, destroyAudioInstance } from "@/lib/audio-player";
 
 const MusicWidget = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
 
+  const STREAM_URL = "https://play.streamafrica.net/lofiradio";
   // Initialize Audio
   useEffect(() => {
-    // This is a direct stream URL for "Lofi Girl" or similar 24/7 lofi radio
-    audioRef.current = new Audio("https://play.streamafrica.net/lofiradio")
-    audioRef.current.volume = 0.6
+    let audio = getAudioInstance();
 
-    // Cleanup on unmount
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause()
-        audioRef.current = null
-      }
+    if (!audio) {
+      audio = createAudioInstance(STREAM_URL);
     }
-  }, [])
+
+    audioRef.current = audio;
+
+    return () => {
+      // Only destroy if the LAST widget unmounts
+      // (example: when navigating away)
+      destroyAudioInstance();
+    };
+  }, []);
 
   const togglePlay = () => {
     if (!audioRef.current) return
