@@ -28,7 +28,6 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       category: "frontend",
       bgColor: "bg-linear-to-br from-cyan-500/30 to-blue-600/30",
       iconColor: "text-cyan-200",
-      experience: "1+ years",
       projects: 3,
       description: "Advanced React development with hooks, context, and performance optimization",
       features: ["Hooks & Context", "Performance Optimization", "Component Architecture", "State Management"],
@@ -41,7 +40,6 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       category: "frontend",
       bgColor: "bg-linear-to-br from-gray-800/80 to-black/80",
       iconColor: "text-white",
-      experience: "1+ years",
       projects: 3,
       description: "Full-stack Next.js applications with SSR, SSG, and API routes",
       features: ["App Router", "Server Components", "API Routes", "Static Generation"],
@@ -53,7 +51,6 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       category: "language",
       bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
       iconColor: "text-blue-200",
-      experience: "1+ years",
       projects: 3,
       description: "Type-safe development with advanced TypeScript patterns",
       features: ["Advanced Types", "Generics", "Decorators", "Type Guards"],
@@ -65,7 +62,6 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       category: "language",
       bgColor: "bg-linear-to-br from-teal-600/30 to-yellow-600/30",
       iconColor: "text-yellow-200",
-      experience: "6+ Months",
       projects: 0,
       description: "Object-oriented programming and backend development with Java",
       features: ["OOP Principles", "JVM Internals", "Spring Framework", "Concurrency"],
@@ -77,7 +73,6 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       category: "language",
       bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
       iconColor: "text-blue-200",
-      experience: "2 years",
       projects: 1,
       description: "Modern programming with Dart for Flutter and mobile applications",
       features: ["Null Safety", "Asynchronous Programming", "Mixins", "Generics"],
@@ -90,7 +85,6 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       category: "backend",
       bgColor: "bg-linear-to-br from-green-600/30 to-green-800/30",
       iconColor: "text-green-200",
-      experience: "1+ years",
       projects: 3,
       description: "Server-side JavaScript with Express, APIs, and microservices",
       features: ["Express.js", "RESTful APIs", "Authentication", "Database Integration"],
@@ -102,7 +96,6 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       category: "backend",
       bgColor: "bg-linear-to-br from-gray-800/80 to-black/80",
       iconColor: "text-white",
-      experience: "1+ years",
       projects: 1,
       description: "Building backend functionality using Next.js API routes",
       features: ["API Routes", "Serverless Functions", "Middleware", "Data Handling", "Authentication"],
@@ -114,7 +107,6 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       category: "database",
       bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
       iconColor: "text-blue-200",
-      experience: "1+ years",
       projects: 1,
       description: "Advanced SQL queries, indexing, and database optimization",
       features: ["Complex Queries", "Indexing", "Triggers", "Performance Tuning"],
@@ -126,7 +118,6 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       category: "database",
       bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
       iconColor: "text-blue-200",
-      experience: "4+ years",
       projects: 1,
       description: "Advanced SQL queries, indexing, and database optimization",
       features: ["Complex Queries", "Indexing", "Triggers", "Performance Tuning"],
@@ -138,7 +129,6 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       category: "database",
       bgColor: "bg-linear-to-br from-yellow-400/30 to-yellow-600/30",
       iconColor: "text-yellow-200",
-      experience: "1 years",
       projects: 0,
       description: "Realtime database, authentication, and cloud functions with Firebase",
       features: ["Realtime Database", "Authentication", "Cloud Functions"],
@@ -150,7 +140,6 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       category: "mobile",
       bgColor: "bg-white",
       iconColor: "text-blue-400",
-      experience: "2 years",
       projects: 1,
       description: "Cross-platform mobile development with Flutter and Dart",
       features: ["Cross-platform", "State Management", "Native Features", "UI/UX Design"],
@@ -162,7 +151,6 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       category: "Tools",
       bgColor: "bg-black",
       iconColor: "text-white",
-      experience: "4+ years",
       projects: 3,
       description: "Version control and collaboration using Git and GitHub",
       features: ["Branching", "Merging", "Pull Requests", "Collaboration"],
@@ -178,6 +166,7 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
     <BasePage title="TECH_STACK" onBack={onBack}>
       <div className="relative space-y-6">
         {/* Tech Overview Stats */}
+        {/* Keeping the overall stats for context, but the individual skill stats below are changed */}
         <div className="grid grid-cols-4 gap-2 mb-6">
           <div className="p-2 bg-teal-500/10 border border-teal-500/30 text-center rounded">
             <div className="text-sm font-bold text-teal-400">{skillNodes.length}</div>
@@ -240,12 +229,8 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
                   </button>
                 </div>
 
-                {/* Quick Stats */}
-                <div className="grid grid-cols-3 gap-3 mb-3">
-                  <div className="text-center">
-                    <div className="text-teal-400 text-sm font-bold">{skill.experience}</div>
-                    <div className="text-teal-400/70 text-xs">Experience</div>
-                  </div>
+                {/* Quick Stats - ADJUSTED GRID (2 columns) */}
+                <div className="grid grid-cols-2 gap-3 mb-3">
                   <div className="text-center">
                     <div className="text-teal-400 text-sm font-bold">{skill.projects}</div>
                     <div className="text-teal-400/70 text-xs">Projects</div>
@@ -254,6 +239,7 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
                     <div className="text-teal-400 text-sm font-bold">{skill.category}</div>
                     <div className="text-teal-400/70 text-xs">Category</div>
                   </div>
+                  {/* Removed the third stat column */}
                 </div>
 
                 <p className="text-teal-400/80 text-sm">{skill.description}</p>
