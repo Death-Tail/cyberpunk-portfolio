@@ -142,15 +142,13 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       </div>
 
       {/* --- Widgets --- */}
-
-      {/* Center Top: Date & Weather */}
       <div className="fixed top-12 left-1/2 -translate-x-1/2 z-50 animate-in fade-in zoom-in duration-1000 pointer-events-none">
         <div className="pointer-events-auto">
           <DateWeatherWidget />
         </div>
       </div>
 
-      {/* Bottom Right: Music Player */}
+
       <div className=" fixed bottom-15 right-3 z-20">
         <MusicPlayerWidget />
       </div>

@@ -63,9 +63,9 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
         <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1000 1000">
           <defs>
             <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#dc2626" stopOpacity="0" />
-              <stop offset="50%" stopColor="#dc2626" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#dc2626" stopOpacity="0" />
+              <stop offset="0%" stopColor="#00cec9" stopOpacity="0" />
+              <stop offset="50%" stopColor="#00cec9" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#00cec9" stopOpacity="0" />
             </linearGradient>
           </defs>
 
@@ -100,7 +100,7 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
           {particles.map((particle, i) => (
             <div
               key={i}
-              className="absolute w-1 h-1 bg-red-500/30 rounded-full animate-pulse"
+              className="absolute w-1 h-1 bg-teal-500/30 rounded-full animate-pulse"
               style={{
                 left: `${particle.left}%`,
                 top: `${particle.top}%`,
@@ -108,22 +108,22 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
                 animationDuration: `${particle.duration}s`,
               }}
             >
-              <div className="w-full h-full bg-red-400/50 rounded-full animate-ping"></div>
+              <div className="w-full h-full bg-teal-400/50 rounded-full animate-ping"></div>
             </div>
           ))}
         </div>
 
         {/* Geometric shapes */}
         <div
-          className="absolute top-10 left-10 w-32 h-32 border border-red-600/20 rotate-45 animate-spin"
+          className="absolute top-10 left-10 w-32 h-32 border border-teal-600/20 rotate-45 animate-spin"
           style={{ animationDuration: "20s" }}
         ></div>
-        <div className="absolute bottom-20 right-20 w-24 h-24 border border-red-500/15 rotate-12 animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-24 h-24 border border-teal-500/15 rotate-12 animate-pulse"></div>
         <div
-          className="absolute top-1/3 right-10 w-16 h-16 border-2 border-red-600/25 rounded-full animate-bounce"
+          className="absolute top-1/3 right-10 w-16 h-16 border-2 border-teal-600/25 rounded-full animate-bounce"
           style={{ animationDuration: "3s" }}
         ></div>
-        <div className="absolute bottom-1/3 left-20 w-20 h-20 border border-red-400/20 transform rotate-45 animate-pulse"></div>
+        <div className="absolute bottom-1/3 left-20 w-20 h-20 border border-teal-400/20 transform rotate-45 animate-pulse"></div>
 
 
         {/* Tech grid pattern */}
@@ -131,8 +131,8 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
           className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(239, 68, 68, 0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(239, 68, 68, 0.3) 1px, transparent 1px)
+              linear-gradient(rgba(0, 206, 201, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 206, 201, 0.3) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
           }}
@@ -140,9 +140,9 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
 
         {/* Diagonal lines */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-red-500 to-transparent transform rotate-12 origin-left"></div>
-          <div className="absolute top-20 left-0 w-full h-px bg-linear-to-r from-transparent via-red-400 to-transparent transform -rotate-12 origin-left"></div>
-          <div className="absolute bottom-20 left-0 w-full h-px bg-linear-to-r from-transparent via-red-600 to-transparent transform rotate-6 origin-left"></div>
+          <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-teal-500 to-transparent transform rotate-12 origin-left"></div>
+          <div className="absolute top-20 left-0 w-full h-px bg-linear-to-r from-transparent via-teal-400 to-transparent transform -rotate-12 origin-left"></div>
+          <div className="absolute bottom-20 left-0 w-full h-px bg-linear-to-r from-transparent via-teal-600 to-transparent transform rotate-6 origin-left"></div>
         </div>
       </div>
 
@@ -156,8 +156,8 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
         >
           <div className="relative">
             {/* Enhanced glow effect behind logo */}
-            <div className="absolute inset-0 bg-red-500/20 rounded-full blur-xl scale-150 animate-pulse"></div>
-            <div className="absolute inset-0 bg-red-400/10 rounded-full blur-2xl scale-200 animate-pulse delay-500"></div>
+            <div className="absolute inset-0 bg-teal-500/20 rounded-full blur-xl scale-150 animate-pulse"></div>
+            <div className="absolute inset-0 bg-teal-400/10 rounded-full blur-2xl scale-200 animate-pulse delay-500"></div>
 
             {/* Logo */}
             <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48">
@@ -166,13 +166,13 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
 
             {/* Orbiting elements around logo */}
             <div className="absolute inset-0 animate-spin" style={{ animationDuration: "15s" }}>
-              <div className="absolute -top-2 left-1/2 w-2 h-2 bg-red-500/60 rounded-full transform -translate-x-1/2"></div>
+              <div className="absolute -top-2 left-1/2 w-2 h-2 bg-teal-500/60 rounded-full transform -translate-x-1/2"></div>
             </div>
             <div
               className="absolute inset-0 animate-spin"
               style={{ animationDuration: "12s", animationDirection: "reverse" }}
             >
-              <div className="absolute top-1/2 -right-2 w-1.5 h-1.5 bg-red-400/60 rounded-full transform -translate-y-1/2"></div>
+              <div className="absolute top-1/2 -right-2 w-1.5 h-1.5 bg-teal-400/60 rounded-full transform -translate-y-1/2"></div>
             </div>
           </div>
         </div>
@@ -185,9 +185,9 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
         >
           {/* Progress bar */}
           <div className="w-full space-y-2">
-            <div className="w-full h-1 bg-zinc-800/50 rounded-full overflow-hidden backdrop-blur-sm border border-red-900/20">
+            <div className="w-full h-1 bg-zinc-800/50 rounded-full overflow-hidden backdrop-blur-sm border border-teal-900/20">
               <div
-                className="h-full bg-linear-to-r from-red-600 via-red-500 to-red-400 rounded-full transition-all duration-300 ease-out relative"
+                className="h-full bg-linear-to-r from-teal-600 via-teal-500 to-teal-400 rounded-full transition-all duration-300 ease-out relative"
                 style={{ width: `${loadingProgress}%` }}
               >
                 <div className="absolute inset-0 bg-white/20 animate-pulse rounded-full"></div>
@@ -197,14 +197,14 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
 
             {/* Progress text */}
             <div className="flex justify-between items-center text-xs">
-              <span className="text-red-400/70 font-medium">{isComplete ? "Ready" : "Loading..."}</span>
-              <span className="text-red-400 font-mono">{loadingProgress}%</span>
+              <span className="text-teal-400/70 font-medium">{isComplete ? "Ready" : "Loading..."}</span>
+              <span className="text-teal-400 font-mono">{loadingProgress}%</span>
             </div>
           </div>
 
           {/* Status message */}
           <div className="text-center">
-            <p className="text-red-300/80 text-sm font-light tracking-wide">
+            <p className="text-teal-300/80 text-sm font-light tracking-wide">
               {isComplete
                 ? "Welcome back"
                 : loadingProgress > 80
