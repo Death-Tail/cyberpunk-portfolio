@@ -21,7 +21,7 @@ interface ProfilePageProps {
 
 export default function ProfilePage({ onBack }: ProfilePageProps) {
   return (
-    <BasePage title="IDENTITY_CORE" onBack={onBack}>
+    <BasePage title="Profile" onBack={onBack}>
       <div className="relative min-h-screen pb-10">
 
         {/* Layout Grid */}
@@ -66,8 +66,8 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
             {/* Vitals / Quick Stats */}
             <div className="grid grid-cols-2 gap-3">
               <div className="p-3 bg-zinc-900/50 border border-white/5 rounded hover:border-teal-500/30 transition-colors group">
-                <MapPin className="w-4 h-4 text-zinc-500 mb-2 group-hover:text-teal-400 transition-colors" />
-                <div className="text-xs text-zinc-500">Location</div>
+                <MapPin className="w-4 h-4 text-white mb-2 group-hover:text-teal-400 transition-colors" />
+                <div className="text-xs text-white">Location</div>
                 <div className="text-sm font-bold text-white">KRD, Hawler</div>
               </div>
               <div className="p-3 bg-zinc-900/50 border border-white/5 rounded hover:border-teal-500/30 transition-colors group">
@@ -87,17 +87,13 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
               <div className="absolute -left-[5px] bottom-0 w-2 h-2 bg-teal-500 rounded-full" />
 
               <div className="space-y-4 text-sm leading-relaxed text-zinc-300 font-mono">
+                <p className="text-left">
+                  <span className="text-yellow-500 mr-2">&gt;</span>
+                    Full-Stack Developer working with Nextjs, Typescript, Tailwind CSS, sometimes Flutter,
+                    i hold a BSc in Computer Science.</p>
                 <p>
-                  <span className="text-teal-500 mr-2">&gt;</span>
-                  Full-stack developer specializing in the <span className="text-white font-bold">Next.js Ecosystem</span> and modern web architecture. Expert in constructing scalable applications using TypeScript and advanced database systems.
-                </p>
-                <p>
-                  <span className="text-teal-500 mr-2">&gt;</span>
-                  Proven track record in enterprise-level projects, orchestrating complete website development cycles with integrated dashboard systems for business operations.
-                </p>
-                <p>
-                  <span className="text-teal-500 mr-2">&gt;</span>
-                  Specialized in bridging complex technical logic with intuitive, high-performance user interfaces.
+                  <span className="text-yellow-500 mr-2">&gt;</span>
+                  Might migrate to Unreal Engine and blender for animation and 3d art.
                 </p>
               </div>
             </div>
@@ -105,13 +101,10 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
             {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-4">
               {[
-                { label: "Experience", value: "2+ YEARS", icon: <Fingerprint className="w-4 h-4" /> },
-                { label: "Projects", value: "3+ SHIPPED", icon: <Code2 className="w-4 h-4" /> },
+                { label: "Experience", value: "2+ YEARS" },
+                { label: "Projects", value: "3+ SHIPPED"},
               ].map((stat, i) => (
                 <div key={i} className="relative p-4 bg-zinc-900/40 border border-white/10 rounded-lg overflow-hidden group hover:bg-zinc-900/80 hover:border-teal-500/30 transition-all">
-                  <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-20 transition-opacity text-teal-500">
-                    {stat.icon}
-                  </div>
                   <div className="text-xl font-bold text-white mb-1 font-mono">{stat.value}</div>
                   <div className="text-xs text-zinc-500 uppercase tracking-wider">{stat.label}</div>
                 </div>
@@ -158,13 +151,6 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
               </div>
             </div>
 
-            {/* Decoration: Footer Code */}
-            <div className="pt-6 border-t border-white/5">
-              <div className="flex justify-between text-[10px] text-zinc-600 font-mono">
-                <span>ID: 8473-XJ-99</span>
-                <span>ENCRYPTED_CONNECTION: SECURE</span>
-              </div>
-            </div>
 
           </div>
         </div>

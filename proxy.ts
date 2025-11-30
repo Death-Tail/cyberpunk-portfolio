@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 
-// 1. Rename to 'blockedOrgs' because these are names, not ASNs
 const blockedOrgs = [
   "DIGITALOCEAN",
   "CLOUDFLARENET",
@@ -14,12 +13,9 @@ const blockedOrgs = [
   "CHINANET",
 ]
 
-// 2. In Next.js 16, the function MUST be named 'proxy'
 export function proxy(req: NextRequest) {
   const ua = req.headers.get("user-agent")?.toLowerCase() ?? ""
 
-  // 3. FIX: Use 'x-vercel-ip-as-org' to match your list of names.
-  // ('x-vercel-ip-asn' would return numbers like '13335')
   const asOrg = req.headers.get("x-vercel-ip-as-org") ?? ""
 
   // ⭐ Allow SEO Crawlers ⭐
@@ -36,7 +32,6 @@ export function proxy(req: NextRequest) {
     return NextResponse.next()
   }
 
-  // 🛑 Block Hosting/Cloud Providers (Anti-Scraping)
   if (blockedOrgs.some(org => asOrg.toUpperCase().includes(org))) {
     // Return 403 (Forbidden) instead of 204
     return new NextResponse(null, { status: 403, statusText: "Forbidden" })

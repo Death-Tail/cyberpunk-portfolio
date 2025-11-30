@@ -137,13 +137,13 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
     {
       name: "FLUTTER",
       icon: <SiFlutter className="w-7 h-7" />,
-      category: "mobile",
+      category: "frontend",
       bgColor: "bg-white",
       iconColor: "text-blue-400",
       projects: 1,
       description: "Cross-platform mobile development with Flutter and Dart",
       features: ["Cross-platform", "State Management", "Native Features", "UI/UX Design"],
-      relatedProjects: ["Bored? App"],
+      relatedProjects: [],
     },
     {
       name: "GIT",
@@ -158,7 +158,7 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
     }
   ]
 
-  const categories = ["all", "frontend", "backend", "database", "mobile", "language", "Tools"]
+  const categories = ["all", "frontend", "backend", "database", "language", "Tools"]
   const filteredSkills =
     selectedCategory === "all" ? skillNodes : skillNodes.filter((skill) => skill.category === selectedCategory)
 
@@ -249,10 +249,10 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
               <div
                 className={`overflow-hidden transition-all duration-300 ${expandedTech[skill.name] ? "max-h-96" : "max-h-0"}`}
               >
-                <div className="px-4 pb-4 space-y-4 border-t border-teal-600/20">
+                <div className="px-4 pb-4 pt-4 space-y-4 border-t border-teal-600/20">
                   {/* Key Features */}
                   <div>
-                    <div className="text-xs text-blue-400 mb-2 font-bold flex items-center">
+                    <div className="text-xs text-blue-400 mb-2font-bold flex items-center">
                       <Zap className="w-3 h-3 mr-1" />
                       KEY FEATURES
                     </div>
