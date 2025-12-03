@@ -304,6 +304,7 @@ const skillNodes: SkillNode[] = [
     bgColor: "bg-linear-to-br from-orange-600/30 to-red-600/30",
     iconColor: "text-orange-200",
   },
+
   {
     id: "gaming",
     name: "GAMING & 3D DESIGN",
@@ -312,7 +313,7 @@ const skillNodes: SkillNode[] = [
     unlocked: false,
     x: 900,
     y: 350,
-    connections: ["core"],
+    connections: [],
     category: "tools",
     description: "Game development and 3D content creation",
     bgColor: "bg-linear-to-br from-indigo-700/30 to-purple-800/30",
@@ -340,9 +341,9 @@ const skillNodes: SkillNode[] = [
     unlocked: false,
     x: 1050,
     y: 350,
-    connections: ["gaming"],
+    connections: ["3D cookin"],
     category: "tools",
-    description: "3D modeling and animation software",
+    description: "3D modeling and animation",
     bgColor: "bg-linear-to-br from-orange-600/30 to-yellow-700/30",
     iconColor: "text-orange-200",
   },
