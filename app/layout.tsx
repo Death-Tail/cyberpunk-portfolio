@@ -23,8 +23,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://dyariali.com/logoOG.jpg",
-        width: 3000,
-        height: 1568,
+        width: 1024,
+        height: 1024,
         alt: "Dyari Ali Tahir Portfolio",
         type: "image/jpg",
       },
