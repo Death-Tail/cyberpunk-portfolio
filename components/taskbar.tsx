@@ -42,7 +42,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
 
   const applications = [
     { type: "profile", icon: <Image src="/desktopLogo/Profile.webp" alt="profile Logo" property="true" width={100} height={100}/>, name: "Profile" },
-    { type: "projects", icon: <Image src="/desktopLogo/projects.webp" alt="projects Logo" property="true" width={100} height={100}/>, name: "Projects"},
+    { type: "projects", icon: <Image src="/desktopLogo/Projects.webp" alt="projects Logo" property="true" width={100} height={100}/>, name: "Projects"},
     // { type: "terminal", icon: <Image src="/desktopLogo/Terminal.webp" alt="terminal Logo" property="true" width={100} height={100}/>, name: "Terminal" },
     { type: "contact", icon: <Image src="/desktopLogo/Contact.webp" alt="contact Logo" property="true" width={100} height={100}/>, name: "Contact" },
     { type: "techstack", icon: <Image src="/desktopLogo/Techstack.webp" alt="techstack Logo" property="true" width={100} height={100}/>, name: "Tech Stack" },
