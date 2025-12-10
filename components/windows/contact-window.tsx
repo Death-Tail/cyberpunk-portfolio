@@ -96,12 +96,9 @@ export function ContactWindow(props: ContactWindowProps) {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center">
               <div className="w-2 h-2 bg-indigo-600 mr-2"></div>
-              <span className="text-indigo-500 text-xs tracking-wider">COMMUNICATION_PROTOCOLS</span>
+              <span className="text-yellow-500 text-xs tracking-wider">COMMUNICATION_PROTOCOLS</span>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-green-400 text-xs">ONLINE</span>
-            </div>
+
           </div>
         </div>
 
@@ -111,7 +108,6 @@ export function ContactWindow(props: ContactWindowProps) {
               <div className="border border-green-500/30 p-4 bg-green-500/5">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center">
-                    <Shield className="w-4 h-4 text-green-400 mr-2" />
                     <span className="text-green-400 text-xs font-bold">CURRENT STATUS</span>
                   </div>
                   <div className="text-green-400 text-xs">GMT+3 (Kurdistan)</div>
@@ -137,7 +133,7 @@ export function ContactWindow(props: ContactWindowProps) {
                 {contactMethods.map((contact, index) => (
                   <div
                     key={index}
-                    className="border border-indigo-600/30 bg-indigo-600/5 hover:bg-indigo-600/10 transition-all duration-300 group"
+                    className="border border-slate-600/30 bg-slate-600/5 hover:bg-slate-600/10 transition-all duration-300 group"
                   >
                     <div className="p-4">
                       <div className="flex items-start justify-between mb-3">
@@ -159,10 +155,6 @@ export function ContactWindow(props: ContactWindowProps) {
                               <div className="flex items-center">
                                 <Clock className="w-3 h-3 mr-1 text-indigo-400" />
                                 <span className="text-indigo-400/80">{contact.responseTime}</span>
-                              </div>
-                              <div className="flex items-center">
-                                <div className="w-2 h-2 bg-green-500 rounded-full mr-1" />
-                                <span className="text-green-400/80">{contact.availability}</span>
                               </div>
                             </div>
                           </div>

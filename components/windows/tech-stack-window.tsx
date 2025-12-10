@@ -27,7 +27,7 @@ interface TechStackWindowProps {
 interface SkillNode {
   id: string
   name: string
-  level: "BEGINNER" | "INTERMEDIATE" | "ADVANCED" | "MASTER"
+  level: "BEGINNER" | "INTERMEDIATE" | "ADVANCED" | "MASTER" | "PENDING"
   icon: React.ReactNode
   unlocked: boolean
   x: number
@@ -53,7 +53,7 @@ const skillNodes: SkillNode[] = [
     category: "core",
     description: "Core development competencies",
     bgColor: "bg-linear-to-br from-red-500/30 to-orange-600/30",
-    iconColor: "text-",
+    iconColor: "text-red",
   },
 
   // ===== FRAMEWORKS / FRONTEND =====
@@ -310,7 +310,7 @@ const skillNodes: SkillNode[] = [
     name: "GAMING & 3D DESIGN",
     level: "BEGINNER",
     icon: <Gamepad2 className="w-7 h-7" />,
-    unlocked: false,
+    unlocked: true,
     x: 900,
     y: 350,
     connections: [],
@@ -322,7 +322,7 @@ const skillNodes: SkillNode[] = [
   {
     id: "unreal",
     name: "UNREAL ENGINE",
-    level: "BEGINNER",
+    level: "PENDING",
     icon: <SiUnrealengine className="w-7 h-7" />,
     unlocked: false,
     x: 925,
@@ -350,7 +350,7 @@ const skillNodes: SkillNode[] = [
   {
     id: "animation",
     name: "ANIMATION",
-    level: "BEGINNER",
+    level: "PENDING",
     icon: <Film className="w-7 h-7" />,
     unlocked: false,
     x: 925,
@@ -507,13 +507,13 @@ export function TechStackWindow(props: TechStackWindowProps) {
         {/* Skill Map Container */}
         <div
           ref={mapRef}
-          className={`relative h-96 overflow-hidden rounded-lg border border-indigo-500/30 ${isDragging ? "cursor-grabbing" : "cursor-grab"
+          className={`relative h-96 overflow-hidden rounded-lg border border-slate-500/30 ${isDragging ? "cursor-grabbing" : "cursor-grab"
             }`}
           onMouseDown={handleMapMouseDown}
         >
           {/* Extended Neural Network Background */}
           <div
-            className="map-background absolute bg-linear-to-br from-black via-zinc-950 to-indigo-950/20"
+            className="map-background absolute bg-linear-to-br from-black via-slate-950 to-slate-950/20"
             style={{
               width: MAP_BOUNDS.width,
               height: MAP_BOUNDS.height,
@@ -821,30 +821,6 @@ export function TechStackWindow(props: TechStackWindowProps) {
             })()}
           </div>
         )}
-
-        {/* Stats */}
-        <div className="grid grid-cols-4 gap-2 text-center">
-          <div className="p-2 bg-indigo-500/10 border border-indigo-500/30 rounded">
-            <div className="text-sm font-bold text-indigo-400">{skillNodes.filter((n) => n.unlocked).length}</div>
-            <div className="text-indigo-500/70 text-xs">UNLOCKED</div>
-          </div>
-          <div className="p-2 bg-orange-500/10 border border-orange-500/30 rounded">
-            <div className="text-sm font-bold text-orange-400">
-              {skillNodes.filter((n) => n.level === "ADVANCED").length}
-            </div>
-            <div className="text-orange-500/70 text-xs">ADVANCED</div>
-          </div>
-          <div className="p-2 bg-yellow-500/10 border border-yellow-500/30 rounded">
-            <div className="text-sm font-bold text-yellow-400">
-              {skillNodes.filter((n) => n.level === "INTERMEDIATE").length}
-            </div>
-            <div className="text-yellow-500/70 text-xs">INTERMEDIATE</div>
-          </div>
-          <div className="p-2 bg-indigo-400/10 border border-indigo-400/30 rounded">
-            <div className="text-sm font-bold text-indigo-300">85%</div>
-            <div className="text-indigo-400/70 text-xs">MASTERY</div>
-          </div>
-        </div>
       </div>
     </BaseWindow>
   )
