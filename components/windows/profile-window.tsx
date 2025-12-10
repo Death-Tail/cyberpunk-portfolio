@@ -42,14 +42,11 @@ export function ProfileWindow(props: ProfileWindowProps) {
 
             <div>
               <GlitchText
-                text="Dyari Ali Tahir"
+                text="Dyari Ali Tahir (SHIN尾)"
                 className="text-xl font-bold mb-2"
                 glitchColors={["#dc2626", "#eab308", "#3b82f6"]}
               />
               <div className="text-red-200 text-sm mb-2">FULL_STACK_DEVELOPER</div>
-              <div className="text-red-100/80 text-xs mb-2">
-                STATUS: <span className="text-green-400">ONLINE</span>
-              </div>
               <div className="flex items-center text-indigo-200 text-xs">
                 <MapPin className="w-3 h-3 mr-1" />
                 <span>REMOTE_OPERATIVE</span>
@@ -62,7 +59,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
         <div className="border-l-2 border-yellow-500 pl-4">
           <div className="flex items-center mb-3">
             <div className="w-2 h-2 bg-yellow-500 mr-2"></div>
-            <span className="text-yellow-300 text-xs tracking-wider">NEURAL_PROFILE</span>
+            <span className="text-yellow-300 text-xs tracking-wider">Summary</span>
           </div>
 
           <div className="text-white text-sm space-y-2">

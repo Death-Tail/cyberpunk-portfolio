@@ -52,14 +52,12 @@ function ImageCarousel({
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="text-xs text-indigo-400 mb-2">PROJECT_PREVIEW:</div>
-      <div className="relative w-full aspect-video border border-indigo-500/30 bg-stone-900/50 overflow-hidden group">
+      <div className="relative w-full aspect-video bg-gray-900/50 overflow-hidden group">
         <Image
           // 3. The src prop in Next/Image natively supports both types
           src={currentImage || "/placeholder.svg"}
           alt={`${projectTitle} screenshot ${currentIndex + 1}`}
           fill
-          // Only apply blur placeholder if it is a Static Import (object),
-          // otherwise string URLs need a manual blurDataURL which is complex to handle dynamically
           placeholder={shouldBlur ? "blur" : "empty"}
           className="object-fill transition-opacity duration-500"
         />
@@ -119,7 +117,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="border border-indigo-600/30 bg-stone-800/40 hover:bg-stone-800/60 transition-colors p-4"
+              className=" bg-gray-800/40 hover:bg-gray-800/60 transition-colors p-4"
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-start space-x-3 flex-1">
@@ -154,7 +152,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                         {project.tech.map((tech, techIndex) => (
                           <span
                             key={techIndex}
-                            className="px-2 py-0.5 bg-stone-700/50 border border-indigo-500/30 text-indigo-300 text-xs"
+                            className="px-2 py-0.5 bg-gray-700/50 border border-indigo-500/30 text-indigo-300 text-xs"
                           >
                             {tech}
                           </span>
@@ -181,7 +179,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                         rel="noopener noreferrer"
                         className={`flex items-center gap-1 px-2 py-1 border text-xs transition-colors ${project.links.live
                             ? "bg-emerald-600/20 border-emerald-600/50 text-emerald-400 hover:bg-emerald-600/30"
-                            : "bg-stone-700/50 border-stone-600/50 text-stone-500 cursor-not-allowed"
+                            : "bg-gray-700/50 border-gray-600/50 text-gray-500 cursor-not-allowed"
                           }`}
                         title={project.links.live ? "View live project" : "Live project not available"}
                         aria-disabled={!project.links.live}
@@ -195,7 +193,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                         rel="noopener noreferrer"
                         className={`flex items-center gap-1 px-2 py-1 border text-xs transition-colors ${project.links.github
                             ? "bg-cyan-500/20 border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/30"
-                            : "bg-stone-700/50 border-stone-600/50 text-stone-500 cursor-not-allowed"
+                            : "bg-gray-700/50 border-gray-600/50 text-gray-500 cursor-not-allowed"
                           }`}
                         title={project.links.github ? "View source code" : "Source code not available"}
                         aria-disabled={!project.links.github}
@@ -211,14 +209,14 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
           ))}
         </div>
 
-        <div className="border border-stone-600/30 bg-stone-800/20 p-4 opacity-50">
+        <div className="border border-gray-600/30 bg-gray-800/20 p-4 opacity-50">
           <div className="flex items-center mb-2">
-            <div className="w-4 h-4 border border-stone-500 bg-stone-700/50 mr-3 flex items-center justify-center">
-              <span className="text-stone-400 text-xs">+</span>
+            <div className="w-4 h-4 border border-gray-500 bg-gray-700/50 mr-3 flex items-center justify-center">
+              <span className="text-gray-400 text-xs">+</span>
             </div>
-            <h3 className="text-stone-400 font-bold text-sm">MORE PROJECTS COMING SOON</h3>
+            <h3 className="text-gray-400 font-bold text-sm">MORE PROJECTS COMING SOON</h3>
           </div>
-          <p className="text-stone-500 text-xs">
+          <p className="text-gray-500 text-xs">
             Additional projects will be added to the database as they are completed.
           </p>
         </div>

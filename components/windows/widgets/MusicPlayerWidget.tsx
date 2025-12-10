@@ -100,7 +100,7 @@ export function MusicPlayerWidget({ className }: { className?: string }) {
             {/* center label */}
             <div className="absolute inset-[26%] rounded-full bg-cyan-400/80 border border-cyan-200/60 shadow-inner" />
             {/* spindle */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-stone-100 shadow-[0_0_6px_rgba(255,255,255,0.7)]" />
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gray-100 shadow-[0_0_6px_rgba(255,255,255,0.7)]" />
 
             {/* simple grooves */}
             <div className="absolute inset-[10%] rounded-full border border-black/40 opacity-70" />

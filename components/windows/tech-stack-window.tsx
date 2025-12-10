@@ -768,7 +768,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
                 {/* Node label */}
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 text-center pointer-events-none">
                   <div className={`text-xs font-semibold tracking-wide ${node.iconColor}`}>{node.name}</div>
-                  <div className="text-xs text-stone-500 mt-1 font-medium">[{node.level}]</div>
+                  <div className="text-xs text-gray-500 mt-1 font-medium">[{node.level}]</div>
                 </div>
               </div>
             )

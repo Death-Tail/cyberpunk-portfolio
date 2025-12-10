@@ -38,7 +38,7 @@ export function DateWeatherWidget({ className }: { className?: string }) {
       </h1>
 
       {/* Date */}
-      <div className="text-xl font-light text-indigo-300 tracking-[0.2em] uppercase mb-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+      <div className="text-xl font-light text-white tracking-[0.2em] uppercase mb-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
         {dateString}
       </div>
 
