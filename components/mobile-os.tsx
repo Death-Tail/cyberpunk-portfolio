@@ -37,7 +37,7 @@ function OSContent() {
 
   const apps = [
     { type: "profile", icon: "/desktopLogo/Profile.webp", name: "Profile" },
-    { type: "projects", icon: "/desktopLogo/projects.webp", name: "Projects" },
+    { type: "projects", icon: "/desktopLogo/Projects.webp", name: "Projects" },
     { type: "techstack", icon: "/desktopLogo/Techstack.webp", name: "Tech Stack" },
     { type: "contact", icon: "/desktopLogo/Contact.webp", name: "Contact" },
     { type: "resume", icon: "/desktopLogo/Resume.webp", name: "Resume" },

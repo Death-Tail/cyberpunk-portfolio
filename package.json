@@ -1,6 +1,6 @@
 {
   "name": "death-tail",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "portfolio of SHIN尾, with aesthetic and ninetail fox theme.",
   "scripts": {
     "dev": "next dev",
