@@ -33,7 +33,7 @@ interface SkillNode {
   x: number
   y: number
   connections: string[]
-  category: "frontend" | "backend" | "database" | "tools" | "core"
+  category: "frontend" | "backend" | "database" | "tools" | "core" | "gaming"
   description: string
   bgColor: string
   iconColor: string
@@ -305,6 +305,7 @@ const skillNodes: SkillNode[] = [
     iconColor: "text-orange-200",
   },
 
+  // ===== Gaming and Animation =====
   {
     id: "gaming",
     name: "GAMING & 3D DESIGN",
@@ -314,7 +315,7 @@ const skillNodes: SkillNode[] = [
     x: 900,
     y: 350,
     connections: [],
-    category: "tools",
+    category: "gaming",
     description: "Game development and 3D content creation",
     bgColor: "bg-linear-to-br from-indigo-700/30 to-purple-800/30",
     iconColor: "text-purple-300",
@@ -338,10 +339,10 @@ const skillNodes: SkillNode[] = [
     name: "BLENDER",
     level: "BEGINNER",
     icon: <SiBlender className="w-7 h-7" />,
-    unlocked: false,
-    x: 1050,
-    y: 350,
-    connections: ["3D cookin"],
+    unlocked: true,
+    x: 925,
+    y: 500,
+    connections: ["gaming"],
     category: "tools",
     description: "3D modeling and animation",
     bgColor: "bg-linear-to-br from-orange-600/30 to-yellow-700/30",
@@ -353,9 +354,9 @@ const skillNodes: SkillNode[] = [
     level: "PENDING",
     icon: <Film className="w-7 h-7" />,
     unlocked: false,
-    x: 925,
-    y: 500,
-    connections: ["gaming", "blender"],
+    x: 1050,
+    y: 350,
+    connections: ["gaming"],
     category: "tools",
     description: "Character and motion animation fundamentals",
     bgColor: "bg-linear-to-br from-indigo-600/30 to-red-700/30",
