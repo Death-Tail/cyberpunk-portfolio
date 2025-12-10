@@ -77,7 +77,7 @@ export function MusicPlayerWidget({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "w-[400px] pl-1.5 rounded-3xl bg-linear-to-br from-teal-900 via-zinc-900 to-teal-800",
+        "w-[400px] pl-1.5 rounded-3xl bg-linear-to-br from-indigo-900 via-zinc-900 to-indigo-800",
         "border border-black/40 shadow-[0_18px_40px_rgba(0,0,0,0.6)]",
         "relative overflow-hidden",
         className
@@ -100,7 +100,7 @@ export function MusicPlayerWidget({ className }: { className?: string }) {
             {/* center label */}
             <div className="absolute inset-[26%] rounded-full bg-cyan-400/80 border border-cyan-200/60 shadow-inner" />
             {/* spindle */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-slate-100 shadow-[0_0_6px_rgba(255,255,255,0.7)]" />
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-stone-100 shadow-[0_0_6px_rgba(255,255,255,0.7)]" />
 
             {/* simple grooves */}
             <div className="absolute inset-[10%] rounded-full border border-black/40 opacity-70" />
@@ -156,14 +156,14 @@ export function MusicPlayerWidget({ className }: { className?: string }) {
               <div
                 className={cn(
                   "w-2.5 h-2.5 rounded-full",
-                  isPlaying ? "bg-rose-900/70" : "bg-rose-500/90 shadow-[0_0_6px_rgba(248,113,113,0.7)]"
+                  isPlaying ? "bg-indigo-900/70" : "bg-indigo-500/90 shadow-[0_0_6px_rgba(248,113,113,0.7)]"
                 )}
               />
             </div>
 
             {/* simplified meter */}
             <div className="w-[120px] h-5 rounded-full bg-black/40 border border-black/70 px-1 flex items-center">
-              <div className="flex-1 h-2 rounded-full bg-linear-to-r from-emerald-400 via-yellow-300 to-rose-400/80 overflow-hidden">
+              <div className="flex-1 h-2 rounded-full bg-linear-to-r from-emerald-400 via-yellow-300 to-indigo-400/80 overflow-hidden">
                 <div
                   className="h-full bg-black/40"
                   style={{

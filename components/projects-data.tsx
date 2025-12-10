@@ -70,7 +70,7 @@ export const projects = [
     status: "DEPLOYED",
     icon: (
       <img
-        src="/LogoWeb.webp"
+        src="/logoImg.webp"
         alt="Portfolio Logo"
         className="w-10 h-10 object-contain"
       />

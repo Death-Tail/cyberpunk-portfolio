@@ -38,7 +38,7 @@ export function DateWeatherWidget({ className }: { className?: string }) {
       </h1>
 
       {/* Date */}
-      <div className="text-xl font-light text-teal-300 tracking-[0.2em] uppercase mb-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+      <div className="text-xl font-light text-indigo-300 tracking-[0.2em] uppercase mb-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
         {dateString}
       </div>
 
@@ -54,7 +54,7 @@ export function DateWeatherWidget({ className }: { className?: string }) {
         <span className="w-px h-5 bg-white/30 mx-1"></span>
 
         <div className="flex items-center gap-1.5 text-sm text-white/90 font-medium">
-          <MapPin className="w-3.5 h-3.5 text-teal-400" />
+          <MapPin className="w-3.5 h-3.5 text-indigo-400" />
           <span className="uppercase tracking-wider">Erbil</span>
         </div>
       </div>

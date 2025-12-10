@@ -3,12 +3,12 @@
 import type React from "react"
 import Image from "next/image"
 import { Icons } from "@/public/desktopLogo"
-import bgImg from "@/public/bg.webp"
+import bgImg from "@/public/bg.jpg"
 import { useEffect, useRef, useState } from "react"
 import { ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { DateWeatherWidget } from "./windows/widgets/DateWeatherWidget"
-import { MusicPlayerWidget } from "./windows/widgets/MusicPlayerWidget"
+// import { MusicPlayerWidget } from "./windows/widgets/MusicPlayerWidget"
 
 // Widgets
 
@@ -52,12 +52,12 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       name: "Projects",
       icon: <Image placeholder="blur" src={Icons.Projects} alt="project logo" property="true" width={100} height={100} />
     },
-    {
-      id: "terminal-icon",
-      type: "terminal",
-      name: "Terminal",
-      icon: <Image placeholder="blur" src={Icons.Terminal} alt="terminal logo" property="true" width={100} height={100} />
-    },
+    // {
+    //   id: "terminal-icon",
+    //   type: "terminal",
+    //   name: "Terminal",
+    //   icon: <Image placeholder="blur" src={Icons.Terminal} alt="terminal logo" property="true" width={100} height={100} />
+    // },
     {
       id: "contact-icon",
       type: "contact",
@@ -122,9 +122,9 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
   const getIconColorClasses = (color: string, isSelected: boolean) => {
     const baseClasses = "flex flex-col items-center p-2 rounded cursor-pointer transition-all duration-150"
     if (isSelected) {
-      return cn(baseClasses, "bg-teal-600/30 shadow-[0_0_10px_rgba(220,38,38,0.3)]")
+      return cn(baseClasses, "bg-indigo-600/30 shadow-[0_0_10px_rgba(220,38,38,0.3)]")
     }
-    return cn(baseClasses, "hover:bg-teal-500/20")
+    return cn(baseClasses, "hover:bg-indigo-500/20")
   }
 
   return (
@@ -149,9 +149,9 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       </div>
 
 
-      <div className=" fixed bottom-15 right-3 z-20">
+      {/* <div className=" fixed bottom-15 right-3 z-20">
         <MusicPlayerWidget />
-      </div>
+      </div> */}
 
 
       {/* --- Desktop Icons --- */}
@@ -178,7 +178,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
               {icon.name}
             </span>
             {selectedIcon === icon.id && (
-              <div className="absolute inset-0 border border-teal-500 rounded pointer-events-none"></div>
+              <div className="absolute inset-0 border border--500 rounded pointer-events-none"></div>
             )}
           </div>
         ))}
@@ -187,7 +187,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       {/* --- Context Menu --- */}
       {contextMenu.visible && (
         <div
-          className="fixed z-50 bg-zinc-900 border border-teal-600 shadow-lg py-1 w-48"
+          className="fixed z-50 bg-zinc-900 border border-indigo-600 shadow-lg py-1 w-48"
           style={{
             left: `${contextMenu.x}px`,
             top: `${contextMenu.y}px`,
@@ -197,12 +197,12 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
         >
           {contextMenu.iconId && (
             <>
-              <div className="px-3 py-1 text-xs text-purple-300 border-b border-teal-600/30">
+              <div className="px-3 py-1 text-xs text-purple-300 border-b border-indigo-600/30">
                 {desktopIcons.find((icon) => icon.id === contextMenu.iconId)?.name || "Options"}
               </div>
 
               <button
-                className="w-full text-left px-3 py-1.5 text-sm text-white hover:bg-teal-600/20 flex items-center"
+                className="w-full text-left px-3 py-1.5 text-sm text-white hover:bg-indigo-600/20 flex items-center"
                 onClick={() => {
                   const icon = desktopIcons.find((icon) => icon.id === contextMenu.iconId)
                   if (icon) {
@@ -219,7 +219,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
                 <ChevronRight className="w-3 h-3 ml-auto" />
               </button>
               <button
-                className="w-full text-left px-3 py-1.5 text-sm text-white hover:bg-teal-500/20 flex items-center"
+                className="w-full text-left px-3 py-1.5 text-sm text-white hover:bg-indigo-500/20 flex items-center"
                 onClick={() => setContextMenu({ ...contextMenu, visible: false })}
               >
                 <span>Properties</span>

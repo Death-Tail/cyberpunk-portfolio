@@ -42,7 +42,7 @@ export default function WeatherWidget() {
   const getWeatherIcon = (code: number) => {
     if (code === 0 || code === 1) return <Sun className="w-8 h-8 text-yellow-300" /> // Clear/Mainly Clear
     if (code === 2 || code === 3) return <Cloud className="w-8 h-8 text-gray-300" /> // Cloudy
-    if (code >= 51 && code <= 67) return <CloudRain className="w-8 h-8 text-blue-300" /> // Rain
+    if (code >= 51 && code <= 67) return <CloudRain className="w-8 h-8 text-indigo-300" /> // Rain
     if (code >= 71 && code <= 77) return <CloudSnow className="w-8 h-8 text-white" /> // Snow
     if (code >= 95) return <CloudLightning className="w-8 h-8 text-purple-300" /> // Thunderstorm
     return <Cloud className="w-8 h-8 text-gray-300" /> // Default

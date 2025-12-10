@@ -105,26 +105,26 @@ export function BaseWindow({
         height: isMinimized ? 'auto' : `${size.height}px`,
         zIndex: isActive ? zIndex : zIndex - 1,
       }}
-      className="bg-slate-900/95 border border-slate-700 rounded shadow-lg flex flex-col"
+      className="bg-stone-900/95 border border-stone-700 rounded shadow-lg flex flex-col"
       onClick={onFocus}
     >
       {/* Window Header */}
       <div
         ref={headerRef}
-        className="bg-linear-to-r from-slate-800 to-slate-900 border-b border-slate-700 p-3 flex items-center justify-between cursor-grab active:cursor-grabbing"
+        className="bg-linear-to-r from-stone-800 to-stone-900 border-b border-stone-700 p-3 flex items-center justify-between cursor-grab active:cursor-grabbing"
       >
-        <h2 className="text-sm font-semibold text-slate-100">{title}</h2>
+        <h2 className="text-sm font-semibold text-stone-100">{title}</h2>
         <div className="flex gap-2">
           <button
             onClick={handleMinimize}
-            className="hover:bg-slate-700 p-1 rounded text-slate-400 hover:text-slate-100 transition-colors"
+            className="hover:bg-stone-700 p-1 rounded text-stone-400 hover:text-stone-100 transition-colors"
             title="Minimize"
           >
             <Minus className="w-4 h-4" />
           </button>
           <button
             onClick={onClose}
-            className="hover:bg-red-500/20 p-1 rounded text-slate-400 hover:text-red-400 transition-colors"
+            className="hover:bg-red-500/20 p-1 rounded text-stone-400 hover:text-red-400 transition-colors"
             title="Close"
           >
             <X className="w-4 h-4" />
@@ -134,7 +134,7 @@ export function BaseWindow({
 
       {/* Window Content */}
       {!isMinimized && (
-        <div className="flex-1 overflow-auto p-4 text-slate-100">
+        <div className="flex-1 overflow-auto p-4 text-stone-100">
           {children}
         </div>
       )}

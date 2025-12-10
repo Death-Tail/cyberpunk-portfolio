@@ -63,7 +63,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                 onClick={() => setActiveFilter(filter)}
                 className={`px-4 py-2 text-xs font-mono font-bold tracking-wider rounded-md transition-all duration-300 ${
                   activeFilter === filter
-                    ? "bg-teal-500/20 text-teal-400 border border-teal-500/50 shadow-[0_0_15px_rgba(45,212,191,0.2)]"
+                    ? "bg-indigo-500/20 text-indigo-400 border border-indigo-500/50 shadow-[0_0_15px_rgba(45,212,191,0.2)]"
                     : "text-zinc-500 hover:text-zinc-300 hover:bg-white/5"
                 }`}
               >
@@ -90,15 +90,15 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                 key={index}
                 className={`group relative flex flex-col border transition-all duration-500 overflow-hidden rounded-xl ${
                   isExpanded
-                    ? "lg:col-span-2 border-teal-500/50 bg-zinc-900/90 z-10 shadow-[0_0_30px_rgba(0,0,0,0.5)]"
-                    : "border-white/5 bg-zinc-900/40 hover:border-teal-500/30 hover:bg-zinc-900/60"
+                    ? "lg:col-span-2 border-indigo-500/50 bg-zinc-900/90 z-10 shadow-[0_0_30px_rgba(0,0,0,0.5)]"
+                    : "border-white/5 bg-zinc-900/40 hover:border-indigo-500/30 hover:bg-zinc-900/60"
                 }`}
               >
                 {/* Decorative Corner Markers */}
-                <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-teal-500/0 group-hover:border-teal-500 transition-colors" />
-                <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-teal-500/0 group-hover:border-teal-500 transition-colors" />
-                <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-teal-500/0 group-hover:border-teal-500 transition-colors" />
-                <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-teal-500/0 group-hover:border-teal-500 transition-colors" />
+                <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-indigo-500/0 group-hover:border-indigo-500 transition-colors" />
+                <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-indigo-500/0 group-hover:border-indigo-500 transition-colors" />
+                <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-indigo-500/0 group-hover:border-indigo-500 transition-colors" />
+                <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-indigo-500/0 group-hover:border-indigo-500 transition-colors" />
 
                 <div className={`flex flex-col ${isExpanded ? 'lg:flex-row' : ''}`}>
 
@@ -117,19 +117,19 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                       <>
                         <button
                           onClick={(e) => handleImageNav(e, index, project.images.length, 'prev')}
-                          className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-black/50 backdrop-blur hover:bg-teal-500/20 text-white rounded border border-white/10 transition-colors"
+                          className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-black/50 backdrop-blur hover:bg-indigo-500/20 text-white rounded border border-white/10 transition-colors"
                         >
                           ‹
                         </button>
                         <button
                           onClick={(e) => handleImageNav(e, index, project.images.length, 'next')}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-black/50 backdrop-blur hover:bg-teal-500/20 text-white rounded border border-white/10 transition-colors"
+                          className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-black/50 backdrop-blur hover:bg-indigo-500/20 text-white rounded border border-white/10 transition-colors"
                         >
                           ›
                         </button>
                         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
                           {project.images.map((_, dotIdx) => (
-                            <div key={dotIdx} className={`w-1.5 h-1.5 rounded-full ${dotIdx === currentImgIndex ? 'bg-teal-400' : 'bg-white/20'}`} />
+                            <div key={dotIdx} className={`w-1.5 h-1.5 rounded-full ${dotIdx === currentImgIndex ? 'bg-indigo-400' : 'bg-white/20'}`} />
                           ))}
                         </div>
                       </>
@@ -151,7 +151,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                   <div className={`flex-1 p-5 flex flex-col`}>
                     <div className="mb-auto">
                       <div className="flex items-center gap-3 mb-2">
-                        <div className="p-1.5 bg-teal-500/10 rounded text-teal-400 border border-teal-500/20">
+                        <div className="p-1.5 bg-indigo-500/10 rounded text-indigo-400 border border-indigo-500/20">
                           {project.icon}
                         </div>
                         <h3 className="text-xl font-bold text-white tracking-tight">{project.title}</h3>
@@ -188,7 +188,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                     <div className={`flex items-center gap-3 mt-6 pt-4 border-t border-white/5 ${isExpanded ? 'justify-start' : 'justify-between'}`}>
                       <button
                         onClick={() => toggleProject(index)}
-                        className="flex items-center text-xs font-bold text-teal-400 hover:text-teal-300 transition-colors uppercase tracking-wider"
+                        className="flex items-center text-xs font-bold text-indigo-400 hover:text-indigo-300 transition-colors uppercase tracking-wider"
                       >
                         {isExpanded ? "Close_Data" : "Access_Data"}
                         {isExpanded ? <ChevronUp className="w-4 h-4 ml-1" /> : <ChevronDown className="w-4 h-4 ml-1" />}
@@ -229,7 +229,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                         </div>
                         <div className="flex items-center justify-between p-2 bg-white/5 rounded border border-white/5">
                           <span className="text-xs text-zinc-400">Accessibility</span>
-                          <span className="text-sm font-mono font-bold text-blue-400">{project.metrics.accessibility}%</span>
+                          <span className="text-sm font-mono font-bold text-indigo-400">{project.metrics.accessibility}%</span>
                         </div>
                         <div className="flex items-center justify-between p-2 bg-white/5 rounded border border-white/5">
                           <span className="text-xs text-zinc-400">SEO</span>
@@ -245,7 +245,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {project.tech.map((tech, i) => (
-                          <span key={i} className="px-3 py-1 text-xs font-mono bg-teal-900/20 border border-teal-500/20 text-teal-400 rounded">
+                          <span key={i} className="px-3 py-1 text-xs font-mono bg-indigo-900/20 border border-indigo-500/20 text-indigo-400 rounded">
                             {tech}
                           </span>
                         ))}

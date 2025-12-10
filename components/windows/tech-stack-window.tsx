@@ -68,7 +68,7 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "frontend",
     description: "User interface and experience design",
-    bgColor: "bg-linear-to-br from-pink-500/30 to-purple-600/30",
+    bgColor: "bg-linear-to-br from-indigo-500/30 to-purple-600/30",
     iconColor: "text-white",
   },
   {
@@ -82,7 +82,7 @@ const skillNodes: SkillNode[] = [
     connections: ["frontend"],
     category: "frontend",
     description: "Component-based UI development",
-    bgColor: "bg-linear-to-br from-cyan-500/30 to-blue-600/30",
+    bgColor: "bg-linear-to-br from-cyan-500/30 to-indigo-600/30",
     iconColor: "text-cyan-200",
   },
   {
@@ -110,8 +110,8 @@ const skillNodes: SkillNode[] = [
     connections: ["frontend", "dart"],
     category: "tools",
     description: "Cross-platform mobile development",
-    bgColor: "bg-linear-to-br from-blue-500/10 to-cyan-600/10",
-    iconColor: "text-blue-600",
+    bgColor: "bg-linear-to-br from-indigo-500/10 to-cyan-600/10",
+    iconColor: "text-indigo-600",
   },
 
   // =====BACKEND =====
@@ -170,8 +170,8 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "database",
     description: "Database design and optimization",
-    bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
-    iconColor: "text-blue-200",
+    bgColor: "bg-linear-to-br from-indigo-600/30 to-indigo-800/30",
+    iconColor: "text-indigo-200",
   },
   {
     id: "firebase",
@@ -198,8 +198,8 @@ const skillNodes: SkillNode[] = [
     connections: ["database"],
     category: "database",
     description: "Advanced relational database",
-    bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
-    iconColor: "text-blue-200",
+    bgColor: "bg-linear-to-br from-indigo-600/30 to-indigo-800/30",
+    iconColor: "text-indigo-200",
   },
   {
     id: "mysql",
@@ -212,8 +212,8 @@ const skillNodes: SkillNode[] = [
     connections: ["database"],
     category: "database",
     description: "Popular relational database management",
-    bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
-    iconColor: "text-blue-200",
+    bgColor: "bg-linear-to-br from-indigo-600/30 to-indigo-800/30",
+    iconColor: "text-indigo-200",
   },
 
   // ===== TOOLS =====
@@ -273,8 +273,8 @@ const skillNodes: SkillNode[] = [
     connections: ["language"],
     category: "backend",
     description: "Cross-platform mobile development",
-    bgColor: "bg-linear-to-br from-blue-500/10 to-cyan-600/10",
-    iconColor: "text-blue-600",
+    bgColor: "bg-linear-to-br from-indigo-500/10 to-cyan-600/10",
+    iconColor: "text-indigo-600",
   },
   {
     id: "typescript",
@@ -287,8 +287,8 @@ const skillNodes: SkillNode[] = [
     connections: ["language"],
     category: "backend",
     description: "Type-safe JavaScript development",
-    bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
-    iconColor: "text-blue-200",
+    bgColor: "bg-linear-to-br from-indigo-600/30 to-indigo-800/30",
+    iconColor: "text-indigo-200",
   },
   {
     id: "java",
@@ -330,7 +330,7 @@ const skillNodes: SkillNode[] = [
     connections: ["gaming"],
     category: "tools",
     description: "AAA game development engine",
-    bgColor: "bg-linear-to-br from-blue-800/30 to-gray-900/30",
+    bgColor: "bg-linear-to-br from-indigo-800/30 to-gray-900/30",
     iconColor: "text-white",
   },
   {
@@ -358,8 +358,8 @@ const skillNodes: SkillNode[] = [
     connections: ["gaming", "blender"],
     category: "tools",
     description: "Character and motion animation fundamentals",
-    bgColor: "bg-linear-to-br from-pink-600/30 to-red-700/30",
-    iconColor: "text-pink-200",
+    bgColor: "bg-linear-to-br from-indigo-600/30 to-red-700/30",
+    iconColor: "text-indigo-200",
   },
 ]
 
@@ -441,13 +441,13 @@ export function TechStackWindow(props: TechStackWindowProps) {
 
     switch (level) {
       case "MASTER":
-        return "border-teal-400 shadow-[0_0_15px_rgba(248,113,113,0.4)]"
+        return "border-indigo-400 shadow-[0_0_15px_rgba(248,113,113,0.4)]"
       case "ADVANCED":
         return "border-orange-400 shadow-[0_0_15px_rgba(251,146,60,0.4)]"
       case "INTERMEDIATE":
         return "border-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.4)]"
       default:
-        return "border-teal-300 shadow-[0_0_15px_rgba(252,165,165,0.4)]"
+        return "border-indigo-300 shadow-[0_0_15px_rgba(252,165,165,0.4)]"
     }
   }
 
@@ -494,26 +494,26 @@ export function TechStackWindow(props: TechStackWindowProps) {
     <BaseWindow {...props} initialPosition={{ x: 250, y: 120 }} initialSize={{ width: 800, height: 600 }}>
       <div className="space-y-4 h-none overflow-hidden">
         {/* Header */}
-        <div className="border-l-2 border-teal-500 pl-4">
+        <div className="border-l-2 border-indigo-500 pl-4">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center">
-              <div className="w-2 h-2 bg-teal-500 mr-2"></div>
-              <span className="text-teal-400 text-xs tracking-wider">NEURAL_INTERFACE</span>
+              <div className="w-2 h-2 bg-indigo-500 mr-2"></div>
+              <span className="text-indigo-400 text-xs tracking-wider">NEURAL_INTERFACE</span>
             </div>
-            <div className="text-teal-400 text-xs">RELIC_v2.077 | DRAG TO NAVIGATE</div>
+            <div className="text-indigo-400 text-xs">RELIC_v2.077 | DRAG TO NAVIGATE</div>
           </div>
         </div>
 
         {/* Skill Map Container */}
         <div
           ref={mapRef}
-          className={`relative h-96 overflow-hidden rounded-lg border border-teal-500/30 ${isDragging ? "cursor-grabbing" : "cursor-grab"
+          className={`relative h-96 overflow-hidden rounded-lg border border-indigo-500/30 ${isDragging ? "cursor-grabbing" : "cursor-grab"
             }`}
           onMouseDown={handleMapMouseDown}
         >
           {/* Extended Neural Network Background */}
           <div
-            className="map-background absolute bg-linear-to-br from-black via-zinc-950 to-teal-950/20"
+            className="map-background absolute bg-linear-to-br from-black via-zinc-950 to-indigo-950/20"
             style={{
               width: MAP_BOUNDS.width,
               height: MAP_BOUNDS.height,
@@ -542,7 +542,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
                 {Array.from({ length: 8 }).map((_, i) => (
                   <div
                     key={`diagonal-${i}`}
-                    className="absolute bg-linear-to-br from-teal-500/20 to-transparent"
+                    className="absolute bg-linear-to-br from-indigo-500/20 to-transparent"
                     style={{
                       width: "2px",
                       height: "120px",
@@ -561,7 +561,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
               {neuralNodes.map((node) => (
                 <div
                   key={`neural-${node.id}`}
-                  className="absolute w-1 h-1 bg-teal-500/60 rounded-full animate-pulse"
+                  className="absolute w-1 h-1 bg-indigo-500/60 rounded-full animate-pulse"
                   style={{
                     left: `${node.x}px`,
                     top: `${node.y}px`,
@@ -575,7 +575,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
               {neuralClusters.map((cluster) => (
                 <div
                   key={`cluster-${cluster.id}`}
-                  className="absolute w-2 h-2 bg-teal-400/40 rounded-full"
+                  className="absolute w-2 h-2 bg-indigo-400/40 rounded-full"
                   style={{
                     left: `${cluster.x}px`,
                     top: `${cluster.y}px`,
@@ -586,7 +586,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
             </div>
 
             {/* Ambient neural glow */}
-            <div className="map-background absolute inset-0 bg-linear-to-br from-teal-950/10 via-transparent to-teal-900/5 pointer-events-none"></div>
+            <div className="map-background absolute inset-0 bg-linear-to-br from-indigo-950/10 via-transparent to-indigo-900/5 pointer-events-none"></div>
 
             {/* Subtle grid overlay */}
             <div
@@ -759,16 +759,16 @@ export function TechStackWindow(props: TechStackWindowProps) {
                   )}
 
                   {/* Corner indicators */}
-                  <div className="absolute -top-1 -left-1 w-2 h-2 bg-teal-400 rounded-full opacity-60"></div>
-                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-teal-400 rounded-full opacity-60"></div>
-                  <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-teal-400 rounded-full opacity-60"></div>
-                  <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-teal-400 rounded-full opacity-60"></div>
+                  <div className="absolute -top-1 -left-1 w-2 h-2 bg-indigo-400 rounded-full opacity-60"></div>
+                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-indigo-400 rounded-full opacity-60"></div>
+                  <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-indigo-400 rounded-full opacity-60"></div>
+                  <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-indigo-400 rounded-full opacity-60"></div>
                 </div>
 
                 {/* Node label */}
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 text-center pointer-events-none">
                   <div className={`text-xs font-semibold tracking-wide ${node.iconColor}`}>{node.name}</div>
-                  <div className="text-xs text-slate-500 mt-1 font-medium">[{node.level}]</div>
+                  <div className="text-xs text-stone-500 mt-1 font-medium">[{node.level}]</div>
                 </div>
               </div>
             )
@@ -779,7 +779,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
             mapPosition.x >= MAP_BOUNDS.maxX - 10 ||
             mapPosition.y <= MAP_BOUNDS.minY + 10 ||
             mapPosition.y >= MAP_BOUNDS.maxY - 10) && (
-              <div className="absolute top-2 right-2 text-teal-400 text-xs bg-teal-500/10 border border-teal-500/30 px-2 py-1 rounded">
+              <div className="absolute top-2 right-2 text-indigo-400 text-xs bg-indigo-500/10 border border-indigo-500/30 px-2 py-1 rounded">
                 MAP BOUNDARY REACHED
               </div>
             )}
@@ -787,7 +787,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
 
         {/* Selected Node Details */}
         {selectedNode && (
-          <div className="border border-teal-500/30 p-4 bg-teal-500/5 rounded-lg">
+          <div className="border border-indigo-500/30 p-4 bg-indigo-500/5 rounded-lg">
             {(() => {
               const node = skillNodes.find((n) => n.id === selectedNode)
               if (!node) return null
@@ -801,13 +801,13 @@ export function TechStackWindow(props: TechStackWindowProps) {
                       <div className={node.iconColor}>{node.icon}</div>
                     </div>
                     <div>
-                      <h3 className="text-teal-400 font-bold text-lg">{node.name}</h3>
+                      <h3 className="text-indigo-400 font-bold text-lg">{node.name}</h3>
                     </div>
                   </div>
-                  <p className="text-teal-400/70 text-sm mb-3">{node.description}</p>
+                  <p className="text-indigo-400/70 text-sm mb-3">{node.description}</p>
 
                   {/* Connected skills */}
-                  <div className="text-xs text-teal-400/50">
+                  <div className="text-xs text-indigo-400/50">
                     CONNECTED TO:{" "}
                     {node.connections
                       .map((id) => {
@@ -824,9 +824,9 @@ export function TechStackWindow(props: TechStackWindowProps) {
 
         {/* Stats */}
         <div className="grid grid-cols-4 gap-2 text-center">
-          <div className="p-2 bg-teal-500/10 border border-teal-500/30 rounded">
-            <div className="text-sm font-bold text-teal-400">{skillNodes.filter((n) => n.unlocked).length}</div>
-            <div className="text-teal-500/70 text-xs">UNLOCKED</div>
+          <div className="p-2 bg-indigo-500/10 border border-indigo-500/30 rounded">
+            <div className="text-sm font-bold text-indigo-400">{skillNodes.filter((n) => n.unlocked).length}</div>
+            <div className="text-indigo-500/70 text-xs">UNLOCKED</div>
           </div>
           <div className="p-2 bg-orange-500/10 border border-orange-500/30 rounded">
             <div className="text-sm font-bold text-orange-400">
@@ -840,9 +840,9 @@ export function TechStackWindow(props: TechStackWindowProps) {
             </div>
             <div className="text-yellow-500/70 text-xs">INTERMEDIATE</div>
           </div>
-          <div className="p-2 bg-teal-400/10 border border-teal-400/30 rounded">
-            <div className="text-sm font-bold text-teal-300">85%</div>
-            <div className="text-teal-400/70 text-xs">MASTERY</div>
+          <div className="p-2 bg-indigo-400/10 border border-indigo-400/30 rounded">
+            <div className="text-sm font-bold text-indigo-300">85%</div>
+            <div className="text-indigo-400/70 text-xs">MASTERY</div>
           </div>
         </div>
       </div>

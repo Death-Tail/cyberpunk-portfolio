@@ -51,8 +51,8 @@ function ImageCarousel({
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="text-xs text-teal-400 mb-2">PROJECT_PREVIEW:</div>
-      <div className="relative w-full aspect-video border border-teal-500/30 bg-slate-900/50 overflow-hidden group">
+      <div className="text-xs text-indigo-400 mb-2">PROJECT_PREVIEW:</div>
+      <div className="relative w-full aspect-video border border-indigo-500/30 bg-stone-900/50 overflow-hidden group">
         <Image
           // 3. The src prop in Next/Image natively supports both types
           src={currentImage || "/placeholder.svg"}
@@ -63,23 +63,23 @@ function ImageCarousel({
           placeholder={shouldBlur ? "blur" : "empty"}
           className="object-fill transition-opacity duration-500"
         />
-        <div className="absolute inset-0 bg-teal-600/0 group-hover:bg-teal-600/5 transition-colors" />
+        <div className="absolute inset-0 bg-indigo-600/0 group-hover:bg-indigo-600/5 transition-colors" />
 
         {images.length > 1 && (
           <>
             <button
               onClick={() => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 border border-teal-500/50 p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 border border-indigo-500/50 p-1 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-label="Previous image"
             >
-              <ChevronLeft className="w-4 h-4 text-teal-400" />
+              <ChevronLeft className="w-4 h-4 text-indigo-400" />
             </button>
             <button
               onClick={() => setCurrentIndex((prev) => (prev + 1) % images.length)}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 border border-teal-500/50 p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 border border-indigo-500/50 p-1 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-label="Next image"
             >
-              <ChevronRight className="w-4 h-4 text-teal-400" />
+              <ChevronRight className="w-4 h-4 text-indigo-400" />
             </button>
 
             <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
@@ -87,7 +87,7 @@ function ImageCarousel({
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-1.5 h-1.5 transition-all ${index === currentIndex ? "bg-teal-400 w-4" : "bg-teal-400/30 hover:bg-teal-400/50"
+                  className={`w-1.5 h-1.5 transition-all ${index === currentIndex ? "bg-indigo-400 w-4" : "bg-indigo-400/30 hover:bg-indigo-400/50"
                     }`}
                   aria-label={`Go to image ${index + 1}`}
                 />
@@ -96,7 +96,7 @@ function ImageCarousel({
           </>
         )}
 
-        <div className="absolute top-2 right-2 bg-black/50 border border-teal-500/30 px-2 py-0.5 text-xs text-teal-400">
+        <div className="absolute top-2 right-2 bg-black/50 border border-indigo-500/30 px-2 py-0.5 text-xs text-indigo-400">
           {currentIndex + 1}/{images.length}
         </div>
       </div>
@@ -108,10 +108,10 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
   return (
     <BaseWindow {...props} initialPosition={{ x: 150, y: 100 }} initialSize={{ width: 750, height: 600 }}>
       <div className="space-y-4 h-full overflow-y-auto">
-        <div className="border-l-2 border-teal-600 pl-4">
+        <div className="border-l-2 border-indigo-600 pl-4">
           <div className="flex items-center mb-4">
-            <div className="w-2 h-2 bg-teal-600 mr-2"></div>
-            <span className="text-teal-400 text-xs tracking-wider">PROJECT_DATABASE</span>
+            <div className="w-2 h-2 bg-indigo-600 mr-2"></div>
+            <span className="text-indigo-400 text-xs tracking-wider">PROJECT_DATABASE</span>
           </div>
         </div>
 
@@ -119,7 +119,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="border border-teal-600/30 bg-slate-800/40 hover:bg-slate-800/60 transition-colors p-4"
+              className="border border-indigo-600/30 bg-stone-800/40 hover:bg-stone-800/60 transition-colors p-4"
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-start space-x-3 flex-1">
@@ -128,7 +128,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
 
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-teal-300 font-bold text-sm">{project.title}</h3>
+                      <h3 className="text-indigo-300 font-bold text-sm">{project.title}</h3>
                       <span
                         className={`px-2 py-1 text-xs border ${project.status === "DEPLOYED"
                             ? "border-emerald-500/50 text-green-500 bg-green-700/10"
@@ -149,12 +149,12 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                     )}
 
                     <div className="mb-3">
-                      <div className="text-xs text-teal-400 mb-1">TECH_STACK:</div>
+                      <div className="text-xs text-indigo-400 mb-1">TECH_STACK:</div>
                       <div className="flex flex-wrap gap-1">
                         {project.tech.map((tech, techIndex) => (
                           <span
                             key={techIndex}
-                            className="px-2 py-0.5 bg-slate-700/50 border border-teal-500/30 text-teal-300 text-xs"
+                            className="px-2 py-0.5 bg-stone-700/50 border border-indigo-500/30 text-indigo-300 text-xs"
                           >
                             {tech}
                           </span>
@@ -163,11 +163,11 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                     </div>
 
                     <div className="mb-3">
-                      <div className="text-xs text-teal-400 mb-1">KEY_ACHIEVEMENTS:</div>
+                      <div className="text-xs text-indigo-400 mb-1">KEY_ACHIEVEMENTS:</div>
                       <div className="space-y-1">
                         {project.achievements.map((achievement, achIndex) => (
                           <div key={achIndex} className="text-xs text-white flex items-start">
-                            <span className="text-teal-500 mr-1">•</span>
+                            <span className="text-indigo-500 mr-1">•</span>
                             {achievement}
                           </div>
                         ))}
@@ -181,7 +181,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                         rel="noopener noreferrer"
                         className={`flex items-center gap-1 px-2 py-1 border text-xs transition-colors ${project.links.live
                             ? "bg-emerald-600/20 border-emerald-600/50 text-emerald-400 hover:bg-emerald-600/30"
-                            : "bg-slate-700/50 border-slate-600/50 text-slate-500 cursor-not-allowed"
+                            : "bg-stone-700/50 border-stone-600/50 text-stone-500 cursor-not-allowed"
                           }`}
                         title={project.links.live ? "View live project" : "Live project not available"}
                         aria-disabled={!project.links.live}
@@ -195,7 +195,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                         rel="noopener noreferrer"
                         className={`flex items-center gap-1 px-2 py-1 border text-xs transition-colors ${project.links.github
                             ? "bg-cyan-500/20 border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/30"
-                            : "bg-slate-700/50 border-slate-600/50 text-slate-500 cursor-not-allowed"
+                            : "bg-stone-700/50 border-stone-600/50 text-stone-500 cursor-not-allowed"
                           }`}
                         title={project.links.github ? "View source code" : "Source code not available"}
                         aria-disabled={!project.links.github}
@@ -211,14 +211,14 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
           ))}
         </div>
 
-        <div className="border border-slate-600/30 bg-slate-800/20 p-4 opacity-50">
+        <div className="border border-stone-600/30 bg-stone-800/20 p-4 opacity-50">
           <div className="flex items-center mb-2">
-            <div className="w-4 h-4 border border-slate-500 bg-slate-700/50 mr-3 flex items-center justify-center">
-              <span className="text-slate-400 text-xs">+</span>
+            <div className="w-4 h-4 border border-stone-500 bg-stone-700/50 mr-3 flex items-center justify-center">
+              <span className="text-stone-400 text-xs">+</span>
             </div>
-            <h3 className="text-slate-400 font-bold text-sm">MORE PROJECTS COMING SOON</h3>
+            <h3 className="text-stone-400 font-bold text-sm">MORE PROJECTS COMING SOON</h3>
           </div>
-          <p className="text-slate-500 text-xs">
+          <p className="text-stone-500 text-xs">
             Additional projects will be added to the database as they are completed.
           </p>
         </div>

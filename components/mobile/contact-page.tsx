@@ -116,7 +116,7 @@ export default function ContactPage({ onBack }: ContactPageProps) {
           </div>
 
           {contactMethods.map((contact) => (
-            <div key={contact.platform} className="relative border border-teal-600/30 p-4 bg-teal-600/5 rounded-lg">
+            <div key={contact.platform} className="relative border border-indigo-600/30 p-4 bg-indigo-600/5 rounded-lg">
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-start gap-3">
                   <div className="p-2 ">{contact.icon}</div>
@@ -129,13 +129,13 @@ export default function ContactPage({ onBack }: ContactPageProps) {
                         </span>
                       )}
                     </div>
-                    <div className="text-teal-400/70 text-xs mb-2 font-mono">{contact.handle}</div>
-                    <p className="text-teal-400/60 text-xs mb-2">{contact.description}</p>
+                    <div className="text-indigo-400/70 text-xs mb-2 font-mono">{contact.handle}</div>
+                    <p className="text-indigo-400/60 text-xs mb-2">{contact.description}</p>
 
                     <div className="grid grid-cols-2 gap-2 text-xs">
                       <div className="flex items-center">
-                        <Clock className="w-3 h-3 mr-1 text-blue-400" />
-                        <span className="text-blue-400/80">{contact.responseTime}</span>
+                        <Clock className="w-3 h-3 mr-1 text-indigo-400" />
+                        <span className="text-indigo-400/80">{contact.responseTime}</span>
                       </div>
                       <div className="flex items-center">
                         <div className="w-2 h-2 bg-green-500 rounded-full mr-1" />
@@ -150,7 +150,7 @@ export default function ContactPage({ onBack }: ContactPageProps) {
                 href={contact.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-2 bg-teal-500/20 border border-teal-500/50 text-white rounded hover:bg-teal-500/30 transition-colors text-sm"
+                className="inline-flex items-center gap-2 px-3 py-2 bg-indigo-500/20 border border-indigo-500/50 text-white rounded hover:bg-indigo-500/30 transition-colors text-sm"
               >
                 <span>Contact via {contact.platform}</span>
                 <Send className="w-3 h-3" />
@@ -169,7 +169,7 @@ export default function ContactPage({ onBack }: ContactPageProps) {
             <p>• Include project timeline and budget range for faster response</p>
             <p>• Provide detailed requirements and technical specifications</p>
             <p>• Mention preferred communication method and timezone</p>
-            <p>• For urgent matters, use <a href="https://discord.com/users/death_tail" rel="noopener noreferrer" target="_blank"><span className="text-blue-500">Discord</span></a>.</p>
+            <p>• For urgent matters, use <a href="https://discord.com/users/death_tail" rel="noopener noreferrer" target="_blank"><span className="text-indigo-500">Discord</span></a>.</p>
           </div>
         </div>
       </div>

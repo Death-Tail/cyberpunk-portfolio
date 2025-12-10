@@ -5,7 +5,7 @@ export default function Loading() {
     <div className="min-h-screen w-full flex items-center justify-center relative overflow-hidden bg-black">
 
       {/* Soft teal ambient glow */}
-      <div className="absolute inset-0 bg-linear-to-br from-teal-500/10 to-emerald-500/10 blur-3xl" />
+      <div className="absolute inset-0 bg-linear-to-br from-indigo-500/10 to-emerald-500/10 blur-3xl" />
 
       {/* Glass card */}
       <div className="
@@ -19,8 +19,8 @@ export default function Loading() {
         {/* Spinner */}
         <div className="
           w-12 h-12
-          border-2 border-teal-400/40
-          border-t-teal-400
+          border-2 border-indigo-400/40
+          border-t-indigo-400
           rounded-full animate-spin
         " />
 
@@ -29,7 +29,7 @@ export default function Loading() {
           <h2 className="text-white font-medium text-lg tracking-wide">
             Loading...
           </h2>
-          <p className="text-teal-400/70 text-sm mt-1">
+          <p className="text-indigo-400/70 text-sm mt-1">
             Preparing your experience
           </p>
         </div>
@@ -40,7 +40,7 @@ export default function Loading() {
         {[...Array(15)].map((_, i) => (
           <div
             key={i}
-            className="absolute bg-teal-400/20 rounded-full blur-md"
+            className="absolute bg-indigo-400/20 rounded-full blur-md"
             style={{
               width: Math.random() * 6 + 4 + "px",
               height: Math.random() * 6 + 4 + "px",

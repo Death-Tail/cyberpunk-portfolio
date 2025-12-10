@@ -20,10 +20,10 @@ export function ProfileWindow(props: ProfileWindowProps) {
     <BaseWindow {...props} initialPosition={{ x: 100, y: 80 }} initialSize={{ width: 550, height: 650 }}>
       <div className="space-y-6">
         {/* Profile Header */}
-        <div className="border-l-2 border-blue-600 pl-4">
+        <div className="border-l-2 border-indigo-600 pl-4">
           <div className="flex items-center mb-2">
-            <div className="w-2 h-2 bg-blue-600 mr-2"></div>
-            <span className="text-blue-300 text-xs tracking-wider">USER_PROFILE</span>
+            <div className="w-2 h-2 bg-indigo-600 mr-2"></div>
+            <span className="text-indigo-300 text-xs tracking-wider">USER_PROFILE</span>
           </div>
 
           <div className="flex items-start space-x-4">
@@ -50,7 +50,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
               <div className="text-red-100/80 text-xs mb-2">
                 STATUS: <span className="text-green-400">ONLINE</span>
               </div>
-              <div className="flex items-center text-blue-200 text-xs">
+              <div className="flex items-center text-indigo-200 text-xs">
                 <MapPin className="w-3 h-3 mr-1" />
                 <span>REMOTE_OPERATIVE</span>
               </div>
@@ -67,7 +67,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
 
           <div className="text-white text-sm space-y-2">
             <p>
-              <span className="text-blue-500">&gt;</span> Full-Stack Developer working with Nextjs, Typescript, Tailwind CSS, sometimes i work with WP, Flutter, i hold a BSc in Computer Science.
+              <span className="text-indigo-500">&gt;</span> Full-Stack Developer working with Nextjs, Typescript, Tailwind CSS, sometimes i work with WP, Flutter, i hold a BSc in Computer Science.
             </p>
             <br/>
             <p>
@@ -77,18 +77,18 @@ export function ProfileWindow(props: ProfileWindowProps) {
         </div>
 
         {/* Certifications */}
-        <div className="border-l-2 border-blue-500 pl-4">
+        <div className="border-l-2 border-indigo-500 pl-4">
           <div className="flex items-center mb-3">
-            <div className="w-2 h-2 bg-blue-500 mr-2"></div>
-            <span className="text-blue-300 text-xs tracking-wider">CERTIFICATIONS</span>
+            <div className="w-2 h-2 bg-indigo-500 mr-2"></div>
+            <span className="text-indigo-300 text-xs tracking-wider">CERTIFICATIONS</span>
           </div>
 
           <div className="space-y-2">
-            <div className="flex items-center p-2 bg-blue-500/10 border border-blue-500/30">
-              <Award className="w-4 h-4 text-blue-400 mr-2" />
+            <div className="flex items-center p-2 bg-indigo-500/10 border border-indigo-500/30">
+              <Award className="w-4 h-4 text-indigo-400 mr-2" />
               <div>
-                <div className="text-blue-400 text-xs font-bold">BSc COMPUTER SCIENCE</div>
-                <div className="text-blue-400/70 text-xs">Academic Foundation</div>
+                <div className="text-indigo-400 text-xs font-bold">BSc COMPUTER SCIENCE</div>
+                <div className="text-indigo-400/70 text-xs">Academic Foundation</div>
               </div>
             </div>
             <div className="flex items-center p-2 bg-yellow-500/10 border border-yellow-500/30">

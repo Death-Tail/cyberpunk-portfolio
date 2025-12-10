@@ -92,11 +92,11 @@ export function ContactWindow(props: ContactWindowProps) {
       {...props} initialSize={{ width: 600, height: 800 }} >
       <div className="space-y-8 h-full flex flex-col">
         {/* Header */}
-        <div className="border-l-2 border-teal-600 pl-4">
+        <div className="border-l-2 border-indigo-600 pl-4">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center">
-              <div className="w-2 h-2 bg-teal-600 mr-2"></div>
-              <span className="text-teal-500 text-xs tracking-wider">COMMUNICATION_PROTOCOLS</span>
+              <div className="w-2 h-2 bg-indigo-600 mr-2"></div>
+              <span className="text-indigo-500 text-xs tracking-wider">COMMUNICATION_PROTOCOLS</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
@@ -121,9 +121,9 @@ export function ContactWindow(props: ContactWindowProps) {
                     <div className="text-green-400 font-bold">AVAILABLE</div>
                     <div className="text-green-400/70">For Projects</div>
                   </div>
-                  <div className="text-center p-2 bg-blue-500/10 border border-blue-500/30">
-                    <div className="text-blue-400 font-bold">&lt; 24 hours</div>
-                    <div className="text-blue-400/70">Response Time</div>
+                  <div className="text-center p-2 bg-indigo-500/10 border border-indigo-500/30">
+                    <div className="text-indigo-400 font-bold">&lt; 24 hours</div>
+                    <div className="text-indigo-400/70">Response Time</div>
                   </div>
                   <div className="text-center p-2 bg-yellow-500/10 border border-yellow-500/30">
                     <div className="text-yellow-400 font-bold">REMOTE</div>
@@ -137,7 +137,7 @@ export function ContactWindow(props: ContactWindowProps) {
                 {contactMethods.map((contact, index) => (
                   <div
                     key={index}
-                    className="border border-teal-600/30 bg-teal-600/5 hover:bg-teal-600/10 transition-all duration-300 group"
+                    className="border border-indigo-600/30 bg-indigo-600/5 hover:bg-indigo-600/10 transition-all duration-300 group"
                   >
                     <div className="p-4">
                       <div className="flex items-start justify-between mb-3">
@@ -145,20 +145,20 @@ export function ContactWindow(props: ContactWindowProps) {
                           <div className="p-2 rounded">{contact.icon}</div>
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-2">
-                              <h3 className="text-teal-400 font-bold text-sm">{contact.platform}</h3>
+                              <h3 className="text-indigo-400 font-bold text-sm">{contact.platform}</h3>
                               {contact.preferred && (
                                 <span className="px-2 py-0.5 bg-yellow-500/20 border border-yellow-500/50 text-yellow-400 text-xs rounded">
                                   PREFERRED
                                 </span>
                               )}
                             </div>
-                            <div className="text-teal-400/70 text-xs mb-2 font-mono">{contact.handle}</div>
-                            <p className="text-teal-400/60 text-xs mb-3">{contact.description}</p>
+                            <div className="text-indigo-400/70 text-xs mb-2 font-mono">{contact.handle}</div>
+                            <p className="text-indigo-400/60 text-xs mb-3">{contact.description}</p>
 
                             <div className="grid grid-cols-2 gap-3 text-xs">
                               <div className="flex items-center">
-                                <Clock className="w-3 h-3 mr-1 text-blue-400" />
-                                <span className="text-blue-400/80">{contact.responseTime}</span>
+                                <Clock className="w-3 h-3 mr-1 text-indigo-400" />
+                                <span className="text-indigo-400/80">{contact.responseTime}</span>
                               </div>
                               <div className="flex items-center">
                                 <div className="w-2 h-2 bg-green-500 rounded-full mr-1" />
@@ -167,14 +167,14 @@ export function ContactWindow(props: ContactWindowProps) {
                             </div>
                           </div>
                         </div>
-                        <ExternalLink className="w-4 h-4 text-teal-500/50 group-hover:text-teal-400 transition-colors" />
+                        <ExternalLink className="w-4 h-4 text-indigo-500/50 group-hover:text-indigo-400 transition-colors" />
                       </div>
 
                       <a
                         href={contact.link}
                         target="_blank"
                         rel="noopener noreferrer me"
-                        className="inline-flex items-center gap-2 px-3 py-2 bg-teal-500/20 border border-teal-500/50 text-teal-400 rounded hover:bg-teal-500/30 transition-colors text-sm"
+                        className="inline-flex items-center gap-2 px-3 py-2 bg-indigo-500/20 border border-indigo-500/50 text-indigo-400 rounded hover:bg-indigo-500/30 transition-colors text-sm"
                       >
                         <span>Contact via {contact.platform}</span>
                         <Send className="w-3 h-3" />
@@ -194,7 +194,7 @@ export function ContactWindow(props: ContactWindowProps) {
                   <p>• Include project timeline and budget range for faster response</p>
                   <p>• Provide detailed requirements and technical specifications</p>
                   <p>• Mention preferred communication method and timezone</p>
-                  <p>• For urgent matters, use <a href="https://discord.com/users/death_tail"><span className="text-blue-500">Discord</span></a>.</p>
+                  <p>• For urgent matters, use <a href="https://discord.com/users/death_tail"><span className="text-indigo-500">Discord</span></a>.</p>
                 </div>
               </div>
             </div>

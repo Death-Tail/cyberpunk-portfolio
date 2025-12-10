@@ -14,7 +14,7 @@ import SystemWidget from "./mobile/widgets/system"
 import MusicWidget from "./mobile/widgets/music"
 import { useSearchParams, useRouter } from "next/navigation"
 
-import bgImg from "@/public/bg.webp"
+import bgImg from "@/public/bgM.jpg"
 import { CyberpunkBoot } from "./cyberpunk-boot"
 
 function OSContent() {
@@ -37,7 +37,7 @@ function OSContent() {
 
   const apps = [
     { type: "profile", icon: "/desktopLogo/Profile.webp", name: "Profile" },
-    { type: "projects", icon: "/desktopLogo/Projects.webp", name: "Projects" },
+    { type: "projects", icon: "/desktopLogo/projects.webp", name: "Projects" },
     { type: "techstack", icon: "/desktopLogo/Techstack.webp", name: "Tech Stack" },
     { type: "contact", icon: "/desktopLogo/Contact.webp", name: "Contact" },
     { type: "resume", icon: "/desktopLogo/Resume.webp", name: "Resume" },
@@ -94,7 +94,7 @@ function OSContent() {
                             <Image src={app.icon || "/placeholder.svg"} alt={app.name} className="object-contain drop-shadow-md" width={142} height={142}/>
                         </div>
                     </div>
-                    <span className="text-os-accent/80 text-[11px] font-medium tracking-wide">
+                    <span className="text-white text-[11px] font-medium tracking-wide">
                         {app.name}
                     </span>
                 </button>

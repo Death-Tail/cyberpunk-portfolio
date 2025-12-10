@@ -41,24 +41,24 @@ const MusicWidget = () => {
 
       {/* Background visualizer overlay (optional subtle touch) */}
       {isPlaying && (
-        <div className="absolute inset-0 bg-teal-500/5 mix-blend-overlay animate-pulse" />
+        <div className="absolute inset-0 bg-indigo-500/5 mix-blend-overlay animate-pulse" />
       )}
 
       {/* Album Art - Only spins when playing */}
-      <div className={`h-14 w-14 rounded-2xl bg-linear-to-br from-teal-500 to-emerald-600 flex items-center justify-center shrink-0 shadow-lg shadow-teal-900/20 transition-all duration-700 ${isPlaying ? "animate-[spin_4s_linear_infinite]" : ""}`}>
+      <div className={`h-14 w-14 rounded-2xl bg-linear-to-br from-indigo-500 to-emerald-600 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-900/20 transition-all duration-700 ${isPlaying ? "animate-[spin_4s_linear_infinite]" : ""}`}>
         <div className="w-4 h-4 bg-black/80 rounded-full" />
       </div>
 
       {/* Info */}
       <div className="flex-1 min-w-0 z-10">
         <div className="flex items-center gap-2 mb-0.5">
-           <div className="text-xs text-teal-400 font-medium">Now Playing</div>
+           <div className="text-xs text-indigo-400 font-medium">Now Playing</div>
            {/* Mini Audio Bars */}
            {isPlaying && (
              <div className="flex items-end gap-2px h-3">
-               <div className="w-0.5 bg-teal-400 animate-bounce_1s_infinite h-2" />
-               <div className="w-0.5 bg-teal-400 animate-bounce_1.2s_infinite h-3" />
-               <div className="w-0.5 bg-teal-400 animate-bounce_0.8s_infinite h-1.5" />
+               <div className="w-0.5 bg-indigo-400 animate-bounce_1s_infinite h-2" />
+               <div className="w-0.5 bg-indigo-400 animate-bounce_1.2s_infinite h-3" />
+               <div className="w-0.5 bg-indigo-400 animate-bounce_0.8s_infinite h-1.5" />
              </div>
            )}
         </div>
