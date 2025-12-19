@@ -122,9 +122,9 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
   const getIconColorClasses = (color: string, isSelected: boolean) => {
     const baseClasses = "flex flex-col items-center p-2 rounded cursor-pointer transition-all duration-150"
     if (isSelected) {
-      return cn(baseClasses, "bg-indigo-600/30 shadow-[0_0_10px_rgba(220,38,38,0.3)]")
+      return cn(baseClasses, "bg-neutral-600/30 shadow-[0_0_10px_rgba(220,38,38,0.3)]")
     }
-    return cn(baseClasses, "hover:bg-indigo-500/20")
+    return cn(baseClasses, "hover:bg-neutral-500/20")
   }
 
   return (
@@ -187,7 +187,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       {/* --- Context Menu --- */}
       {contextMenu.visible && (
         <div
-          className="fixed z-50 bg-zinc-900 border border-indigo-600 shadow-lg py-1 w-48"
+          className="fixed z-50 bg-zinc-900 border border-neutral-600 shadow-lg py-1 w-48"
           style={{
             left: `${contextMenu.x}px`,
             top: `${contextMenu.y}px`,
@@ -197,12 +197,12 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
         >
           {contextMenu.iconId && (
             <>
-              <div className="px-3 py-1 text-xs text-purple-300 border-b border-indigo-600/30">
+              <div className="px-3 py-1 text-xs text-purple-300 border-b border-neutral-600/30">
                 {desktopIcons.find((icon) => icon.id === contextMenu.iconId)?.name || "Options"}
               </div>
 
               <button
-                className="w-full text-left px-3 py-1.5 text-sm text-white hover:bg-indigo-600/20 flex items-center"
+                className="w-full text-left px-3 py-1.5 text-sm text-white hover:bg-neutral-600/20 flex items-center"
                 onClick={() => {
                   const icon = desktopIcons.find((icon) => icon.id === contextMenu.iconId)
                   if (icon) {
@@ -219,7 +219,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
                 <ChevronRight className="w-3 h-3 ml-auto" />
               </button>
               <button
-                className="w-full text-left px-3 py-1.5 text-sm text-white hover:bg-indigo-500/20 flex items-center"
+                className="w-full text-left px-3 py-1.5 text-sm text-white hover:bg-neutral-500/20 flex items-center"
                 onClick={() => setContextMenu({ ...contextMenu, visible: false })}
               >
                 <span>Properties</span>

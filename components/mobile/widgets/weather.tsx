@@ -41,11 +41,11 @@ export default function WeatherWidget() {
   // Helper to get Icon based on WMO Weather Code
   const getWeatherIcon = (code: number) => {
     if (code === 0 || code === 1) return <Sun className="w-8 h-8 text-yellow-300" /> // Clear/Mainly Clear
-    if (code === 2 || code === 3) return <Cloud className="w-8 h-8 text-gray-300" /> // Cloudy
-    if (code >= 51 && code <= 67) return <CloudRain className="w-8 h-8 text-indigo-300" /> // Rain
+    if (code === 2 || code === 3) return <Cloud className="w-8 h-8 text-neutral-300" /> // Cloudy
+    if (code >= 51 && code <= 67) return <CloudRain className="w-8 h-8 text-neutral-300" /> // Rain
     if (code >= 71 && code <= 77) return <CloudSnow className="w-8 h-8 text-white" /> // Snow
     if (code >= 95) return <CloudLightning className="w-8 h-8 text-purple-300" /> // Thunderstorm
-    return <Cloud className="w-8 h-8 text-gray-300" /> // Default
+    return <Cloud className="w-8 h-8 text-neutral-300" /> // Default
   }
 
   // Helper to get Text based on WMO Weather Code
@@ -59,23 +59,23 @@ export default function WeatherWidget() {
   }
 
   return (
-    <div className="col-span-2 h-32 rounded-3xl bg-indigo-600/40 backdrop-blur-xl border border-white/10 p-4 flex flex-col justify-between relative overflow-hidden">
+    <div className="col-span-2 h-32 rounded-3xl bg-neutral-600/40 backdrop-blur-xl border border-white/10 p-4 flex flex-col justify-between relative overflow-hidden">
       {/* Background Glow Effect */}
       <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-2xl -mr-12 -mt-12" />
 
       {/* Header */}
       <div className="flex justify-between items-start z-10">
         <div className="flex flex-col">
-            <span className="text-xs font-medium text-indigo-200 uppercase tracking-wider">My Location</span>
+            <span className="text-xs font-medium text-neutral-200 uppercase tracking-wider">My Location</span>
             <div className="flex items-center gap-1 mt-1">
-                <MapPin className="w-3 h-3 text-indigo-300" />
+                <MapPin className="w-3 h-3 text-neutral-300" />
                 <span className="text-[10px] font-bold text-white">ERBIL, IQ</span>
             </div>
         </div>
 
         {/* Dynamic Icon */}
         <div className="drop-shadow-lg">
-            {loading ? <Loader2 className="w-6 h-6 text-indigo-200 animate-spin" /> : weather && getWeatherIcon(weather.code)}
+            {loading ? <Loader2 className="w-6 h-6 text-neutral-200 animate-spin" /> : weather && getWeatherIcon(weather.code)}
         </div>
       </div>
 
@@ -88,7 +88,7 @@ export default function WeatherWidget() {
                 <div className="text-4xl font-bold text-white tracking-tight">
                     {weather?.temp}°
                 </div>
-                <div className="text-xs text-indigo-200 font-medium mt-1">
+                <div className="text-xs text-neutral-200 font-medium mt-1">
                     {weather ? getWeatherText(weather.code) : "Unavailable"}
                 </div>
             </>

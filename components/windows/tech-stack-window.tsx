@@ -3,8 +3,9 @@
 import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
+import {version} from "../../package.json"
 import { BaseWindow } from "./base-window"
-import { Code, Database, Film, Gamepad2, Layers, PenTool, Server, Workflow, WorkflowIcon, Wrench } from "lucide-react"
+import { Code, Database, Film, Gamepad2, Layers, PenTool, Server, Workflow, WorkflowIcon, Wrench, Target } from "lucide-react"
 import {
   SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiPostgresql, SiMysql, SiFlutter, SiGit, SiFirebase, SiUikit,
   SiDart,
@@ -27,13 +28,12 @@ interface TechStackWindowProps {
 interface SkillNode {
   id: string
   name: string
-  level: "BEGINNER" | "INTERMEDIATE" | "ADVANCED" | "MASTER" | "PENDING"
   icon: React.ReactNode
   unlocked: boolean
   x: number
   y: number
   connections: string[]
-  category: "frontend" | "backend" | "database" | "tools" | "core" | "gaming"
+  category: "frontend" | "backend" | "database" | "tools" | "core" | "gaming" | "3D"
   description: string
   bgColor: string
   iconColor: string
@@ -44,7 +44,6 @@ const skillNodes: SkillNode[] = [
   {
     id: "core",
     name: "FULL STACK",
-    level: "MASTER",
     icon: <Layers className="w-7 h-7" />,
     unlocked: true,
     x: 400,
@@ -60,7 +59,6 @@ const skillNodes: SkillNode[] = [
   {
     id: "frontend",
     name: "FRONTEND",
-    level: "ADVANCED",
     icon: <SiUikit className="w-7 h-7" />,
     unlocked: true,
     x: 200,
@@ -68,13 +66,12 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "frontend",
     description: "User interface and experience design",
-    bgColor: "bg-linear-to-br from-indigo-500/30 to-purple-600/30",
+    bgColor: "bg-linear-to-br from-neutral-500/30 to-purple-600/30",
     iconColor: "text-white",
   },
   {
     id: "react",
     name: "REACT",
-    level: "INTERMEDIATE",
     icon: <SiReact className="w-7 h-7" />,
     unlocked: true,
     x: 200,
@@ -82,13 +79,12 @@ const skillNodes: SkillNode[] = [
     connections: ["frontend"],
     category: "frontend",
     description: "Component-based UI development",
-    bgColor: "bg-linear-to-br from-cyan-500/30 to-indigo-600/30",
+    bgColor: "bg-linear-to-br from-cyan-500/30 to-neutral-600/30",
     iconColor: "text-cyan-200",
   },
   {
     id: "nextjs",
     name: "NEXT.JS",
-    level: "ADVANCED",
     icon: <SiNextdotjs className="w-7 h-7" />,
     unlocked: true,
     x: 300,
@@ -96,29 +92,27 @@ const skillNodes: SkillNode[] = [
     connections: ["frontend"],
     category: "frontend",
     description: "Full-stack React framework",
-    bgColor: "bg-linear-to-br from-gray-800/80 to-black/80",
+    bgColor: "bg-linear-to-br from-neutral-800/80 to-black/80",
     iconColor: "text-white",
   },
   {
     id: "flutter",
     name: "FLUTTER",
-    level: "ADVANCED",
     icon: <SiFlutter className="w-7 h-7" />,
     unlocked: true,
     x: 100,
     y: 115,
     connections: ["frontend", "dart"],
-    category: "tools",
+    category: "frontend",
     description: "Cross-platform mobile development",
-    bgColor: "bg-linear-to-br from-indigo-500/10 to-cyan-600/10",
-    iconColor: "text-indigo-600",
+    bgColor: "bg-linear-to-br from-neutral-500/10 to-cyan-600/10",
+    iconColor: "text-neutral-600",
   },
 
   // =====BACKEND =====
   {
     id: "backend",
     name: "BACKEND ",
-    level: "ADVANCED",
     icon: <Server className="w-7 h-7" />,
     unlocked: true,
     x: 600,
@@ -132,7 +126,6 @@ const skillNodes: SkillNode[] = [
   {
     id: "nodejs",
     name: "NODE.JS (Express.js)",
-    level: "ADVANCED",
     icon: <SiNodedotjs className="w-7 h-7" />,
     unlocked: true,
     x: 600,
@@ -146,7 +139,6 @@ const skillNodes: SkillNode[] = [
   {
     id: "nextjs api",
     name: "Next.js API Routes",
-    level: "ADVANCED",
     icon: <SiNodedotjs className="w-7 h-7" />,
     unlocked: true,
     x: 750,
@@ -162,7 +154,6 @@ const skillNodes: SkillNode[] = [
   {
     id: "database",
     name: "DATABASE",
-    level: "ADVANCED",
     icon: < Database className="w-7 h-7" />,
     unlocked: true,
     x: 600,
@@ -170,13 +161,12 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "database",
     description: "Database design and optimization",
-    bgColor: "bg-linear-to-br from-indigo-600/30 to-indigo-800/30",
-    iconColor: "text-indigo-200",
+    bgColor: "bg-linear-to-br from-neutral-600/30 to-neutral-800/30",
+    iconColor: "text-neutral-200",
   },
   {
     id: "firebase",
     name: "FIREBASE",
-    level: "INTERMEDIATE",
     icon: < SiFirebase className="w-7 h-7" />,
     unlocked: true,
     x: 600,
@@ -190,7 +180,6 @@ const skillNodes: SkillNode[] = [
   {
     id: "postgresql",
     name: "POSTGRESQL",
-    level: "INTERMEDIATE",
     icon: <SiPostgresql className="w-7 h-7" />,
     unlocked: true,
     x: 700,
@@ -198,13 +187,12 @@ const skillNodes: SkillNode[] = [
     connections: ["database"],
     category: "database",
     description: "Advanced relational database",
-    bgColor: "bg-linear-to-br from-indigo-600/30 to-indigo-800/30",
-    iconColor: "text-indigo-200",
+    bgColor: "bg-linear-to-br from-neutral-600/30 to-neutral-800/30",
+    iconColor: "text-neutral-200",
   },
   {
     id: "mysql",
     name: "MYSQL",
-    level: "INTERMEDIATE",
     icon: <SiMysql className="w-7 h-7" />,
     unlocked: true,
     x: 500,
@@ -212,15 +200,14 @@ const skillNodes: SkillNode[] = [
     connections: ["database"],
     category: "database",
     description: "Popular relational database management",
-    bgColor: "bg-linear-to-br from-indigo-600/30 to-indigo-800/30",
-    iconColor: "text-indigo-200",
+    bgColor: "bg-linear-to-br from-neutral-600/30 to-neutral-800/30",
+    iconColor: "text-neutral-200",
   },
 
   // ===== TOOLS =====
   {
     id: "tools",
     name: "TOOLS",
-    level: "ADVANCED",
     icon: <Wrench className="w-7 h-7" />,
     unlocked: true,
     x: 250,
@@ -228,13 +215,12 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "tools",
     description: "Development and collaboration tools",
-    bgColor: "bg-linear-to-br from-gray-800/80 to-black/80",
+    bgColor: "bg-linear-to-br from-neutral-800/80 to-black/80",
     iconColor: "text-white",
   },
   {
     id: "git",
     name: "GIT",
-    level: "ADVANCED",
     icon: <SiGit className="w-7 h-7" />,
     unlocked: true,
     x: 150,
@@ -242,7 +228,7 @@ const skillNodes: SkillNode[] = [
     connections: ["tools"],
     category: "tools",
     description: "Version control workflows",
-    bgColor: "bg-linear-to-br from-gray-800/80 to-black/80",
+    bgColor: "bg-linear-to-br from-neutral-800/80 to-black/80",
     iconColor: "text-white",
   },
 
@@ -251,7 +237,6 @@ const skillNodes: SkillNode[] = [
   {
     id: "language",
     name: "PROGRAMMING LANGUAGES",
-    level: "ADVANCED",
     icon: <Code className="w-7 h-7" />,
     unlocked: true,
     x: 0,
@@ -259,13 +244,12 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "backend",
     description: "Proficient in multiple programming languages",
-    bgColor: "bg-linear-to-br from-gray-600/30 to-gray-800/30",
-    iconColor: "text-gray-200",
+    bgColor: "bg-linear-to-br from-neutral-600/30 to-neutral-800/30",
+    iconColor: "text-neutral-200",
   },
   {
     id: "dart",
     name: "DART",
-    level: "INTERMEDIATE",
     icon: <SiDart className="w-7 h-7" />,
     unlocked: true,
     x: -50,
@@ -273,13 +257,12 @@ const skillNodes: SkillNode[] = [
     connections: ["language"],
     category: "backend",
     description: "Cross-platform mobile development",
-    bgColor: "bg-linear-to-br from-indigo-500/10 to-cyan-600/10",
-    iconColor: "text-indigo-600",
+    bgColor: "bg-linear-to-br from-neutral-500/10 to-cyan-600/10",
+    iconColor: "text-neutral-600",
   },
   {
     id: "typescript",
     name: "TYPESCRIPT",
-    level: "ADVANCED",
     icon: <SiTypescript className="w-7 h-7" />,
     unlocked: true,
     x: -150,
@@ -287,13 +270,12 @@ const skillNodes: SkillNode[] = [
     connections: ["language"],
     category: "backend",
     description: "Type-safe JavaScript development",
-    bgColor: "bg-linear-to-br from-indigo-600/30 to-indigo-800/30",
-    iconColor: "text-indigo-200",
+    bgColor: "bg-linear-to-br from-neutral-600/30 to-neutral-800/30",
+    iconColor: "text-neutral-200",
   },
   {
     id: "java",
     name: "JAVA",
-    level: "INTERMEDIATE",
     icon: <DiJava className="w-7 h-7" />,
     unlocked: true,
     x: -50,
@@ -307,43 +289,40 @@ const skillNodes: SkillNode[] = [
 
   // ===== Gaming and Animation =====
   {
-    id: "gaming",
-    name: "GAMING & 3D DESIGN",
-    level: "BEGINNER",
+    id: "3D",
+      name: "Animation & 3D DESIGN",
     icon: <Gamepad2 className="w-7 h-7" />,
     unlocked: true,
     x: 900,
     y: 350,
     connections: [],
-    category: "gaming",
+    category: "3D",
     description: "Game development and 3D content creation",
-    bgColor: "bg-linear-to-br from-indigo-700/30 to-purple-800/30",
+    bgColor: "bg-linear-to-br from-neutral-700/30 to-purple-800/30",
     iconColor: "text-purple-300",
   },
   {
     id: "unreal",
     name: "UNREAL ENGINE",
-    level: "PENDING",
     icon: <SiUnrealengine className="w-7 h-7" />,
     unlocked: false,
     x: 925,
     y: 200,
-    connections: ["gaming"],
-    category: "tools",
+    connections: ["3D"],
+    category: "3D",
     description: "AAA game development engine",
-    bgColor: "bg-linear-to-br from-indigo-800/30 to-gray-900/30",
+    bgColor: "bg-linear-to-br from-neutral-800/30 to-neutral-900/30",
     iconColor: "text-white",
   },
   {
     id: "blender",
     name: "BLENDER",
-    level: "BEGINNER",
     icon: <SiBlender className="w-7 h-7" />,
     unlocked: true,
     x: 925,
     y: 500,
-    connections: ["gaming"],
-    category: "tools",
+    connections: ["3D"],
+    category: "3D",
     description: "3D modeling and animation",
     bgColor: "bg-linear-to-br from-orange-600/30 to-yellow-700/30",
     iconColor: "text-orange-200",
@@ -351,16 +330,15 @@ const skillNodes: SkillNode[] = [
   {
     id: "animation",
     name: "ANIMATION",
-    level: "PENDING",
     icon: <Film className="w-7 h-7" />,
     unlocked: false,
     x: 1050,
     y: 350,
-    connections: ["gaming"],
-    category: "tools",
+    connections: ["3D"],
+    category: "3D",
     description: "Character and motion animation fundamentals",
-    bgColor: "bg-linear-to-br from-indigo-600/30 to-red-700/30",
-    iconColor: "text-indigo-200",
+    bgColor: "bg-linear-to-br from-neutral-600/30 to-red-700/30",
+    iconColor: "text-neutral-200",
   },
 ]
 
@@ -381,6 +359,15 @@ export function TechStackWindow(props: TechStackWindowProps) {
   const [isDragging, setIsDragging] = useState(false)
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
   const mapRef = useRef<HTMLDivElement>(null)
+  const [zoom, setZoom] = useState(1)
+  const [searchTerm, setSearchTerm] = useState("")
+  const [activeCategories, setActiveCategories] = useState<Record<string, boolean>>({
+    frontend: true,
+    backend: true,
+    database: true,
+    tools: true,
+    "3D": true,
+  })
 
   const handleMapMouseDown = (e: React.MouseEvent) => {
     // Only start dragging if clicking on the map container, not on nodes
@@ -437,20 +424,23 @@ export function TechStackWindow(props: TechStackWindowProps) {
     }
   }, [isDragging, dragStart])
 
-  const getLevelColor = (level: string, unlocked: boolean) => {
-    if (!unlocked) return "border-zinc-600 bg-zinc-800/50 text-zinc-500"
-
-    switch (level) {
-      case "MASTER":
-        return "border-indigo-400 shadow-[0_0_15px_rgba(248,113,113,0.4)]"
-      case "ADVANCED":
-        return "border-orange-400 shadow-[0_0_15px_rgba(251,146,60,0.4)]"
-      case "INTERMEDIATE":
-        return "border-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.4)]"
-      default:
-        return "border-indigo-300 shadow-[0_0_15px_rgba(252,165,165,0.4)]"
+  // Keyboard shortcuts for zoom and centering
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "+" || e.key === "=") setZoom((z) => Math.min(1.6, +(z + 0.1).toFixed(2)))
+      if (e.key === "-") setZoom((z) => Math.max(0.6, +(z - 0.1).toFixed(2)))
+      if (e.key === "0") {
+        setZoom(1)
+        setMapPosition({ x: 0, y: 0 })
+      }
     }
-  }
+
+    document.addEventListener("keydown", onKey)
+    return () => document.removeEventListener("keydown", onKey)
+  }, [])
+
+
+
 
   const getConnectionPath = (from: SkillNode, to: SkillNode) => {
     const fromX = from.x + mapPosition.x
@@ -470,6 +460,8 @@ export function TechStackWindow(props: TechStackWindowProps) {
       return `M ${fromX} ${fromY} L ${midX} ${fromY} L ${midX} ${toY} L ${toX} ${toY}`
     }
   }
+
+
 
   const isConnectionActive = (nodeId: string, connectionId: string) => {
     return (
@@ -495,13 +487,46 @@ export function TechStackWindow(props: TechStackWindowProps) {
     <BaseWindow {...props} initialPosition={{ x: 250, y: 120 }} initialSize={{ width: 800, height: 600 }}>
       <div className="space-y-4 h-none overflow-hidden">
         {/* Header */}
-        <div className="border-l-2 border-indigo-500 pl-4">
+        <div className="border-l-2 border-neutral-500 pl-4">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center">
-              <div className="w-2 h-2 bg-indigo-500 mr-2"></div>
-              <span className="text-indigo-400 text-xs tracking-wider">NEURAL_INTERFACE</span>
+              <div className="w-2 h-2 bg-neutral-500 mr-2"></div>
+              <span className="text-neutral-400 text-xs tracking-wider">NEURAL_INTERFACE</span>
             </div>
-            <div className="text-indigo-400 text-xs">RELIC_v2.077 | DRAG TO NAVIGATE</div>
+            <div className="text-neutral-400 text-xs">RELIC_v{version} | DRAG TO NAVIGATE</div>
+          </div>
+        </div>
+
+        {/* Toolbar */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+
+
+            {/* Category filters */}
+            <div className="flex items-center space-x-2">
+              {Object.keys(activeCategories).map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategories((s) => ({ ...s, [cat]: !s[cat] }))}
+                  className={`text-xs px-2 py-1 rounded ${activeCategories[cat] ? "bg-neutral-500/20 text-neutral-300" : "bg-transparent text-neutral-500/30 border border-transparent hover:bg-slate-800"}`}
+                >
+                  {cat.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={() => {
+                setMapPosition({ x: -50, y: -100 })
+                setZoom(1)
+              }}
+              aria-label="Center map"
+              className="p-1 rounded bg-slate-900/40 border border-slate-700"
+            >
+              <Target className="w-4 h-4 text-neutral-300" />
+            </button>
           </div>
         </div>
 
@@ -511,7 +536,9 @@ export function TechStackWindow(props: TechStackWindowProps) {
           className={`relative h-96 overflow-hidden rounded-lg border border-slate-500/30 ${isDragging ? "cursor-grabbing" : "cursor-grab"
             }`}
           onMouseDown={handleMapMouseDown}
+          style={{ transform: `scale(${zoom})`, transformOrigin: "center center" }}
         >
+
           {/* Extended Neural Network Background */}
           <div
             className="map-background absolute bg-linear-to-br from-black via-slate-950 to-slate-950/20"
@@ -543,7 +570,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
                 {Array.from({ length: 8 }).map((_, i) => (
                   <div
                     key={`diagonal-${i}`}
-                    className="absolute bg-linear-to-br from-indigo-500/20 to-transparent"
+                    className="absolute bg-linear-to-br from-neutral-500/20 to-transparent"
                     style={{
                       width: "2px",
                       height: "120px",
@@ -562,7 +589,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
               {neuralNodes.map((node) => (
                 <div
                   key={`neural-${node.id}`}
-                  className="absolute w-1 h-1 bg-indigo-500/60 rounded-full animate-pulse"
+                  className="absolute w-1 h-1 bg-neutral-500/60 rounded-full animate-pulse"
                   style={{
                     left: `${node.x}px`,
                     top: `${node.y}px`,
@@ -576,7 +603,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
               {neuralClusters.map((cluster) => (
                 <div
                   key={`cluster-${cluster.id}`}
-                  className="absolute w-2 h-2 bg-indigo-400/40 rounded-full"
+                  className="absolute w-2 h-2 bg-neutral-400/40 rounded-full"
                   style={{
                     left: `${cluster.x}px`,
                     top: `${cluster.y}px`,
@@ -587,7 +614,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
             </div>
 
             {/* Ambient neural glow */}
-            <div className="map-background absolute inset-0 bg-linear-to-br from-indigo-950/10 via-transparent to-indigo-900/5 pointer-events-none"></div>
+            <div className="map-background absolute inset-0 bg-linear-to-br from-neutral-950/10 via-transparent to-neutral-900/5 pointer-events-none"></div>
 
             {/* Subtle grid overlay */}
             <div
@@ -700,6 +727,8 @@ export function TechStackWindow(props: TechStackWindowProps) {
           {skillNodes.map((node) => {
             const isSelected = selectedNode === node.id
             const isHovered = hoveredNode === node.id
+            const matchesSearch = node.name.toLowerCase().includes(searchTerm.toLowerCase())
+            const categoryActive = activeCategories[node.category] ?? true
 
             return (
               <div
@@ -709,11 +738,8 @@ export function TechStackWindow(props: TechStackWindowProps) {
                 style={{
                   left: node.x + mapPosition.x,
                   top: node.y + mapPosition.y,
-                }}
-                onMouseEnter={() => setHoveredNode(node.id)}
-                onMouseLeave={() => setHoveredNode(null)}
-                onMouseDown={(e) => {
-                  e.stopPropagation()
+                  opacity: matchesSearch && categoryActive ? 1 : 0.25,
+                  pointerEvents: matchesSearch && categoryActive ? undefined : "none",
                 }}
                 onClick={(e) => {
                   e.stopPropagation()
@@ -724,7 +750,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
                 <div
                   className={`
                     relative w-20 h-20 border-2 transition-all duration-300 backdrop-blur-sm
-                    ${getLevelColor(node.level, node.unlocked)} ${node.bgColor}
+                    ${node.unlocked ? "border-slate-600" : "border-zinc-600 bg-zinc-800/50 text-zinc-500"} ${node.bgColor}
                     ${isSelected ? "scale-110" : ""}
                     ${isHovered ? "scale-105" : ""}
                   `}
@@ -760,27 +786,46 @@ export function TechStackWindow(props: TechStackWindowProps) {
                   )}
 
                   {/* Corner indicators */}
-                  <div className="absolute -top-1 -left-1 w-2 h-2 bg-indigo-400 rounded-full opacity-60"></div>
-                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-indigo-400 rounded-full opacity-60"></div>
-                  <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-indigo-400 rounded-full opacity-60"></div>
-                  <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-indigo-400 rounded-full opacity-60"></div>
+                  <div className="absolute -top-1 -left-1 w-2 h-2 bg-neutral-400 rounded-full opacity-60"></div>
+                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-neutral-400 rounded-full opacity-60"></div>
+                  <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-neutral-400 rounded-full opacity-60"></div>
+                  <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-neutral-400 rounded-full opacity-60"></div>
                 </div>
 
                 {/* Node label */}
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 text-center pointer-events-none">
                   <div className={`text-xs font-semibold tracking-wide ${node.iconColor}`}>{node.name}</div>
-                  <div className="text-xs text-gray-500 mt-1 font-medium">[{node.level}]</div>
                 </div>
               </div>
             )
           })}
+
+          {/* Hover Tooltip */}
+          {hoveredNode && (() => {
+            const node = skillNodes.find((n) => n.id === hoveredNode)
+            if (!node) return null
+
+            return (
+              <div
+                className="absolute z-40 pointer-events-none bg-slate-900/80 backdrop-blur-sm text-sm text-neutral-200 p-2 rounded shadow-lg border border-slate-700"
+                style={{
+                  left: node.x + mapPosition.x + 40,
+                  top: node.y + mapPosition.y - 10,
+                  minWidth: 180,
+                }}
+              >
+                <div className="font-semibold text-xs">{node.name}</div>
+                <div className="text-xs text-neutral-300/80">{node.description}</div>
+              </div>
+            )
+          })()}
 
           {/* Map boundaries indicator */}
           {(mapPosition.x <= MAP_BOUNDS.minX + 10 ||
             mapPosition.x >= MAP_BOUNDS.maxX - 10 ||
             mapPosition.y <= MAP_BOUNDS.minY + 10 ||
             mapPosition.y >= MAP_BOUNDS.maxY - 10) && (
-              <div className="absolute top-2 right-2 text-indigo-400 text-xs bg-indigo-500/10 border border-indigo-500/30 px-2 py-1 rounded">
+              <div className="absolute top-2 right-2 text-neutral-400 text-xs bg-neutral-500/10 border border-neutral-500/30 px-2 py-1 rounded">
                 MAP BOUNDARY REACHED
               </div>
             )}
@@ -788,7 +833,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
 
         {/* Selected Node Details */}
         {selectedNode && (
-          <div className="border border-indigo-500/30 p-4 bg-indigo-500/5 rounded-lg">
+          <div className="border border-neutral-500/30 p-4 bg-neutral-500/5 rounded-lg">
             {(() => {
               const node = skillNodes.find((n) => n.id === selectedNode)
               if (!node) return null
@@ -797,18 +842,18 @@ export function TechStackWindow(props: TechStackWindowProps) {
                 <div>
                   <div className="flex items-center mb-2">
                     <div
-                      className={`p-3 border-2 ${getLevelColor(node.level, node.unlocked)} ${node.bgColor} rounded-lg mr-3`}
+                      className={`p-3 border-2 ${node.unlocked ? "border-slate-600" : "border-zinc-600 bg-zinc-800/50 text-zinc-500"} ${node.bgColor} rounded-lg mr-3`}
                     >
                       <div className={node.iconColor}>{node.icon}</div>
                     </div>
                     <div>
-                      <h3 className="text-indigo-400 font-bold text-lg">{node.name}</h3>
+                      <h3 className="text-neutral-400 font-bold text-lg">{node.name}</h3>
                     </div>
                   </div>
-                  <p className="text-indigo-400/70 text-sm mb-3">{node.description}</p>
+                  <p className="text-neutral-400/70 text-sm mb-3">{node.description}</p>
 
                   {/* Connected skills */}
-                  <div className="text-xs text-indigo-400/50">
+                  <div className="text-xs text-neutral-400/50">
                     CONNECTED TO:{" "}
                     {node.connections
                       .map((id) => {

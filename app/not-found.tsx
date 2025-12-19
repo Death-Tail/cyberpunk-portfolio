@@ -154,7 +154,7 @@ export default function NotFound() {
               <div
                 key={i}
                 className={`absolute w-1 h-1 rounded-full animate-pulse ${
-                  i % 3 === 0 ? "bg-indigo-500/40" : i % 3 === 1 ? "bg-yellow-500/40" : "bg-indigo-500/40"
+                  i % 3 === 0 ? "bg-neutral-500/40" : i % 3 === 1 ? "bg-yellow-500/40" : "bg-neutral-500/40"
                 }`}
                 style={{
                   left: `${Math.random() * 100}%`,
@@ -172,7 +172,7 @@ export default function NotFound() {
         {isScanning && (
           <>
             <div
-              className="absolute left-0 w-full h-0.5 bg-linear-to-r from-transparent via-indigo-500 to-transparent opacity-80 transition-all duration-75"
+              className="absolute left-0 w-full h-0.5 bg-linear-to-r from-transparent via-neutral-500 to-transparent opacity-80 transition-all duration-75"
               style={{ top: `${scanLines}%` }}
             />
             <div
@@ -185,9 +185,9 @@ export default function NotFound() {
         {/* Corner Fox Markers */}
         <div className="absolute top-6 left-6">
           <div className="relative">
-            <div className="w-8 h-8 border-l-2 border-t-2 border-indigo-500 animate-pulse"></div>
-            <div className="absolute -top-1 -left-1 w-2 h-2 bg-indigo-500 rounded-full"></div>
-            <div className="absolute top-2 left-2 text-indigo-400 text-xs">狐</div>
+            <div className="w-8 h-8 border-l-2 border-t-2 border-neutral-500 animate-pulse"></div>
+            <div className="absolute -top-1 -left-1 w-2 h-2 bg-neutral-500 rounded-full"></div>
+            <div className="absolute top-2 left-2 text-neutral-400 text-xs">狐</div>
           </div>
         </div>
         <div className="absolute top-6 right-6">
@@ -199,16 +199,16 @@ export default function NotFound() {
         </div>
         <div className="absolute bottom-6 left-6">
           <div className="relative">
-            <div className="w-8 h-8 border-l-2 border-b-2 border-indigo-500 animate-pulse delay-700"></div>
-            <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-indigo-500 rounded-full"></div>
-            <div className="absolute bottom-2 left-2 text-indigo-400 text-xs">尾</div>
+            <div className="w-8 h-8 border-l-2 border-b-2 border-neutral-500 animate-pulse delay-700"></div>
+            <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-neutral-500 rounded-full"></div>
+            <div className="absolute bottom-2 left-2 text-neutral-400 text-xs">尾</div>
           </div>
         </div>
         <div className="absolute bottom-6 right-6">
           <div className="relative">
-            <div className="w-8 h-8 border-r-2 border-b-2 border-indigo-500 animate-pulse delay-1000"></div>
-            <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-indigo-500 rounded-full"></div>
-            <div className="absolute bottom-2 right-2 text-indigo-400 text-xs">狐</div>
+            <div className="w-8 h-8 border-r-2 border-b-2 border-neutral-500 animate-pulse delay-1000"></div>
+            <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-neutral-500 rounded-full"></div>
+            <div className="absolute bottom-2 right-2 text-neutral-400 text-xs">狐</div>
           </div>
         </div>
       </div>
@@ -220,11 +220,11 @@ export default function NotFound() {
           {/* Glitch 404 */}
           <div className="text-center lg:text-left">
             <div
-              className="text-7xl md:text-8xl  font-bold text-indigo-500 mb-4 relative inline-block"
+              className="text-7xl md:text-8xl  font-bold text-neutral-500 mb-4 relative inline-block"
             >
               {glitchText}
               <div className="absolute inset-0 text-yellow-400 opacity-20 animate-pulse">{glitchText}</div>
-              <div className="absolute inset-0 text-indigo-400 opacity-15 animate-pulse delay-100">{glitchText}</div>
+              <div className="absolute inset-0 text-neutral-400 opacity-15 animate-pulse delay-100">{glitchText}</div>
             </div>
 
             <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
@@ -235,27 +235,27 @@ export default function NotFound() {
           </div>
 
           {/* Error Terminal */}
-          <div className="border-2 border-indigo-500/30 bg-linear-to-br from-indigo-950/20 to-black/80 backdrop-blur-sm">
-            <div className="border-b border-indigo-500/30 p-3 bg-indigo-500/10">
+          <div className="border-2 border-neutral-500/30 bg-linear-to-br from-neutral-950/20 to-black/80 backdrop-blur-sm">
+            <div className="border-b border-neutral-500/30 p-3 bg-neutral-500/10">
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-indigo-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-neutral-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-indigo-500 rounded-full"></div>
-                <span className="text-indigo-400 text-xs  ml-2">KITSUNE_OS_ERROR.log</span>
+                <div className="w-3 h-3 bg-neutral-500 rounded-full"></div>
+                <span className="text-neutral-400 text-xs  ml-2">KITSUNE_OS_ERROR.log</span>
               </div>
             </div>
 
             <div className="p-6 space-y-3">
-              <h1 className="text-xl font-bold text-indigo-400 ">PAGE_NOT_FOUND</h1>
+              <h1 className="text-xl font-bold text-neutral-400 ">PAGE_NOT_FOUND</h1>
               <div className="space-y-2 text-sm ">
-                <p className="text-indigo-400/90">
+                <p className="text-neutral-400/90">
                   <span className="text-yellow-500">[ERROR]</span> Target resource vanished like a fox in the mist
                 </p>
-                <p className="text-indigo-400/90">
-                  <span className="text-indigo-500">[INFO]</span> Nine pathways searched, none found
+                <p className="text-neutral-400/90">
+                  <span className="text-neutral-500">[INFO]</span> Nine pathways searched, none found
                 </p>
-                <p className="text-indigo-400/90">
-                  <span className="text-indigo-500">[WARN]</span> Tails are pointing to alternative routes
+                <p className="text-neutral-400/90">
+                  <span className="text-neutral-500">[WARN]</span> Tails are pointing to alternative routes
                 </p>
               </div>
             </div>
@@ -263,17 +263,17 @@ export default function NotFound() {
 
           {/* System Status */}
           <div className="grid grid-cols-3 gap-3">
-            <div className="border border-indigo-500/40 bg-indigo-500/10 p-3 text-center backdrop-blur-sm">
-              <div className="text-indigo-400 text-lg font-bold ">404</div>
-              <div className="text-indigo-400/70 text-xs">ERROR</div>
+            <div className="border border-neutral-500/40 bg-neutral-500/10 p-3 text-center backdrop-blur-sm">
+              <div className="text-neutral-400 text-lg font-bold ">404</div>
+              <div className="text-neutral-400/70 text-xs">ERROR</div>
             </div>
             <div className="border border-yellow-500/40 bg-yellow-500/10 p-3 text-center backdrop-blur-sm">
               <div className="text-yellow-400 text-lg font-bold ">九尾</div>
               <div className="text-yellow-400/70 text-xs">KITSUNE</div>
             </div>
-            <div className="border border-indigo-500/40 bg-indigo-500/10 p-3 text-center backdrop-blur-sm">
-              <div className="text-indigo-400 text-lg font-bold ">OS</div>
-              <div className="text-indigo-400/70 text-xs">SYSTEM</div>
+            <div className="border border-neutral-500/40 bg-neutral-500/10 p-3 text-center backdrop-blur-sm">
+              <div className="text-neutral-400 text-lg font-bold ">OS</div>
+              <div className="text-neutral-400/70 text-xs">SYSTEM</div>
             </div>
           </div>
         </div>
@@ -281,19 +281,19 @@ export default function NotFound() {
         {/* Right Side - Visual Content */}
         <div className="space-y-6">
           {/* Nine-Tailed Fox Visual Area */}
-          <div className="border-2 border-indigo-500/40 bg-linear-to-br from-indigo-950/10 to-black/60 backdrop-blur-sm">
-            <div className="border-b border-indigo-500/30 p-3 bg-indigo-500/5">
+          <div className="border-2 border-neutral-500/40 bg-linear-to-br from-neutral-950/10 to-black/60 backdrop-blur-sm">
+            <div className="border-b border-neutral-500/30 p-3 bg-neutral-500/5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-indigo-400" />
-                  <span className="text-indigo-400 text-xs  tracking-wider">KITSUNE_INTERFACE</span>
+                  <Zap className="w-4 h-4 text-neutral-400" />
+                  <span className="text-neutral-400 text-xs  tracking-wider">KITSUNE_INTERFACE</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Eye
-                    className={`w-3 h-3 text-indigo-400 transition-opacity duration-150 ${foxEyes ? "opacity-100" : "opacity-30"}`}
+                    className={`w-3 h-3 text-neutral-400 transition-opacity duration-150 ${foxEyes ? "opacity-100" : "opacity-30"}`}
                   />
                   <Eye
-                    className={`w-3 h-3 text-indigo-400 transition-opacity duration-150 ${foxEyes ? "opacity-100" : "opacity-30"}`}
+                    className={`w-3 h-3 text-neutral-400 transition-opacity duration-150 ${foxEyes ? "opacity-100" : "opacity-30"}`}
                   />
                 </div>
               </div>
@@ -301,44 +301,44 @@ export default function NotFound() {
 
             <div className="p-8">
               {/* Placeholder for Nine-Tailed Fox Image/GIF */}
-              <div className="relative w-full h-80 border-2 border-dashed border-indigo-400/30 rounded-lg flex items-center justify-center bg-linear-to-br from-indigo-900/20 to-yellow-900/10">
+              <div className="relative w-full h-80 border-2 border-dashed border-neutral-400/30 rounded-lg flex items-center justify-center bg-linear-to-br from-neutral-900/20 to-yellow-900/10">
                 <div className="text-center">
                   {/* ASCII Fox Art */}
-                  <div className="text-indigo-400  text-sm mb-4 leading-tight">
+                  <div className="text-neutral-400  text-sm mb-4 leading-tight">
                     <img src="/pfp.webp" alt="Nine Tailed Fox" className="w-40 h-40 mx-auto mb-2" />
                   </div>
                   <div className="text-yellow-400/70 text-xs ">NINE_TAILED_FOX_OFFLINE</div>
                 </div>
 
                 {/* Animated border effect */}
-                <div className="absolute inset-0 border-2 border-indigo-400/20 rounded-lg animate-pulse"></div>
+                <div className="absolute inset-0 border-2 border-neutral-400/20 rounded-lg animate-pulse"></div>
 
                 {/* Corner accents */}
                 <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-yellow-400/60"></div>
-                <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-indigo-400/60"></div>
-                <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-indigo-400/60"></div>
+                <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-neutral-400/60"></div>
+                <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-neutral-400/60"></div>
                 <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-yellow-400/60"></div>
               </div>
             </div>
           </div>
 
           {/* Recovery Protocol */}
-          <div className="border border-indigo-500/40 bg-indigo-500/5 p-4 backdrop-blur-sm">
+          <div className="border border-neutral-500/40 bg-neutral-500/5 p-4 backdrop-blur-sm">
             <div className="flex items-center mb-4">
-              <div className="w-2 h-2 bg-indigo-500 mr-2 animate-pulse"></div>
-              <span className="text-indigo-400 text-xs tracking-wider ">RECOVERY_PROTOCOL</span>
+              <div className="w-2 h-2 bg-neutral-500 mr-2 animate-pulse"></div>
+              <span className="text-neutral-400 text-xs tracking-wider ">RECOVERY_PROTOCOL</span>
             </div>
 
             <button
               onClick={() => router.back()}
-              className="w-full flex items-center justify-center gap-3 p-4 border-2 border-indigo-500/40 bg-linear-to-r from-indigo-500/10 to-indigo-600/5 text-indigo-400 hover:from-indigo-500/20 hover:to-indigo-600/10 transition-all duration-300 group backdrop-blur-sm"
+              className="w-full flex items-center justify-center gap-3 p-4 border-2 border-neutral-500/40 bg-linear-to-r from-neutral-500/10 to-neutral-600/5 text-neutral-400 hover:from-neutral-500/20 hover:to-neutral-600/10 transition-all duration-300 group backdrop-blur-sm"
             >
               <ArrowLeft className="w-5 h-5 group-hover:scale-110 group-hover:-translate-x-1 transition-transform" />
               <span className=" text-sm tracking-wide">RETURN_TO_PREVIOUS_DIMENSION</span>
               <div className="flex gap-1">
-                <div className="w-1 h-1 bg-indigo-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-all delay-100"></div>
+                <div className="w-1 h-1 bg-neutral-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-all delay-100"></div>
                 <div className="w-1 h-1 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-all delay-200"></div>
-                <div className="w-1 h-1 bg-indigo-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-all delay-300"></div>
+                <div className="w-1 h-1 bg-neutral-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-all delay-300"></div>
               </div>
             </button>
           </div>
@@ -347,8 +347,8 @@ export default function NotFound() {
 
       {/* Footer */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-center">
-        <div className="text-indigo-400/60 text-xs ">KITSUNE_OS v2.077 | Nine Tails Computing Corp.</div>
-        <div className="text-indigo-400/40 text-xs  mt-1">
+        <div className="text-neutral-400/60 text-xs ">KITSUNE_OS v2.077 | Nine Tails Computing Corp.</div>
+        <div className="text-neutral-400/40 text-xs  mt-1">
           ERROR_ID: {mounted ? Date.now().toString(16).toUpperCase() : "LOADING..."}
         </div>
       </div>

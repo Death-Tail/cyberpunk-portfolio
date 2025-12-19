@@ -1,9 +1,7 @@
 "use client"
 
-import type React from "react"
-
 import { BaseWindow } from "./base-window"
-import { Mail, ExternalLink, Shield, Send, Clock, AlertCircle } from "lucide-react"
+import { Send, Clock, AlertCircle } from "lucide-react"
 interface ContactWindowProps {
   id: string
   title: string
@@ -96,7 +94,7 @@ export function ContactWindow(props: ContactWindowProps) {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center">
               <div className="w-2 h-2 bg-indigo-600 mr-2"></div>
-              <span className="text-yellow-500 text-xs tracking-wider">COMMUNICATION_PROTOCOLS</span>
+              <span className="text-indigo-500 text-xs tracking-wider">COMMUNICATION_PROTOCOLS</span>
             </div>
 
           </div>
@@ -117,9 +115,9 @@ export function ContactWindow(props: ContactWindowProps) {
                     <div className="text-green-400 font-bold">AVAILABLE</div>
                     <div className="text-green-400/70">For Projects</div>
                   </div>
-                  <div className="text-center p-2 bg-indigo-500/10 border border-indigo-500/30">
-                    <div className="text-indigo-400 font-bold">&lt; 24 hours</div>
-                    <div className="text-indigo-400/70">Response Time</div>
+                  <div className="text-center p-2 bg-blue-500/10 border border-blue-500/30">
+                    <div className="text-neutral-400 font-bold">&lt; 24 hours</div>
+                    <div className="text-neutral-400/70">Response Time</div>
                   </div>
                   <div className="text-center p-2 bg-yellow-500/10 border border-yellow-500/30">
                     <div className="text-yellow-400 font-bold">REMOTE</div>
@@ -133,7 +131,7 @@ export function ContactWindow(props: ContactWindowProps) {
                 {contactMethods.map((contact, index) => (
                   <div
                     key={index}
-                    className="border border-slate-600/30 bg-slate-600/5 hover:bg-slate-600/10 transition-all duration-300 group"
+                    className="border border-indigo-600/30 bg-indigo-600/5 hover:bg-indigo-600/10 transition-all duration-300 group"
                   >
                     <div className="p-4">
                       <div className="flex items-start justify-between mb-3">
@@ -141,32 +139,31 @@ export function ContactWindow(props: ContactWindowProps) {
                           <div className="p-2 rounded">{contact.icon}</div>
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-2">
-                              <h3 className="text-indigo-400 font-bold text-sm">{contact.platform}</h3>
+                              <h3 className="text-neutral-400 font-bold text-sm">{contact.platform}</h3>
                               {contact.preferred && (
                                 <span className="px-2 py-0.5 bg-yellow-500/20 border border-yellow-500/50 text-yellow-400 text-xs rounded">
                                   PREFERRED
                                 </span>
                               )}
                             </div>
-                            <div className="text-indigo-400/70 text-xs mb-2 font-mono">{contact.handle}</div>
-                            <p className="text-indigo-400/60 text-xs mb-3">{contact.description}</p>
+                            <div className="text-neutral-400/70 text-xs mb-2 font-mono">{contact.handle}</div>
+                            <p className="text-neutral-400/60 text-xs mb-3">{contact.description}</p>
 
                             <div className="grid grid-cols-2 gap-3 text-xs">
                               <div className="flex items-center">
-                                <Clock className="w-3 h-3 mr-1 text-indigo-400" />
-                                <span className="text-indigo-400/80">{contact.responseTime}</span>
+                                <Clock className="w-3 h-3 mr-1 text-neutral-400" />
+                                <span className="text-neutral-400/80">{contact.responseTime}</span>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <ExternalLink className="w-4 h-4 text-indigo-500/50 group-hover:text-indigo-400 transition-colors" />
                       </div>
 
                       <a
                         href={contact.link}
                         target="_blank"
                         rel="noopener noreferrer me"
-                        className="inline-flex items-center gap-2 px-3 py-2 bg-indigo-500/20 border border-indigo-500/50 text-indigo-400 rounded hover:bg-indigo-500/30 transition-colors text-sm"
+                        className="inline-flex items-center gap-2 px-3 py-2 bg-neutral-500/20 border border-neutral-500/50 text-neutral-400 rounded hover:bg-neutral-500/30 transition-colors text-sm"
                       >
                         <span>Contact via {contact.platform}</span>
                         <Send className="w-3 h-3" />
@@ -186,7 +183,7 @@ export function ContactWindow(props: ContactWindowProps) {
                   <p>• Include project timeline and budget range for faster response</p>
                   <p>• Provide detailed requirements and technical specifications</p>
                   <p>• Mention preferred communication method and timezone</p>
-                  <p>• For urgent matters, use <a href="https://discord.com/users/death_tail"><span className="text-indigo-500">Discord</span></a>.</p>
+                  <p>• For urgent matters, use <a href="https://discord.com/users/death_tail"><span className="text-blue-500">Discord</span></a>.</p>
                 </div>
               </div>
             </div>

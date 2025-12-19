@@ -38,21 +38,21 @@ export default function BasePage({ title, onBack, children }: BasePageProps) {
       <div className="relative mb-6 z-20">
         <button
           onClick={handleBackClick}
-          className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-indigo-400 hover:text-indigo-300 transition-colors active:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 rounded-lg z-50"
+          className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-neutral-400 hover:text-neutral-300 transition-colors active:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-500/50 rounded-lg z-50"
         >
           <ArrowLeft className="w-5 h-5" />
         </button>
 
         <div className="relative text-center">
           <div
-            className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-indigo-500/50 to-transparent"
+            className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-neutral-500/50 to-transparent"
             style={{ top: -8 }}
           />
           <h1 className="text-white font-bold tracking-wider drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]">
             {title}
           </h1>
           <div
-            className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-indigo-500/70 to-transparent"
+            className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-neutral-500/70 to-transparent"
             style={{ bottom: -8 }}
           />
         </div>

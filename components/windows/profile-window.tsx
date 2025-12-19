@@ -47,7 +47,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
                 glitchColors={["#dc2626", "#eab308", "#3b82f6"]}
               />
               <div className="text-red-200 text-sm mb-2">FULL_STACK_DEVELOPER</div>
-              <div className="flex items-center text-indigo-200 text-xs">
+              <div className="flex items-center text-neutral-200 text-xs">
                 <MapPin className="w-3 h-3 mr-1" />
                 <span>REMOTE_OPERATIVE</span>
               </div>
@@ -56,10 +56,10 @@ export function ProfileWindow(props: ProfileWindowProps) {
         </div>
 
         {/* About Section */}
-        <div className="border-l-2 border-yellow-500 pl-4">
+        <div className="border-l-2 border-indigo-500 pl-4">
           <div className="flex items-center mb-3">
-            <div className="w-2 h-2 bg-yellow-500 mr-2"></div>
-            <span className="text-yellow-300 text-xs tracking-wider">Summary</span>
+            <div className="w-2 h-2 bg-indigo-500 mr-2"></div>
+            <span className="text-indigo-300 text-xs tracking-wider">Summary</span>
           </div>
 
           <div className="text-white text-sm space-y-2">
@@ -68,7 +68,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
             </p>
             <br/>
             <p>
-              <span className="text-yellow-500">&gt;</span> Might migrate to Unreal Engine and blender for animation and 3d art.
+              <span className="text-indigo-500">&gt;</span> Currently studying Unreal Engine and blender for animation and 3d art.
             </p>
           </div>
         </div>
@@ -82,23 +82,23 @@ export function ProfileWindow(props: ProfileWindowProps) {
 
           <div className="space-y-2">
             <div className="flex items-center p-2 bg-indigo-500/10 border border-indigo-500/30">
-              <Award className="w-4 h-4 text-indigo-400 mr-2" />
+              <Award className="w-4 h-4 text-neutral-400 mr-2" />
               <div>
-                <div className="text-indigo-400 text-xs font-bold">BSc COMPUTER SCIENCE</div>
-                <div className="text-indigo-400/70 text-xs">Academic Foundation</div>
+                <div className="text-white text-xs font-bold">BSc COMPUTER SCIENCE</div>
+                <div className="text-white/70 text-xs">Academic Foundation</div>
               </div>
             </div>
-            <div className="flex items-center p-2 bg-yellow-500/10 border border-yellow-500/30">
-              <Award className="w-4 h-4 text-yellow-400 mr-2" />
+            <div className="flex items-center p-2 bg-indigo-500/10 border border-indigo-500/30">
+              <Award className="w-4 h-4 text-neutral-400 mr-2" />
               <div className="flex-1 flex flex-col">
-                <div className="text-yellow-400 text-xs font-bold">B2 ENGLISH CERTIFIED</div>
-                <div className="text-yellow-400/70 text-xs">EF SET Upper Intermediate</div>
+                <div className="text-white text-xs font-bold">B2 ENGLISH CERTIFIED</div>
+                <div className="text-white/70 text-xs">EF SET Upper Intermediate</div>
               </div>
               <a
                 href="https://cert.efset.org/en/vguDfH"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center h-full ml-2 text-yellow-400/80 hover:text-yellow-300 transition-colors"
+                className="flex items-center justify-center h-full ml-2 text-indigo-400/80 hover:text-indigo-300 transition-colors"
                 style={{ minWidth: 32 }}
               >
                 <Send className="w-5 h-5" />

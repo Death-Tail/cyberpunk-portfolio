@@ -18,7 +18,7 @@ export function GlitchText({ text, className, glitchColors = ["#dc2626", "#b91c1
         setIsGlitching(true)
         setTimeout(() => setIsGlitching(false), 150)
       }
-    }, 3000)
+    }, 100)
 
     return () => clearInterval(glitchInterval)
   }, [])

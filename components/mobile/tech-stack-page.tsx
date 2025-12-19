@@ -26,7 +26,7 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       name: "REACT",
       icon: <SiReact className="w-7 h-7" />,
       category: "frontend",
-      bgColor: "bg-linear-to-br from-cyan-500/30 to-indigo-600/30",
+      bgColor: "bg-linear-to-br from-cyan-500/30 to-neutral-600/30",
       iconColor: "text-cyan-200",
       projects: 3,
       description: "Advanced React development with hooks, context, and performance optimization",
@@ -38,7 +38,7 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       name: "NEXT.JS",
       icon: <SiNextdotjs className="w-7 h-7" />,
       category: "frontend",
-      bgColor: "bg-linear-to-br from-gray-800/80 to-black/80",
+      bgColor: "bg-linear-to-br from-neutral-800/80 to-black/80",
       iconColor: "text-white",
       projects: 3,
       description: "Full-stack Next.js applications with SSR, SSG, and API routes",
@@ -49,8 +49,8 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       name: "TYPESCRIPT",
       icon: <SiTypescript className="w-7 h-7" />,
       category: "language",
-      bgColor: "bg-linear-to-br from-indigo-600/30 to-indigo-800/30",
-      iconColor: "text-indigo-200",
+      bgColor: "bg-linear-to-br from-neutral-600/30 to-neutral-800/30",
+      iconColor: "text-neutral-200",
       projects: 3,
       description: "Type-safe development with advanced TypeScript patterns",
       features: ["Advanced Types", "Generics", "Decorators", "Type Guards"],
@@ -60,7 +60,7 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       name: "JAVA",
       icon: <DiJava className="w-7 h-7" />,
       category: "language",
-      bgColor: "bg-linear-to-br from-indigo-600/30 to-yellow-600/30",
+      bgColor: "bg-linear-to-br from-neutral-600/30 to-yellow-600/30",
       iconColor: "text-yellow-200",
       projects: 0,
       description: "Object-oriented programming and backend development with Java",
@@ -71,8 +71,8 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       name: "DART",
       icon: <SiDart className="w-7 h-7" />,
       category: "language",
-      bgColor: "bg-linear-to-br from-indigo-600/30 to-indigo-800/30",
-      iconColor: "text-indigo-200",
+      bgColor: "bg-linear-to-br from-neutral-600/30 to-neutral-800/30",
+      iconColor: "text-neutral-200",
       projects: 1,
       description: "Modern programming with Dart for Flutter and mobile applications",
       features: ["Null Safety", "Asynchronous Programming", "Mixins", "Generics"],
@@ -94,7 +94,7 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       name: "Next.js API Routes",
       icon: <SiNextdotjs className="w-7 h-7" />,
       category: "backend",
-      bgColor: "bg-linear-to-br from-gray-800/80 to-black/80",
+      bgColor: "bg-linear-to-br from-neutral-800/80 to-black/80",
       iconColor: "text-white",
       projects: 1,
       description: "Building backend functionality using Next.js API routes",
@@ -105,8 +105,8 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       name: "POSTGRESQL",
       icon: <SiPostgresql className="w-7 h-7" />,
       category: "database",
-      bgColor: "bg-linear-to-br from-indigo-600/30 to-indigo-800/30",
-      iconColor: "text-indigo-200",
+      bgColor: "bg-linear-to-br from-neutral-600/30 to-neutral-800/30",
+      iconColor: "text-neutral-200",
       projects: 1,
       description: "Advanced SQL queries, indexing, and database optimization",
       features: ["Complex Queries", "Indexing", "Triggers", "Performance Tuning"],
@@ -116,8 +116,8 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       name: "MYSQL",
       icon: <SiMysql className="w-7 h-7" />,
       category: "database",
-      bgColor: "bg-linear-to-br from-indigo-600/30 to-indigo-800/30",
-      iconColor: "text-indigo-200",
+      bgColor: "bg-linear-to-br from-neutral-600/30 to-neutral-800/30",
+      iconColor: "text-neutral-200",
       projects: 1,
       description: "Advanced SQL queries, indexing, and database optimization",
       features: ["Complex Queries", "Indexing", "Triggers", "Performance Tuning"],
@@ -139,7 +139,7 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       icon: <SiFlutter className="w-7 h-7" />,
       category: "frontend",
       bgColor: "bg-white",
-      iconColor: "text-indigo-400",
+      iconColor: "text-neutral-400",
       projects: 1,
       description: "Cross-platform mobile development with Flutter and Dart",
       features: ["Cross-platform", "State Management", "Native Features", "UI/UX Design"],
@@ -168,13 +168,13 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
         {/* Tech Overview Stats */}
         {/* Keeping the overall stats for context, but the individual skill stats below are changed */}
         <div className="grid grid-cols-4 gap-2 mb-6">
-          <div className="p-2 bg-indigo-500/10 border border-indigo-500/30 text-center rounded">
-            <div className="text-sm font-bold text-indigo-400">{skillNodes.length}</div>
-            <div className="text-indigo-400/70 text-xs">Technologies</div>
+          <div className="p-2 bg-neutral-500/10 border border-neutral-500/30 text-center rounded">
+            <div className="text-sm font-bold text-neutral-400">{skillNodes.length}</div>
+            <div className="text-neutral-400/70 text-xs">Technologies</div>
           </div>
-          <div className="p-2 bg-indigo-500/10 border border-indigo-500/30 text-center rounded">
-          <div className="text-sm font-bold text-indigo-400">2+Years</div>
-            <div className="text-indigo-400/70 text-xs">Experience</div>
+          <div className="p-2 bg-neutral-500/10 border border-neutral-500/30 text-center rounded">
+          <div className="text-sm font-bold text-neutral-400">2+Years</div>
+            <div className="text-neutral-400/70 text-xs">Experience</div>
           </div>
           <div className="p-2 bg-green-500/10 border border-green-500/30 text-center rounded">
             <div className="text-sm font-bold text-green-400">
@@ -196,8 +196,8 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
               onClick={() => setSelectedCategory(category)}
               className={`px-3 py-1 text-xs rounded-full  transition-colors whitespace-nowrap ${
                 selectedCategory === category
-                  ? "bg-indigo-500/20 text-white"
-                  : "bg-zinc-800/50 text-zinc-400 hover:text-indigo-400"
+                  ? "bg-neutral-500/20 text-white"
+                  : "bg-zinc-800/50 text-zinc-400 hover:text-neutral-400"
               }`}
             >
               {category.toUpperCase()}
@@ -208,7 +208,7 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
         {/* Enhanced Tech Stack */}
         <div className="space-y-4">
           {filteredSkills.map((skill) => (
-            <div key={skill.name} className="relative border border-indigo-600/30 bg-indigo-500/5 rounded-lg overflow-hidden">
+            <div key={skill.name} className="relative border border-neutral-600/30 bg-neutral-500/5 rounded-lg overflow-hidden">
               {/* Tech Header */}
               <div className="p-4">
                 <div className="flex items-center justify-between mb-3">
@@ -223,7 +223,7 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
                   </div>
                   <button
                     onClick={() => toggleTech(skill.name)}
-                    className="p-2 text-indigo-400 hover:text-indigo-300 transition-colors"
+                    className="p-2 text-neutral-400 hover:text-neutral-300 transition-colors"
                   >
                     {expandedTech[skill.name] ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                   </button>
@@ -232,12 +232,12 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
                 {/* Quick Stats - ADJUSTED GRID (2 columns) */}
                 <div className="grid grid-cols-2 gap-3 mb-3">
                   <div className="text-center">
-                    <div className="text-indigo-400 text-sm font-bold">{skill.projects}</div>
-                    <div className="text-indigo-400/70 text-xs">Projects</div>
+                    <div className="text-neutral-400 text-sm font-bold">{skill.projects}</div>
+                    <div className="text-neutral-400/70 text-xs">Projects</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-indigo-400 text-sm font-bold">{skill.category}</div>
-                    <div className="text-indigo-400/70 text-xs">Category</div>
+                    <div className="text-neutral-400 text-sm font-bold">{skill.category}</div>
+                    <div className="text-neutral-400/70 text-xs">Category</div>
                   </div>
                   {/* Removed the third stat column */}
                 </div>
@@ -249,17 +249,17 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
               <div
                 className={`overflow-hidden transition-all duration-300 ${expandedTech[skill.name] ? "max-h-96" : "max-h-0"}`}
               >
-                <div className="px-4 pb-4 pt-4 space-y-4 border-t border-indigo-600/20">
+                <div className="px-4 pb-4 pt-4 space-y-4 border-t border-neutral-600/20">
                   {/* Key Features */}
                   <div>
-                    <div className="text-xs text-indigo-400 mb-2font-bold flex items-center">
+                    <div className="text-xs text-neutral-400 mb-2font-bold flex items-center">
                       <Zap className="w-3 h-3 mr-1" />
                       KEY FEATURES
                     </div>
                     <div className="grid grid-cols-2 gap-1">
                       {skill.features.map((feature, i) => (
-                        <div key={i} className="text-indigo-400/80 text-xs flex items-center">
-                          <span className="text-indigo-500 mr-1">•</span>
+                        <div key={i} className="text-neutral-400/80 text-xs flex items-center">
+                          <span className="text-neutral-500 mr-1">•</span>
                           {feature}
                         </div>
                       ))}

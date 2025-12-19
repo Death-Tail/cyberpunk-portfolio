@@ -31,14 +31,14 @@ export default function GlobalError({
           ">
 
             {/* Soft glowing orb background */}
-            <div className="absolute inset-0 -z-10 bg-linear-to-br from-indigo-600/20 to-emerald-500/10 blur-3xl" />
+            <div className="absolute inset-0 -z-10 bg-linear-to-br from-neutral-600/20 to-emerald-500/10 blur-3xl" />
 
             {/* Header */}
             <div className="mb-6">
               <div className="text-3xl font-bold text-white drop-shadow-lg">
                 Something Went Wrong
               </div>
-              <p className="text-indigo-400/80 text-sm mt-2">
+              <p className="text-neutral-400/80 text-sm mt-2">
                 The system encountered an unexpected problem
               </p>
             </div>
@@ -50,13 +50,13 @@ export default function GlobalError({
                 bg-zinc-900/70 border border-white/5
                 shadow-[0_0_20px_rgba(0,255,200,0.08)]
               ">
-                <AlertTriangle className="w-10 h-10 text-indigo-400 animate-pulse" />
+                <AlertTriangle className="w-10 h-10 text-neutral-400 animate-pulse" />
               </div>
             </div>
 
             {/* Error Details */}
             <div className="bg-black/30 border border-white/10 rounded-2xl p-5 mb-8 text-left">
-              <div className="text-xs text-indigo-400/70 mb-3 tracking-wider">
+              <div className="text-xs text-neutral-400/70 mb-3 tracking-wider">
                 ERROR DETAILS
               </div>
 
@@ -77,9 +77,9 @@ export default function GlobalError({
                 onClick={reset}
                 className="
                   w-full flex items-center justify-center gap-2 py-3
-                  bg-indigo-500/10 border border-indigo-500/20
-                  rounded-xl text-indigo-400
-                  hover:bg-indigo-500/20 transition-all duration-300
+                  bg-neutral-500/10 border border-neutral-500/20
+                  rounded-xl text-neutral-400
+                  hover:bg-neutral-500/20 transition-all duration-300
                   shadow-[0_0_15px_rgba(0,255,200,0.05)]
                 "
               >

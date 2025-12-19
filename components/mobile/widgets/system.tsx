@@ -12,7 +12,7 @@ export default function SystemWidget() {
           <div className="flex items-center gap-2">
               <Cpu className="w-4 h-4 text-zinc-400" />
               <div className="h-1.5 flex-1 bg-zinc-700 rounded-full overflow-hidden">
-                  <div className="h-full bg-indigo-500 w-[45%] animate-[pulse_3s_infinite]" />
+                  <div className="h-full bg-neutral-500 w-[45%] animate-[pulse_3s_infinite]" />
               </div>
           </div>
           <div className="flex justify-between text-[10px] text-zinc-400 font-mono">
