@@ -39,8 +39,6 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
                   priority
                   className="object-cover opacity-90 duration-700 "
                 />
-                {/* CRT Scanlines Overlay */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-10 background-size-[100%_2px,3px_100%] pointer-events-none" />
 
                 {/* ID Badge */}
                 <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md border border-white/10 p-3 rounded z-20 text-center">
