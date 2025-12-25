@@ -102,29 +102,6 @@ export function ContactWindow(props: ContactWindowProps) {
 
         <div className="flex-1 overflow-y-auto">
             <div className="space-y-6">
-              {/* Availability Status */}
-              <div className="border border-green-500/30 p-4 bg-green-500/5">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center">
-                    <span className="text-green-400 text-xs font-bold">CURRENT STATUS</span>
-                  </div>
-                  <div className="text-green-400 text-xs">GMT+3 (Kurdistan)</div>
-                </div>
-                <div className="grid grid-cols-3 gap-3 text-xs">
-                  <div className="text-center p-2 bg-green-500/10 border border-green-500/30">
-                    <div className="text-green-400 font-bold">AVAILABLE</div>
-                    <div className="text-green-400/70">For Projects</div>
-                  </div>
-                  <div className="text-center p-2 bg-blue-500/10 border border-blue-500/30">
-                    <div className="text-neutral-400 font-bold">&lt; 24 hours</div>
-                    <div className="text-neutral-400/70">Response Time</div>
-                  </div>
-                  <div className="text-center p-2 bg-yellow-500/10 border border-yellow-500/30">
-                    <div className="text-yellow-400 font-bold">REMOTE</div>
-                    <div className="text-yellow-400/70">Work Mode</div>
-                  </div>
-                </div>
-              </div>
 
               {/* Contact Methods */}
               <div className="space-y-3">
@@ -139,14 +116,14 @@ export function ContactWindow(props: ContactWindowProps) {
                           <div className="p-2 rounded">{contact.icon}</div>
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-2">
-                              <h3 className="text-neutral-400 font-bold text-sm">{contact.platform}</h3>
+                              <h3 className="text-neutral-200 font-bold text-sm">{contact.platform}</h3>
                               {contact.preferred && (
                                 <span className="px-2 py-0.5 bg-yellow-500/20 border border-yellow-500/50 text-yellow-400 text-xs rounded">
                                   PREFERRED
                                 </span>
                               )}
                             </div>
-                            <div className="text-neutral-400/70 text-xs mb-2 font-mono">{contact.handle}</div>
+                            <div className="text-neutral-300/70 text-xs mb-2 font-mono">{contact.handle}</div>
                             <p className="text-neutral-400/60 text-xs mb-3">{contact.description}</p>
 
                             <div className="grid grid-cols-2 gap-3 text-xs">
@@ -163,7 +140,7 @@ export function ContactWindow(props: ContactWindowProps) {
                         href={contact.link}
                         target="_blank"
                         rel="noopener noreferrer me"
-                        className="inline-flex items-center gap-2 px-3 py-2 bg-neutral-500/20 border border-neutral-500/50 text-neutral-400 rounded hover:bg-neutral-500/30 transition-colors text-sm"
+                        className="inline-flex items-center gap-2 px-3 py-2 bg-neutral-500/20 border border-neutral-500/50 text-neutral-200 rounded hover:bg-neutral-500/30 transition-colors text-sm"
                       >
                         <span>Contact via {contact.platform}</span>
                         <Send className="w-3 h-3" />

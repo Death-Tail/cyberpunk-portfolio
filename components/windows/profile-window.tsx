@@ -49,7 +49,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
               <div className="text-red-200 text-sm mb-2">FULL_STACK_DEVELOPER</div>
               <div className="flex items-center text-neutral-200 text-xs">
                 <MapPin className="w-3 h-3 mr-1" />
-                <span>REMOTE_OPERATIVE</span>
+                <span>Erbil / IQ</span>
               </div>
             </div>
           </div>

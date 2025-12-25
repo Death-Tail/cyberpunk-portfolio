@@ -58,7 +58,7 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
               <div className="p-3 bg-zinc-900/50 border border-white/5 rounded hover:border-neutral-500/30 transition-colors group">
                 <MapPin className="w-4 h-4 text-white mb-2 group-hover:text-neutral-400 transition-colors" />
                 <div className="text-xs text-white">Location</div>
-                <div className="text-sm font-bold text-white">KRD, Hawler</div>
+                <div className="text-sm font-bold text-white">Erbil / IQ</div>
               </div>
               <div className="p-3 bg-zinc-900/50 border border-white/5 rounded hover:border-neutral-500/30 transition-colors group">
                 <Globe className="w-4 h-4 text-white mb-2 group-hover:text-neutral-400 transition-colors" />

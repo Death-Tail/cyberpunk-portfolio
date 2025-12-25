@@ -102,11 +102,11 @@ const skillNodes: SkillNode[] = [
     unlocked: true,
     x: 100,
     y: 115,
-    connections: ["frontend", "dart"],
+    connections: ["frontend"],
     category: "frontend",
     description: "Cross-platform mobile development",
-    bgColor: "bg-linear-to-br from-neutral-500/10 to-cyan-600/10",
-    iconColor: "text-neutral-600",
+    bgColor: "bg-linear-to-br from-cyan-500/10 to-cyan-600/10",
+    iconColor: "text-cyan-600",
   },
 
   // =====BACKEND =====
@@ -257,8 +257,8 @@ const skillNodes: SkillNode[] = [
     connections: ["language"],
     category: "backend",
     description: "Cross-platform mobile development",
-    bgColor: "bg-linear-to-br from-neutral-500/10 to-cyan-600/10",
-    iconColor: "text-neutral-600",
+    bgColor: "bg-linear-to-br from-cyan-500/10 to-cyan-600/10",
+    iconColor: "text-cyan-600",
   },
   {
     id: "typescript",
