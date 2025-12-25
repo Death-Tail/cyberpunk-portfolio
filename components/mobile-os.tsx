@@ -46,7 +46,7 @@ function OSContent() {
 
   const handleOpenApp = (type: string) => {
     if (type === "resume") {
-      window.open("/resume/Dyari Ali - Web Developer.pdf", "_blank")
+      window.open("/resume/Dyari Ali Tahir - Fullstack Developer.pdf", "_blank")
       return
     }
     router.push(`/?app=${type}`, { scroll: false })

@@ -55,7 +55,7 @@ export function ContactWindow(props: ContactWindowProps) {
       handle: "death_tail",
       icon: <img src="/Icons/discord.avif" alt="Discord Icon" className="w-10 h-10" />,
       description: "Real-time communication & collaboration",
-      security: "End-to-end encrypted",
+      security: "brain rot ",
       responseTime: "Few hours",
       availability: "always",
       preferred: true,

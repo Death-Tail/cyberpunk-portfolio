@@ -97,7 +97,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
 
   const handleIconDoubleClick = (iconType: string) => {
     if (iconType === "resume") {
-      window.open("/resume/Dyari Ali - Web Developer.pdf", "_blank")
+      window.open("/resume/Dyari Ali Tahir - Fullstack Developer.pdf", "_blank")
       return
     }
     onOpenWindow(iconType)
@@ -207,7 +207,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
                   const icon = desktopIcons.find((icon) => icon.id === contextMenu.iconId)
                   if (icon) {
                     if (icon.type === "resume") {
-                      window.open("/resume/Dyari Ali - Web Developer.pdf", "_blank")
+                      window.open("/resume/Dyari Ali Tahir - Fullstack Developer.pdf", "_blank")
                     } else {
                       onOpenWindow(icon.type)
                     }

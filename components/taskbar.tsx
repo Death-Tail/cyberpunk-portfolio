@@ -195,7 +195,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
                   key={app.type}
                   onClick={() => {
                     if (app.type === "resume") {
-                      window.open("/resume/Dyari Ali - Web Developer.pdf", "_blank")
+                      window.open("/resume/Dyari Ali Tahir - Fullstack Developer.pdf", "_blank")
                       return
                     }
                     onOpenWindow(app.type)
