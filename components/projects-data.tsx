@@ -1,9 +1,51 @@
 import { Icons } from "@/public/projects/Rekangroup";
 import { IconsP } from "@/public/projects/DeathTail";
-
+import { IconsA } from "@/public/projects/draram";
 
 
 export const projects = [
+
+
+  {
+    title: "Dr. Aram Portfolio",
+    description:
+      "A comprehensive multi-language medical portfolio and educational blog developed for Dr. Aram. The platform provides a seamless experience for patients in multiple languages and serves as a hub for medical insights.",
+    status: "DEPLOYED",
+    icon: (
+      <img
+        src="projects/draram/aramL.webp"
+        alt="Dr. Aram Logo"
+        className="w-10 h-10 object-contain"
+      />
+    ),
+    images: [
+      IconsA.img1,
+      IconsA.img2,
+      IconsA.img3,
+    ],
+    tech: ["WordPress", "PHP", "WPML (Multi-language)", "Advanced SEO", "MySQL"],
+    achievements: [
+      "Successfully implemented a full multi-language architecture for broader patient reach.",
+      "Achieved high SEO rankings for medical services and educational content.",
+      "Customized theme to ensure high performance despite heavy blog content."
+    ],
+    links: {
+      live: "https://draram.com",
+      github: null,
+    },
+    timeline: "1 months",
+    teamSize: "Solo Project",
+    challenges: [
+      "Managing complex SEO metadata across multiple languages.",
+      "Ensuring fast load times while maintaining a feature-rich WordPress environment."
+    ],
+    features: [
+      "Multi-language Support (English/Kurdish/Arabic)",
+      "Dynamic Blog System for Medical Articles",
+      "SEO Optimized Content Structure",
+      "Responsive Medical UI"
+    ],
+  },
   {
     title: "Rekan Group Official Website",
     description:
@@ -56,12 +98,73 @@ export const projects = [
       "SEO optimization with structured metadata",
       "Performance monitoring and analytics integration",
     ],
-    metrics: {
-      performance: 95,
-      accessibility: 92,
-      seo: 90,
-    },
   },
+
+  {
+    title: "SHIN尾",
+    description:
+      "An aesthetic OS portfolio website showcasing my skills, projects, and experience as a full-stack developer, built with modern web technologies and optimized for performance and accessibility.",
+    status: "DEPLOYED",
+    icon: (
+      <img
+        src="/L.webp"
+        alt="Portfolio Logo"
+        className="w-10 h-10 object-contain"
+      />
+    ),
+    images: [
+      IconsP.img1,
+      IconsP.img2,
+      IconsP.img3,
+
+    ],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+    ],
+    achievements: [
+    ],
+    links: {
+      live: null,
+      github: "https://github.com/Death-Tail/cyberpunk-portfolio"
+    },
+    timeline: "1–5 months",
+    teamSize: "Solo Project",
+    challenges: [
+    ],
+    features: [
+    ],
+  },
+
+  // {
+  //   title: "Dr. Awara Portfolio",
+  //   description:
+  //     "A professional digital presence for Dr. Awara, featuring a streamlined interface for patients to explore medical services and contact the clinic directly.",
+  //   status: "DEPLOYED",
+  //   icon: (
+  //     <img
+  //       src="/drawara-logo.webp"
+  //       alt="Dr. Awara Logo"
+  //       className="w-10 h-10 object-contain"
+  //     />
+  //   ),
+  //   images: [],
+  //   tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
+  //   achievements: [
+  //     "Built a modern, high-performance interface with smooth transitions.",
+  //     "Optimized the appointment inquiry flow for better user conversion."
+  //   ],
+  //   links: {
+  //     live: "https://drawara.com",
+  //     github: null,
+  //   },
+  //   timeline: "1–2 months",
+  //   teamSize: "Solo Project",
+  //   challenges: ["Creating a trustworthy and clean medical aesthetic."],
+  //   features: ["Service Showcases", "Interactive UI Components", "Direct Contact Integration"],
+  // }
 
   // Add more projects here with the same structure
 ]

@@ -55,7 +55,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
       <div className="relative space-y-8 min-h-screen pb-10">
 
         {/* Control Panel (Filters) */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-between items-end sm:items-center border-b border-white/10 pb-6">
+        <div className="flex flex-col sm:flex-row gap-4 justify-between place-items-center sm:items-center border-b border-white/10 pb-6">
           <div className="flex gap-2 p-1 bg-zinc-900/50 border border-white/10 rounded-lg backdrop-blur-sm object-center">
             {(["ALL", "DEPLOYED", "ON-GOING"] as FilterType[]).map((filter) => (
               <button
@@ -217,28 +217,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                 `}>
                   <div className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                    {/* Column 1: Metrics */}
-                    <div className="space-y-4">
-                      <h4 className="text-xs font-bold text-zinc-500 uppercase tracking-widest flex items-center">
-                        <Activity className="w-3 h-3 mr-2" /> Performance
-                      </h4>
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between p-2 bg-white/5 rounded border border-white/5">
-                          <span className="text-xs text-zinc-400">Performance</span>
-                          <span className="text-sm font-mono font-bold text-green-400">{project.metrics.performance}%</span>
-                        </div>
-                        <div className="flex items-center justify-between p-2 bg-white/5 rounded border border-white/5">
-                          <span className="text-xs text-zinc-400">Accessibility</span>
-                          <span className="text-sm font-mono font-bold text-neutral-400">{project.metrics.accessibility}%</span>
-                        </div>
-                        <div className="flex items-center justify-between p-2 bg-white/5 rounded border border-white/5">
-                          <span className="text-xs text-zinc-400">SEO</span>
-                          <span className="text-sm font-mono font-bold text-amber-400">{project.metrics.seo}%</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Column 2: Tech Stack */}
+                    {/* Column 1: Tech Stack */}
                     <div className="space-y-4">
                       <h4 className="text-xs font-bold text-zinc-500 uppercase tracking-widest flex items-center">
                         <Cpu className="w-3 h-3 mr-2" /> Stack_Architecture
@@ -252,7 +231,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                       </div>
                     </div>
 
-                    {/* Column 3: Insights */}
+                    {/* Column 2: Insights */}
                     <div className="space-y-4 md:col-span-2 lg:col-span-1">
                       <h4 className="text-xs font-bold text-zinc-500 uppercase tracking-widest flex items-center">
                         <Terminal className="w-3 h-3 mr-2" /> Dev_Log
