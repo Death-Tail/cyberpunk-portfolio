@@ -161,7 +161,7 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "database",
     description: "Database design and optimization",
-    bgColor: "bg-linear-to-br from-neutral-600/30 to-neutral-800/30",
+    bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
     iconColor: "text-neutral-200",
   },
   {
@@ -187,7 +187,7 @@ const skillNodes: SkillNode[] = [
     connections: ["database"],
     category: "database",
     description: "Advanced relational database",
-    bgColor: "bg-linear-to-br from-neutral-600/30 to-neutral-800/30",
+    bgColor: "bg-linear-to-br from-blue-300/30 to-blue-600/30",
     iconColor: "text-neutral-200",
   },
   {
@@ -200,7 +200,7 @@ const skillNodes: SkillNode[] = [
     connections: ["database"],
     category: "database",
     description: "Popular relational database management",
-    bgColor: "bg-linear-to-br from-neutral-600/30 to-neutral-800/30",
+    bgColor: "bg-linear-to-br from-blue-300/30 to-blue-600/30",
     iconColor: "text-neutral-200",
   },
 
@@ -244,8 +244,8 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "backend",
     description: "Proficient in multiple programming languages",
-    bgColor: "bg-linear-to-br from-neutral-600/30 to-neutral-800/30",
-    iconColor: "text-neutral-200",
+    bgColor: "bg-linear-to-br from-orange-600/30 to-orange-800/30",
+    iconColor: "text-orange-200",
   },
   {
     id: "dart",
@@ -270,7 +270,7 @@ const skillNodes: SkillNode[] = [
     connections: ["language"],
     category: "backend",
     description: "Type-safe JavaScript development",
-    bgColor: "bg-linear-to-br from-neutral-600/30 to-neutral-800/30",
+    bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
     iconColor: "text-neutral-200",
   },
   {
@@ -508,7 +508,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
                 <button
                   key={cat}
                   onClick={() => setActiveCategories((s) => ({ ...s, [cat]: !s[cat] }))}
-                  className={`text-xs px-2 py-1 rounded ${activeCategories[cat] ? "bg-neutral-500/20 text-neutral-300" : "bg-transparent text-neutral-500/30 border border-transparent hover:bg-slate-800"}`}
+                  className={`text-xs px-2 py-1 rounded ${activeCategories[cat] ? "bg-neutral-500/20 text-neutral-300" : "bg-transparent text-neutral-500/30 border border-transparent hover:bg-neutral-800"}`}
                 >
                   {cat.toUpperCase()}
                 </button>
@@ -523,7 +523,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
                 setZoom(1)
               }}
               aria-label="Center map"
-              className="p-1 rounded bg-slate-900/40 border border-slate-700"
+              className="p-1 rounded bg-neutral-900/40 border border-neutral-700"
             >
               <Target className="w-4 h-4 text-neutral-300" />
             </button>
@@ -533,7 +533,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
         {/* Skill Map Container */}
         <div
           ref={mapRef}
-          className={`relative h-96 overflow-hidden rounded-lg border border-slate-500/30 ${isDragging ? "cursor-grabbing" : "cursor-grab"
+          className={`relative h-96 overflow-hidden rounded-lg border border-neutral-500/30 ${isDragging ? "cursor-grabbing" : "cursor-grab"
             }`}
           onMouseDown={handleMapMouseDown}
           style={{ transform: `scale(${zoom})`, transformOrigin: "center center" }}
@@ -541,7 +541,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
 
           {/* Extended Neural Network Background */}
           <div
-            className="map-background absolute bg-linear-to-br from-black via-slate-950 to-slate-950/20"
+            className="map-background absolute bg-linear-to-br from-black via-neutral-950 to-neutral-950/20"
             style={{
               width: MAP_BOUNDS.width,
               height: MAP_BOUNDS.height,
@@ -750,7 +750,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
                 <div
                   className={`
                     relative w-20 h-20 border-2 transition-all duration-300 backdrop-blur-sm
-                    ${node.unlocked ? "border-slate-600" : "border-zinc-600 bg-zinc-800/50 text-zinc-500"} ${node.bgColor}
+                    ${node.unlocked ? "border-neutral-600" : "border-zinc-600 bg-zinc-800/50 text-zinc-500"} ${node.bgColor}
                     ${isSelected ? "scale-110" : ""}
                     ${isHovered ? "scale-105" : ""}
                   `}
@@ -807,7 +807,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
 
             return (
               <div
-                className="absolute z-40 pointer-events-none bg-slate-900/80 backdrop-blur-sm text-sm text-neutral-200 p-2 rounded shadow-lg border border-slate-700"
+                className="absolute z-40 pointer-events-none bg-neutral-900/80 backdrop-blur-sm text-sm text-neutral-200 p-2 rounded shadow-lg border border-neutral-700"
                 style={{
                   left: node.x + mapPosition.x + 40,
                   top: node.y + mapPosition.y - 10,
@@ -842,7 +842,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
                 <div>
                   <div className="flex items-center mb-2">
                     <div
-                      className={`p-3 border-2 ${node.unlocked ? "border-slate-600" : "border-zinc-600 bg-zinc-800/50 text-zinc-500"} ${node.bgColor} rounded-lg mr-3`}
+                      className={`p-3 border-2 ${node.unlocked ? "border-neutral-600" : "border-zinc-600 bg-zinc-800/50 text-zinc-500"} ${node.bgColor} rounded-lg mr-3`}
                     >
                       <div className={node.iconColor}>{node.icon}</div>
                     </div>

@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { BaseWindow } from "./base-window"
 import { GlitchText } from "../glitch-text"
-import { Award, MapPin, Zap, Shield, Target, Send } from "lucide-react"
+import { Award, MapPin, Send } from "lucide-react"
 import pfpImg from "@/public/pfp.webp"
 
 interface ProfileWindowProps {
@@ -27,17 +27,13 @@ export function ProfileWindow(props: ProfileWindowProps) {
           </div>
 
           <div className="flex items-start space-x-4">
-            <div className="relative" style={{
+            <div
+              className="relative"
+              style={{
                 clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
-              }}>
-              <Image
-                src={pfpImg}
-                alt="Profile"
-                placeholder="blur"
-                width={120}
-                height={120}
-
-              />
+              }}
+            >
+              <Image src={pfpImg} alt="Profile" placeholder="blur" width={120} height={120} />
             </div>
 
             <div>
@@ -64,11 +60,13 @@ export function ProfileWindow(props: ProfileWindowProps) {
 
           <div className="text-white text-sm space-y-2">
             <p>
-              <span className="text-indigo-500">&gt;</span> Full-Stack Developer working with Nextjs, Typescript, Tailwind CSS, sometimes i work with WP, Flutter, i hold a BSc in Computer Science.
+              <span className="text-indigo-500">&gt;</span> Full-Stack Developer working with Nextjs, Typescript,
+              Tailwind CSS, sometimes i work with WP, Flutter, i hold a BSc in Computer Science.
             </p>
-            <br/>
+            <br />
             <p>
-              <span className="text-indigo-500">&gt;</span> Currently studying Unreal Engine and blender for animation and 3d art.
+              <span className="text-indigo-500">&gt;</span> Currently studying Unreal Engine and blender for animation
+              and 3d art.
             </p>
           </div>
         </div>

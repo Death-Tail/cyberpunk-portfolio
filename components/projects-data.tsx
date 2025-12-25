@@ -63,56 +63,5 @@ export const projects = [
     },
   },
 
-  {
-    title: "SHIN尾",
-    description:
-      "An aesthetic OS portfolio website showcasing my skills, projects, and experience as a full-stack developer, built with modern web technologies and optimized for performance and accessibility.",
-    status: "DEPLOYED",
-    icon: (
-      <img
-        src="/logoImg.webp"
-        alt="Portfolio Logo"
-        className="w-10 h-10 object-contain"
-      />
-    ),
-    images: [
-      IconsP.img1,
-      IconsP.img2,
-      IconsP.img3,
-
-    ],
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Node.js",
-    ],
-    achievements: [
-      "Designed and developed an aesthetic OS Portfolio",
-      "Optimized for performance, accessibility, and SEO",
-    ],
-    links: {
-      live: null,
-      github: "https://github.com/Death-Tail/cyberpunk-portfolio"
-    },
-    timeline: "1–5 months",
-    teamSize: "Solo Project",
-    challenges: [
-      "Balancing visual effects with performance",
-      "Implementing responsive layouts for all devices",
-    ],
-    features: [
-      "Aesthetic OS UI design",
-      "Responsive design for mobile and desktop",
-      "SEO optimization and performance tuning",
-      "Continuous deployment with Vercel",
-    ],
-    metrics: {
-      performance: 93,
-      accessibility: 90,
-      seo: 100,
-    },
-  }
-
   // Add more projects here with the same structure
 ]

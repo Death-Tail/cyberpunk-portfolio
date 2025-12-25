@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     siteName: "Dyari Ali Tahir Portfolio",
     images: [
       {
-        url: "https://dyariali.com/OGimg.jpg",
-        width: 2560,
-        height: 1707,
+        url: "https://dyariali.com/OG.jpg",
+        width: 3000,
+        height: 1714,
         alt: "Dyari Ali Tahir Portfolio",
         type: "image/jpg",
       },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     site: "@dyariali",
     creator: "@death_tail0331",
     images: [
-      "https://dyariali.com/OGimg.jpg",
+      "https://dyariali.com/OG.jpg",
     ],
   },
   manifest: "/manifest.json",
@@ -60,7 +60,7 @@ export default function RootLayout({
         <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon.ico" />
-        <meta name="theme-color" content="#0a0a0a" />
+        <meta name="theme-color" content="##5f5f5f" />
         <link rel="apple-touch-icon" href="/favicon.ico" />
         <link rel="canonical" href="https://dyariali.com" />
         <meta property="fb:app_id" content="1574339983752418" />

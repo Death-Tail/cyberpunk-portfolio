@@ -8,10 +8,6 @@ import { useEffect, useRef, useState } from "react"
 import { ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { DateWeatherWidget } from "./windows/widgets/DateWeatherWidget"
-// import { MusicPlayerWidget } from "./windows/widgets/MusicPlayerWidget"
-
-// Widgets
-
 
 interface DesktopProps {
   onOpenWindow: (type: string) => void
@@ -44,37 +40,76 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       id: "profile-icon",
       type: "profile",
       name: "Profile",
-      icon: <Image placeholder="blur" src={Icons.Profile} alt="profile logo" property="true" width={100} height={100} />
+      icon: (
+        <Image
+          placeholder="blur"
+          src={Icons.Profile || "/placeholder.svg"}
+          alt="profile logo"
+          property="true"
+          width={100}
+          height={100}
+        />
+      ),
     },
     {
       id: "projects-icon",
       type: "projects",
       name: "Projects",
-      icon: <Image placeholder="blur" src={Icons.Projects} alt="project logo" property="true" width={100} height={100} />
+      icon: (
+        <Image
+          placeholder="blur"
+          src={Icons.Projects || "/placeholder.svg"}
+          alt="project logo"
+          property="true"
+          width={100}
+          height={100}
+        />
+      ),
     },
-    // {
-    //   id: "terminal-icon",
-    //   type: "terminal",
-    //   name: "Terminal",
-    //   icon: <Image placeholder="blur" src={Icons.Terminal} alt="terminal logo" property="true" width={100} height={100} />
-    // },
     {
       id: "contact-icon",
       type: "contact",
       name: "Contact",
-      icon: <Image placeholder="blur" src={Icons.Contact} alt="contact logo" property="true" width={100} height={100} />
+      icon: (
+        <Image
+          placeholder="blur"
+          src={Icons.Contact || "/placeholder.svg"}
+          alt="contact logo"
+          property="true"
+          width={100}
+          height={100}
+        />
+      ),
     },
     {
       id: "techstack-icon",
       type: "techstack",
       name: "Tech Stack",
-      icon: <Image placeholder="blur" src={Icons.Techstack} alt="tech stack logo" property="true" width={100} height={100} />
+      icon: (
+        <Image
+          placeholder="blur"
+          src={Icons.Techstack || "/placeholder.svg"}
+          alt="tech stack logo"
+          property="true"
+          width={100}
+          height={100}
+        />
+      ),
     },
     {
       id: "Resume",
       type: "resume",
       name: "Resume",
-      icon: <Image placeholder="blur" src={Icons.Resume} alt="resume logo" property="true" width={100} height={100} />
+      icon: (
+        <Image
+          placeholder="blur"
+          src={Icons.Resume || "/placeholder.svg"}
+          alt="resume logo"
+          property="true"
+          width={100}
+          height={100}
+        />
+      ),
     },
   ]
 
@@ -122,18 +157,20 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
   const getIconColorClasses = (color: string, isSelected: boolean) => {
     const baseClasses = "flex flex-col items-center p-2 rounded cursor-pointer transition-all duration-150"
     if (isSelected) {
-      return cn(baseClasses, "bg-neutral-600/30 shadow-[0_0_10px_rgba(220,38,38,0.3)]")
+      return cn(baseClasses, "bg-accent-secondary/30 glow-effect")
     }
-    return cn(baseClasses, "hover:bg-neutral-500/20")
+    return cn(baseClasses, "hover:bg-accent-primary/20")
   }
 
   return (
     <>
-      <canvas ref={canvasRef} className="fixed inset-0 z-0" style={{ pointerEvents: "none" }} />
+      {/* Canvas: constrained to end above the taskbar so it doesn't draw under it */}
+      <canvas ref={canvasRef} className="fixed top-0 left-0 right-0 bottom-12 z-0" style={{ pointerEvents: "none" }} />
 
-      <div className="fixed inset-0 z-0 opacity-85 overflow-hidden">
+      {/* Wallpaper: constrained to end above the taskbar (taskbar height = 3rem / bottom-12) */}
+      <div className="fixed top-0 left-0 right-0 bottom-12 z-0 opacity-85 overflow-hidden pointer-events-none">
         <Image
-          src={bgImg}
+          src={bgImg || "/placeholder.svg"}
           alt="Background logo"
           fill
           className="object-cover object-bottom select-none pointer-events-none"
@@ -148,14 +185,8 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
         </div>
       </div>
 
-
-      {/* <div className=" fixed bottom-15 right-3 z-20">
-        <MusicPlayerWidget />
-      </div> */}
-
-
       {/* --- Desktop Icons --- */}
-      <div className="fixed top-4 left-4 grid grid-cols-1 gap-4 z-10">
+      <div className="fixed top-4 left-4 grid grid-cols-1 gap-4 z-40">
         {desktopIcons.map((icon) => (
           <div
             key={icon.id}
@@ -167,18 +198,19 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
             onDoubleClick={() => handleIconDoubleClick(icon.type)}
             onContextMenu={(e) => handleContextMenu(e, icon.id)}
           >
-            <div className={cn(
-              "w-14 h-14 rounded-md flex items-center justify-center mb-1",
-              "backdrop-blur-sm bg-black/20",
-              "shadow-[0_0_8px_var(--glow-color),inset_0_0_8px_var(--glow-color)]",
-            )}>
+            <div
+              className={cn(
+                "w-20 h-20 rounded-md flex items-center justify-center mb-1",
+                "backdrop-blur-sm bg-bg-primary/20 glow-effect",
+              )}
+            >
               {icon.icon}
             </div>
-            <span className="text-[12px] mt-1 text-center font-mono tracking-wide text-white text-shadow">
+            <span className="text-[12px] mt-1 text-center font-mono tracking-wide text-fg-primary text-shadow">
               {icon.name}
             </span>
             {selectedIcon === icon.id && (
-              <div className="absolute inset-0 border border--500 rounded pointer-events-none"></div>
+              <div className="absolute inset-0 border border-accent-primary rounded pointer-events-none"></div>
             )}
           </div>
         ))}
@@ -187,7 +219,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       {/* --- Context Menu --- */}
       {contextMenu.visible && (
         <div
-          className="fixed z-50 bg-zinc-900 border border-neutral-600 shadow-lg py-1 w-48"
+          className="fixed z-50 bg-window-bg border border-window-border shadow-lg py-1 w-48"
           style={{
             left: `${contextMenu.x}px`,
             top: `${contextMenu.y}px`,
@@ -197,12 +229,12 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
         >
           {contextMenu.iconId && (
             <>
-              <div className="px-3 py-1 text-xs text-purple-300 border-b border-neutral-600/30">
+              <div className="px-3 py-1 text-xs text-accent-primary border-b border-border-default/30">
                 {desktopIcons.find((icon) => icon.id === contextMenu.iconId)?.name || "Options"}
               </div>
 
               <button
-                className="w-full text-left px-3 py-1.5 text-sm text-white hover:bg-neutral-600/20 flex items-center"
+                className="w-full text-left px-3 py-1.5 text-sm text-fg-primary hover:bg-taskbar-hover flex items-center"
                 onClick={() => {
                   const icon = desktopIcons.find((icon) => icon.id === contextMenu.iconId)
                   if (icon) {
@@ -219,7 +251,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
                 <ChevronRight className="w-3 h-3 ml-auto" />
               </button>
               <button
-                className="w-full text-left px-3 py-1.5 text-sm text-white hover:bg-neutral-500/20 flex items-center"
+                className="w-full text-left px-3 py-1.5 text-sm text-fg-primary hover:bg-taskbar-hover flex items-center"
                 onClick={() => setContextMenu({ ...contextMenu, visible: false })}
               >
                 <span>Properties</span>

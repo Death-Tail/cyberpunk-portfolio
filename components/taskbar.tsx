@@ -13,7 +13,7 @@ import {
   ExternalLink,
   Star
 } from 'lucide-react'
-import logoImg from '@/public/logoImg.webp'
+import logoImg from '@/public/L.webp'
 
 interface Window {
   id: string
@@ -178,13 +178,13 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
       )}
       {/* Start Menu */}
       {startMenuOpen && (
-        <div className="fixed bottom-12 left-0 flex flex-row items-stretch bg-slate-950/50 backdrop-blur-xl z-40 border border-neutral-900/50 shadow-[0_0_40px_rgba(0,0,0,0.6)] rounded-tr-lg overflow-hidden animate-in slide-in-from-bottom-2 duration-200">
+        <div className="fixed bottom-12 left-0 flex flex-row items-stretch bg-neutral-900/50 backdrop-blur-xl z-40 border border-neutral-900/50 shadow-[0_0_40px_rgba(0,0,0,0.6)] rounded-tr-lg overflow-hidden animate-in slide-in-from-bottom-2 duration-200">
 
           {/* LEFT COLUMN: Applications List */}
-          <div className="w-64 flex flex-col border-r border-white/5 bg-slate-900/40">
+          <div className="w-64 flex flex-col border-r border-white/5 bg-neutral-900/40">
             <div className="p-4 pb-2">
               <div className="border-l-2 border-neutral-500 pl-3">
-                <span className="text-slate-400 text-[10px] font-bold tracking-widest uppercase">System Apps</span>
+                <span className="text-neutral-400 text-[10px] font-bold tracking-widest uppercase">System Apps</span>
               </div>
             </div>
 
@@ -212,13 +212,13 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
                       <span className="w-full h-full flex items-center justify-center">{app.icon}</span>
                     )}
                   </div>
-                  <span className="text-slate-200 text-sm font-medium group-hover:text-neutral-400 transition-colors">{app.name}</span>
+                  <span className="text-neutral-200 text-sm font-medium group-hover:text-neutral-400 transition-colors">{app.name}</span>
                 </button>
               ))}
             </div>
 
             <div className="p-2 border-t border-white/5 bg-black/20">
-              <button className="w-full flex items-center p-2 hover:bg-red-500/10 hover:text-red-400 text-slate-400 transition-colors rounded mb-1 cursor-pointer"
+              <button className="w-full flex items-center p-2 hover:bg-red-500/10 hover:text-red-400 text-neutral-400 transition-colors rounded mb-1 cursor-pointer"
                 onClick={() => setIsShuttingDown(true)}>
                 <Power className="w-4 h-4 mr-3" />
                 <span className="text-xs font-medium">Shutdown System</span>
@@ -229,7 +229,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
           {/* RIGHT COLUMN: Live Tiles (Socials) */}
           <div className="w-80 bg-black/20 p-4 flex flex-col">
             <div className="mb-3 flex items-center justify-between">
-              <span className="text-slate-400 text-[10px] font-bold tracking-widest uppercase">Social Grid</span>
+              <span className="text-neutral-400 text-[10px] font-bold tracking-widest uppercase">Social Grid</span>
             </div>
 
             <div className="grid grid-cols-2 gap-2 auto-rows-[100px]">
@@ -241,9 +241,9 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
                   rel="noopener noreferrer"
                   className={`
                             relative flex flex-col justify-between p-3
-                            bg-slate-800/10 border border-white/5 overflow-hidden
+                            bg-neutral-800/10 border border-white/5 overflow-hidden
                             transition-all duration-300 group
-                            hover:bg-slate-800/80 hover:border-neutral-500/40 hover:shadow-[0_0_15px_rgba(20,184,166,0.1)]
+                            hover:bg-neutral-800/80 hover:border-neutral-500/40 hover:shadow-[0_0_30px_rgba(97,95,255,0.1)]
                             ${item.preferred ? 'ring-1 ring-neutral-500/30 bg-neutral-900/10' : ''}
                         `}
                 >
@@ -264,15 +264,15 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
                         className="object-contain w-full h-full"
                       />
                     </div>
-                    <ExternalLink className="w-3 h-3 text-slate-600 opacity-0 group-hover:opacity-100 group-hover:text-neutral-400 transition-all -translate-y-2 group-hover:translate-y-2" />
+                    <ExternalLink className="w-3 h-3 text-neutral-600 opacity-0 group-hover:opacity-100 group-hover:text-neutral-400 transition-all -translate-y-2 group-hover:translate-y-2" />
                   </div>
 
                   {/* Content: Handle vs Description on Hover */}
                   <div className="z-10 relative">
                     {/* Default View */}
                     <div className="transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-2">
-                      <div className="text-[10px] font-bold text-slate-300 tracking-wider">{item.platform}</div>
-                      <div className="text-[10px] text-slate-500 truncate">{item.handle}</div>
+                      <div className="text-[10px] font-bold text-neutral-300 tracking-wider">{item.platform}</div>
+                      <div className="text-[10px] text-neutral-500 truncate">{item.handle}</div>
                     </div>
 
                     {/* Hover View (Slide Up) */}
@@ -291,7 +291,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
 
             {/* Footer */}
             <div className="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
-              <div className="text-[10px] text-slate-500">
+              <div className="text-[10px] text-neutral-500">
                 <span className="block">Logged in as Guest</span>
               </div>
               <Settings className="w-4 h-4 text-neutral-100 hover:text-neutral-400 cursor-pointer transition-colors" />
@@ -302,8 +302,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
       )}
 
       {/* Taskbar */}
-      <div className="fixed bottom-0 left-0 right-0 h-12 bg-slate-950/80 flex items-center px-2 z-40">
-        <div className="absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-neutral-500/40 via-emerald-500/40 to-cyan-500/40"></div>
+      <div className="fixed bottom-0 left-0 right-0 h-12 bg-neutral-900/80 flex items-center px-2 z-40">
 
         {/* Start Button */}
         <button
@@ -332,7 +331,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
                 key={window.id}
                 onClick={() => handleWindowClick(window)}
                 className={`h-8 px-3 transition-colors flex items-center rounded ${window.isMinimized
-                  ? "hover:bg-neutral-500/10 text-slate-400"
+                  ? "hover:bg-neutral-500/10 text-neutral-400"
                   : "bg-neutral-500/20 text-neutral-300"
                   }`}
               >
@@ -346,7 +345,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
 
         {/* System Tray */}
         <div className="flex items-center space-x-2">
-          <div className="flex items-center space-x-1 text-slate-400">
+          <div className="flex items-center space-x-1 text-neutral-400">
             <Wifi className="w-4 h-4 text-white" />
             <div className="pr-1"></div>
             <Volume1 className="w-4 h-4 text-white" />

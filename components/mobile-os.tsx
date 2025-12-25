@@ -91,7 +91,7 @@ function OSContent() {
                 >
                     <div className="w-full aspect-square rounded-[1.2rem] bg-black/20 backdrop-blur-md flex items-center justify-center shadow-lg group-active:scale-95 transition-transform duration-200 relative overflow-hidden hover:bg-os-accent/10">
                         <div className="w-full h-full relative z-10 theme-filter">
-                            <Image src={app.icon || "/placeholder.svg"} alt={app.name} className="object-contain drop-shadow-md" width={142} height={142}/>
+                            <Image src={app.icon || "/placeholder.svg"} alt={app.name} className="object-contain drop-shadow-md" width={100} height={100}/>
                         </div>
                     </div>
                     <span className="text-white text-[11px] font-medium tracking-wide">
