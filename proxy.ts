@@ -13,31 +13,38 @@ const blockedOrgs = [
   "CHINANET",
 ]
 
+const allowedBots = [
+  "googlebot",
+  "bingbot",
+  "duckduckbot",
+  "yandex",
+  "baiduspider",
+  "applebot",
+  "twitterbot",
+  "facebookexternalhit",
+  "discordbot",
+  "linkedinbot",
+  "slackbot",
+  "telegrambot",
+  "whatsapp",
+  "embedly",
+]
+
 export function proxy(req: NextRequest) {
   const ua = req.headers.get("user-agent")?.toLowerCase() ?? ""
+  const asOrg = (req.headers.get("x-vercel-ip-as-org") ?? "").toUpperCase()
 
-  const asOrg = req.headers.get("x-vercel-ip-as-org") ?? ""
-
-  // ⭐ Allow SEO Crawlers ⭐
-  if (
-    ua.includes("googlebot") ||
-    ua.includes("bingbot") ||
-    ua.includes("duckduckbot") ||
-    ua.includes("yandex") ||
-    ua.includes("baiduspider") ||
-    ua.includes("applebot") ||
-    ua.includes("twitterbot") ||
-    ua.includes("facebookexternalhit")
-  ) {
+  // 1. Allow Whitelisted Bots immediately (Bypasses Org & Generic block)
+  if (allowedBots.some(bot => ua.includes(bot))) {
     return NextResponse.next()
   }
 
-  if (blockedOrgs.some(org => asOrg.toUpperCase().includes(org))) {
-    // Return 403 (Forbidden) instead of 204
+  // 2. Block Known Hosting/Data-Center Orgs
+  if (blockedOrgs.some(org => asOrg.includes(org))) {
     return new NextResponse(null, { status: 403, statusText: "Forbidden" })
   }
 
-  // 🛑 Block Generic Bots
+  // 3. Block Generic Scrapers
   if (
     ua.includes("bot") ||
     ua.includes("crawler") ||
@@ -53,7 +60,6 @@ export function proxy(req: NextRequest) {
   return NextResponse.next()
 }
 
-// 4. Matcher config remains the same
 export const config = {
   matcher: [
     '/((?!_next/static|_next/image|favicon.ico).*)',
