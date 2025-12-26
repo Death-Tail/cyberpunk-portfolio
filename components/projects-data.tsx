@@ -103,7 +103,7 @@ export const projects = [
   {
     title: "SHIN尾",
     description:
-      "An aesthetic OS portfolio website showcasing my skills, projects, and experience as a full-stack developer, built with modern web technologies and optimized for performance and accessibility.",
+      "",
     status: "DEPLOYED",
     icon: (
       <img
