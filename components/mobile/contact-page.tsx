@@ -169,7 +169,7 @@ export default function ContactPage({ onBack }: ContactPageProps) {
             <p>• Include project timeline and budget range for faster response</p>
             <p>• Provide detailed requirements and technical specifications</p>
             <p>• Mention preferred communication method and timezone</p>
-            <p>• For urgent matters, use <a href="https://discord.com/users/death_tail" rel="noopener noreferrer" target="_blank"><span className="text-neutral-500">Discord</span></a>.</p>
+            <p>• For urgent matters, use <a href="https://discord.com/users/death_tail" rel="noopener noreferrer" target="_blank"><span className="text-blue-500">Discord</span></a>.</p>
           </div>
         </div>
       </div>

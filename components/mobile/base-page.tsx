@@ -4,6 +4,7 @@ import Image from "next/image"
 import { ArrowLeft } from "lucide-react"
 import { useCallback } from "react"
 import bgImg from "@/public/bgM.jpg"
+import { GlitchText } from "../glitch-text"
 
 interface BasePageProps {
   title: string
@@ -48,9 +49,11 @@ export default function BasePage({ title, onBack, children }: BasePageProps) {
             className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-neutral-500/50 to-transparent"
             style={{ top: -8 }}
           />
-          <h1 className="text-white font-bold tracking-wider drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]">
-            {title}
-          </h1>
+                        <GlitchText
+                text={title}
+                className="text-xl font-bold mb-2"
+                glitchColors={["#dc2626", "#eab308", "#3b82f6"]}
+              />
           <div
             className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-neutral-500/70 to-transparent"
             style={{ bottom: -8 }}
