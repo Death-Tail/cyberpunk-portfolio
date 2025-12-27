@@ -307,9 +307,9 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
         {/* Start Button */}
         <button
           onClick={() => setStartMenuOpen(!startMenuOpen)}
-          className="h-8 px-4 flex items-center mr-2 border-r-2 border-neutral-900/30 hover:bg-neutral-500/10 transition-colors rounded"
+          className="h-10 px-4 flex items-center mr-2 border-r-3 border-neutral-500/30 hover:bg-neutral-500/10 transition-colors rounded"
         >
-          <div className="w-7 h-7 mr-2">
+          <div className="w-10 h-10 mr-2">
             <Image
               src={logoImg}
               placeholder="blur"
@@ -323,25 +323,44 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
 
 
         <div className="flex space-x-1 flex-1">
-          {windows.map((window) => {
-            const app = applications.find(app => app.type === window.type);
-            return (
-              <button
-                name={`${window.title}-button`}
-                key={window.id}
-                onClick={() => handleWindowClick(window)}
-                className={`h-8 px-3 transition-colors flex items-center rounded ${window.isMinimized
-                  ? "hover:bg-neutral-500/10 text-neutral-400"
-                  : "bg-neutral-500/20 text-neutral-300"
-                  }`}
-              >
-                <span className="flex items-center justify-center" style={{ width: 24, height: 24 }}>
-                  {app?.icon}
-                </span>
-              </button>
-            );
-          })}
+  {windows.map((window) => {
+    // 1. Determine the icon to show
+    let iconToDisplay = null;
+
+    if (window.type.startsWith("properties-")) {
+      // Get the base type (e.g., "profile" from "properties-profile")
+      const baseType = window.type.split("-")[1];
+      const baseApp = applications.find(app => app.type === baseType);
+
+      // Wrap the icon in a container with a small "info" badge or just use the base icon
+      iconToDisplay = (
+        <div className="relative">
+          {baseApp?.icon}
         </div>
+      );
+    } else {
+      // Normal application icon
+      const app = applications.find(app => app.type === window.type);
+      iconToDisplay = app?.icon;
+    }
+
+    return (
+      <button
+        key={window.id}
+        onClick={() => handleWindowClick(window)}
+        className={`h-10 px-3 transition-all flex items-center rounded gap-2 group ${
+          window.isMinimized
+            ? "hover:bg-neutral-500/10 text-neutral-400"
+            : "bg-neutral-500/20 text-neutral-300 border-b-2 border-neutral-400"
+        }`}
+      >
+        <span className="flex items-center justify-center w-6 h-6 transform group-hover:scale-110 transition-transform">
+          {iconToDisplay}
+        </span>
+      </button>
+    );
+  })}
+</div>
 
         {/* System Tray */}
         <div className="flex items-center space-x-2">

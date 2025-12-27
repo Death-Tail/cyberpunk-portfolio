@@ -79,7 +79,7 @@ export const projects = [
       "Deployed to production with full HTTPS/SSL integration",
     ],
     links: {
-      live: "https://rekangroup.com",
+      live: null,
       github: null, // private codebase
     },
     timeline: "3–6 months",
@@ -100,43 +100,6 @@ export const projects = [
     ],
   },
 
-  {
-    title: "SHIN尾",
-    description:
-      "",
-    status: "DEPLOYED",
-    icon: (
-      <img
-        src="/L.webp"
-        alt="Portfolio Logo"
-        className="w-10 h-10 object-contain"
-      />
-    ),
-    images: [
-      IconsP.img1,
-      IconsP.img2,
-      IconsP.img3,
-
-    ],
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Node.js",
-    ],
-    achievements: [
-    ],
-    links: {
-      live: null,
-      github: "https://github.com/Death-Tail/cyberpunk-portfolio"
-    },
-    timeline: "1–5 months",
-    teamSize: "Solo Project",
-    challenges: [
-    ],
-    features: [
-    ],
-  },
 
   // {
   //   title: "Dr. Awara Portfolio",

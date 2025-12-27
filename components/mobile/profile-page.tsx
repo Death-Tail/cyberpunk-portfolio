@@ -26,8 +26,6 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
           {/* LEFT COLUMN: Identity Card */}
           <div className="lg:col-span-4 space-y-6">
             <div className="relative p-1 bg-zinc-900/80 border border-neutral-500/30 rounded-xl backdrop-blur-sm overflow-hidden group">
-              {/* Animated Scanner Line */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-neutral-400/50 shadow-[0_0_15px_rgba(45,212,191,0.8)] z-20 animate-[scan_4s_ease-in-out_infinite]" />
 
               {/* Image Container */}
               <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-zinc-800">
@@ -53,12 +51,12 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
 
             {/* Vitals / Quick Stats */}
             <div className="grid grid-cols-2 gap-3">
-              <div className="p-3 bg-zinc-900/50 border border-white/5 rounded hover:border-neutral-500/30 transition-colors group">
-                <MapPin className="w-4 h-4 text-white mb-2 group-hover:text-neutral-400 transition-colors" />
+              <div className="p-3 bg-zinc-900/50 border border-white/5 rounded">
+                <MapPin className="w-4 h-4 text-white mb-2" />
                 <div className="text-xs text-white">Location</div>
                 <div className="text-sm font-bold text-white">Erbil / IQ</div>
               </div>
-              <div className="p-3 bg-zinc-900/50 border border-white/5 rounded hover:border-neutral-500/30 transition-colors group">
+              <div className="p-3 bg-zinc-900/50 border border-white/5 rounded">
                 <Globe className="w-4 h-4 text-white mb-2 group-hover:text-neutral-400 transition-colors" />
                 <div className="text-xs text-white">Timezone</div>
                 <div className="text-sm font-bold text-white">GMT +3</div>
@@ -92,7 +90,7 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
                 { label: "Experience", value: "2+ YEARS" },
                 { label: "Projects", value: "3+ SHIPPED"},
               ].map((stat, i) => (
-                <div key={i} className="relative p-4 bg-zinc-900/40 border border-white/10 rounded-lg overflow-hidden group hover:bg-zinc-900/80 hover:border-neutral-500/30 transition-all">
+                <div key={i} className="relative p-4 bg-zinc-900/40 border border-white/10 rounded-lg overflow-hidden">
                   <div className="text-xl font-bold text-white mb-1 font-mono">{stat.value}</div>
                   <div className="text-xs text-zinc-500 uppercase tracking-wider">{stat.label}</div>
                 </div>
@@ -101,7 +99,7 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
 
             {/* Certifications */}
             <div>
-              <h3 className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4 flex items-center">
+              <h3 className="text-xs font-bold text-zinc-200 uppercase tracking-widest mb-4 flex items-center">
                 <ShieldCheck className="w-4 h-4 mr-2" /> Validated Credentials
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -135,24 +133,11 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
                     <Send className="w-4 h-4" />
                   </a>
                 </div>
-
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
-
-      {/* Global Animation Styles for the Scanner */}
-      <style jsx global>{`
-        @keyframes scan {
-          0%, 100% { top: 0%; opacity: 0; }
-          10% { opacity: 1; }
-          50% { top: 100%; opacity: 1; }
-          90% { opacity: 1; }
-        }
-      `}</style>
     </BasePage>
   )
 }
