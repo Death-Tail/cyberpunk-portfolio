@@ -5,6 +5,7 @@ import { ProjectsWindow } from "./windows/projects-window"
 import { TerminalWindow } from "./windows/terminal-window"
 import { ContactWindow } from "./windows/contact-window"
 import { TechStackWindow } from "./windows/tech-stack-window"
+import { PropertiesWindow } from "./windows/properties-window"
 
 interface Window {
   id: string
@@ -23,6 +24,7 @@ interface WindowManagerProps {
 }
 
 export function WindowManager({ windows, activeWindow, onClose, onMinimize, onFocus }: WindowManagerProps) {
+
   const renderWindow = (window: Window) => {
     const commonProps = {
       id: window.id,
@@ -34,7 +36,10 @@ export function WindowManager({ windows, activeWindow, onClose, onMinimize, onFo
       onMinimize: () => onMinimize(window.id),
       onFocus: () => onFocus(window.id),
     }
-
+if (window.type.startsWith("properties-")) {
+      const targetType = window.type.split("-")[1]
+      return <PropertiesWindow key={window.id} {...commonProps} targetType={targetType} />
+    }
     switch (window.type) {
       case "profile":
         return <ProfileWindow key={window.id} {...commonProps} />

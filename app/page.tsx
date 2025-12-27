@@ -18,11 +18,10 @@ export default function Home() {
   const [activeWindow, setActiveWindow] = useState("")
 
   const openWindow = (windowType: string) => {
-    // Check if window of this type already exists
+    // 1. Check if this specific window type is already open
     const existingWindow = openWindows.find((w) => w.type === windowType)
 
     if (existingWindow) {
-      // If it exists, just focus it and unminimize if needed
       focusWindow(existingWindow.id)
       if (existingWindow.isMinimized) {
         setOpenWindows((prev) => prev.map((w) => (w.id === existingWindow.id ? { ...w, isMinimized: false } : w)))
@@ -30,15 +29,26 @@ export default function Home() {
       return
     }
 
-    // Create new window with proper positioning
+    // 2. Generate a Unique ID
     const windowId = `${windowType}-${Date.now()}`
+
+    // 3. Logic to handle Titles (Normal windows vs Properties windows)
+    let displayTitle = ""
+    if (windowType.startsWith("properties-")) {
+      // Turns "properties-profile" into "Properties: profile"
+      const target = windowType.split("-")[1]
+      displayTitle = `Properties: ${target.charAt(0).toUpperCase() + target.slice(1)}`
+    } else {
+      // Standard capitalization for normal windows
+      displayTitle = windowType.charAt(0).toUpperCase() + windowType.slice(1)
+    }
 
     const newWindow = {
       id: windowId,
-      title: `${windowType.charAt(0).toUpperCase() + windowType.slice(1)}`,
+      title: displayTitle,
       type: windowType,
       isMinimized: false,
-      zIndex: Math.max(...openWindows.map((w) => w.zIndex), 0) + 1,
+      zIndex: Math.max(...openWindows.map((w) => (w.zIndex ? w.zIndex : 0)), 0) + 1,
     }
 
     setOpenWindows((prev) => [...prev, newWindow])
@@ -47,8 +57,6 @@ export default function Home() {
 
   const closeWindow = (windowId: string) => {
     setOpenWindows((prev) => prev.filter((w) => w.id !== windowId))
-
-    // Update active window
     if (activeWindow === windowId) {
       const remaining = openWindows.filter((w) => w.id !== windowId)
       if (remaining.length > 0) {
@@ -62,8 +70,6 @@ export default function Home() {
 
   const minimizeWindow = (windowId: string) => {
     setOpenWindows((prev) => prev.map((w) => (w.id === windowId ? { ...w, isMinimized: !w.isMinimized } : w)))
-
-    // If minimizing the active window, find next active window
     if (activeWindow === windowId) {
       const visibleWindows = openWindows.filter((w) => w.id !== windowId && !w.isMinimized)
       if (visibleWindows.length > 0) {
@@ -76,24 +82,21 @@ export default function Home() {
   }
 
   const focusWindow = (windowId: string) => {
-    const maxZ = Math.max(...openWindows.map((w) => w.zIndex), 0)
+    const maxZ = Math.max(...openWindows.map((w) => (w.zIndex ? w.zIndex : 0)), 0)
     setOpenWindows((prev) => prev.map((w) => (w.id === windowId ? { ...w, zIndex: maxZ + 1, isMinimized: false } : w)))
     setActiveWindow(windowId)
   }
 
   return (
     <>
-      {/* Mobile Version - Hidden on desktop */}
       <div className="block md:hidden">
         <MobileOS />
       </div>
 
-      {/* Desktop Version - Hidden on mobile */}
       <main className="hidden md:block fixed inset-0 bg-zinc-900 text-red-50 overflow-hidden font-mono">
         <div className="transition-opacity duration-1000">
           <Desktop onOpenWindow={openWindow} />
 
-          {/* Window Manager */}
           <WindowManager
             windows={openWindows}
             activeWindow={activeWindow}
@@ -102,7 +105,6 @@ export default function Home() {
             onFocus={focusWindow}
           />
 
-          {/* Taskbar */}
           <Taskbar
             windows={openWindows}
             onOpenWindow={openWindow}

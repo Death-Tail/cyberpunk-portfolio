@@ -219,7 +219,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       {/* --- Context Menu --- */}
       {contextMenu.visible && (
         <div
-          className="fixed z-50 bg-window-bg border border-window-border shadow-lg py-1 w-48"
+          className="fixed z-50 bg-neutral-700 border border-window-border shadow-lg py-1 w-48"
           style={{
             left: `${contextMenu.x}px`,
             top: `${contextMenu.y}px`,
@@ -250,13 +250,20 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
                 <span>Open</span>
                 <ChevronRight className="w-3 h-3 ml-auto" />
               </button>
-              <button
-                className="w-full text-left px-3 py-1.5 text-sm text-fg-primary hover:bg-taskbar-hover flex items-center"
-                onClick={() => setContextMenu({ ...contextMenu, visible: false })}
-              >
-                <span>Properties</span>
-                <ChevronRight className="w-3 h-3 ml-auto" />
-              </button>
+<button
+  className="w-full text-left px-3 py-1.5 text-sm text-fg-primary hover:bg-taskbar-hover flex items-center"
+  onClick={() => {
+    const icon = desktopIcons.find((i) => i.id === contextMenu.iconId);
+    if (icon) {
+      // Logic: Tell the system to open the properties window for this specific type
+      onOpenWindow(`properties-${icon.type}`);
+      setContextMenu({ ...contextMenu, visible: false });
+    }
+  }}
+>
+  <span>Properties</span>
+  <ChevronRight className="w-3 h-3 ml-auto" />
+</button>
             </>
           )}
         </div>
