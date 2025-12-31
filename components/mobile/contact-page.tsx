@@ -1,9 +1,7 @@
 "use client"
 
-import type React from "react"
-
 import BasePage from "./base-page"
-import { Mail, Shield, Send, Clock, CheckCircle, AlertCircle } from "lucide-react"
+import { Shield, Send, Clock, AlertCircle } from "lucide-react"
 import { useState } from "react"
 
 interface ContactPageProps {
@@ -11,16 +9,19 @@ interface ContactPageProps {
 }
 
 export default function ContactPage({ onBack }: ContactPageProps) {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-    priority: "normal",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+const [copied, setCopied] = useState(false);
+  const username = "death_tail";
 
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(username);
+      setCopied(true);
+      // Reset the "Copied" state after 2 seconds
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy!", err);
+    }
+  };
   const contactMethods = [
     {
       platform: "EMAIL",
@@ -51,16 +52,6 @@ export default function ContactPage({ onBack }: ContactPageProps) {
       availability: "Business hours",
       preferred: false,
       description: "Professional networking and career opportunities",
-    },
-    {
-      platform: "DISCORD",
-      link: "https://discord.com/users/death_tail",
-      handle: "death_tail",
-      icon: <img src="/Icons/discord.avif" alt="Discord Icon" className="w-6 h-6" />,
-      responseTime: "Few hours",
-      availability: "Evening GMT+3",
-      preferred: true,
-      description: "Quick questions and casual conversations",
     },
     {
       platform: "X",
@@ -169,7 +160,21 @@ export default function ContactPage({ onBack }: ContactPageProps) {
             <p>• Include project timeline and budget range for faster response</p>
             <p>• Provide detailed requirements and technical specifications</p>
             <p>• Mention preferred communication method and timezone</p>
-            <p>• For urgent matters, use <a href="https://discord.com/users/death_tail" rel="noopener noreferrer" target="_blank"><span className="text-blue-500">Discord</span></a>.</p>
+          <p>
+      • For urgent matters, use{" "}
+      <span
+        onClick={copyToClipboard}
+        className="text-blue-500 cursor-pointer hover:underline font-medium relative"
+        title="Click to copy username"
+      >
+        Discord: {username}
+        {copied && (
+          <span className="absolute -top-8 left-0 bg-gray-800 text-white text-xs py-1 px-2 rounded">
+            Copied!
+          </span>
+        )}
+      </span>
+    </p>
           </div>
         </div>
       </div>

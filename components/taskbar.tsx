@@ -11,7 +11,8 @@ import {
   Battery,
   Volume1,
   ExternalLink,
-  Star
+  Clipboard,
+  Check
 } from 'lucide-react'
 import logoImg from '@/public/L.webp'
 
@@ -33,9 +34,21 @@ interface TaskbarProps {
 export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow }: TaskbarProps) {
   const [startMenuOpen, setStartMenuOpen] = useState(false)
   const [isShuttingDown, setIsShuttingDown] = useState(false)
-  const [currentTime, setCurrentTime] = useState<string>("")
-
   const [time, setTime] = useState<Date | null>(null)
+
+  const [copied, setCopied] = useState(false);
+  const username = "death_tail";
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(username);
+      setCopied(true);
+      // Reset the "Copied" state after 2 seconds
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy!", err);
+    }
+  };
 
   useEffect(() => {
     setTime(new Date())
@@ -94,14 +107,6 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
       iconPath: "/Icons/linkedin.avif",
       description: "Network & Career",
       preferred: false,
-    },
-    {
-      platform: "DISCORD",
-      link: "https://discord.com/users/death_tail",
-      handle: "death_tail",
-      iconPath: "/Icons/discord.avif",
-      description: "Chat & Collab",
-      preferred: true,
     },
     {
       platform: "X",
@@ -163,7 +168,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
               text={name}
               className="text-xl font-bold mb-2"
               glitchColors={["#dc2626", "#eab308", "#3b82f6"]}
-              />
+            />
             </span>
 
             <span>
@@ -172,7 +177,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
                 className="text-xl font-bold mb-2"
                 glitchColors={["#dc2626", "#eab308", "#3b82f6"]}
               />
-              </span>
+            </span>
           </div>
         </div>
       )}
@@ -287,6 +292,62 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
                   <div className="absolute inset-0 bg-linear-to-br from-transparent via-transparent to-neutral-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               ))}
+              <span
+                onClick={copyToClipboard}
+                title="Click to copy username"
+                rel="noopener noreferrer"
+                className={`
+                            relative flex flex-col justify-between p-3 cursor-pointer
+                            bg-neutral-800/10 border border-white/5 overflow-hidden
+                            transition-all duration-300 group
+                            hover:bg-neutral-800/80 hover:border-neutral-500/40 hover:shadow-[0_0_30px_rgba(97,95,255,0.1)]
+                            {'ring-1 ring-neutral-500/30 bg-neutral-900/10'}
+                        `}
+              >
+                {/* Preferred Badge */}
+                <div className="absolute top-0 right-0 bg-neutral-600 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-bl shadow-sm z-10">
+                  PREFERED
+                </div>
+
+
+                <div className="flex items-start justify-between z-10">
+                  <div className="w-8 h-8 relative rounded-md overflow-hidden  group-hover:border-neutral-500/50 transition-colors">
+                    <Image
+                      src="/Icons/discord.avif"
+                      alt="death_tail"
+                      width={32}
+                      height={32}
+                      className="object-contain w-full h-full"
+                    />
+                  </div>
+                  <div className="text-neutral-600 group-hover:text-neutral-400 transition-all pt-2">
+                    {copied ? (
+                      <span className="text-white text-xs rounded">Copied!</span>
+                    ) : (
+                      <Clipboard className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all" />
+                    )}
+                  </div>
+                </div>
+
+                {/* Content: Handle vs Description on Hover */}
+                <div className="z-10 relative">
+                  {/* Default View */}
+                  <div className="transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-2">
+                    <div className="text-[10px] font-bold text-neutral-300 tracking-wider">DISCORD</div>
+                    <div className="text-[10px] text-neutral-500 truncate">death_tail</div>
+                    <div className="text-[10px] text-neutral-500 truncate"></div>
+                  </div>
+
+                  {/* Hover View (Slide Up) */}
+                  <div className="absolute inset-0 pt-1 opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-[-0.4rem]">
+                    <p className="text-[10px] leading-tight text-neutral-300 font-medium">
+                      Chat & Collab
+                    </p>
+                  </div>
+                </div>
+                {/* Background Glow Effect */}
+                <div className="absolute inset-0 bg-linear-to-br from-transparent via-transparent to-neutral-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </span>
             </div>
 
             {/* Footer */}
@@ -323,44 +384,43 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
 
 
         <div className="flex space-x-1 flex-1">
-  {windows.map((window) => {
-    // 1. Determine the icon to show
-    let iconToDisplay = null;
+          {windows.map((window) => {
+            // 1. Determine the icon to show
+            let iconToDisplay = null;
 
-    if (window.type.startsWith("properties-")) {
-      // Get the base type (e.g., "profile" from "properties-profile")
-      const baseType = window.type.split("-")[1];
-      const baseApp = applications.find(app => app.type === baseType);
+            if (window.type.startsWith("properties-")) {
+              // Get the base type (e.g., "profile" from "properties-profile")
+              const baseType = window.type.split("-")[1];
+              const baseApp = applications.find(app => app.type === baseType);
 
-      // Wrap the icon in a container with a small "info" badge or just use the base icon
-      iconToDisplay = (
-        <div className="relative">
-          {baseApp?.icon}
+              // Wrap the icon in a container with a small "info" badge or just use the base icon
+              iconToDisplay = (
+                <div className="relative">
+                  {baseApp?.icon}
+                </div>
+              );
+            } else {
+              // Normal application icon
+              const app = applications.find(app => app.type === window.type);
+              iconToDisplay = app?.icon;
+            }
+
+            return (
+              <button
+                key={window.id}
+                onClick={() => handleWindowClick(window)}
+                className={`h-10 px-3 transition-all flex items-center rounded gap-2 group ${window.isMinimized
+                  ? "hover:bg-neutral-500/10 text-neutral-400"
+                  : "bg-neutral-500/20 text-neutral-300 border-b-2 border-neutral-400"
+                  }`}
+              >
+                <span className="flex items-center justify-center w-6 h-6 transform group-hover:scale-110 transition-transform">
+                  {iconToDisplay}
+                </span>
+              </button>
+            );
+          })}
         </div>
-      );
-    } else {
-      // Normal application icon
-      const app = applications.find(app => app.type === window.type);
-      iconToDisplay = app?.icon;
-    }
-
-    return (
-      <button
-        key={window.id}
-        onClick={() => handleWindowClick(window)}
-        className={`h-10 px-3 transition-all flex items-center rounded gap-2 group ${
-          window.isMinimized
-            ? "hover:bg-neutral-500/10 text-neutral-400"
-            : "bg-neutral-500/20 text-neutral-300 border-b-2 border-neutral-400"
-        }`}
-      >
-        <span className="flex items-center justify-center w-6 h-6 transform group-hover:scale-110 transition-transform">
-          {iconToDisplay}
-        </span>
-      </button>
-    );
-  })}
-</div>
 
         {/* System Tray */}
         <div className="flex items-center space-x-2">
