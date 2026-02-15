@@ -1,21 +1,53 @@
-import { Icons } from "@/public/projects/Rekangroup";
-import { IconsP } from "@/public/projects/DeathTail";
-import { IconsA } from "@/public/projects/draram";
+import { IconsRekanGroup } from "@/public/projects/Rekangroup";
+import { IconsAram } from "@/public/projects/draram";
+import { IconsTarik } from "@/public/projects/drtarik";
+import { IconsAwara } from "@/public/projects/drawara";
 
 
 export const projects = [
+
+  {
+    title: "DCVAW",
+    description:
+      "General Directorate of Combating Violence Against Women and Families",
+    status: "Under Development",
+    year: "2026",
+    icon: (<div className="w-10 h-10 bg-zinc-900 flex items-center justify-center text-white font-bold text-xs rounded">
+      DCVAW
+    </div>
+    ),
+    images: [],
+    tech: [],
+    achievements: [],
+    links: {
+      live: null,
+      github: null,
+    },
+    challenges: [],
+    features: [],
+  },
+
+
+
 
   {
     title: "Prof. Tarik A. Rashid Portfolio",
     description:
       "A comprehensive full-stack academic portfolio for Prof. Tarik A. Rashid, Professor of Computer Science & Artificial Intelligence at UKH. Features real-time Google Scholar stats integration, dynamic blog with CMS, and a 200+ publications research archive.",
     status: "DEPLOYED",
+    year: "2025-2026",
     icon: (
-      <div className="w-10 h-10 bg-zinc-900 flex items-center justify-center text-white font-bold text-xs rounded">
-        TAR
-      </div>
+      <img
+        src="projects/drtarik/logo.svg"
+        alt="Dr. Tarik Rashid Logo"
+        className="w-10 h-10 object-contain"
+      />
     ),
-    images: [],
+    images: [
+      IconsTarik.img1,
+      IconsTarik.img2,
+      IconsTarik.img3,
+    ],
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "SerpApi", "Vercel"],
     achievements: [
       "Integrated automated Google Scholar citation tracking with daily ISR revalidation",
@@ -47,17 +79,18 @@ export const projects = [
     description:
       "A comprehensive multi-language medical portfolio and educational blog developed for Dr. Aram. The platform provides a seamless experience for patients in multiple languages and serves as a hub for medical insights.",
     status: "DEPLOYED",
+    year: "2025-2026",
     icon: (
       <img
-        src="projects/draram/aramL.webp"
+        src="projects/draram/logo.png"
         alt="Dr. Aram Logo"
         className="w-10 h-10 object-contain"
       />
     ),
     images: [
-      IconsA.img1,
-      IconsA.img2,
-      IconsA.img3,
+      IconsAram.img1,
+      IconsAram.img2,
+      IconsAram.img3,
     ],
     tech: ["WordPress", "PHP", "WPML (Multi-language)", "Advanced SEO", "MySQL"],
     achievements: [
@@ -87,6 +120,7 @@ export const projects = [
     description:
       "A modern corporate website for Rekan Group, featuring a multi-language platform, secure content management system, and responsive design optimized for SEO and performance.",
     status: "DEPLOYED",
+    year: "2024-2026",
     icon: (
       <img
         src="/projects/Rekangroup/rekangroup.avif"
@@ -95,10 +129,10 @@ export const projects = [
       />
     ),
     images: [
-      Icons.lP,
-      Icons.aU,
-      Icons.p,
-      Icons.pI,
+      IconsRekanGroup.lP,
+      IconsRekanGroup.aU,
+      IconsRekanGroup.p,
+      IconsRekanGroup.pI,
     ],
     tech: [
       "Next.js",
@@ -115,7 +149,7 @@ export const projects = [
       "Deployed to production with full HTTPS/SSL integration",
     ],
     links: {
-      live: null,
+      live: "https://rekangroup.com",
       github: null, // private codebase
     },
     timeline: "3–6 months",
@@ -137,33 +171,36 @@ export const projects = [
   },
 
 
-  // {
-  //   title: "Dr. Awara Portfolio",
-  //   description:
-  //     "A professional digital presence for Dr. Awara, featuring a streamlined interface for patients to explore medical services and contact the clinic directly.",
-  //   status: "DEPLOYED",
-  //   icon: (
-  //     <img
-  //       src="/drawara-logo.webp"
-  //       alt="Dr. Awara Logo"
-  //       className="w-10 h-10 object-contain"
-  //     />
-  //   ),
-  //   images: [],
-  //   tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
-  //   achievements: [
-  //     "Built a modern, high-performance interface with smooth transitions.",
-  //     "Optimized the appointment inquiry flow for better user conversion."
-  //   ],
-  //   links: {
-  //     live: "https://drawara.com",
-  //     github: null,
-  //   },
-  //   timeline: "1–2 months",
-  //   teamSize: "Solo Project",
-  //   challenges: ["Creating a trustworthy and clean medical aesthetic."],
-  //   features: ["Service Showcases", "Interactive UI Components", "Direct Contact Integration"],
-  // }
+  {
+    title: "Dr. Awara Rasoul Portfolio",
+    description:
+      "A professional digital presence for Dr. Awara, featuring a streamlined interface for patients to explore medical services and contact the clinic directly.",
+    status: "DEPLOYED",
+    year: "2025",
+    icon: (
+      <div className="w-10 h-10 bg-zinc-900 flex items-center justify-center text-white font-bold text-xs rounded">
+        Dr.
+      </div>
+    ),
+    images: [
+      IconsAwara.img1,
+      IconsAwara.img2,
+      IconsAwara.img3,
+    ],
+    tech: ["Next.js", "Tailwind CSS"],
+    achievements: [
+      "Built a modern, high-performance interface with smooth transitions.",
+      "Optimized the appointment inquiry flow for better user conversion."
+    ],
+    links: {
+      live: "https://drawara.com",
+      github: null,
+    },
+    timeline: "1–2 months",
+    teamSize: "Solo Project",
+    challenges: ["Creating a trustworthy and clean medical aesthetic."],
+    features: ["Service Showcases", "Interactive UI Components", "Direct Contact Integration", "Academic Timeline"],
+  }
 
   // Add more projects here with the same structure
 ]

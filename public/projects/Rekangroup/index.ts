@@ -5,9 +5,9 @@ import p from "./RekangroupProjects.avif";
 
 
 
-export const Icons = {
+export const IconsRekanGroup = {
   lP,
-pI,
-aU,
-p,
+  pI,
+  aU,
+  p,
 };
