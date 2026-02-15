@@ -69,7 +69,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
         {/* Stats Row */}
         <div className="grid grid-cols-3 gap-3">
           {[
-            { label: "Experience", value: "2+ Years" },
+            { label: "Experience", value: "3+ Years" },
             { label: "Projects", value: "5+ Shipped" },
             { label: "Stack", value: "Full-Stack" },
           ].map((stat, i) => (
