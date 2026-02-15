@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://dyariali.com"),
   referrer: "origin-when-cross-origin",
   description: "Full-stack developer specializing in Next.js ecosystem and modern web architecture.",
-  keywords: "full-stack, developer, portfolio, aesthetic, web architecture , Next.js, React, Node.js, TypeScript, Tailwind CSS, PostgreSQL, erbil, hawler, death tail, SHIN尾, dyari ali, dyari ali taher, dyari",
+  keywords: "full-stack developer, Dyari Ali Tahir, SHIN尾, Death Tail, portfolio, web architecture, Next.js, React, Node.js, TypeScript, Tailwind CSS, PostgreSQL, Erbil developer, Hawler, frontend developer, backend developer, Iraq developer, cyberpunk portfolio, kitsune branding",
   creator: "Dyari Ali Tahir",
   openGraph: {
     title: "Dyari Ali Tahir",
@@ -60,7 +60,7 @@ export default function RootLayout({
         <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon.ico" />
-        <meta name="theme-color" content="##5f5f5f" />
+        <meta name="theme-color" content="#18181b" />
         <link rel="apple-touch-icon" href="/favicon.ico" />
         <link rel="canonical" href="https://dyariali.com" />
         <meta property="fb:app_id" content="1574339983752418" />
@@ -73,8 +73,11 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              "name": "Dyari Ali",
+              "name": "Dyari Ali Tahir",
+              "alternateName": ["SHIN尾", "Death Tail"],
               "url": "https://dyariali.com",
+              "jobTitle": "Full-Stack Developer",
+              "knowsAbout": ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Web Development", "UI/UX Design"],
               "sameAs": [
                 "https://github.com/Death-Tail",
                 "https://www.linkedin.com/in/dyarialitahir/",

@@ -1,5 +1,6 @@
 @tailwind utilities;
 @import "tailwindcss";
+
 @layer base {
   :root {
     --background: 0 0% 3.9%;
@@ -39,6 +40,19 @@
     user-select: none;
   }
 
+  /* Smooth focus states for accessibility */
+  *:focus-visible {
+    outline: 2px solid rgba(161, 161, 170, 0.5);
+    outline-offset: 2px;
+    transition: outline-offset 0.15s ease;
+  }
+
+  /* Enhanced selection colors */
+  ::selection {
+    background: rgba(161, 161, 170, 0.3);
+    color: #fafafa;
+  }
+
   /* Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
@@ -50,12 +64,13 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgba(220, 38, 38, 0.5);
-    border: 1px solid rgba(220, 38, 38, 0.7);
+    background: rgba(161, 161, 170, 0.4);
+    border: 1px solid rgba(161, 161, 170, 0.5);
+    transition: background 0.2s ease;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(220, 38, 38, 0.7);
+    background: rgba(161, 161, 170, 0.6);
   }
 
   .window-header {
@@ -69,23 +84,65 @@
 
 /* Cyberpunk animations */
 @keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    transform: translate(2px, -2px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
 }
 
 @keyframes flicker {
-  0% { opacity: 1; }
-  50% { opacity: 0.3; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .glitch {
@@ -98,4 +155,23 @@
 
 .scanline {
   animation: scanline 8s linear infinite;
+}
+
+/* Subtle hover lift for interactive elements */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon hover scale */
+.icon-hover {
+  transition: transform 0.15s ease;
+}
+
+.icon-hover:hover {
+  transform: scale(1.05);
 }

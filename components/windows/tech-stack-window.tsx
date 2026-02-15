@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
-import {version} from "../../package.json"
+import { version } from "../../package.json"
 import { BaseWindow } from "./base-window"
 import { Code, Database, Film, Gamepad2, Layers, PenTool, Server, Workflow, WorkflowIcon, Wrench, Target } from "lucide-react"
 import {
@@ -290,7 +290,7 @@ const skillNodes: SkillNode[] = [
   // ===== Gaming and Animation =====
   {
     id: "3D",
-      name: "Animation & 3D DESIGN",
+    name: "Animation & 3D DESIGN",
     icon: <Gamepad2 className="w-7 h-7" />,
     unlocked: true,
     x: 900,
@@ -487,47 +487,42 @@ export function TechStackWindow(props: TechStackWindowProps) {
     <BaseWindow {...props} initialPosition={{ x: 250, y: 120 }} initialSize={{ width: 800, height: 600 }}>
       <div className="space-y-4 h-none overflow-hidden">
         {/* Header */}
-        <div className="border-l-2 border-neutral-500 pl-4">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center">
-              <div className="w-2 h-2 bg-neutral-500 mr-2"></div>
-              <span className="text-neutral-400 text-xs tracking-wider">NEURAL_INTERFACE</span>
-            </div>
-            <div className="text-neutral-400 text-xs">RELIC_v{version} | DRAG TO NAVIGATE</div>
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Skill Map</h2>
+            <p className="text-zinc-400 text-xs">Drag to navigate • Click nodes for details</p>
           </div>
+          <div className="text-zinc-500 text-[10px] font-mono">v{version}</div>
         </div>
 
         {/* Toolbar */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-
-
-            {/* Category filters */}
-            <div className="flex items-center space-x-2">
-              {Object.keys(activeCategories).map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategories((s) => ({ ...s, [cat]: !s[cat] }))}
-                  className={`text-xs px-2 py-1 rounded ${activeCategories[cat] ? "bg-neutral-500/20 text-neutral-300" : "bg-transparent text-neutral-500/30 border border-transparent hover:bg-neutral-800"}`}
-                >
-                  {cat.toUpperCase()}
-                </button>
-              ))}
-            </div>
+        <div className="flex items-center justify-between gap-3">
+          {/* Category filters */}
+          <div className="flex items-center gap-1.5 flex-wrap">
+            {Object.keys(activeCategories).map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategories((s) => ({ ...s, [cat]: !s[cat] }))}
+                className={`text-[10px] font-medium px-2.5 py-1 rounded-full transition-all duration-200 ${activeCategories[cat]
+                    ? "bg-zinc-700/50 text-zinc-200 border border-zinc-600/50"
+                    : "bg-transparent text-zinc-500 border border-zinc-700/30 hover:border-zinc-600/50"
+                  }`}
+              >
+                {cat.charAt(0).toUpperCase() + cat.slice(1)}
+              </button>
+            ))}
           </div>
 
-          <div className="flex items-center space-x-2">
-            <button
-              onClick={() => {
-                setMapPosition({ x: -50, y: -100 })
-                setZoom(1)
-              }}
-              aria-label="Center map"
-              className="p-1 rounded bg-neutral-900/40 border border-neutral-700"
-            >
-              <Target className="w-4 h-4 text-neutral-300" />
-            </button>
-          </div>
+          <button
+            onClick={() => {
+              setMapPosition({ x: -50, y: -100 })
+              setZoom(1)
+            }}
+            aria-label="Center map"
+            className="p-1.5 rounded-md bg-zinc-800/50 border border-zinc-700/30 hover:border-zinc-600/50 transition-all"
+          >
+            <Target className="w-4 h-4 text-zinc-400" />
+          </button>
         </div>
 
         {/* Skill Map Container */}
@@ -807,15 +802,21 @@ export function TechStackWindow(props: TechStackWindowProps) {
 
             return (
               <div
-                className="absolute z-40 pointer-events-none bg-neutral-900/80 backdrop-blur-sm text-sm text-neutral-200 p-2 rounded shadow-lg border border-neutral-700"
+                className="absolute z-40 pointer-events-none bg-zinc-900/95 backdrop-blur-md text-sm text-zinc-100 p-3 rounded-lg shadow-xl border border-zinc-700/50"
                 style={{
-                  left: node.x + mapPosition.x + 40,
-                  top: node.y + mapPosition.y - 10,
-                  minWidth: 180,
+                  left: node.x + mapPosition.x + 50,
+                  top: node.y + mapPosition.y - 15,
+                  minWidth: 200,
                 }}
               >
-                <div className="font-semibold text-xs">{node.name}</div>
-                <div className="text-xs text-neutral-300/80">{node.description}</div>
+                <div className="font-semibold text-sm mb-1">{node.name}</div>
+                <div className="text-xs text-zinc-400">{node.description}</div>
+                {!node.unlocked && (
+                  <div className="mt-2 text-[10px] text-amber-400/80 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400/80"></span>
+                    Learning in progress
+                  </div>
+                )}
               </div>
             )
           })()}
@@ -825,43 +826,47 @@ export function TechStackWindow(props: TechStackWindowProps) {
             mapPosition.x >= MAP_BOUNDS.maxX - 10 ||
             mapPosition.y <= MAP_BOUNDS.minY + 10 ||
             mapPosition.y >= MAP_BOUNDS.maxY - 10) && (
-              <div className="absolute top-2 right-2 text-neutral-400 text-xs bg-neutral-500/10 border border-neutral-500/30 px-2 py-1 rounded">
-                MAP BOUNDARY REACHED
+              <div className="absolute top-2 right-2 text-zinc-400 text-[10px] bg-zinc-800/80 border border-zinc-700/50 px-2 py-1 rounded-md backdrop-blur-sm">
+                Edge of map
               </div>
             )}
         </div>
 
         {/* Selected Node Details */}
         {selectedNode && (
-          <div className="border border-neutral-500/30 p-4 bg-neutral-500/5 rounded-lg">
+          <div className="rounded-lg border border-zinc-700/30 p-4 bg-zinc-800/30 backdrop-blur-sm">
             {(() => {
               const node = skillNodes.find((n) => n.id === selectedNode)
               if (!node) return null
 
               return (
                 <div>
-                  <div className="flex items-center mb-2">
+                  <div className="flex items-center gap-3 mb-3">
                     <div
-                      className={`p-3 border-2 ${node.unlocked ? "border-neutral-600" : "border-zinc-600 bg-zinc-800/50 text-zinc-500"} ${node.bgColor} rounded-lg mr-3`}
+                      className={`p-3 rounded-lg ${node.bgColor} border border-zinc-600/30`}
                     >
                       <div className={node.iconColor}>{node.icon}</div>
                     </div>
                     <div>
-                      <h3 className="text-neutral-400 font-bold text-lg">{node.name}</h3>
+                      <h3 className="text-zinc-100 font-semibold">{node.name}</h3>
+                      <div className={`text-xs ${node.unlocked ? "text-emerald-400" : "text-amber-400"}`}>
+                        {node.unlocked ? "Proficient" : "Learning"}
+                      </div>
                     </div>
                   </div>
-                  <p className="text-neutral-400/70 text-sm mb-3">{node.description}</p>
+                  <p className="text-zinc-400 text-sm mb-3">{node.description}</p>
 
-                  {/* Connected skills */}
-                  <div className="text-xs text-neutral-400/50">
-                    CONNECTED TO:{" "}
-                    {node.connections
-                      .map((id) => {
-                        const connectedNode = skillNodes.find((n) => n.id === id)
-                        return connectedNode?.name
-                      })
-                      .join(", ")}
-                  </div>
+                  {node.connections.length > 0 && (
+                    <div className="text-[10px] uppercase tracking-wider text-zinc-500">
+                      Connected to:{" "}
+                      <span className="text-zinc-400">
+                        {node.connections
+                          .map((id) => skillNodes.find((n) => n.id === id)?.name)
+                          .filter(Boolean)
+                          .join(", ")}
+                      </span>
+                    </div>
+                  )}
                 </div>
               )
             })()}

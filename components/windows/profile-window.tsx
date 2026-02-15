@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { BaseWindow } from "./base-window"
 import { GlitchText } from "../glitch-text"
-import { Award, MapPin, Send } from "lucide-react"
+import { Award, MapPin, ExternalLink } from "lucide-react"
 import pfpImg from "@/public/pfp.webp"
 
 interface ProfileWindowProps {
@@ -17,89 +17,98 @@ interface ProfileWindowProps {
 
 export function ProfileWindow(props: ProfileWindowProps) {
   return (
-    <BaseWindow {...props} initialPosition={{ x: 100, y: 80 }} initialSize={{ width: 550, height: 650 }}>
+    <BaseWindow {...props} initialPosition={{ x: 100, y: 80 }} initialSize={{ width: 550, height: 620 }}>
       <div className="space-y-6">
         {/* Profile Header */}
-        <div className="border-l-2 border-indigo-600 pl-4">
-          <div className="flex items-center mb-2">
-            <div className="w-2 h-2 bg-indigo-600 mr-2"></div>
-            <span className="text-indigo-300 text-xs tracking-wider">USER_PROFILE</span>
+        <div className="flex items-start gap-5">
+          <div className="relative shrink-0">
+            <div className="w-24 h-24 rounded-xl overflow-hidden ring-2 ring-zinc-700/50 ring-offset-2 ring-offset-zinc-900">
+              <Image src={pfpImg} alt="Profile" placeholder="blur" width={96} height={96} className="object-cover" />
+            </div>
+            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-zinc-900" title="Available" />
           </div>
 
-          <div className="flex items-start space-x-4">
-            <div
-              className="relative"
-              style={{
-                clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
-              }}
-            >
-              <Image src={pfpImg} alt="Profile" placeholder="blur" width={120} height={120} />
-            </div>
-
-            <div>
-              <GlitchText
-                text="Dyari Ali Tahir (SHIN尾)"
-                className="text-xl font-bold mb-2"
-                glitchColors={["#dc2626", "#eab308", "#3b82f6"]}
-              />
-              <div className="text-red-200 text-sm mb-2">FULL_STACK_DEVELOPER</div>
-              <div className="flex items-center text-neutral-200 text-xs">
-                <MapPin className="w-3 h-3 mr-1" />
-                <span>Erbil / IQ</span>
-              </div>
+          <div className="flex-1 min-w-0">
+            <GlitchText
+              text="Dyari Ali Tahir"
+              className="text-xl font-bold mb-1"
+              glitchColors={["#a1a1aa", "#71717a", "#52525b"]}
+            />
+            <div className="text-zinc-400 text-sm font-medium mb-2">SHIN尾 • Full-Stack Developer</div>
+            <div className="flex items-center gap-4 text-xs text-zinc-500">
+              <span className="flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5" />
+                Erbil, Iraq
+              </span>
+              <span className="flex items-center gap-1.5">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                Available for work
+              </span>
             </div>
           </div>
         </div>
 
-        {/* About Section */}
-        <div className="border-l-2 border-indigo-500 pl-4">
-          <div className="flex items-center mb-3">
-            <div className="w-2 h-2 bg-indigo-500 mr-2"></div>
-            <span className="text-indigo-300 text-xs tracking-wider">Summary</span>
-          </div>
+        {/* Divider */}
+        <div className="h-px bg-linear-to-r from-transparent via-zinc-700/50 to-transparent" />
 
-          <div className="text-white text-sm space-y-2">
+        {/* About Section */}
+        <div>
+          <h3 className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-3">About</h3>
+          <div className="space-y-3 text-sm text-zinc-300 leading-relaxed">
             <p>
-              <span className="text-indigo-500">&gt;</span> Full-Stack Developer working with Nextjs, Typescript,
-              Tailwind CSS, sometimes i work with WP, Flutter, i hold a BSc in Computer Science.
+              Full-Stack Developer specializing in <span className="text-zinc-100 font-medium">Next.js</span>,
+              <span className="text-zinc-100 font-medium"> TypeScript</span>, and modern web architectures.
+              BSc in Computer Science with a focus on building performant, scalable applications.
             </p>
-            <br />
-            <p>
-              <span className="text-indigo-500">&gt;</span> Currently studying Unreal Engine and blender for animation
-              and 3d art.
+            <p className="text-zinc-400">
+              Currently exploring Unreal Engine and Blender for 3D art and animation.
             </p>
           </div>
+        </div>
+
+        {/* Stats Row */}
+        <div className="grid grid-cols-3 gap-3">
+          {[
+            { label: "Experience", value: "2+ Years" },
+            { label: "Projects", value: "5+ Shipped" },
+            { label: "Stack", value: "Full-Stack" },
+          ].map((stat, i) => (
+            <div key={i} className="p-3 rounded-lg bg-zinc-800/50 border border-zinc-700/30 text-center">
+              <div className="text-lg font-bold text-zinc-100">{stat.value}</div>
+              <div className="text-[10px] uppercase tracking-wider text-zinc-500">{stat.label}</div>
+            </div>
+          ))}
         </div>
 
         {/* Certifications */}
-        <div className="border-l-2 border-indigo-500 pl-4">
-          <div className="flex items-center mb-3">
-            <div className="w-2 h-2 bg-indigo-500 mr-2"></div>
-            <span className="text-indigo-300 text-xs tracking-wider">CERTIFICATIONS</span>
-          </div>
-
+        <div>
+          <h3 className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-3">Credentials</h3>
           <div className="space-y-2">
-            <div className="flex items-center p-2 bg-indigo-500/10 border border-indigo-500/30">
-              <Award className="w-4 h-4 text-neutral-400 mr-2" />
-              <div>
-                <div className="text-white text-xs font-bold">BSc COMPUTER SCIENCE</div>
-                <div className="text-white/70 text-xs">Academic Foundation</div>
+            <div className="flex items-center gap-3 p-3 rounded-lg bg-zinc-800/30 border border-zinc-700/20 group hover:border-zinc-600/40 transition-colors">
+              <div className="p-2 rounded-md bg-zinc-700/50">
+                <Award className="w-4 h-4 text-zinc-400" />
+              </div>
+              <div className="flex-1">
+                <div className="text-sm font-medium text-zinc-200">BSc Computer Science</div>
+                <div className="text-xs text-zinc-500">Academic Foundation</div>
               </div>
             </div>
-            <div className="flex items-center p-2 bg-indigo-500/10 border border-indigo-500/30">
-              <Award className="w-4 h-4 text-neutral-400 mr-2" />
-              <div className="flex-1 flex flex-col">
-                <div className="text-white text-xs font-bold">B2 ENGLISH CERTIFIED</div>
-                <div className="text-white/70 text-xs">EF SET Upper Intermediate</div>
+
+            <div className="flex items-center gap-3 p-3 rounded-lg bg-zinc-800/30 border border-zinc-700/20 group hover:border-zinc-600/40 transition-colors">
+              <div className="p-2 rounded-md bg-amber-500/10">
+                <Award className="w-4 h-4 text-amber-400" />
+              </div>
+              <div className="flex-1">
+                <div className="text-sm font-medium text-zinc-200">English B2 Certified</div>
+                <div className="text-xs text-zinc-500">EF SET Upper Intermediate</div>
               </div>
               <a
                 href="https://cert.efset.org/en/vguDfH"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center h-full ml-2 text-indigo-400/80 hover:text-indigo-300 transition-colors"
-                style={{ minWidth: 32 }}
+                className="p-2 text-zinc-500 hover:text-amber-400 transition-colors"
               >
-                <Send className="w-5 h-5" />
+                <ExternalLink className="w-4 h-4" />
               </a>
             </div>
           </div>

@@ -63,8 +63,6 @@ export function BaseWindow({
       onFocus()
     }
 
-
-
     const handleMouseMove = (e: MouseEvent) => {
       if (!isDragging) return
       const newX = e.clientX - dragOffset.x
@@ -93,7 +91,9 @@ export function BaseWindow({
     e.preventDefault()
     onMinimize()
   }
+
   if (isMinimized) return null
+
   return (
     <div
       ref={windowRef}
@@ -105,36 +105,58 @@ export function BaseWindow({
         height: isMinimized ? 'auto' : `${size.height}px`,
         zIndex: isActive ? zIndex : zIndex - 1,
       }}
-      className="bg-neutral-900/95 border border-neutral-700 rounded shadow-lg flex flex-col"
+      className={`
+        bg-zinc-900/95 backdrop-blur-xl
+        border rounded-lg
+        flex flex-col
+        transition-shadow duration-300
+        ${isActive
+          ? 'border-zinc-600/50 shadow-2xl shadow-black/50'
+          : 'border-zinc-700/30 shadow-lg shadow-black/30'
+        }
+      `}
       onClick={onFocus}
     >
       {/* Window Header */}
       <div
         ref={headerRef}
-        className="bg-linear-to-r from-neutral-800 to-neutral-900 border-b border-neutral-700 p-3 flex items-center justify-between cursor-grab active:cursor-grabbing"
+        className={`
+          px-4 py-3 flex items-center justify-between
+          cursor-grab active:cursor-grabbing
+          border-b transition-colors duration-200
+          ${isActive
+            ? 'bg-zinc-800/80 border-zinc-700/50'
+            : 'bg-zinc-800/50 border-zinc-800/50'
+          }
+        `}
       >
-        <h2 className="text-sm font-semibold text-neutral-100">{title}</h2>
-        <div className="flex gap-2">
+        <div className="flex items-center gap-3">
+          <div className={`w-2 h-2 rounded-full transition-colors ${isActive ? 'bg-emerald-500' : 'bg-zinc-600'}`} />
+          <h2 className={`text-sm font-medium tracking-wide transition-colors ${isActive ? 'text-zinc-100' : 'text-zinc-400'}`}>
+            {title}
+          </h2>
+        </div>
+        <div className="flex gap-1.5">
           <button
             onClick={handleMinimize}
-            className="hover:bg-neutral-700 p-1 rounded text-neutral-400 hover:text-neutral-100 transition-colors"
+            className="w-7 h-7 flex items-center justify-center rounded-md text-zinc-500 hover:text-zinc-200 hover:bg-zinc-700/50 transition-all duration-150"
             title="Minimize"
           >
-            <Minus className="w-4 h-4" />
+            <Minus className="w-3.5 h-3.5" />
           </button>
           <button
             onClick={onClose}
-            className="hover:bg-red-500/20 p-1 rounded text-neutral-400 hover:text-red-400 transition-colors"
+            className="w-7 h-7 flex items-center justify-center rounded-md text-zinc-500 hover:text-white hover:bg-red-500/80 transition-all duration-150"
             title="Close"
           >
-            <X className="w-4 h-4" />
+            <X className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>
 
       {/* Window Content */}
       {!isMinimized && (
-        <div className="flex-1 overflow-auto p-4 text-neutral-100">
+        <div className="flex-1 overflow-auto p-5 text-zinc-100">
           {children}
         </div>
       )}

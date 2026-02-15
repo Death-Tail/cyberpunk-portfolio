@@ -5,6 +5,42 @@ import { IconsA } from "@/public/projects/draram";
 
 export const projects = [
 
+  {
+    title: "Prof. Tarik A. Rashid Portfolio",
+    description:
+      "A comprehensive full-stack academic portfolio for Prof. Tarik A. Rashid, Professor of Computer Science & Artificial Intelligence at UKH. Features real-time Google Scholar stats integration, dynamic blog with CMS, and a 200+ publications research archive.",
+    status: "DEPLOYED",
+    icon: (
+      <div className="w-10 h-10 bg-zinc-900 flex items-center justify-center text-white font-bold text-xs rounded">
+        TAR
+      </div>
+    ),
+    images: [],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "SerpApi", "Vercel"],
+    achievements: [
+      "Integrated automated Google Scholar citation tracking with daily ISR revalidation",
+      "Built comprehensive scholarly archive with 200+ research publications",
+      "Implemented advanced SEO with structured JSON-LD schema data",
+      "Created premium responsive design optimized for academic audiences"
+    ],
+    links: {
+      live: "https://tarikrashid.com",
+      github: null,
+    },
+    timeline: "3-4 months",
+    teamSize: "Solo Project",
+    challenges: [
+      "Real-time scholar statistics synchronization via SerpApi",
+      "Optimizing for academic SEO and scholarly discoverability",
+      "Managing complex content relationships across blog, courses, and research"
+    ],
+    features: [
+      "Dynamic Scholar Stats (Citations, h-index, i10-index)",
+      "Research & Publications Archive",
+      "Academic Blog with Admin CMS",
+      "Course Material Hub with Video Integration"
+    ],
+  },
 
   {
     title: "Dr. Aram Portfolio",
