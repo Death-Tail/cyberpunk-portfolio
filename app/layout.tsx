@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   applicationName: "Dyari Ali Tahir Portfolio",
   generator: "Next.js",
   metadataBase: new URL("https://dyariali.com"),
+  alternates: {
+    canonical: './',
+  },
   referrer: "origin-when-cross-origin",
   description: "Full-stack developer specializing in Next.js ecosystem and modern web architecture.",
   keywords: "full-stack developer, Dyari Ali Tahir, SHIN尾, Death Tail, portfolio, web architecture, Next.js, React, Node.js, TypeScript, Tailwind CSS, PostgreSQL, Erbil developer, Hawler, frontend developer, backend developer, Iraq developer, cyberpunk portfolio, kitsune branding",
@@ -62,7 +65,6 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="theme-color" content="#18181b" />
         <link rel="apple-touch-icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://dyariali.com" />
         <meta property="fb:app_id" content="1574339983752418" />
 
 
