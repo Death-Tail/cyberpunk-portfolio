@@ -59,18 +59,18 @@ export const projects = [
       live: "https://tarikrashid.com",
       github: null,
     },
-    timeline: "3-4 months",
+    timeline: "1-2 months",
     teamSize: "Solo Project",
     challenges: [
       "Real-time scholar statistics synchronization via SerpApi",
       "Optimizing for academic SEO and scholarly discoverability",
-      "Managing complex content relationships across blog, courses, and research"
+      "Managing complex content relationships across blog, courses, and research and publication, project and course"
     ],
     features: [
-      "Dynamic Scholar Stats (Citations, h-index, i10-index)",
-      "Research & Publications Archive",
-      "Academic Blog with Admin CMS",
-      "Course Material Hub with Video Integration"
+      "Custom CMS",
+      "AI Integrated Chatbot",
+      "Optimization, SEO & Responsive Design",
+      "SerpApi Integration for Scholar Stats"
     ],
   },
 
@@ -92,25 +92,24 @@ export const projects = [
       IconsAram.img2,
       IconsAram.img3,
     ],
-    tech: ["WordPress", "PHP", "WPML (Multi-language)", "Advanced SEO", "MySQL"],
+    tech: ["WordPress", "PHP", "Polylang (Multi-language)", "Rank Math SEO", "MySQL", "Cardioly Theme"],
     achievements: [
-      "Successfully implemented a full multi-language architecture for broader patient reach.",
-      "Achieved high SEO rankings for medical services and educational content.",
-      "Customized theme to ensure high performance despite heavy blog content."
+      "Set up Polylang for seamless English, Kurdish, and Arabic content management.",
+      "Configured Rank Math SEO for better search visibility.",
+      "Adapted the Cardioly theme to fully support RTL layouts."
     ],
     links: {
       live: "https://draram.com",
       github: null,
     },
-    timeline: "1 months",
+    timeline: "3 months",
     teamSize: "Solo Project",
     challenges: [
-      "Managing complex SEO metadata across multiple languages.",
-      "Ensuring fast load times while maintaining a feature-rich WordPress environment."
+      "Aligning theme elements correctly for both LTR and RTL languages.",
+      "Ensuring consistent content synchronization across all languages."
     ],
     features: [
       "Multi-language Support (English/Kurdish/Arabic)",
-      "Dynamic Blog System for Medical Articles",
       "SEO Optimized Content Structure",
       "Responsive Medical UI"
     ],
@@ -143,10 +142,9 @@ export const projects = [
       "Framer Motion",
     ],
     achievements: [
-      "Built a bilingual, mobile-first website for global accessibility",
+      "Built a bilingual, mobile-responsive website for global accessibility",
       "Built a custom CMS that allows non-technical users to manage website content",
       "Optimized for SEO, performance, and accessibility",
-      "Deployed to production with full HTTPS/SSL integration",
     ],
     links: {
       live: "https://rekangroup.com",
@@ -155,10 +153,9 @@ export const projects = [
     timeline: "3–6 months",
     teamSize: "Solo Project",
     challenges: [
-      "Designing a scalable multi-language system",
+      "Designing a scalable multi-language Website",
       "Managing dynamic state across pages",
       "Ensuring cross-browser and device compatibility",
-      "Balancing animations with performance",
     ],
     features: [
       "Multi-language support (English & Kurdish/Arabic)",
@@ -166,7 +163,6 @@ export const projects = [
       "Advanced user authentication & authorization",
       "Responsive and mobile-friendly design",
       "SEO optimization with structured metadata",
-      "Performance monitoring and analytics integration",
     ],
   },
 
@@ -190,7 +186,7 @@ export const projects = [
     tech: ["Next.js", "Tailwind CSS"],
     achievements: [
       "Built a modern, high-performance interface with smooth transitions.",
-      "Optimized the appointment inquiry flow for better user conversion."
+      "Optimized for SEO, performance, and accessibility",
     ],
     links: {
       live: "https://drawara.com",
@@ -198,8 +194,8 @@ export const projects = [
     },
     timeline: "1–2 months",
     teamSize: "Solo Project",
-    challenges: ["Creating a trustworthy and clean medical aesthetic."],
-    features: ["Service Showcases", "Interactive UI Components", "Direct Contact Integration", "Academic Timeline"],
+    challenges: ["Creating a trustworthy and clean aesthetic."],
+    features: ["Service Showcases", "Direct Contact Integration", "Responsive and mobile-friendly design"],
   }
 
   // Add more projects here with the same structure
