@@ -36,11 +36,11 @@ function OSContent() {
   }, [])
 
   const apps = [
-    { type: "profile", icon: "/desktopLogo/Profile.png", name: "Profile" },
-    { type: "projects", icon: "/desktopLogo/Projects.png", name: "Projects" },
-    { type: "techstack", icon: "/desktopLogo/Techstack.png", name: "Tech Stack" },
-    { type: "contact", icon: "/desktopLogo/Contact.png", name: "Contact" },
-    { type: "resume", icon: "/desktopLogo/Resume.png", name: "Resume" },
+    { type: "profile", icon: "/desktopLogo/Profile.jpg", name: "Profile" },
+    { type: "projects", icon: "/desktopLogo/Projects.jpg", name: "Projects" },
+    { type: "techstack", icon: "/desktopLogo/Techstack.jpg", name: "Tech Stack" },
+    { type: "contact", icon: "/desktopLogo/Contact.jpg", name: "Contact" },
+    { type: "resume", icon: "/desktopLogo/Resume.jpg", name: "Resume" },
 
   ]
 

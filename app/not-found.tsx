@@ -182,7 +182,7 @@ export default function NotFound() {
                 <div className="w-72 h-72 mx-auto mb-10 relative">
                   <div className="absolute inset-0 bg-orange-400/10 rounded-full animate-pulse blur-3xl" />
                   <img
-                    src="/L.webp"
+                    src="/L.jpg"
                     alt="Logo"
                     className="w-full h-full"
                   />

@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     siteName: "Dyari Ali Tahir Portfolio",
     images: [
       {
-        url: "https://dyariali.com/OG.jpg",
+        url: "https://dyariali.com/openGraph.jpg",
         width: 3000,
-        height: 1714,
+        height: 1567,
         alt: "Dyari Ali Tahir Portfolio",
         type: "image/jpg",
       },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     site: "@dyariali",
     creator: "@death_tail0331",
     images: [
-      "https://dyariali.com/OG.jpg",
+      "https://dyariali.com/openGraph.jpg",
     ],
   },
   manifest: "/manifest.json",

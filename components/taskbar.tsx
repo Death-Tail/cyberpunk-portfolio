@@ -14,7 +14,7 @@ import {
   Clipboard,
   Check
 } from 'lucide-react'
-import logoImg from '@/public/L.webp'
+import logoImg from '@/public/L.jpg'
 
 interface Window {
   id: string
@@ -75,12 +75,12 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
 
 
   const applications = [
-    { type: "profile", icon: <Image src="/desktopLogo/Profile.png" alt="profile Logo" property="true" width={100} height={100} />, name: "Profile" },
-    { type: "projects", icon: <Image src="/desktopLogo/Projects.png" alt="projects Logo" property="true" width={100} height={100} />, name: "Projects" },
-    // { type: "terminal", icon: <Image src="/desktopLogo/Terminal.png" alt="terminal Logo" property="true" width={100} height={100}/>, name: "Terminal" },
-    { type: "contact", icon: <Image src="/desktopLogo/Contact.png" alt="contact Logo" property="true" width={100} height={100} />, name: "Contact" },
-    { type: "techstack", icon: <Image src="/desktopLogo/Techstack.png" alt="techstack Logo" property="true" width={100} height={100} />, name: "Tech Stack" },
-    { type: "resume", icon: <Image src="/desktopLogo/Resume.png" alt="resume Logo" property="true" width={100} height={100} />, name: "Resume" },
+    { type: "profile", icon: <Image src="/desktopLogo/Profile.jpg" alt="profile Logo" property="true" width={100} height={100} />, name: "Profile" },
+    { type: "projects", icon: <Image src="/desktopLogo/Projects.jpg" alt="projects Logo" property="true" width={100} height={100} />, name: "Projects" },
+    // { type: "terminal", icon: <Image src="/desktopLogo/Terminal.jpg" alt="terminal Logo" property="true" width={100} height={100}/>, name: "Terminal" },
+    { type: "contact", icon: <Image src="/desktopLogo/Contact.jpg" alt="contact Logo" property="true" width={100} height={100} />, name: "Contact" },
+    { type: "techstack", icon: <Image src="/desktopLogo/Techstack.jpg" alt="techstack Logo" property="true" width={100} height={100} />, name: "Tech Stack" },
+    { type: "resume", icon: <Image src="/desktopLogo/Resume.jpg" alt="resume Logo" property="true" width={100} height={100} />, name: "Resume" },
   ]
 
   const contactLinks = [

@@ -196,7 +196,7 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
 
                 {/* Background Noise for Active Item */}
                 {selectedId === idx && (
-                  <div className="absolute inset-0 opacity-10 bg-[url('/noise.png')] pointer-events-none" />
+                  <div className="absolute inset-0 opacity-10 bg-[url('/noise.svg')] pointer-events-none" />
                 )}
 
                 <div className="flex items-center gap-3 relative z-10">
