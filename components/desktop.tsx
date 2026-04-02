@@ -3,7 +3,7 @@
 import type React from "react"
 import Image from "next/image"
 import { Icons } from "@/public/desktopLogo"
-import bgImg from "@/public/bg4.png"
+import bgImg from "@/public/bg.jpg"
 import { useEffect, useRef, useState } from "react"
 import { ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
