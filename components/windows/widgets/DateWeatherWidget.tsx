@@ -81,29 +81,28 @@ export function DateWeatherWidget({ className }: { className?: string }) {
 
   return (
     <div className={cn("flex flex-col items-center text-white select-none", className)}>
-      {/* Time - Added strong text shadow */}
-      <h1 className="text-8xl font-thin tracking-tighter text-white font-mono drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]">
+      {/* Time - Soft pink glow shadow */}
+      <h1 className="text-8xl font-thin tracking-tight text-white font-mono drop-shadow-[0_0_12px_rgba(249,168,212,0.4)]">
         {timeString}
       </h1>
 
       {/* Date */}
-      <div className="text-xl font-light text-white tracking-[0.2em] uppercase mb-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+      <div className="text-lg font-medium text-white/90 tracking-[0.25em] uppercase mb-6 drop-shadow-[0_0_8px_rgba(249,168,212,0.3)]">
         {dateString}
       </div>
 
       {/* Weather Widget */}
-      {/* CHANGED: Used bg-black/60 instead of zinc to ensure it works in all configs */}
-      <div className="flex items-center gap-4 bg-black/60 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full shadow-2xl">
-       {loading ? <Loader2 className="w-6 h-6 text-neutral-200 animate-spin" /> : weather && getWeatherIcon(weather.code)}
-        <div className="flex items-baseline gap-1">
+      <div className="flex items-center gap-4 bg-white/20 backdrop-blur-xl border border-white/40 px-8 py-3 rounded-2xl shadow-xl">
+        {loading ? <Loader2 className="w-6 h-6 text-white/60 animate-spin" /> : weather && getWeatherIcon(weather.code)}
+        <div className="flex items-baseline gap-1 font-bold text-white tracking-wide">
           {weather?.temp}° {weather ? getWeatherText(weather.code) : "Unavailable"}
         </div>
 
-        <span className="w-px h-5 bg-white/30 mx-1"></span>
+        <span className="w-px h-5 bg-white/30 mx-2"></span>
 
-        <div className="flex items-center gap-1.5 text-sm text-white/90 font-medium">
-          <MapPin className="w-3.5 h-3.5 text-neutral-400" />
-          <span className="uppercase tracking-wider">Erbil, IQ</span>
+        <div className="flex items-center gap-2 text-xs text-white/80 font-bold uppercase tracking-[0.15em]">
+          <MapPin className="w-3.5 h-3.5 text-memory-pink" />
+          <span>Erbil, IQ</span>
         </div>
       </div>
     </div>

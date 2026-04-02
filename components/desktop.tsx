@@ -3,11 +3,12 @@
 import type React from "react"
 import Image from "next/image"
 import { Icons } from "@/public/desktopLogo"
-import bgImg from "@/public/bg.jpg"
+import bgImg from "@/public/bg4.png"
 import { useEffect, useRef, useState } from "react"
 import { ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { DateWeatherWidget } from "./windows/widgets/DateWeatherWidget"
+import { MusicPlayerWidget } from "./windows/widgets/MusicPlayerWidget"
 
 interface DesktopProps {
   onOpenWindow: (type: string) => void
@@ -34,6 +35,22 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
     y: 0,
     iconId: null,
   })
+  const [isMounted, setIsMounted] = useState(false)
+  const [particles, setParticles] = useState<Array<{ left: number; top: number; delay: number; duration: number; width: number; height: number; rotation: number }>>([])
+
+  useEffect(() => {
+    setIsMounted(true)
+    const particleData = Array.from({ length: 15 }, () => ({
+      left: Math.random() * 100,
+      top: -(Math.random() * 20),
+      delay: Math.random() * 10,
+      duration: 8 + Math.random() * 5,
+      width: 8 + Math.random() * 8,
+      height: 6 + Math.random() * 6,
+      rotation: Math.random() * 360,
+    }))
+    setParticles(particleData)
+  }, [])
 
   const desktopIcons: DesktopIcon[] = [
     {
@@ -155,11 +172,11 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
   }, [contextMenu.visible])
 
   const getIconColorClasses = (color: string, isSelected: boolean) => {
-    const baseClasses = "flex flex-col items-center p-2 rounded cursor-pointer transition-all duration-150"
+    const baseClasses = "flex flex-col items-center p-2 rounded-xl cursor-pointer transition-all duration-300 group"
     if (isSelected) {
-      return cn(baseClasses, "bg-accent-secondary/30 glow-effect")
+      return cn(baseClasses, "bg-white/40 backdrop-blur-md shadow-lg ring-2 ring-memory-pink/60")
     }
-    return cn(baseClasses, "hover:bg-accent-primary/20")
+    return cn(baseClasses, "hover:bg-white/20 hover:backdrop-blur-sm")
   }
 
   return (
@@ -167,13 +184,36 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       {/* Canvas: constrained to end above the taskbar so it doesn't draw under it */}
       <canvas ref={canvasRef} className="fixed top-0 left-0 right-0 bottom-12 z-0" style={{ pointerEvents: "none" }} />
 
-      {/* Wallpaper: constrained to end above the taskbar (taskbar height = 3rem / bottom-12) */}
-      <div className="fixed top-0 left-0 right-0 bottom-12 z-0 opacity-85 overflow-hidden pointer-events-none">
+      {/* Floating Petals */}
+      {isMounted && (
+        <div className="fixed inset-0 pointer-events-none overflow-hidden z-10">
+          {particles.map((particle, i) => (
+            <div
+              key={i}
+              className="absolute floating-petals"
+              style={{
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
+                width: `${particle.width}px`,
+                height: `${particle.height}px`,
+                backgroundColor: i % 2 === 0 ? '#f9a8d4' : '#fff1f2',
+                borderRadius: '100% 0% 100% 0% / 100% 0% 100% 0%',
+                animationDelay: `${particle.delay}s`,
+                animationDuration: `${particle.duration}s`,
+                transform: `rotate(${particle.rotation}deg)`,
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Wallpaper */}
+      <div className="fixed top-0 left-0 right-0 bottom-14 z-0 opacity-90 overflow-hidden pointer-events-none">
         <Image
           src={bgImg || "/placeholder.svg"}
-          alt="Background logo"
+          alt="Background"
           fill
-          className="object-cover object-bottom select-none pointer-events-none"
+          className="object-cover object-center select-none pointer-events-none"
           priority
         />
       </div>
@@ -183,6 +223,11 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
         <div className="pointer-events-auto">
           <DateWeatherWidget />
         </div>
+      </div>
+
+      {/* --- Music Widget --- */}
+      <div className="fixed bottom-16 right-4 z-50 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+        <MusicPlayerWidget />
       </div>
 
       {/* --- Desktop Icons --- */}
@@ -200,17 +245,18 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
           >
             <div
               className={cn(
-                "w-20 h-20 rounded-md flex items-center justify-center mb-1",
-                "backdrop-blur-sm bg-bg-primary/20 glow-effect",
+                "w-20 h-20 rounded-2xl flex items-center justify-center mb-1",
+                "backdrop-blur-md bg-white/10 border border-white/20 transition-transform group-hover:scale-105 duration-300",
+                "shadow-sm",
               )}
             >
               {icon.icon}
             </div>
-            <span className="text-[12px] mt-1 text-center font-mono tracking-wide text-fg-primary text-shadow">
+            <span className="text-[12px] mt-1 text-center font-black tracking-tight text-stone-950 drop-shadow-sm">
               {icon.name}
             </span>
             {selectedIcon === icon.id && (
-              <div className="absolute inset-0 border border-accent-primary rounded pointer-events-none"></div>
+              <div className="absolute inset-0 border-2 border-memory-pink/50 rounded-xl pointer-events-none"></div>
             )}
           </div>
         ))}
@@ -219,7 +265,7 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
       {/* --- Context Menu --- */}
       {contextMenu.visible && (
         <div
-          className="fixed z-50 bg-neutral-700 border border-window-border shadow-lg py-1 w-48"
+          className="fixed z-50 bg-white/80 backdrop-blur-xl border border-white/60 shadow-2xl py-1 w-48 rounded-lg overflow-hidden"
           style={{
             left: `${contextMenu.x}px`,
             top: `${contextMenu.y}px`,
@@ -229,12 +275,12 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
         >
           {contextMenu.iconId && (
             <>
-              <div className="px-3 py-1 text-xs text-accent-primary border-b border-border-default/30">
+              <div className="px-3 py-1.5 text-[10px] text-stone-500 border-b border-white/20 font-black uppercase tracking-widest bg-white/20">
                 {desktopIcons.find((icon) => icon.id === contextMenu.iconId)?.name || "Options"}
               </div>
 
               <button
-                className="w-full text-left px-3 py-1.5 text-sm text-fg-primary hover:bg-taskbar-hover flex items-center"
+                className="w-full text-left px-3 py-1.5 text-sm text-stone-900 font-bold hover:bg-memory-pink/20 flex items-center transition-colors"
                 onClick={() => {
                   const icon = desktopIcons.find((icon) => icon.id === contextMenu.iconId)
                   if (icon) {
@@ -250,20 +296,20 @@ export function Desktop({ onOpenWindow }: DesktopProps) {
                 <span>Open</span>
                 <ChevronRight className="w-3 h-3 ml-auto" />
               </button>
-<button
-  className="w-full text-left px-3 py-1.5 text-sm text-fg-primary hover:bg-taskbar-hover flex items-center"
-  onClick={() => {
-    const icon = desktopIcons.find((i) => i.id === contextMenu.iconId);
-    if (icon) {
-      // Logic: Tell the system to open the properties window for this specific type
-      onOpenWindow(`properties-${icon.type}`);
-      setContextMenu({ ...contextMenu, visible: false });
-    }
-  }}
->
-  <span>Properties</span>
-  <ChevronRight className="w-3 h-3 ml-auto" />
-</button>
+              <button
+                className="w-full text-left px-3 py-1.5 text-sm text-fg-primary hover:bg-taskbar-hover flex items-center"
+                onClick={() => {
+                  const icon = desktopIcons.find((i) => i.id === contextMenu.iconId);
+                  if (icon) {
+                    // Logic: Tell the system to open the properties window for this specific type
+                    onOpenWindow(`properties-${icon.type}`);
+                    setContextMenu({ ...contextMenu, visible: false });
+                  }
+                }}
+              >
+                <span>Properties</span>
+                <ChevronRight className="w-3 h-3 ml-auto" />
+              </button>
             </>
           )}
         </div>

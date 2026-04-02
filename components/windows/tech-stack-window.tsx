@@ -5,7 +5,7 @@ import type React from "react"
 import { useState, useRef, useEffect } from "react"
 import { version } from "../../package.json"
 import { BaseWindow } from "./base-window"
-import { Code, Database, Film, Gamepad2, Layers, PenTool, Server, Workflow, WorkflowIcon, Wrench, Target } from "lucide-react"
+import { Code, Database, Film, Gamepad2, Layers, Server, Wrench, Target } from "lucide-react"
 import {
   SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiPostgresql, SiMysql, SiFlutter, SiGit, SiFirebase, SiUikit,
   SiDart,
@@ -51,8 +51,8 @@ const skillNodes: SkillNode[] = [
     connections: [],
     category: "core",
     description: "Core development competencies",
-    bgColor: "bg-linear-to-br from-red-500/30 to-orange-600/30",
-    iconColor: "text-red",
+    bgColor: "bg-linear-to-br from-orange-100/80 to-amber-100/80",
+    iconColor: "text-orange-600",
   },
 
   // ===== FRAMEWORKS / FRONTEND =====
@@ -66,8 +66,8 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "frontend",
     description: "User interface and experience design",
-    bgColor: "bg-linear-to-br from-neutral-500/30 to-purple-600/30",
-    iconColor: "text-white",
+    bgColor: "bg-linear-to-br from-sky-100/80 to-blue-50/80",
+    iconColor: "text-sky-600",
   },
   {
     id: "react",
@@ -79,8 +79,8 @@ const skillNodes: SkillNode[] = [
     connections: ["frontend"],
     category: "frontend",
     description: "Component-based UI development",
-    bgColor: "bg-linear-to-br from-cyan-500/30 to-neutral-600/30",
-    iconColor: "text-cyan-200",
+    bgColor: "bg-linear-to-br from-cyan-100/80 to-sky-50/80",
+    iconColor: "text-cyan-600",
   },
   {
     id: "nextjs",
@@ -112,7 +112,7 @@ const skillNodes: SkillNode[] = [
   // =====BACKEND =====
   {
     id: "backend",
-    name: "BACKEND ",
+    name: "BACKEND",
     icon: <Server className="w-7 h-7" />,
     unlocked: true,
     x: 600,
@@ -120,8 +120,8 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "backend",
     description: "Server-side development and APIs",
-    bgColor: "bg-linear-to-br from-green-600/30 to-green-800/30",
-    iconColor: "text-red-200",
+    bgColor: "bg-linear-to-br from-emerald-100/80 to-green-50/80",
+    iconColor: "text-emerald-600",
   },
   {
     id: "nodejs",
@@ -133,8 +133,8 @@ const skillNodes: SkillNode[] = [
     connections: ["backend"],
     category: "backend",
     description: "Server-side JavaScript runtime",
-    bgColor: "bg-linear-to-br from-green-600/30 to-green-800/30",
-    iconColor: "text-green-200",
+    bgColor: "bg-linear-to-br from-green-100/80 to-emerald-50/80",
+    iconColor: "text-green-700",
   },
   {
     id: "nextjs api",
@@ -146,36 +146,36 @@ const skillNodes: SkillNode[] = [
     connections: ["backend"],
     category: "backend",
     description: "Server-side JavaScript runtime",
-    bgColor: "bg-linear-to-br from-green-600/30 to-green-800/30",
-    iconColor: "text-green-200",
+    bgColor: "bg-linear-to-br from-green-100/80 to-emerald-50/80",
+    iconColor: "text-green-700",
   },
 
   // ===== DATABASE =====
   {
     id: "database",
     name: "DATABASE",
-    icon: < Database className="w-7 h-7" />,
+    icon: <Database className="w-7 h-7" />,
     unlocked: true,
     x: 600,
     y: 450,
     connections: ["core"],
     category: "database",
     description: "Database design and optimization",
-    bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
-    iconColor: "text-neutral-200",
+    bgColor: "bg-linear-to-br from-blue-100/80 to-indigo-50/80",
+    iconColor: "text-blue-600",
   },
   {
     id: "firebase",
     name: "FIREBASE",
-    icon: < SiFirebase className="w-7 h-7" />,
+    icon: <SiFirebase className="w-7 h-7" />,
     unlocked: true,
     x: 600,
     y: 600,
     connections: ["database"],
     category: "database",
     description: "Realtime NoSQL database",
-    bgColor: "bg-linear-to-br from-red-600/30 to-orange-800/30",
-    iconColor: "text-yellow-800",
+    bgColor: "bg-linear-to-br from-amber-100/80 to-orange-50/80",
+    iconColor: "text-amber-600",
   },
   {
     id: "postgresql",
@@ -187,8 +187,8 @@ const skillNodes: SkillNode[] = [
     connections: ["database"],
     category: "database",
     description: "Advanced relational database",
-    bgColor: "bg-linear-to-br from-blue-300/30 to-blue-600/30",
-    iconColor: "text-neutral-200",
+    bgColor: "bg-linear-to-br from-blue-100/80 to-sky-50/80",
+    iconColor: "text-blue-700",
   },
   {
     id: "mysql",
@@ -200,8 +200,8 @@ const skillNodes: SkillNode[] = [
     connections: ["database"],
     category: "database",
     description: "Popular relational database management",
-    bgColor: "bg-linear-to-br from-blue-300/30 to-blue-600/30",
-    iconColor: "text-neutral-200",
+    bgColor: "bg-linear-to-br from-orange-100/80 to-amber-50/80",
+    iconColor: "text-orange-700",
   },
 
   // ===== TOOLS =====
@@ -215,8 +215,8 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "tools",
     description: "Development and collaboration tools",
-    bgColor: "bg-linear-to-br from-neutral-800/80 to-black/80",
-    iconColor: "text-white",
+    bgColor: "bg-linear-to-br from-stone-200/80 to-stone-100/80",
+    iconColor: "text-stone-700",
   },
   {
     id: "git",
@@ -228,10 +228,9 @@ const skillNodes: SkillNode[] = [
     connections: ["tools"],
     category: "tools",
     description: "Version control workflows",
-    bgColor: "bg-linear-to-br from-neutral-800/80 to-black/80",
-    iconColor: "text-white",
+    bgColor: "bg-linear-to-br from-orange-100/80 to-red-50/80",
+    iconColor: "text-orange-700",
   },
-
 
   // ===== Languages =====
   {
@@ -244,8 +243,8 @@ const skillNodes: SkillNode[] = [
     connections: ["core"],
     category: "backend",
     description: "Proficient in multiple programming languages",
-    bgColor: "bg-linear-to-br from-orange-600/30 to-orange-800/30",
-    iconColor: "text-orange-200",
+    bgColor: "bg-linear-to-br from-violet-100/80 to-purple-50/80",
+    iconColor: "text-violet-700",
   },
   {
     id: "dart",
@@ -257,8 +256,8 @@ const skillNodes: SkillNode[] = [
     connections: ["language"],
     category: "backend",
     description: "Cross-platform mobile development",
-    bgColor: "bg-linear-to-br from-cyan-500/10 to-cyan-600/10",
-    iconColor: "text-cyan-600",
+    bgColor: "bg-linear-to-br from-cyan-100/80 to-sky-50/80",
+    iconColor: "text-cyan-700",
   },
   {
     id: "typescript",
@@ -270,8 +269,8 @@ const skillNodes: SkillNode[] = [
     connections: ["language"],
     category: "backend",
     description: "Type-safe JavaScript development",
-    bgColor: "bg-linear-to-br from-blue-600/30 to-blue-800/30",
-    iconColor: "text-neutral-200",
+    bgColor: "bg-linear-to-br from-blue-100/80 to-indigo-50/80",
+    iconColor: "text-blue-700",
   },
   {
     id: "java",
@@ -283,8 +282,8 @@ const skillNodes: SkillNode[] = [
     connections: ["language"],
     category: "backend",
     description: "Enterprise application development",
-    bgColor: "bg-linear-to-br from-orange-600/30 to-red-600/30",
-    iconColor: "text-orange-200",
+    bgColor: "bg-linear-to-br from-amber-100/80 to-orange-50/80",
+    iconColor: "text-amber-700",
   },
 
   // ===== Gaming and Animation =====
@@ -298,8 +297,8 @@ const skillNodes: SkillNode[] = [
     connections: [],
     category: "3D",
     description: "Game development and 3D content creation",
-    bgColor: "bg-linear-to-br from-neutral-700/30 to-purple-800/30",
-    iconColor: "text-purple-300",
+    bgColor: "bg-linear-to-br from-rose-100/80 to-pink-50/80",
+    iconColor: "text-rose-600",
   },
   {
     id: "unreal",
@@ -311,8 +310,8 @@ const skillNodes: SkillNode[] = [
     connections: ["3D"],
     category: "3D",
     description: "AAA game development engine",
-    bgColor: "bg-linear-to-br from-neutral-800/30 to-neutral-900/30",
-    iconColor: "text-white",
+    bgColor: "bg-linear-to-br from-stone-100/80 to-stone-50/80",
+    iconColor: "text-stone-600",
   },
   {
     id: "blender",
@@ -324,8 +323,8 @@ const skillNodes: SkillNode[] = [
     connections: ["3D"],
     category: "3D",
     description: "3D modeling and animation",
-    bgColor: "bg-linear-to-br from-orange-600/30 to-yellow-700/30",
-    iconColor: "text-orange-200",
+    bgColor: "bg-linear-to-br from-orange-100/80 to-amber-50/80",
+    iconColor: "text-orange-600",
   },
   {
     id: "animation",
@@ -337,19 +336,18 @@ const skillNodes: SkillNode[] = [
     connections: ["3D"],
     category: "3D",
     description: "Character and motion animation fundamentals",
-    bgColor: "bg-linear-to-br from-neutral-600/30 to-red-700/30",
-    iconColor: "text-neutral-200",
+    bgColor: "bg-linear-to-br from-pink-100/80 to-rose-50/80",
+    iconColor: "text-pink-600",
   },
 ]
 
-// Define the virtual map boundaries
 const MAP_BOUNDS = {
-  width: 2000, // Increase from 1200 to 2000
-  height: 1600, // Increase from 800 to 1600
-  minX: -600, // Increase range from -300 to -600
-  maxX: 600, // Increase range from 300 to 600
-  minY: -400, // Increase range from -200 to -400
-  maxY: 400, // Increase range from 200 to 400
+  width: 2000,
+  height: 1600,
+  minX: -600,
+  maxX: 600,
+  minY: -400,
+  maxY: 400,
 }
 
 export function TechStackWindow(props: TechStackWindowProps) {
@@ -360,7 +358,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
   const mapRef = useRef<HTMLDivElement>(null)
   const [zoom, setZoom] = useState(1)
-  const [searchTerm, setSearchTerm] = useState("")
+  const [searchTerm] = useState("")
   const [activeCategories, setActiveCategories] = useState<Record<string, boolean>>({
     frontend: true,
     backend: true,
@@ -370,7 +368,6 @@ export function TechStackWindow(props: TechStackWindowProps) {
   })
 
   const handleMapMouseDown = (e: React.MouseEvent) => {
-    // Only start dragging if clicking on the map container, not on nodes
     if (e.target === mapRef.current || (e.target as HTMLElement).closest(".map-background")) {
       e.preventDefault()
       e.stopPropagation()
@@ -386,36 +383,25 @@ export function TechStackWindow(props: TechStackWindowProps) {
     const handleMouseMove = (e: MouseEvent) => {
       if (isDragging) {
         e.preventDefault()
-
-        // Calculate new position
         const newX = e.clientX - dragStart.x
         const newY = e.clientY - dragStart.y
-
-        // Apply boundaries to prevent dragging too far
         const constrainedX = Math.max(MAP_BOUNDS.minX, Math.min(MAP_BOUNDS.maxX, newX))
         const constrainedY = Math.max(MAP_BOUNDS.minY, Math.min(MAP_BOUNDS.maxY, newY))
-
-        setMapPosition({
-          x: constrainedX,
-          y: constrainedY,
-        })
+        setMapPosition({ x: constrainedX, y: constrainedY })
       }
     }
-
     const handleMouseUp = (e: MouseEvent) => {
       if (isDragging) {
         e.preventDefault()
         setIsDragging(false)
       }
     }
-
     if (isDragging) {
       document.addEventListener("mousemove", handleMouseMove)
       document.addEventListener("mouseup", handleMouseUp)
       document.body.style.userSelect = "none"
       document.body.style.cursor = "grabbing"
     }
-
     return () => {
       document.removeEventListener("mousemove", handleMouseMove)
       document.removeEventListener("mouseup", handleMouseUp)
@@ -424,36 +410,25 @@ export function TechStackWindow(props: TechStackWindowProps) {
     }
   }, [isDragging, dragStart])
 
-  // Keyboard shortcuts for zoom and centering
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "+" || e.key === "=") setZoom((z) => Math.min(1.6, +(z + 0.1).toFixed(2)))
       if (e.key === "-") setZoom((z) => Math.max(0.6, +(z - 0.1).toFixed(2)))
-      if (e.key === "0") {
-        setZoom(1)
-        setMapPosition({ x: 0, y: 0 })
-      }
+      if (e.key === "0") { setZoom(1); setMapPosition({ x: 0, y: 0 }) }
     }
-
     document.addEventListener("keydown", onKey)
     return () => document.removeEventListener("keydown", onKey)
   }, [])
-
-
-
 
   const getConnectionPath = (from: SkillNode, to: SkillNode) => {
     const fromX = from.x + mapPosition.x
     const fromY = from.y + mapPosition.y
     const toX = to.x + mapPosition.x
     const toY = to.y + mapPosition.y
-
     const midX = (fromX + toX) / 2
     const midY = (fromY + toY) / 2
-
     const dx = Math.abs(toX - fromX)
     const dy = Math.abs(toY - fromY)
-
     if (dy > dx) {
       return `M ${fromX} ${fromY} L ${fromX} ${midY} L ${toX} ${midY} L ${toX} ${toY}`
     } else {
@@ -461,260 +436,91 @@ export function TechStackWindow(props: TechStackWindowProps) {
     }
   }
 
-
-
-  const isConnectionActive = (nodeId: string, connectionId: string) => {
-    return (
-      hoveredNode === nodeId || hoveredNode === connectionId || selectedNode === nodeId || selectedNode === connectionId
-    )
-  }
-
-  // Generate neural nodes for the entire map area
-  const generateNeuralNodes = (count: number, area: { width: number; height: number }) => {
-    return Array.from({ length: count }).map((_, i) => ({
-      id: i,
-      x: (i * 47 + 23) % area.width,
-      y: (i * 31 + 17) % area.height,
-      delay: i * 0.3,
-      duration: 2 + (i % 3),
-    }))
-  }
-
-  const neuralNodes = generateNeuralNodes(80, MAP_BOUNDS)
-  const neuralClusters = generateNeuralNodes(30, MAP_BOUNDS)
+  const isConnectionActive = (nodeId: string, connectionId: string) =>
+    hoveredNode === nodeId || hoveredNode === connectionId || selectedNode === nodeId || selectedNode === connectionId
 
   return (
-    <BaseWindow {...props} initialPosition={{ x: 250, y: 120 }} initialSize={{ width: 800, height: 600 }}>
-      <div className="space-y-4 h-none overflow-hidden">
-        {/* Header */}
-        <div className="flex items-center justify-between">
+    <BaseWindow {...props} initialPosition={{ x: 250, y: 120 }} initialSize={{ width: 860, height: 620 }}>
+      <div className="flex flex-col h-full gap-3 overflow-hidden">
+
+        {/* ── Header ── */}
+        <div className="flex items-center justify-between shrink-0">
           <div>
-            <h2 className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Skill Map</h2>
-            <p className="text-zinc-400 text-xs">Drag to navigate • Click nodes for details</p>
+            <h2 className="text-[10px] font-black uppercase tracking-[0.25em] text-stone-950/40 leading-none">Skill Architecture</h2>
+            <p className="text-stone-700 text-xs font-bold mt-0.5">Drag to explore.</p>
           </div>
-          <div className="text-zinc-500 text-[10px] font-mono">v{version}</div>
+          <div className="text-stone-950/30 text-[10px] font-mono font-black tracking-widest">v{version}</div>
         </div>
 
-        {/* Toolbar */}
-        <div className="flex items-center justify-between gap-3">
-          {/* Category filters */}
-          <div className="flex items-center gap-1.5 flex-wrap">
-            {Object.keys(activeCategories).map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategories((s) => ({ ...s, [cat]: !s[cat] }))}
-                className={`text-[10px] font-medium px-2.5 py-1 rounded-full transition-all duration-200 ${activeCategories[cat]
-                    ? "bg-zinc-700/50 text-zinc-200 border border-zinc-600/50"
-                    : "bg-transparent text-zinc-500 border border-zinc-700/30 hover:border-zinc-600/50"
-                  }`}
-              >
-                {cat.charAt(0).toUpperCase() + cat.slice(1)}
-              </button>
-            ))}
-          </div>
-
+        {/* ── Toolbar ── */}
+        <div className="flex items-center justify-between gap-3 shrink-0">
           <button
-            onClick={() => {
-              setMapPosition({ x: -50, y: -100 })
-              setZoom(1)
-            }}
+            onClick={() => { setMapPosition({ x: -50, y: -100 }); setZoom(1) }}
             aria-label="Center map"
-            className="p-1.5 rounded-md bg-zinc-800/50 border border-zinc-700/30 hover:border-zinc-600/50 transition-all"
+            className="p-2 rounded-lg bg-white/60 border border-stone-950/10 hover:border-orange-400/60 hover:bg-orange-400/10 transition-all group"
           >
-            <Target className="w-4 h-4 text-zinc-400" />
+            <Target className="w-4 h-4 text-stone-950/40 group-hover:text-orange-500 transition-colors" />
           </button>
         </div>
 
-        {/* Skill Map Container */}
+        {/* ── Map ── */}
         <div
           ref={mapRef}
-          className={`relative h-96 overflow-hidden rounded-lg border border-neutral-500/30 ${isDragging ? "cursor-grabbing" : "cursor-grab"
-            }`}
+          className={`relative flex-1 min-h-0 overflow-hidden rounded-2xl border border-stone-950/8 shadow-inner ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
           onMouseDown={handleMapMouseDown}
           style={{ transform: `scale(${zoom})`, transformOrigin: "center center" }}
         >
-
-          {/* Extended Neural Network Background */}
+          {/* Warm linen map background */}
           <div
-            className="map-background absolute bg-linear-to-br from-black via-neutral-950 to-neutral-950/20"
+            className="map-background absolute bg-linear-to-br from-[#fffcf5] via-orange-50/60 to-amber-50/80"
             style={{
               width: MAP_BOUNDS.width,
               height: MAP_BOUNDS.height,
-              left: mapPosition.x - (MAP_BOUNDS.width - 800) / 2,
-              top: mapPosition.y - (MAP_BOUNDS.height - 384) / 2,
-              pointerEvents: "none", // Add this to ensure clicks pass through to the draggable area
+              left: mapPosition.x - (MAP_BOUNDS.width - 860) / 2,
+              top: mapPosition.y - (MAP_BOUNDS.height - 400) / 2,
+              pointerEvents: "none",
             }}
           >
-            {/* Neural network pattern overlay - covers entire map */}
+            {/* Dot grid */}
             <div
-              className="map-background absolute inset-0 opacity-15 pointer-events-none"
+              className="map-background absolute inset-0 pointer-events-none"
               style={{
-                backgroundImage: `
-                  radial-gradient(circle at 2px 2px, rgba(220, 38, 38, 0.4) 1px, transparent 0),
-                  linear-gradient(rgba(220, 38, 38, 0.1) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(220, 38, 38, 0.1) 1px, transparent 1px)
-                `,
-                backgroundSize: "40px 40px, 40px 40px, 40px 40px",
+                backgroundImage: `radial-gradient(circle at 1px 1px, rgba(120,80,40,0.08) 1px, transparent 0)`,
+                backgroundSize: "32px 32px",
               }}
             />
-
-            {/* Neural pathways - extended across entire map */}
-            <div className="map-background absolute inset-0 pointer-events-none">
-              {/* Diagonal neural connections */}
-              <div className="absolute inset-0">
-                {Array.from({ length: 8 }).map((_, i) => (
-                  <div
-                    key={`diagonal-${i}`}
-                    className="absolute bg-linear-to-br from-neutral-500/20 to-transparent"
-                    style={{
-                      width: "2px",
-                      height: "120px",
-                      top: `${(i * 15 + 10) % 80}%`,
-                      left: `${(i * 23 + 15) % 90}%`,
-                      transform: `rotate(${45 + i * 15}deg)`,
-                      transformOrigin: "top",
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Neural nodes - distributed across entire map */}
-            <div className="map-background absolute inset-0 pointer-events-none">
-              {neuralNodes.map((node) => (
-                <div
-                  key={`neural-${node.id}`}
-                  className="absolute w-1 h-1 bg-neutral-500/60 rounded-full animate-pulse"
-                  style={{
-                    left: `${node.x}px`,
-                    top: `${node.y}px`,
-                    animationDelay: `${node.delay}s`,
-                    animationDuration: `${node.duration}s`,
-                  }}
-                />
-              ))}
-
-              {/* Larger neural clusters */}
-              {neuralClusters.map((cluster) => (
-                <div
-                  key={`cluster-${cluster.id}`}
-                  className="absolute w-2 h-2 bg-neutral-400/40 rounded-full"
-                  style={{
-                    left: `${cluster.x}px`,
-                    top: `${cluster.y}px`,
-                    boxShadow: "0 0 8px rgba(220, 38, 38, 0.3)",
-                  }}
-                />
-              ))}
-            </div>
-
-            {/* Ambient neural glow */}
-            <div className="map-background absolute inset-0 bg-linear-to-br from-neutral-950/10 via-transparent to-neutral-900/5 pointer-events-none"></div>
-
-            {/* Subtle grid overlay */}
-            <div
-              className="map-background absolute inset-0 opacity-5 pointer-events-none"
-              style={{
-                backgroundImage: `repeating-linear-gradient(
-                  0deg,
-                  transparent,
-                  transparent 2px,
-                  rgba(220, 38, 38, 0.3) 2px,
-                  rgba(220, 38, 38, 0.3) 4px
-                )`,
-              }}
-            />
+            {/* Warm ambient blobs */}
+            <div className="map-background absolute top-1/4 left-1/3 w-64 h-64 bg-orange-300/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="map-background absolute bottom-1/4 right-1/4 w-48 h-48 bg-amber-300/10 rounded-full blur-3xl pointer-events-none" />
           </div>
 
-          {/* SVG for connections */}
+          {/* SVG Connections */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none">
-            <style>
-              {`
-                @keyframes dashDraw {
-                  to { stroke-dashoffset: -20; }
-                }
-              `}
-            </style>
-
-            <defs>
-              {/* Keep your existing filters if you want, but we are using CSS filters for the main lines now */}
-              <filter id="connectionGlow">
-                <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-                <feMerge>
-                  <feMergeNode in="coloredBlur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-
+            <style>{`@keyframes dashDraw { to { stroke-dashoffset: -20; } }`}</style>
             {skillNodes.map((node) =>
               node.connections.map((connectionId) => {
                 const targetNode = skillNodes.find((n) => n.id === connectionId)
                 if (!targetNode) return null
-
                 const isActive = isConnectionActive(node.id, connectionId)
                 const bothUnlocked = node.unlocked && targetNode.unlocked
-
-                // 2. Define state logic locally for readability
-                const getConnectionState = () => {
-                  if (isActive && bothUnlocked) return {
-                    color: "#ef4444", // Red (Active) - Matches your theme's active state
-                    width: 3,
-                    opacity: 1,
-                    dashed: true
-                  };
-                  if (bothUnlocked) return {
-                    color: "#0F172A", // Indigo/Violet (Unlocked)
-                    width: 3,
-                    dashed: true
-
-                  };
-                  return {
-                    color: "#ffffff", // Zinc-600 (Locked)
-                    width: 1,
-                    opacity: 0.3,
-                    dashed: false
-                  };
-                };
-
-                const style = getConnectionState();
-
+                const color = isActive ? "#f97316" : bothUnlocked ? "rgba(120,80,40,0.25)" : "rgba(120,80,40,0.08)"
+                const width = isActive ? 2.5 : 1.5
                 return (
                   <g key={`${node.id}-${connectionId}`}>
-                    {/* Layer 1: Background Path (Creates a border/shadow effect for better visibility) */}
+                    {isActive && (
+                      <path d={getConnectionPath(node, targetNode)} stroke="#fed7aa" strokeWidth={7} strokeOpacity={0.35} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                    )}
                     <path
                       d={getConnectionPath(node, targetNode)}
-                      stroke="#000000"
-                      strokeWidth={style.width + 2}
-                      strokeOpacity={0.5}
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="transition-all duration-300"
-                    />
-
-                    {/* Layer 2: Main Connection Line with Data Flow Animation */}
-                    <path
-                      d={getConnectionPath(node, targetNode)}
-                      stroke={style.color}
-                      strokeWidth={style.width}
-                      strokeOpacity={style.opacity}
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      // Create dashed pattern if active
-                      strokeDasharray={style.dashed ? "10, 10" : "none"}
-                      style={{
-                        // Animate the dash offset to create "flow"
-                        animation: style.dashed ? "dashDraw 1s linear infinite" : "none",
-                        // Apply glow via CSS drop-shadow which is often smoother than SVG filters
-                        filter: isActive ? "drop-shadow(0 0 6px rgba(239, 68, 68, 0.8))" : "none"
-                      }}
-                      className="transition-all duration-500 ease-in-out"
+                      stroke={color} strokeWidth={width} fill="none"
+                      strokeLinecap="round" strokeLinejoin="round"
+                      strokeDasharray={bothUnlocked ? "8, 8" : "none"}
+                      style={{ animation: bothUnlocked ? "dashDraw 1.5s linear infinite" : "none" }}
+                      className="transition-all duration-500"
                     />
                   </g>
-                );
-              }),
+                )
+              })
             )}
           </svg>
 
@@ -724,154 +530,136 @@ export function TechStackWindow(props: TechStackWindowProps) {
             const isHovered = hoveredNode === node.id
             const matchesSearch = node.name.toLowerCase().includes(searchTerm.toLowerCase())
             const categoryActive = activeCategories[node.category] ?? true
+            const isHub = ["core", "frontend", "backend", "database", "tools", "language", "3D"].includes(node.id)
 
             return (
               <div
                 key={node.id}
-                className={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 z-10 ${node.unlocked ? "hover:scale-110" : "opacity-60"
+                className={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 z-10 ${node.unlocked ? "hover:scale-110" : "opacity-50"
                   } ${isSelected ? "scale-110" : ""}`}
                 style={{
                   left: node.x + mapPosition.x,
                   top: node.y + mapPosition.y,
-                  opacity: matchesSearch && categoryActive ? 1 : 0.25,
+                  opacity: matchesSearch && categoryActive ? 1 : 0.2,
                   pointerEvents: matchesSearch && categoryActive ? undefined : "none",
                 }}
                 onClick={(e) => {
                   e.stopPropagation()
                   setSelectedNode(selectedNode === node.id ? null : node.id)
                 }}
+                onMouseEnter={() => setHoveredNode(node.id)}
+                onMouseLeave={() => setHoveredNode(null)}
               >
-                {/* Node container */}
+                {/* Node card */}
                 <div
                   className={`
-                    relative w-20 h-20 border-2 transition-all duration-300 backdrop-blur-sm
-                    ${node.unlocked ? "border-neutral-600" : "border-zinc-600 bg-zinc-800/50 text-zinc-500"} ${node.bgColor}
-                    ${isSelected ? "scale-110" : ""}
-                    ${isHovered ? "scale-105" : ""}
+                    relative flex items-center justify-center transition-all duration-300 backdrop-blur-sm
+                    ${isHub ? "w-24 h-24 rounded-2xl shadow-xl ring-2 border border-white/80" : "w-16 h-16 rounded-xl shadow-md ring-1 border border-white/60"}
+                    ${isSelected
+                      ? "ring-orange-400 shadow-orange-200/60 border-orange-300/60"
+                      : isHovered
+                        ? "ring-stone-950/20"
+                        : "ring-stone-950/8"
+                    }
+                    ${node.bgColor}
                   `}
-                  style={{
-                    clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
-                  }}
                 >
-                  {/* Inner neural pattern */}
-                  <div
-                    className="absolute inset-2 opacity-20"
-                    style={{
-                      backgroundImage: `
-                        radial-gradient(circle at 1px 1px, rgba(220, 38, 38, 0.6) 0.5px, transparent 0)
-                      `,
-                      backgroundSize: "4px 4px",
-                      clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
-                    }}
-                  />
-
-                  {/* Icon */}
-                  <div className={`absolute inset-0 flex items-center justify-center ${node.iconColor} z-10`}>
+                  <div className={`${isHub ? "scale-125" : ""} ${node.iconColor} z-10 flex items-center justify-center`}>
                     {node.icon}
                   </div>
 
-                  {/* Selection indicator */}
-                  {isSelected && (
-                    <div
-                      className="absolute inset-0 border-2 border-yellow-300 animate-pulse opacity-75"
-                      style={{
-                        clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
-                      }}
-                    />
+                  {!node.unlocked && (
+                    <div className="absolute inset-0 rounded-xl bg-white/50 flex items-center justify-center">
+                      <span className="text-[8px] font-black text-amber-600 uppercase tracking-widest">Soon</span>
+                    </div>
                   )}
 
-                  {/* Corner indicators */}
-                  <div className="absolute -top-1 -left-1 w-2 h-2 bg-neutral-400 rounded-full opacity-60"></div>
-                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-neutral-400 rounded-full opacity-60"></div>
-                  <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-neutral-400 rounded-full opacity-60"></div>
-                  <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-neutral-400 rounded-full opacity-60"></div>
+                  {isSelected && (
+                    <div className={`absolute inset-0 ${isHub ? "rounded-2xl" : "rounded-xl"} ring-2 ring-orange-400 animate-pulse opacity-60`} />
+                  )}
                 </div>
 
-                {/* Node label */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 text-center pointer-events-none">
-                  <div className={`text-xs font-semibold tracking-wide ${node.iconColor}`}>{node.name}</div>
+                {/* Label */}
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center pointer-events-none whitespace-nowrap">
+                  <div className={`font-black uppercase tracking-wider leading-none ${isHub ? "text-[12px] text-stone-950" : "text-[10px] text-stone-950/50"}`}>
+                    {node.name}
+                  </div>
                 </div>
               </div>
             )
           })}
 
           {/* Hover Tooltip */}
-          {hoveredNode && (() => {
+          {hoveredNode && !selectedNode && (() => {
             const node = skillNodes.find((n) => n.id === hoveredNode)
             if (!node) return null
-
             return (
               <div
-                className="absolute z-40 pointer-events-none bg-zinc-900/95 backdrop-blur-md text-sm text-zinc-100 p-3 rounded-lg shadow-xl border border-zinc-700/50"
-                style={{
-                  left: node.x + mapPosition.x + 50,
-                  top: node.y + mapPosition.y - 15,
-                  minWidth: 200,
-                }}
+                className="absolute z-40 pointer-events-none bg-stone-950/90 backdrop-blur-xl text-white p-3 rounded-xl shadow-2xl border border-white/10 max-w-50"
+                style={{ left: node.x + mapPosition.x + 52, top: node.y + mapPosition.y - 20, minWidth: 160 }}
               >
-                <div className="font-semibold text-sm mb-1">{node.name}</div>
-                <div className="text-xs text-zinc-400">{node.description}</div>
+                <div className="font-black text-xs mb-1 uppercase tracking-tight">{node.name}</div>
+                <div className="text-[10px] text-white/60 font-bold leading-snug">{node.description}</div>
                 {!node.unlocked && (
-                  <div className="mt-2 text-[10px] text-amber-400/80 flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400/80"></span>
-                    Learning in progress
+                  <div className="mt-1.5 text-[9px] text-amber-400 flex items-center gap-1 font-black uppercase tracking-widest">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block" />
+                    In progress
                   </div>
                 )}
               </div>
             )
           })()}
 
-          {/* Map boundaries indicator */}
-          {(mapPosition.x <= MAP_BOUNDS.minX + 10 ||
-            mapPosition.x >= MAP_BOUNDS.maxX - 10 ||
-            mapPosition.y <= MAP_BOUNDS.minY + 10 ||
-            mapPosition.y >= MAP_BOUNDS.maxY - 10) && (
-              <div className="absolute top-2 right-2 text-zinc-400 text-[10px] bg-zinc-800/80 border border-zinc-700/50 px-2 py-1 rounded-md backdrop-blur-sm">
+          {/* Edge of map indicator */}
+          {(mapPosition.x <= MAP_BOUNDS.minX + 10 || mapPosition.x >= MAP_BOUNDS.maxX - 10 ||
+            mapPosition.y <= MAP_BOUNDS.minY + 10 || mapPosition.y >= MAP_BOUNDS.maxY - 10) && (
+              <div className="absolute top-3 right-3 text-stone-950/40 text-[9px] font-black bg-white/70 border border-stone-950/10 px-2 py-1 rounded-full backdrop-blur-sm uppercase tracking-widest">
                 Edge of map
               </div>
             )}
         </div>
 
-        {/* Selected Node Details */}
-        {selectedNode && (
-          <div className="rounded-lg border border-zinc-700/30 p-4 bg-zinc-800/30 backdrop-blur-sm">
-            {(() => {
-              const node = skillNodes.find((n) => n.id === selectedNode)
-              if (!node) return null
-
-              return (
-                <div>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div
-                      className={`p-3 rounded-lg ${node.bgColor} border border-zinc-600/30`}
-                    >
-                      <div className={node.iconColor}>{node.icon}</div>
-                    </div>
-                    <div>
-                      <h3 className="text-zinc-100 font-semibold">{node.name}</h3>
-                      <div className={`text-xs ${node.unlocked ? "text-emerald-400" : "text-amber-400"}`}>
-                        {node.unlocked ? "Proficient" : "Learning"}
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-zinc-400 text-sm mb-3">{node.description}</p>
-
-                  {node.connections.length > 0 && (
-                    <div className="text-[10px] uppercase tracking-wider text-zinc-500">
-                      Connected to:{" "}
-                      <span className="text-zinc-400">
-                        {node.connections
-                          .map((id) => skillNodes.find((n) => n.id === id)?.name)
-                          .filter(Boolean)
-                          .join(", ")}
-                      </span>
-                    </div>
-                  )}
+        {/* ── Selected Node Detail Panel ── */}
+        {selectedNode && (() => {
+          const node = skillNodes.find((n) => n.id === selectedNode)
+          if (!node) return null
+          return (
+            <div className="shrink-0 flex items-start gap-4 p-4 rounded-2xl border border-white/60 bg-white/50 backdrop-blur-sm shadow-sm ring-1 ring-stone-950/5">
+              <div className={`p-3.5 rounded-xl ${node.bgColor} border border-white/60 shadow-sm shrink-0 flex items-center justify-center`}>
+                <div className={`${node.iconColor} w-7 h-7 flex items-center justify-center`}>{node.icon}</div>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <h3 className="text-stone-950 font-black text-sm uppercase tracking-tight">{node.name}</h3>
+                  <span className={`text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full ${node.unlocked ? "bg-emerald-500/20 text-emerald-700" : "bg-amber-400/20 text-amber-700"
+                    }`}>
+                    {node.unlocked ? "Proficient" : "Learning"}
+                  </span>
                 </div>
-              )
-            })()}
-          </div>
-        )}
+                <p className="text-stone-700 text-xs font-bold mb-2">{node.description}</p>
+                <div className="flex items-center gap-2">
+                  <div className="h-1.5 flex-1 bg-stone-950/8 rounded-full overflow-hidden">
+                    <div className={`h-full rounded-full transition-all duration-700 ${node.unlocked
+                      ? "bg-linear-to-r from-orange-400 to-amber-400 w-4/5"
+                      : "bg-linear-to-r from-amber-300 to-yellow-300 w-2/5"
+                      }`} />
+                  </div>
+                  <span className="text-[9px] font-black text-stone-950/40 uppercase tracking-wider">
+                    {node.unlocked ? "80%" : "~40%"}
+                  </span>
+                </div>
+                {node.connections.length > 0 && (
+                  <div className="mt-2 text-[9px] uppercase font-black tracking-widest text-stone-950/30">
+                    Links:{" "}
+                    <span className="text-stone-700">
+                      {node.connections.map((id) => skillNodes.find((n) => n.id === id)?.name).filter(Boolean).join(" · ")}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+          )
+        })()}
       </div>
     </BaseWindow>
   )

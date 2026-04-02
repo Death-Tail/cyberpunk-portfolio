@@ -9,7 +9,7 @@ interface ContactPageProps {
 }
 
 export default function ContactPage({ onBack }: ContactPageProps) {
-const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState(false);
   const username = "death_tail";
 
   const copyToClipboard = async () => {
@@ -78,23 +78,23 @@ const [copied, setCopied] = useState(false);
 
 
   return (
-    <BasePage title="CONTACT" onBack={onBack}>
+    <BasePage title="INQUIRIES" onBack={onBack}>
       <div className="relative space-y-6">
         {/* Availability Status */}
-        <div className="relative border border-green-500/30 p-4 bg-green-500/5 rounded-lg">
-          <div className="flex items-center mb-2">
-            <div className="w-3 h-3 bg-green-500 rounded-full mr-2 animate-pulse" />
-            <span className="text-green-400 text-sm font-bold">CURRENTLY AVAILABLE</span>
+        <div className="relative border border-white/60 p-6 bg-white/40 rounded-3xl backdrop-blur-3xl shadow-xl ring-1 ring-white/60">
+          <div className="flex items-center mb-4">
+            <div className="w-3 h-3 bg-orange-400 rounded-full mr-3 animate-pulse shadow-[0_0_8px_rgba(251,146,60,0.4)]" />
+            <span className="text-stone-950 text-sm font-black tracking-widest uppercase">Currently Available</span>
           </div>
-          <div className="text-green-400/80 text-xs mb-2">Open for new projects and collaborations</div>
-          <div className="grid grid-cols-2 gap-3 text-xs">
+          <div className="text-stone-800 text-xs mb-4 font-bold leading-relaxed">Open for new architectural challenges and harmonic collaborations.</div>
+          <div className="grid grid-cols-2 gap-4">
             <div>
-              <div className="text-green-400/70">Response Time</div>
-              <div className="text-green-400">Within 24 hours</div>
+              <div className="text-stone-950/40 font-black uppercase tracking-[0.2em] text-[9px] mb-1">Response Time</div>
+              <div className="text-stone-950 font-black text-xs uppercase">Within 24 Hours</div>
             </div>
             <div>
-              <div className="text-green-400/70">Timezone</div>
-              <div className="text-green-400">GMT+3 (Kurdistan)</div>
+              <div className="text-stone-950/40 font-black uppercase tracking-[0.2em] text-[9px] mb-1">Timezone</div>
+              <div className="text-stone-950 font-black text-xs uppercase">GMT+3 (Erbil)</div>
             </div>
           </div>
         </div>
@@ -102,35 +102,35 @@ const [copied, setCopied] = useState(false);
         {/* Contact Methods */}
         <div className="space-y-3">
           <div className="flex items-center mb-3">
-            <Shield className="w-4 h-4 text-yellow-400 mr-2" />
-            <span className="text-yellow-400 text-xs font-bold">CONTACT CHANNELS</span>
+            <Shield className="w-4 h-4 text-memory-pink mr-2" />
+            <span className="text-stone-600 text-[10px] font-bold uppercase tracking-[0.2em]">Contact Channels</span>
           </div>
 
           {contactMethods.map((contact) => (
-            <div key={contact.platform} className="relative border border-neutral-600/30 p-4 bg-neutral-600/5 rounded-lg">
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-start gap-3">
-                  <div className="p-2 ">{contact.icon}</div>
+            <div key={contact.platform} className="relative border border-white/60 p-6 bg-white/40 rounded-3xl backdrop-blur-3xl shadow-xl ring-1 ring-white/60 group hover:scale-[1.01] transition-all duration-300">
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-white/60 rounded-2xl ring-1 ring-white/40 shadow-sm">{contact.icon}</div>
                   <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-white font-bold text-sm">{contact.platform}</h3>
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <h3 className="text-stone-950 font-black text-base tracking-tighter uppercase">{contact.platform}</h3>
                       {contact.preferred && (
-                        <span className="px-2 py-0.5 bg-yellow-500/20 border border-yellow-500/50 text-yellow-400 text-xs rounded">
-                          PREFERRED
+                        <span className="px-3 py-1 bg-orange-100 text-orange-700 text-[9px] font-black rounded-full uppercase tracking-widest">
+                          Preferred
                         </span>
                       )}
                     </div>
-                    <div className="text-neutral-400/70 text-xs mb-2 font-mono">{contact.handle}</div>
-                    <p className="text-neutral-400/60 text-xs mb-2">{contact.description}</p>
+                    <div className="text-stone-950/40 text-[10px] mb-3 font-black tracking-widest uppercase">{contact.handle}</div>
+                    <p className="text-stone-800 text-xs mb-4 leading-relaxed font-bold">{contact.description}</p>
 
-                    <div className="grid grid-cols-2 gap-2 text-xs">
-                      <div className="flex items-center">
-                        <Clock className="w-3 h-3 mr-1 text-neutral-400" />
-                        <span className="text-neutral-400/80">{contact.responseTime}</span>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="flex items-center font-black text-[10px] text-stone-950/40 uppercase tracking-widest">
+                        <Clock className="w-3.5 h-3.5 mr-2 text-orange-400" />
+                        <span>{contact.responseTime}</span>
                       </div>
-                      <div className="flex items-center">
-                        <div className="w-2 h-2 bg-green-500 rounded-full mr-1" />
-                        <span className="text-green-400/80">{contact.availability}</span>
+                      <div className="flex items-center font-black text-[10px] text-stone-950/40 uppercase tracking-widest">
+                        <div className="w-1.5 h-1.5 bg-amber-400 rounded-full mr-2 shadow-sm" />
+                        <span>{contact.availability}</span>
                       </div>
                     </div>
                   </div>
@@ -141,40 +141,46 @@ const [copied, setCopied] = useState(false);
                 href={contact.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-2 bg-neutral-500/20 border border-neutral-500/50 text-white rounded hover:bg-neutral-500/30 transition-colors text-sm"
+                className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-stone-950 text-white font-black rounded-2xl hover:bg-stone-800 transition-all text-[10px] shadow-lg uppercase tracking-[0.4em] active:scale-95"
               >
-                <span>Contact via {contact.platform}</span>
-                <Send className="w-3 h-3" />
+                <span>Initiate Echo</span>
+                <Send className="w-3.5 h-3.5 text-orange-400" />
               </a>
             </div>
           ))}
         </div>
 
         {/* Additional Info */}
-        <div className="relative border border-purple-500/30 p-4 bg-purple-500/5 rounded-lg">
-          <div className="flex items-center mb-3">
-            <AlertCircle className="w-4 h-4 text-purple-400 mr-2" />
-            <span className="text-purple-400 text-xs font-bold">PROJECT INQUIRIES</span>
+        <div className="relative border border-white/60 p-6 bg-white/40 rounded-3xl backdrop-blur-3xl shadow-xl ring-1 ring-white/60">
+          <div className="flex items-center mb-4">
+            <div className="w-3 h-3 bg-amber-400 rounded-full mr-3 animate-pulse shadow-sm" />
+            <span className="text-stone-950/40 text-[10px] font-black uppercase tracking-[0.3em]">Protocol Guidelines</span>
           </div>
-          <div className="space-y-2 text-xs text-purple-400/80">
-            <p>• Include project timeline and budget range for faster response</p>
-            <p>• Provide detailed requirements and technical specifications</p>
-            <p>• Mention preferred communication method and timezone</p>
-          <p>
-      • For urgent matters, use{" "}
-      <span
-        onClick={copyToClipboard}
-        className="text-blue-500 cursor-pointer hover:underline font-medium relative"
-        title="Click to copy username"
-      >
-        Discord: {username}
-        {copied && (
-          <span className="absolute -top-8 left-0 bg-gray-800 text-white text-xs py-1 px-2 rounded">
-            Copied!
-          </span>
-        )}
-      </span>
-    </p>
+          <div className="space-y-3 text-[11px] text-stone-800 font-bold">
+            <p className="flex items-start gap-2">
+              <span className="text-orange-500 font-black leading-none">•</span>
+              Include project timeline and budget range for faster response
+            </p>
+            <p className="flex items-start gap-2">
+              <span className="text-orange-500 font-black leading-none">•</span>
+              Provide detailed requirements and technical specifications
+            </p>
+            <p className="flex items-start gap-2">
+              <span className="text-orange-500 font-black leading-none">•</span>
+              For urgent matters, use{" "}
+              <span
+                onClick={copyToClipboard}
+                className="text-stone-950 cursor-pointer hover:text-orange-600 transition-colors font-black relative underline decoration-orange-400/40"
+                title="Click to copy username"
+              >
+                Discord: {username}
+                {copied && (
+                  <span className="absolute -top-12 left-0 bg-stone-950 text-white text-[10px] py-2 px-4 rounded-full shadow-2xl font-black uppercase tracking-widest z-50">
+                    Copied
+                  </span>
+                )}
+              </span>
+            </p>
           </div>
         </div>
       </div>

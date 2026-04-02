@@ -1,9 +1,9 @@
-import Profile from "./Profile.webp";
+import Profile from "./Profile.png";
 import Terminal from "./Terminal.webp";
-import Projects from "./Projects.webp";
-import Contact from "./Contact.webp";
-import Techstack from "./Techstack.webp";
-import Resume from "./Resume.webp";
+import Projects from "./Projects.png";
+import Contact from "./Contact.png";
+import Techstack from "./Techstack.png";
+import Resume from "./Resume.png";
 // import Services from "./Services.webp";
 
 export const Icons = {

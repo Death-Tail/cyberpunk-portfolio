@@ -2,8 +2,9 @@
 import { Desktop } from "@/components/desktop"
 import { Taskbar } from "@/components/taskbar"
 import { WindowManager } from "@/components/window-manager"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import MobileOS from "@/components/mobile-os"
+import { CyberpunkBoot } from "@/components/cyberpunk-boot"
 
 interface WindowType {
   id: string
@@ -16,6 +17,16 @@ interface WindowType {
 export default function Home() {
   const [openWindows, setOpenWindows] = useState<WindowType[]>([])
   const [activeWindow, setActiveWindow] = useState("")
+  const [isMobile, setIsMobile] = useState<boolean | null>(null)
+  const [bootComplete, setBootComplete] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)")
+    setIsMobile(mq.matches)
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches)
+    mq.addEventListener("change", handler)
+    return () => mq.removeEventListener("change", handler)
+  }, [])
 
   const openWindow = (windowType: string) => {
     // 1. Check if this specific window type is already open
@@ -89,30 +100,34 @@ export default function Home() {
 
   return (
     <>
-      <div className="block md:hidden">
+      {!bootComplete && (
+        <CyberpunkBoot onComplete={() => setBootComplete(true)} />
+      )}
+
+      {bootComplete && (isMobile === null ? null : isMobile ? (
         <MobileOS />
-      </div>
+      ) : (
+        <main className="fixed inset-0 bg-zinc-900 text-red-50 overflow-hidden font-mono">
+          <div className="transition-opacity duration-1000">
+            <Desktop onOpenWindow={openWindow} />
 
-      <main className="hidden md:block fixed inset-0 bg-zinc-900 text-red-50 overflow-hidden font-mono">
-        <div className="transition-opacity duration-1000">
-          <Desktop onOpenWindow={openWindow} />
+            <WindowManager
+              windows={openWindows}
+              activeWindow={activeWindow}
+              onClose={closeWindow}
+              onMinimize={minimizeWindow}
+              onFocus={focusWindow}
+            />
 
-          <WindowManager
-            windows={openWindows}
-            activeWindow={activeWindow}
-            onClose={closeWindow}
-            onMinimize={minimizeWindow}
-            onFocus={focusWindow}
-          />
-
-          <Taskbar
-            windows={openWindows}
-            onOpenWindow={openWindow}
-            onFocusWindow={focusWindow}
-            onMinimizeWindow={minimizeWindow}
-          />
-        </div>
-      </main>
+            <Taskbar
+              windows={openWindows}
+              onOpenWindow={openWindow}
+              onFocusWindow={focusWindow}
+              onMinimizeWindow={minimizeWindow}
+            />
+          </div>
+        </main>
+      ))}
     </>
   )
 }

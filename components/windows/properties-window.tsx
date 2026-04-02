@@ -60,31 +60,31 @@ export function PropertiesWindow({
             />
           </div>
           <div>
-            <div className="font-bold text-white uppercase">{targetType}</div>
-            <div className="text-[10px] text-zinc-500">{data.type}</div>
+            <div className="font-bold text-memory-brown uppercase">{targetType}</div>
+            <div className="text-[10px] text-memory-brown/50">{data.type}</div>
           </div>
         </div>
 
-        <div className="h-px bg-zinc-800" />
+        <div className="h-px bg-memory-brown/10" />
 
         <div className="grid grid-cols-2 gap-y-3 text-xs">
-          <span className="text-zinc-500 font-semibold">Type:</span>
-          <span className="text-zinc-300">File Folder</span>
+          <span className="text-memory-brown/50 font-semibold">Type:</span>
+          <span className="text-memory-brown font-medium">File Folder</span>
 
-          <span className="text-zinc-500 font-semibold">Location:</span>
-          <span className="text-zinc-300 truncate">C:/Portfolio/{targetType}</span>
+          <span className="text-memory-brown/50 font-semibold">Location:</span>
+          <span className="text-memory-brown font-medium truncate">C:/Portfolio/{targetType}</span>
 
-          <span className="text-zinc-500 font-semibold">Size:</span>
-          <span className="text-zinc-300">{data.size}</span>
+          <span className="text-memory-brown/50 font-semibold">Size:</span>
+          <span className="text-memory-brown font-medium">{data.size}</span>
 
-          <span className="text-zinc-500 font-semibold">Created:</span>
-          <span className="text-zinc-300">{data.created}</span>
+          <span className="text-memory-brown/50 font-semibold">Created:</span>
+          <span className="text-memory-brown font-medium">{data.created}</span>
         </div>
 
-        <div className="pt-6 border-t border-zinc-800 flex justify-end">
+        <div className="pt-6 border-t border-memory-brown/10 flex justify-end">
           <button
             onClick={onClose}
-            className="px-6 py-1 bg-neutral-800 hover:bg-neutral-700 text-xs border border-neutral-600 rounded transition-colors"
+            className="px-6 py-1 bg-white/40 hover:bg-white/60 text-xs border border-white/60 text-memory-brown font-semibold rounded-lg transition-colors"
           >
             Close
           </button>

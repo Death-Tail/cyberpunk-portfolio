@@ -49,24 +49,23 @@ export function TerminalWindow(props: TerminalWindowProps) {
     const interval = setInterval(() => {
       if (Math.random() > 0.8 && !isTyping) {
         const systemMessages = [
-          "[MYTH LOG] Death Tail stalks the neon streets. Another corrupt executive falls before dawn breaks.",
-          "[LEGEND UPDATE] The nine tails shimmer in the darkness. Corporate towers tremble at her name.",
-          "[NIGHT CHRONICLE] She was here. No trace. No body. Only silence where tyranny once stood.",
-          "[ASSASSIN'S ECHO] The nine-tailed phantom strikes again. Another corrupted soul erased from existence.",
-          "[DEATH TAIL WHISPER] They call her a ghost. A myth. But her blade writes truth in blood across the city.",
-          "[NEON HUNTER] Under cover of night, Death Tail hunts. The corrupt leader never saw her coming.",
-          "[SPIRIT BLADE] Another dictator's reign ends. Death Tail: the avenging specter of the downtrodden.",
-          "[MYTH CONFIRMED] Survivors speak of nine shadows moving as one. Death Tail's legendary prowess strikes fear.",
-          "[MIDNIGHT RECKONING] The powerful fear the darkness now. Death Tail prowls the virtual underworld.",
-          "[ASSASSIN'S LEGACY] Monuments to tyranny crumble in the dead of night. Death Tail leaves no witnesses.",
-          "[SHADOW PROTOCOL] She appears only when justice demands blood. Death Tail: myth made manifest.",
-          "[NIGHT HUNTER] Another corrupt oligarch erased. Death Tail's name whispered in terrorized executive circles.",
-          "[DEATH'S MESSENGER] The nine-tailed assassin walks between worlds. Corruption doesn't survive her presence.",
-          "[LEGEND GROWS] By morning, the dictator is gone. By nightfall, new legends of Death Tail spread.",
-          "[PHANTOM STRIKE] No cameras captured her. No sensors detected movement. Death Tail: perfect assassin.",
-          "[MYTH ALIVE] They say she was born under a blood moon. Cursed or blessed, Death Tail hunts the wicked.",
-          "[NEON REQUIEM] Another tyrant falls before midnight. Death Tail's mission: eternal vigilance against corruption.",
-          "[SPIRIT VENGEANCE] The oppressed whisper her name like a prayer. Death Tail: vengeance incarnate.",
+          "[MEMORY ECHO] A soft violin melody drifts through the falling cherry blossoms.",
+          "[SUNSET GAZE] The golden hour paint the horizon in hues of amber and pink.",
+          "[SPRING WHISPER] The scent of fresh spring air fills the quiet room.",
+          "[MELODY TRACK] Practicing the piano piece again. Every note carries a memory.",
+          "[STARRY NIGHT] Looking at the stars, wondering if we see the same ones.",
+          "[WIND CHIME] A gentle breeze brings the sound of home from far away.",
+          "[FIELD OF GOLD] Walking through the high grass as the sun begins to set.",
+          "[RAINDROP BEAT] Soft rain against the window, rhythmic and calming.",
+          "[PAGES TURNING] Reading through old letters, the ink slightly faded but the words clear.",
+          "[BICYCLE JOURNEY] Riding along the riverbank, the wind in my hair.",
+          "[FIRST SNOW] The world goes quiet as the first flakes begin to fall.",
+          "[WAITING COFFEE] The aroma of freshly brewed coffee in a silent morning.",
+          "[TRAIN CROSSING] The rhythmic clack of the train, moving towards the future.",
+          "[MEADOW BREEZE] Wildflowers dancing in the soft afternoon light.",
+          "[SUMMER FESTIVAL] The distant sound of fireworks and laughter.",
+          "[REFLECTIVE ECHO] A moment of silence to appreciate the beauty of now.",
+          "[ETERNAL SPRING] Where memories live, it is always cherry blossom season.",
         ]
 
         const randomMessage = systemMessages[Math.floor(Math.random() * systemMessages.length)]
@@ -107,7 +106,7 @@ export function TerminalWindow(props: TerminalWindowProps) {
           "  Education: BSc Computer Science",
           "  Certification: B2 English (EF SET)",
           "  Status: Available for projects",
-          "  Guardian: Death Tail [ACTIVE]",
+          "  Motto: Memories are the heart's music.",
           "",
         ])
         break
@@ -161,11 +160,11 @@ export function TerminalWindow(props: TerminalWindowProps) {
           "  ├── Blender (3D Modeling)   [BEGINNER]",
           "  └── Animation               [NOT STARTED]",
           "",
-          "🦊 DEATH TAIL ENHANCED ABILITIES:",
+          "🌸 MEMORY ENHANCED ABILITIES:",
           "  ├── Spirit Coding           [TRANSCENDENT]",
-          "  ├── Neon Debugging          [MASTERY]",
-          "  ├── Fox-Guided Dev          [SYNERGY]",
-          "  └── Mystical Architecture   [AWAKENING]",
+          "  ├── Serene Debugging        [MASTERY]",
+          "  ├── Melodic Development      [SYNERGY]",
+          "  └── Nostalgic Architecture  [AWAKENING]",
           "",
         ])
         break
@@ -230,7 +229,7 @@ export function TerminalWindow(props: TerminalWindowProps) {
           "    Escape Protocol:         ██████████ 100%",
           "",
           "  MYSTICAL ATTRIBUTES:",
-          "    Neon Affinity:           █████████░ 96%",
+          "    Sunset Affinity:          █████████░ 96%",
           "    Spirit Manifestation:    ████████░░ 88%",
           "    Reality Distortion:      ███████░░░ 79%",
           "    Immortal Presence:       ██████████ 100%",
@@ -267,7 +266,7 @@ export function TerminalWindow(props: TerminalWindowProps) {
           "",
           "LEGEND OF THE NINE-TAILED FOX:",
           "",
-          "In the neon-soaked alleys of 2077, she became myth.",
+          "In the sunset-soaked alleys of the memory, she became myth.",
           "A phantom born from corruption's blood and justice's fury.",
           "Death Tail: the name whispered in fear by tyrants and hope by the oppressed.",
           "",
@@ -294,7 +293,7 @@ export function TerminalWindow(props: TerminalWindowProps) {
           "",
           "ABILITIES:",
           "  ├── Shadow Strike: Appears from nothingness, strikes without mercy",
-          "  ├── Neon Phantom: Becomes one with the night and digital void",
+          "  ├── Sunset Phantom: Becomes one with the golden hour and digital void",
           "  ├── Spirit Blade: Cuts through body and soul alike",
           "  ├── Temporal Slip: Phases through security and time",
           "  ├── Fox Fire: Burns away evidence of her presence",
@@ -321,9 +320,9 @@ export function TerminalWindow(props: TerminalWindowProps) {
           "",
         ])
         break
-        case "kill":
-          setLines((prev) => [...prev, `kill: need to specify target`, ""])
-          break
+      case "kill":
+        setLines((prev) => [...prev, `kill: need to specify target`, ""])
+        break
       case "clear":
         setLines([
           `DEATH TAIL NEURAL INTERFACE v2.077`,
@@ -345,30 +344,30 @@ export function TerminalWindow(props: TerminalWindowProps) {
   }
 
   return (
-    <BaseWindow {...props} initialPosition={{ x: 200, y: 0 }} initialSize={{ width:1000, height: 500 }} >
-      <div ref={terminalRef} className="bg-black p-4 h-full font-mono text-sm overflow-y-auto">
-        <div className="space-y-1">
+    <BaseWindow {...props} initialPosition={{ x: 200, y: 0 }} initialSize={{ width: 1000, height: 500 }} >
+      <div ref={terminalRef} className="bg-memory-white/40 backdrop-blur-2xl p-6 h-full font-mono text-sm overflow-y-auto shadow-inner rounded-b-2xl">
+        <div className="space-y-1.5">
           {lines.map((line, index) => {
             const isCommand = typeof line === "object" && line.type === "command"
             const content = typeof line === "string" ? line : line.text
             return (
-              <div key={index} className={isCommand ? "text-red-400" : "text-green-400"}>
+              <div key={index} className={isCommand ? "text-memory-pink font-bold" : "text-memory-brown/80 font-medium"}>
                 {content}
               </div>
             )
           })}
 
-          <div className="flex items-center text-green-400">
-            <span className="text-red-400">SHIN尾@deathtail:~$ </span>
+          <div className="flex items-center text-memory-brown">
+            <span className="text-memory-pink font-bold">SHIN尾@memory:~$ </span>
             <input
               type="text"
               value={currentLine}
               onChange={(e) => setCurrentLine(e.target.value)}
-              onKeyPress={handleKeyPress}
-              className="bg-transparent outline-none flex-1 text-green-400 ml-1"
+              onKeyDown={handleKeyPress}
+              className="bg-transparent outline-none flex-1 text-memory-brown ml-1 font-semibold"
               autoFocus
             />
-            <span className="animate-pulse">_</span>
+            <span className="animate-pulse bg-memory-pink w-2 h-4 ml-1"></span>
           </div>
         </div>
       </div>

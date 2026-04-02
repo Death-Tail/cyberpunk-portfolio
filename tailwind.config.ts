@@ -45,6 +45,7 @@ const config = {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        "os-accent": "hsl(var(--os-accent))",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -53,7 +54,27 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Custom colors
+        // Memory Theme Colors - Sunset & Sakura
+        memory: {
+          pink: "#fbcfe8", // Soft Sakura Pink
+          gold: "#fbbf24", // Sunset Gold
+          brown: "#2d1b1e", // Deep Ebony Brown (High Contrast)
+          sky: "#bae6fd", // Clear Sky Blue
+          white: "#fff5f5", // Warm Rose White
+        },
+        mist: {
+          50: "#f8fafc",
+          100: "#f1f5f9",
+          200: "#e2e8f0",
+          300: "#cbd5e1", // The color user used in manual edits
+          400: "#94a3b8",
+          500: "#64748b",
+          600: "#475569",
+          700: "#334155",
+          800: "#1e293b",
+          900: "#0f172a",
+          950: "#020617",
+        },
         orange: {
           400: "#fb923c",
           500: "#f97316",

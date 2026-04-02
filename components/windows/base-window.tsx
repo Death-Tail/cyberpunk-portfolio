@@ -106,13 +106,13 @@ export function BaseWindow({
         zIndex: isActive ? zIndex : zIndex - 1,
       }}
       className={`
-        bg-zinc-900/95 backdrop-blur-xl
-        border rounded-lg
+        bg-white/80 backdrop-blur-2xl
+        border rounded-[20px]
         flex flex-col
-        transition-shadow duration-300
+        transition-all duration-300 outline outline-white/40
         ${isActive
-          ? 'border-zinc-600/50 shadow-2xl shadow-black/50'
-          : 'border-zinc-700/30 shadow-lg shadow-black/30'
+          ? 'border-white/60 shadow-[0_16px_40px_rgba(249,168,212,0.2)]'
+          : 'border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.1)]'
         }
       `}
       onClick={onFocus}
@@ -121,42 +121,42 @@ export function BaseWindow({
       <div
         ref={headerRef}
         className={`
-          px-4 py-3 flex items-center justify-between
+          px-5 py-4 flex items-center justify-between
           cursor-grab active:cursor-grabbing
-          border-b transition-colors duration-200
+          border-b transition-colors duration-200 rounded-t-[20px]
           ${isActive
-            ? 'bg-zinc-800/80 border-zinc-700/50'
-            : 'bg-zinc-800/50 border-zinc-800/50'
+            ? 'bg-white/40 border-white/50'
+            : 'bg-white/10 border-white/20'
           }
         `}
       >
         <div className="flex items-center gap-3">
-          <div className={`w-2 h-2 rounded-full transition-colors ${isActive ? 'bg-emerald-500' : 'bg-zinc-600'}`} />
-          <h2 className={`text-sm font-medium tracking-wide transition-colors ${isActive ? 'text-zinc-100' : 'text-zinc-400'}`}>
+          <div className={`w-3 h-3 rounded-full transition-colors border shadow-sm ${isActive ? 'bg-memory-pink border-white/80' : 'bg-memory-pink/40 border-white/30'}`} />
+          <h2 className={`text-xs font-bold uppercase tracking-[0.2em] transition-colors ${isActive ? 'text-stone-950' : 'text-stone-600'}`}>
             {title}
           </h2>
         </div>
-        <div className="flex gap-1.5">
+        <div className="flex gap-2">
           <button
             onClick={handleMinimize}
-            className="w-7 h-7 flex items-center justify-center rounded-md text-zinc-500 hover:text-zinc-200 hover:bg-zinc-700/50 transition-all duration-150"
+            className="w-8 h-8 flex items-center justify-center rounded-xl text-black hover:text-memory-brown hover:bg-mist-300 hover:shadow-sm transition-all duration-300"
             title="Minimize"
           >
-            <Minus className="w-3.5 h-3.5" />
+            <Minus className="w-4 h-4" />
           </button>
           <button
             onClick={onClose}
-            className="w-7 h-7 flex items-center justify-center rounded-md text-zinc-500 hover:text-white hover:bg-red-500/80 transition-all duration-150"
+            className="w-8 h-8 flex items-center justify-center rounded-xl text-black hover:text-white hover:bg-red-400 hover:shadow-sm transition-all duration-300"
             title="Close"
           >
-            <X className="w-3.5 h-3.5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
       </div>
 
       {/* Window Content */}
       {!isMinimized && (
-        <div className="flex-1 overflow-auto p-5 text-zinc-100">
+        <div className="flex-1 overflow-auto p-6 text-stone-950 custom-scrollbar">
           {children}
         </div>
       )}
