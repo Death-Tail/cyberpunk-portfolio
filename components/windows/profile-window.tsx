@@ -32,7 +32,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
             <div className="flex items-center gap-4 text-xs text-stone-700">
               <span className="flex items-center gap-1.5 font-bold">
                 <MapPin className="w-3.5 h-3.5 text-memory-pink" />
-                Erbil, Iraq
+                Hawler, Iraq
               </span>
             </div>
           </div>
@@ -51,7 +51,7 @@ export function ProfileWindow(props: ProfileWindowProps) {
               BSc in Computer Science with a focus on building performant, scalable applications.
             </p>
             <p className="text-stone-500 italic">
-              Currently exploring Unreal Engine and Blender for 3D art and animation.
+              Currently working as data Engineer at <a href="https://kanidata.com" target="_blank" rel="noopener noreferrer" className="text-stone-950 font-black underline decoration-memory-pink/60">kanidata</a>.
             </p>
           </div>
         </div>

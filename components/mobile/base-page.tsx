@@ -46,7 +46,7 @@ export default function BasePage({ title, onBack, children }: BasePageProps) {
 
         <div className="relative text-center">
           <div
-            className="absolute inset-x-0 h-0.5 bg-linear-to-r from-transparent via-orange-400/40 to-transparent"
+            className="absolute inset-x-0 h-0.5 bg-linear-to-r from-transparent via-pink-400/40 to-transparent"
             style={{ top: -12 }}
           />
           <h1 className="text-2xl font-black text-stone-950 tracking-tighter uppercase drop-shadow-sm">

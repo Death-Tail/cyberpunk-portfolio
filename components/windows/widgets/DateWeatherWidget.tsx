@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { Cloud, CloudLightning, CloudRain, CloudSnow, CloudSun, Loader2, MapPin, Sun } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-// Erbil Coordinates
+// Hawler Coordinates
 const LAT = 36.19
 const LON = 44.01
 
@@ -102,7 +102,7 @@ export function DateWeatherWidget({ className }: { className?: string }) {
 
         <div className="flex items-center gap-2 text-xs text-white/80 font-bold uppercase tracking-[0.15em]">
           <MapPin className="w-3.5 h-3.5 text-memory-pink" />
-          <span>Erbil, IQ</span>
+          <span>Hawler, IQ</span>
         </div>
       </div>
     </div>

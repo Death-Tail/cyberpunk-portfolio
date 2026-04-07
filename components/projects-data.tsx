@@ -12,9 +12,12 @@ export const projects = [
       "General Directorate of Combating Violence Against Women and Families",
     status: "Under Development",
     year: "2026",
-    icon: (<div className="w-10 h-10 bg-zinc-900 flex items-center justify-center text-white font-bold text-xs rounded">
-      DCVAW
-    </div>
+    icon: (
+      <img
+        src="projects/dcvaw/logo.jpg"
+        alt="DCVAW Logo"
+        className="w-10 h-10 object-contain"
+      />
     ),
     images: [],
     tech: [],
@@ -174,9 +177,11 @@ export const projects = [
     status: "DEPLOYED",
     year: "2025",
     icon: (
-      <div className="w-10 h-10 bg-zinc-900 flex items-center justify-center text-white font-bold text-xs rounded">
-        Dr.
-      </div>
+      <img
+        src="projects/drawara/logosmall.jpg"
+        alt="Dr. Awara Logo"
+        className="w-10 h-10 object-contain"
+      />
     ),
     images: [
       IconsAwara.img1,

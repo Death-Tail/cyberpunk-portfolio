@@ -99,7 +99,7 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
         >
           <div className="relative group">
             {/* warm golden glow behind logo */}
-            <div className="absolute inset-0 bg-orange-400/20 rounded-full blur-3xl scale-150 animate-pulse" />
+            <div className="absolute inset-0 bg-pink-400/20 rounded-full blur-3xl scale-150 animate-pulse" />
 
             {/* Logo */}
             <div className="relative w-40 h-40 sm:w-56 sm:h-56 drop-shadow-[0_20px_50px_rgba(45,27,30,0.15)] transition-transform duration-1000 group-hover:scale-105">
@@ -117,7 +117,7 @@ export function CyberpunkBoot({ onComplete }: SimpleBootProps) {
           <div className="w-full space-y-4">
             <div className="w-full h-1.5 bg-stone-950/5 rounded-full overflow-hidden backdrop-blur-sm border border-stone-950/5 relative">
               <div
-                className="h-full bg-linear-to-r from-orange-400 via-amber-400 to-orange-400 rounded-full transition-all duration-300 ease-out relative shadow-[0_0_10px_rgba(251,146,60,0.4)]"
+                className="h-full bg-linear-to-r from-pink-400 via-amber-400 to-pink-400 rounded-full transition-all duration-300 ease-out relative shadow-[0_0_10px_rgba(251,146,60,0.4)]"
                 style={{ width: `${loadingProgress}%` }}
               >
                 <div className="absolute inset-0 bg-white/30 animate-pulse rounded-full" />

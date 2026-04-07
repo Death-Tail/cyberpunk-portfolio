@@ -55,7 +55,7 @@ export function MusicPlayerWidget({ className }: { className?: string }) {
       )}
     >
       {/* Warm amber glow blob */}
-      <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 bg-orange-400/20 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 bg-pink-400/20 rounded-full blur-3xl" />
       <div className="pointer-events-none absolute -bottom-8 -left-8 w-32 h-32 bg-amber-300/15 rounded-full blur-2xl" />
 
       <div className="relative p-4 flex gap-4 items-center">
@@ -75,7 +75,7 @@ export function MusicPlayerWidget({ className }: { className?: string }) {
             <div className="absolute inset-[16%] rounded-full border border-white/5" />
             <div className="absolute inset-[28%] rounded-full border border-white/5" />
             {/* Center label — warm amber */}
-            <div className="absolute inset-[32%] rounded-full bg-linear-to-br from-orange-300 to-amber-400 border border-orange-200/60 shadow-inner flex items-center justify-center">
+            <div className="absolute inset-[32%] rounded-full bg-linear-to-br from-pink-300 to-amber-400 border border-pink-200/60 shadow-inner flex items-center justify-center">
               <div className="w-2 h-2 rounded-full bg-white/80 shadow-sm" />
             </div>
           </div>
@@ -105,7 +105,7 @@ export function MusicPlayerWidget({ className }: { className?: string }) {
           <div className="flex items-center gap-1.5">
             <div className={cn(
               "w-1.5 h-1.5 rounded-full transition-colors",
-              isPlaying ? "bg-orange-500 shadow-[0_0_6px_rgba(249,115,22,0.8)]" : "bg-stone-400"
+              isPlaying ? "bg-pink-500 shadow-[0_0_6px_rgba(249,115,22,0.8)]" : "bg-stone-400"
             )} />
             <span className="text-[9px] font-black uppercase tracking-[0.2em] text-stone-950/40">
               Live
@@ -129,7 +129,7 @@ export function MusicPlayerWidget({ className }: { className?: string }) {
                 key={i}
                 className={cn(
                   "w-0.75 rounded-full transition-all",
-                  isPlaying ? "bg-linear-to-t from-orange-400 to-amber-300" : "bg-stone-200"
+                  isPlaying ? "bg-linear-to-t from-pink-400 to-amber-300" : "bg-stone-200"
                 )}
                 style={{
                   height: isPlaying
@@ -184,7 +184,7 @@ export function MusicPlayerWidget({ className }: { className?: string }) {
               className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
             />
             <div
-              className="h-full rounded-full bg-linear-to-r from-orange-400 to-amber-400 transition-all duration-100"
+              className="h-full rounded-full bg-linear-to-r from-pink-400 to-amber-400 transition-all duration-100"
               style={{ width: `${(isMuted ? 0 : volume) * 100}%` }}
             />
           </div>
@@ -196,7 +196,7 @@ export function MusicPlayerWidget({ className }: { className?: string }) {
 
         {/* Live indicator */}
         <div className="flex items-center gap-1 shrink-0">
-          <Radio className={cn("w-3 h-3", isPlaying ? "text-orange-500" : "text-stone-400")} />
+          <Radio className={cn("w-3 h-3", isPlaying ? "text-pink-500" : "text-stone-400")} />
         </div>
       </div>
     </div>

@@ -58,7 +58,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
 
   if (!time) return null
 
-  // Formatters for Erbil Time
+  // Formatters for Hawler Time
   const timeString = time.toLocaleTimeString("en-US", {
     timeZone: "Asia/Baghdad",
     hour: '2-digit',
@@ -183,13 +183,13 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
       )}
       {/* Start Menu */}
       {startMenuOpen && (
-        <div className="fixed bottom-12 left-0 flex flex-row items-stretch bg-white/60 backdrop-blur-3xl z-40 border border-white/60 shadow-[0_8px_32px_rgba(251,146,60,0.1)] rounded-tr-xl overflow-hidden animate-in slide-in-from-bottom-2 duration-300">
+        <div className="fixed bottom-14 left-0 flex flex-row items-stretch bg-white/60 backdrop-blur-3xl z-90 border border-white/60 shadow-[0_8px_32px_rgba(251,146,60,0.1)] rounded-tr-xl overflow-hidden">
 
           {/* LEFT COLUMN: Applications List */}
           <div className="w-64 flex flex-col border-r border-white/30 bg-white/40">
             <div className="p-4 pb-2">
-              <div className="border-l-2 border-orange-400 pl-3">
-                <span className="text-stone-600 text-[10px] font-black tracking-widest uppercase">Memory Apps</span>
+              <div className="border-l-2 border-pink-400 pl-3">
+                <span className="text-stone-600 text-[10px] font-black tracking-widest uppercase">Applications</span>
               </div>
             </div>
 
@@ -200,7 +200,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
                   key={app.type}
                   onClick={() => {
                     if (app.type === "resume") {
-                      window.open("/resume/Dyari Ali Tahir - Fullstack Developer.pdf", "_blank")
+                      window.open("/cv/Dyari Ali Tahir - Fullstack Developer.pdf", "_blank")
                       return
                     }
                     onOpenWindow(app.type)
@@ -223,18 +223,18 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
             </div>
 
             <div className="p-2 border-t border-white/30 bg-white/20">
-              <button className="w-full flex items-center p-2 hover:bg-orange-400/20 text-stone-600 hover:text-stone-900 transition-colors rounded-lg mb-1 cursor-pointer"
+              <button className="w-full flex items-center p-2 hover:bg-pink-400/20 text-stone-600 hover:text-stone-900 transition-colors rounded-lg mb-1 cursor-pointer"
                 onClick={() => setIsShuttingDown(true)}>
                 <Power className="w-4 h-4 mr-3 text-red-500 shadow-sm" />
-                <span className="text-xs font-black">Rest System</span>
+                <span className="text-xs font-black">Shut Down</span>
               </button>
             </div>
           </div>
 
           {/* RIGHT COLUMN: Live Tiles (Socials) */}
-          <div className="w-80 bg-orange-400/5 p-4 flex flex-col uppercase tracking-widest leading-none">
+          <div className="w-80 bg-pink-400/5 p-4 flex flex-col uppercase tracking-widest leading-none">
             <div className="mb-3 flex items-center justify-between">
-              <span className="text-stone-950/40 text-[10px] font-black">Composition Grid</span>
+              <span className="text-stone-950/40 text-[10px] font-black">Contact List</span>
             </div>
 
             <div className="grid grid-cols-2 gap-3 auto-rows-[100px]">
@@ -249,12 +249,12 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
                             bg-white/30 border border-white/50 overflow-hidden
                             transition-all duration-300 group shadow-sm
                             hover:bg-white/50 hover:border-white/80 hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]
-                            ${item.preferred ? 'ring-2 ring-orange-400 bg-white/40' : ''}
+                            ${item.preferred ? 'ring-2 ring-pink-400 bg-white/40' : ''}
                         `}
                 >
                   {/* Preferred Badge */}
                   {item.preferred && (
-                    <div className="absolute top-0 right-0 bg-orange-400 text-white text-[8px] font-black px-2 py-1 rounded-bl shadow-sm z-10 uppercase tracking-tighter">
+                    <div className="absolute top-0 right-0 bg-pink-400 text-white text-[8px] font-black px-2 py-1 rounded-bl shadow-sm z-10 uppercase tracking-tighter">
                       Priority
                     </div>
                   )}
@@ -301,11 +301,11 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
                             bg-white/30 border border-white/50 overflow-hidden
                             transition-all duration-300 group shadow-sm
                             hover:bg-white/50 hover:border-white/80 hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]
-                            {'ring-1 ring-orange-400/50 bg-white/40'}
+                            {'ring-1 ring-pink-400/50 bg-white/40'}
                         `}
               >
                 {/* Preferred Badge */}
-                <div className="absolute top-0 right-0 bg-orange-400/80 text-white text-[8px] font-black px-2 py-1 rounded-bl shadow-sm z-10 uppercase tracking-tighter">
+                <div className="absolute top-0 right-0 bg-pink-400/80 text-white text-[8px] font-black px-2 py-1 rounded-bl shadow-sm z-10 uppercase tracking-tighter">
                   Discord
                 </div>
 
@@ -322,9 +322,9 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
                   </div>
                   <div className="text-memory-brown/60 group-hover:text-memory-brown transition-all pt-2">
                     {copied ? (
-                      <span className="text-orange-500 text-xs font-black rounded">Copied!</span>
+                      <span className="text-pink-500 text-xs font-black rounded">Copied!</span>
                     ) : (
-                      <Clipboard className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all text-orange-500" />
+                      <Clipboard className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all text-pink-500" />
                     )}
                   </div>
                 </div>
@@ -405,7 +405,7 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
                 onClick={() => handleWindowClick(window)}
                 className={`h-10 px-3 transition-all flex items-center rounded-xl gap-2 group outline outline-white/30 shadow-sm ${window.isMinimized
                   ? "hover:bg-white/40 text-stone-500"
-                  : "bg-white/80 text-stone-900 border-b-2 border-orange-400 outline-white/50"
+                  : "bg-white/80 text-stone-900 border-b-2 border-pink-400 outline-white/50"
                   }`}
               >
                 <span className="flex items-center justify-center w-6 h-6 transform group-hover:scale-110 transition-transform">
@@ -419,9 +419,9 @@ export function Taskbar({ windows, onOpenWindow, onFocusWindow, onMinimizeWindow
         {/* System Tray */}
         <div className="flex items-center space-x-3 px-2">
           <div className="flex items-center space-x-2 text-stone-600">
-            <Wifi className="w-4 h-4 text-stone-700 hover:text-orange-500 transition-colors" />
-            <Volume1 className="w-4 h-4 text-stone-700 hover:text-orange-500 transition-colors" />
-            <Battery className="w-4 h-4 text-orange-500 animate-pulse drop-shadow-sm" />
+            <Wifi className="w-4 h-4 text-stone-700 hover:text-pink-500 transition-colors" />
+            <Volume1 className="w-4 h-4 text-stone-700 hover:text-pink-500 transition-colors" />
+            <Battery className="w-4 h-4 text-pink-500 animate-pulse drop-shadow-sm" />
           </div>
           <div className="flex flex-col items-end mr-2 text-stone-950 select-none pl-2">
             <div className="text-stone-950 text-xs font-black tracking-tight">{timeString}</div>

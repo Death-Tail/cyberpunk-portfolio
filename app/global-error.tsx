@@ -91,8 +91,8 @@ export default function GlobalError({
                 h-24 w-24 flex items-center justify-center rounded-4xl
                 bg-white shadow-inner border border-stone-50 relative
               ">
-                <div className="absolute inset-0 bg-orange-400/10 animate-ping rounded-4xl" />
-                <AlertTriangle className="w-12 h-12 text-orange-500 relative z-10 animate-pulse" />
+                <div className="absolute inset-0 bg-pink-400/10 animate-ping rounded-4xl" />
+                <AlertTriangle className="w-12 h-12 text-pink-500 relative z-10 animate-pulse" />
               </div>
             </div>
 
@@ -126,7 +126,7 @@ export default function GlobalError({
                   hover:bg-stone-800 transition-all shadow-[0_20px_40px_rgba(45,27,30,0.2)] active:scale-95
                 "
               >
-                <RefreshCw className="w-4 h-4 text-orange-400" />
+                <RefreshCw className="w-4 h-4 text-pink-400" />
                 REALIGN NOTES
               </button>
 
@@ -136,7 +136,7 @@ export default function GlobalError({
                   flex w-full items-center justify-center gap-4 py-5
                   bg-white border border-stone-100
                   rounded-2xl text-stone-950 font-black text-xs tracking-[0.4em] uppercase
-                  hover:bg-orange-50 transition-all shadow-sm active:scale-95
+                  hover:bg-pink-50 transition-all shadow-sm active:scale-95
                 "
               >
                 <Home className="w-4 h-4 text-amber-500" />

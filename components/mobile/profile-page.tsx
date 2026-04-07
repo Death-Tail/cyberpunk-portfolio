@@ -42,7 +42,7 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
                 <div className="absolute -bottom-4 left-4 right-4 bg-white/60 backdrop-blur-3xl border border-white/80 p-5 rounded-2xl z-20 text-center shadow-lg ring-1 ring-white/60">
                   <h2 className="text-2xl font-black text-stone-950 tracking-tighter uppercase drop-shadow-sm">DYARI ALI TAHIR</h2>
                   <div className="flex items-center justify-center mt-2">
-                    <div className="h-0.5 w-12 bg-linear-to-r from-transparent via-orange-400 to-transparent" />
+                    <div className="h-0.5 w-12 bg-linear-to-r from-transparent via-pink-400 to-transparent" />
                   </div>
                 </div>
               </div>
@@ -51,9 +51,9 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
             {/* Vitals / Quick Stats */}
             <div className="grid grid-cols-2 gap-3">
               <div className="p-4 bg-white/40 border border-white/60 rounded-2xl backdrop-blur-sm shadow-sm ring-1 ring-white/40">
-                <MapPin className="w-4 h-4 text-orange-500 mb-2" />
+                <MapPin className="w-4 h-4 text-pink-500 mb-2" />
                 <div className="text-[10px] text-stone-950/40 font-black uppercase tracking-[0.2em]">Location</div>
-                <div className="text-sm font-black text-stone-950">Erbil, IQ</div>
+                <div className="text-sm font-black text-stone-950">Hawler, IQ</div>
               </div>
               <div className="p-4 bg-white/40 border border-white/60 rounded-2xl backdrop-blur-sm shadow-sm ring-1 ring-white/40">
                 <Globe className="w-4 h-4 text-amber-500 mb-2" />
@@ -73,7 +73,7 @@ export default function ProfilePage({ onBack }: ProfilePageProps) {
 
               <div className="space-y-4 text-sm leading-relaxed text-stone-950 font-bold">
                 <p className="text-left">
-                  Full-Stack Developer working with <span className="underline decoration-orange-400/40">Next.js</span>, <span className="underline decoration-orange-400/40">TypeScript</span>, and Tailwind CSS.
+                  Full-Stack Developer working with <span className="underline decoration-pink-400/40">Next.js</span>, <span className="underline decoration-pink-400/40">TypeScript</span>, and Tailwind CSS.
                   BSc in Computer Science.</p>
                 <p>
                   Currently studying Unreal Engine and Blender for animation and 3D art.

@@ -321,9 +321,6 @@ export function ProjectsWindow(props: ProjectsWindowProps) {
                       <Hash className="w-16 h-16 text-memory-sky -rotate-12" />
                     </div>
                     <div className="relative z-10 space-y-2">
-                      <h3 className="text-[10px] font-bold uppercase text-stone-600 tracking-[0.2em] flex items-center gap-2">
-                        <Monitor className="w-3.5 h-3.5 text-memory-pink" /> Project_Metadata
-                      </h3>
                       {selectedProject.timeline && (
                         <div className="flex justify-between items-center text-xs border-b border-stone-100 pb-1">
                           <span className="text-stone-600 font-bold">TIMELINE</span>

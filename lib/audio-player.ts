@@ -1,7 +1,19 @@
 let sharedAudio: HTMLAudioElement | null = null;
+let globalMuted = false;
 
 export function getAudioInstance() {
   return sharedAudio;
+}
+
+export function setGlobalMuted(muted: boolean) {
+  globalMuted = muted;
+  if (sharedAudio) {
+    sharedAudio.muted = muted;
+  }
+}
+
+export function getGlobalMuted() {
+  return sharedAudio ? sharedAudio.muted : globalMuted;
 }
 
 export function createAudioInstance(url: string) {
@@ -12,6 +24,7 @@ export function createAudioInstance(url: string) {
     sharedAudio.volume = 0.12;
     // Keep stream playing continuously when user hits play
     sharedAudio.loop = true;
+    sharedAudio.muted = globalMuted;
   }
   return sharedAudio;
 }

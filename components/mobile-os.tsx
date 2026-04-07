@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, Suspense } from "react"
-import { Battery, Signal, Wifi } from "lucide-react"
+import { Battery, Signal, Wifi, Volume2, VolumeX } from "lucide-react"
 import Image from "next/image"
 // App Imports
 import ProfilePage from "./mobile/profile-page"
@@ -13,12 +13,24 @@ import WeatherWidget from "./mobile/widgets/weather"
 import SystemWidget from "./mobile/widgets/system"
 import MusicWidget from "./mobile/widgets/music"
 import { useSearchParams, useRouter } from "next/navigation"
+import { setGlobalMuted, getGlobalMuted } from "@/lib/audio-player"
 
 import bgImg from "@/public/bgM.jpg"
 import { CyberpunkBoot } from "./cyberpunk-boot"
 
 function OSContent() {
   const [currentTime, setCurrentTime] = useState<string>("")
+  const [isMuted, setIsMuted] = useState(false)
+
+  useEffect(() => {
+    setIsMuted(getGlobalMuted())
+  }, [])
+
+  const toggleMute = () => {
+    const newState = !isMuted
+    setIsMuted(newState)
+    setGlobalMuted(newState)
+  }
 
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -46,7 +58,7 @@ function OSContent() {
 
   const handleOpenApp = (type: string) => {
     if (type === "resume") {
-      window.open("/resume/Dyari Ali Tahir - Fullstack Developer.pdf", "_blank")
+      window.open("/cv/Dyari Ali Tahir - Fullstack Developer.pdf", "_blank")
       return
     }
     router.push(`/?app=${type}`, { scroll: false })
@@ -57,7 +69,7 @@ function OSContent() {
   }
 
   return (
-    <div className="relative h-screen w-full bg-[#fffcf5] overflow-hidden font-sans text-stone-900 selection:bg-orange-200/40">
+    <div className="relative h-screen w-full bg-[#fffcf5] overflow-hidden font-sans text-stone-900 selection:bg-pink-200/40">
 
       {/* Wallpaper */}
       <div className="fixed inset-0 z-0">
@@ -67,7 +79,16 @@ function OSContent() {
 
       {/* Status Bar */}
       <div className="fixed top-0 left-0 right-0 h-12 flex items-center justify-between px-6 z-60 font-black text-xs tracking-[0.2em] text-stone-950/80 pointer-events-none uppercase">
-        <span>{currentTime}</span>
+        <div className="flex items-center gap-3">
+          <span>{currentTime}</span>
+          <button
+            onClick={toggleMute}
+            className="pointer-events-auto hover:scale-110 active:scale-95 transition-transform"
+            aria-label="Toggle Mute"
+          >
+            {isMuted ? <VolumeX className="w-4 h-4 text-stone-950/60" /> : <Volume2 className="w-4 h-4 text-stone-950/60" />}
+          </button>
+        </div>
         <div className="flex items-center gap-3">
           <Signal className="w-4 h-4 text-stone-950/60" />
           <Wifi className="w-4 h-4 text-stone-950/60" />

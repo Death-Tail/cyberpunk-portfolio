@@ -107,8 +107,8 @@ export default function NotFound() {
         </div>
 
         {/* Organic Corner Accents */}
-        <div className="absolute top-12 left-12 w-16 h-16 border-l-2 border-t-2 border-orange-200/60 rounded-tl-3xl shadow-inner animate-pulse" />
-        <div className="absolute bottom-12 right-12 w-16 h-16 border-r-2 border-b-2 border-orange-200/60 rounded-br-3xl shadow-inner animate-pulse" />
+        <div className="absolute top-12 left-12 w-16 h-16 border-l-2 border-t-2 border-pink-200/60 rounded-tl-3xl shadow-inner animate-pulse" />
+        <div className="absolute bottom-12 right-12 w-16 h-16 border-r-2 border-b-2 border-pink-200/60 rounded-br-3xl shadow-inner animate-pulse" />
       </div>
 
       {/* Main Content Grid Layout */}
@@ -121,12 +121,12 @@ export default function NotFound() {
               <h1 className="text-8xl md:text-[10rem] font-black text-stone-950 tracking-tighter drop-shadow-xl">
                 {glitchText}
               </h1>
-              <div className="absolute -inset-1 text-orange-400/30 animate-pulse -z-10 blur-md">{glitchText}</div>
+              <div className="absolute -inset-1 text-pink-400/30 animate-pulse -z-10 blur-md">{glitchText}</div>
               <div className="absolute -inset-4 text-amber-200/20 animate-pulse delay-75 -z-20 blur-xl">{glitchText}</div>
             </div>
 
             <div className="flex items-center justify-center lg:justify-start gap-4 mt-6">
-              <div className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-ping" />
+              <div className="w-1.5 h-1.5 bg-pink-400 rounded-full animate-ping" />
               <span className="text-stone-950 font-black text-[13px] tracking-[0.5em] uppercase opacity-40">Composition Error</span>
             </div>
           </div>
@@ -135,7 +135,7 @@ export default function NotFound() {
           <div className="border border-stone-950/5 bg-white/40 backdrop-blur-3xl rounded-[2.5rem] overflow-hidden shadow-2xl ring-1 ring-white/60">
             <div className="border-b border-stone-950/5 p-5 bg-white/30 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 bg-orange-300 rounded-full" />
+                <div className="w-2.5 h-2.5 bg-pink-300 rounded-full" />
                 <div className="w-2.5 h-2.5 bg-amber-400 rounded-full" />
                 <div className="w-2.5 h-2.5 bg-rose-300 rounded-full" />
                 <span className="text-stone-950/40 text-[9px] font-black uppercase tracking-[0.3em] ml-3 font-mono">Sunset_Lost.txt</span>
@@ -146,7 +146,7 @@ export default function NotFound() {
               <h2 className="text-3xl font-black text-stone-950 tracking-tight">MELODY_INTERRUPTED</h2>
               <div className="space-y-4 font-bold text-stone-800 leading-relaxed max-w-md">
                 <p className="flex items-start gap-3">
-                  <span className="text-orange-500 font-black">/</span>
+                  <span className="text-pink-500 font-black">/</span>
                   The specific moment you seek has faded into the golden hour.
                 </p>
                 <p className="flex items-start gap-3">
@@ -165,22 +165,22 @@ export default function NotFound() {
             onClick={() => router.back()}
             className="w-full flex items-center justify-center gap-5 p-6 bg-stone-950 text-white rounded-2xl font-black text-xs tracking-[0.4em] uppercase hover:bg-stone-800 transition-all shadow-[0_20px_40px_rgba(45,27,30,0.2)] group active:scale-95"
           >
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform text-orange-400" />
+            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform text-pink-400" />
             Return to the previous page
           </button>
         </div>
 
         {/* Right Side - Visual Area (Music Room Vibe) */}
         <div className="hidden lg:block relative group">
-          <div className="absolute inset-0 bg-orange-200/20 rounded-[4rem] blur-3xl group-hover:bg-orange-300/30 transition-all duration-1000" />
+          <div className="absolute inset-0 bg-pink-200/20 rounded-[4rem] blur-3xl group-hover:bg-pink-300/30 transition-all duration-1000" />
           <div className="relative border border-white/80 bg-white/30 backdrop-blur-xl rounded-[4rem] p-12 overflow-hidden shadow-2xl">
             <div className="aspect-square flex items-center justify-center relative">
-              <div className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-orange-400/20 to-transparent top-10" />
+              <div className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-pink-400/20 to-transparent top-10" />
               <div className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-amber-400/20 to-transparent bottom-10" />
 
               <div className="text-center">
                 <div className="w-72 h-72 mx-auto mb-10 relative">
-                  <div className="absolute inset-0 bg-orange-400/10 rounded-full animate-pulse blur-3xl" />
+                  <div className="absolute inset-0 bg-pink-400/10 rounded-full animate-pulse blur-3xl" />
                   <img
                     src="/L.jpg"
                     alt="Logo"
@@ -196,7 +196,7 @@ export default function NotFound() {
           </div>
 
           {/* Decorative bits */}
-          <div className="absolute -top-6 -right-6 w-20 h-20 border-r-2 border-t-2 border-orange-400/40 rounded-tr-[3rem]" />
+          <div className="absolute -top-6 -right-6 w-20 h-20 border-r-2 border-t-2 border-pink-400/40 rounded-tr-[3rem]" />
           <div className="absolute -bottom-6 -left-6 w-20 h-20 border-l-2 border-b-2 border-amber-400/40 rounded-bl-[3rem]" />
         </div>
       </div>

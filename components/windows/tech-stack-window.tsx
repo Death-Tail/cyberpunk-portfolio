@@ -51,8 +51,8 @@ const skillNodes: SkillNode[] = [
     connections: [],
     category: "core",
     description: "Core development competencies",
-    bgColor: "bg-linear-to-br from-orange-100/80 to-amber-100/80",
-    iconColor: "text-orange-600",
+    bgColor: "bg-linear-to-br from-pink-100/80 to-amber-100/80",
+    iconColor: "text-pink-600",
   },
 
   // ===== FRAMEWORKS / FRONTEND =====
@@ -174,7 +174,7 @@ const skillNodes: SkillNode[] = [
     connections: ["database"],
     category: "database",
     description: "Realtime NoSQL database",
-    bgColor: "bg-linear-to-br from-amber-100/80 to-orange-50/80",
+    bgColor: "bg-linear-to-br from-amber-100/80 to-pink-50/80",
     iconColor: "text-amber-600",
   },
   {
@@ -200,8 +200,8 @@ const skillNodes: SkillNode[] = [
     connections: ["database"],
     category: "database",
     description: "Popular relational database management",
-    bgColor: "bg-linear-to-br from-orange-100/80 to-amber-50/80",
-    iconColor: "text-orange-700",
+    bgColor: "bg-linear-to-br from-pink-100/80 to-amber-50/80",
+    iconColor: "text-pink-700",
   },
 
   // ===== TOOLS =====
@@ -228,8 +228,8 @@ const skillNodes: SkillNode[] = [
     connections: ["tools"],
     category: "tools",
     description: "Version control workflows",
-    bgColor: "bg-linear-to-br from-orange-100/80 to-red-50/80",
-    iconColor: "text-orange-700",
+    bgColor: "bg-linear-to-br from-pink-100/80 to-red-50/80",
+    iconColor: "text-pink-700",
   },
 
   // ===== Languages =====
@@ -282,7 +282,7 @@ const skillNodes: SkillNode[] = [
     connections: ["language"],
     category: "backend",
     description: "Enterprise application development",
-    bgColor: "bg-linear-to-br from-amber-100/80 to-orange-50/80",
+    bgColor: "bg-linear-to-br from-amber-100/80 to-pink-50/80",
     iconColor: "text-amber-700",
   },
 
@@ -323,8 +323,8 @@ const skillNodes: SkillNode[] = [
     connections: ["3D"],
     category: "3D",
     description: "3D modeling and animation",
-    bgColor: "bg-linear-to-br from-orange-100/80 to-amber-50/80",
-    iconColor: "text-orange-600",
+    bgColor: "bg-linear-to-br from-pink-100/80 to-amber-50/80",
+    iconColor: "text-pink-600",
   },
   {
     id: "animation",
@@ -457,9 +457,9 @@ export function TechStackWindow(props: TechStackWindowProps) {
           <button
             onClick={() => { setMapPosition({ x: -50, y: -100 }); setZoom(1) }}
             aria-label="Center map"
-            className="p-2 rounded-lg bg-white/60 border border-stone-950/10 hover:border-orange-400/60 hover:bg-orange-400/10 transition-all group"
+            className="p-2 rounded-lg bg-white/60 border border-stone-950/10 hover:border-pink-400/60 hover:bg-pink-400/10 transition-all group"
           >
-            <Target className="w-4 h-4 text-stone-950/40 group-hover:text-orange-500 transition-colors" />
+            <Target className="w-4 h-4 text-stone-950/40 group-hover:text-pink-500 transition-colors" />
           </button>
         </div>
 
@@ -472,7 +472,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
         >
           {/* Warm linen map background */}
           <div
-            className="map-background absolute bg-linear-to-br from-[#fffcf5] via-orange-50/60 to-amber-50/80"
+            className="map-background absolute bg-linear-to-br from-[#fffcf5] via-pink-50/60 to-amber-50/80"
             style={{
               width: MAP_BOUNDS.width,
               height: MAP_BOUNDS.height,
@@ -490,7 +490,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
               }}
             />
             {/* Warm ambient blobs */}
-            <div className="map-background absolute top-1/4 left-1/3 w-64 h-64 bg-orange-300/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="map-background absolute top-1/4 left-1/3 w-64 h-64 bg-pink-300/10 rounded-full blur-3xl pointer-events-none" />
             <div className="map-background absolute bottom-1/4 right-1/4 w-48 h-48 bg-amber-300/10 rounded-full blur-3xl pointer-events-none" />
           </div>
 
@@ -556,7 +556,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
                     relative flex items-center justify-center transition-all duration-300 backdrop-blur-sm
                     ${isHub ? "w-24 h-24 rounded-2xl shadow-xl ring-2 border border-white/80" : "w-16 h-16 rounded-xl shadow-md ring-1 border border-white/60"}
                     ${isSelected
-                      ? "ring-orange-400 shadow-orange-200/60 border-orange-300/60"
+                      ? "ring-pink-400 shadow-pink-200/60 border-pink-300/60"
                       : isHovered
                         ? "ring-stone-950/20"
                         : "ring-stone-950/8"
@@ -575,7 +575,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
                   )}
 
                   {isSelected && (
-                    <div className={`absolute inset-0 ${isHub ? "rounded-2xl" : "rounded-xl"} ring-2 ring-orange-400 animate-pulse opacity-60`} />
+                    <div className={`absolute inset-0 ${isHub ? "rounded-2xl" : "rounded-xl"} ring-2 ring-pink-400 animate-pulse opacity-60`} />
                   )}
                 </div>
 
@@ -637,17 +637,7 @@ export function TechStackWindow(props: TechStackWindowProps) {
                   </span>
                 </div>
                 <p className="text-stone-700 text-xs font-bold mb-2">{node.description}</p>
-                <div className="flex items-center gap-2">
-                  <div className="h-1.5 flex-1 bg-stone-950/8 rounded-full overflow-hidden">
-                    <div className={`h-full rounded-full transition-all duration-700 ${node.unlocked
-                      ? "bg-linear-to-r from-orange-400 to-amber-400 w-4/5"
-                      : "bg-linear-to-r from-amber-300 to-yellow-300 w-2/5"
-                      }`} />
-                  </div>
-                  <span className="text-[9px] font-black text-stone-950/40 uppercase tracking-wider">
-                    {node.unlocked ? "80%" : "~40%"}
-                  </span>
-                </div>
+
                 {node.connections.length > 0 && (
                   <div className="mt-2 text-[9px] uppercase font-black tracking-widest text-stone-950/30">
                     Links:{" "}

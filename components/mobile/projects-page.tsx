@@ -92,7 +92,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
               <div
                 key={index}
                 className={`group relative flex flex-col border transition-all duration-500 overflow-hidden rounded-4xl bg-white/40 backdrop-blur-3xl shadow-xl ring-1 ring-white/60 ${isExpanded
-                  ? "border-orange-200/60 shadow-orange-950/5"
+                  ? "border-pink-200/60 shadow-pink-950/5"
                   : "border-white/80 hover:border-white"
                   }`}
               >
@@ -100,9 +100,9 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                 <div className="flex justify-between items-center px-6 py-4 bg-white/30 border-b border-white/40">
                   <div className="flex items-center gap-2">
                     <div className={`w-2 h-2 rounded-full ${project.status === "DEPLOYED" ? "bg-emerald-500 animate-pulse" :
-                      project.status.toLowerCase().includes("development") ? "bg-orange-400 animate-pulse" : "bg-stone-300"
+                      project.status.toLowerCase().includes("development") ? "bg-pink-400 animate-pulse" : "bg-stone-300"
                       }`} />
-                    <span className={`text-[10px] font-black tracking-[0.2em] uppercase ${project.status === "DEPLOYED" ? "text-emerald-600" : "text-orange-600"
+                    <span className={`text-[10px] font-black tracking-[0.2em] uppercase ${project.status === "DEPLOYED" ? "text-emerald-600" : "text-pink-600"
                       }`}>
                       {project.status === "DEPLOYED" ? "Synchronized" : "In Composition"}
                     </span>
@@ -156,7 +156,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
 
                         <div className="flex gap-1.5">
                           {project.images.map((_, dotIdx) => (
-                            <div key={dotIdx} className={`w-1 h-1 rounded-full ${dotIdx === currentImgIndex ? 'bg-orange-400' : 'bg-stone-300'}`} />
+                            <div key={dotIdx} className={`w-1 h-1 rounded-full ${dotIdx === currentImgIndex ? 'bg-pink-400' : 'bg-stone-300'}`} />
                           ))}
                         </div>
 
@@ -187,11 +187,11 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                           </div>
                         </div>
                         <div>
-                          <h3 className="text-xl font-black text-stone-950 tracking-tighter leading-tight uppercase group-hover:text-orange-600 transition-colors">{project.title}</h3>
+                          <h3 className="text-xl font-black text-stone-950 tracking-tighter leading-tight uppercase group-hover:text-pink-600 transition-colors">{project.title}</h3>
                           <div className="flex items-center gap-3 mt-1.5 text-[10px] font-black text-stone-950/40 uppercase tracking-widest">
                             {project.timeline && (
                               <span className="flex items-center gap-1.5">
-                                <Clock className="w-3.5 h-3.5 text-orange-400" /> {project.timeline}
+                                <Clock className="w-3.5 h-3.5 text-pink-400" /> {project.timeline}
                               </span>
                             )}
                           </div>
@@ -224,7 +224,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                           rel="noopener noreferrer"
                           className="flex items-center justify-center gap-3 py-4 px-3 text-[10px] font-black bg-stone-950 text-white rounded-2xl hover:bg-stone-800 transition-all shadow-lg active:scale-95 uppercase tracking-widest"
                         >
-                          <Globe2 className="w-4 h-4 text-orange-400" /> Open App
+                          <Globe2 className="w-4 h-4 text-pink-400" /> Open App
                         </a>
                       ) : (
                         <button disabled className="flex items-center justify-center gap-3 py-4 px-3 text-[10px] font-black bg-stone-100 text-stone-400 border border-stone-200 rounded-2xl cursor-not-allowed uppercase tracking-widest">
@@ -235,7 +235,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                       <button
                         onClick={() => toggleProject(index)}
                         className={`flex items-center justify-center gap-3 py-4 px-3 text-[10px] font-black border transition-all rounded-2xl shadow-sm uppercase tracking-widest active:scale-95 ${isExpanded
-                          ? "bg-orange-50 border-orange-200 text-orange-900"
+                          ? "bg-pink-50 border-pink-200 text-pink-900"
                           : "bg-white border-stone-200 text-stone-950 hover:bg-stone-50"
                           }`}
                       >
@@ -257,12 +257,12 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                       {/* Challenges */}
                       {project.challenges && project.challenges.length > 0 && (
                         <div className="space-y-3">
-                          <h4 className="text-[10px] font-black text-orange-900 uppercase tracking-widest flex items-center gap-2">
-                            <AlertTriangle className="w-3.5 h-3.5 text-orange-500" /> Technical_Hurdles
+                          <h4 className="text-[10px] font-black text-pink-900 uppercase tracking-widest flex items-center gap-2">
+                            <AlertTriangle className="w-3.5 h-3.5 text-pink-500" /> Technical_Hurdles
                           </h4>
                           <ul className="space-y-3">
                             {project.challenges.map((c, i) => (
-                              <li key={i} className="text-[11px] text-stone-800 font-bold pl-4 border-l-2 border-orange-400/20 leading-relaxed">
+                              <li key={i} className="text-[11px] text-stone-800 font-bold pl-4 border-l-2 border-pink-400/20 leading-relaxed">
                                 {c}
                               </li>
                             ))}
@@ -278,7 +278,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                           </h4>
                           <div className="grid grid-cols-1 gap-2">
                             {project.features.map((f, i) => (
-                              <div key={i} className="px-3 py-2 bg-white/60 border-l-2 border-orange-400 text-[11px] text-stone-950 font-black tracking-tight rounded-r-lg ring-1 ring-white/40">
+                              <div key={i} className="px-3 py-2 bg-white/60 border-l-2 border-pink-400 text-[11px] text-stone-950 font-black tracking-tight rounded-r-lg ring-1 ring-white/40">
                                 {f}
                               </div>
                             ))}

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { Cloud, CloudRain, Sun, CloudLightning, CloudSnow, Loader2, MapPin } from "lucide-react"
 
-// Erbil Coordinates
+// Hawler Coordinates
 const LAT = 36.19
 const LON = 44.01
 
@@ -63,15 +63,15 @@ export default function WeatherWidget() {
   return (
     <div className="col-span-2 h-32 rounded-4xl bg-white/40 backdrop-blur-3xl border border-white/60 p-5 flex flex-col justify-between relative overflow-hidden shadow-xl ring-1 ring-white/60 group">
       {/* Background Glow Effect */}
-      <div className="absolute top-0 right-0 w-24 h-24 bg-orange-400/20 rounded-full blur-3xl -mr-12 -mt-12 group-hover:scale-125 transition-transform duration-700" />
+      <div className="absolute top-0 right-0 w-24 h-24 bg-pink-400/20 rounded-full blur-3xl -mr-12 -mt-12 group-hover:scale-125 transition-transform duration-700" />
 
       {/* Header */}
       <div className="flex justify-between items-start z-10">
         <div className="flex flex-col">
           <span className="text-[10px] font-black text-stone-950/40 uppercase tracking-[0.2em] leading-none">Composition</span>
           <div className="flex items-center gap-1.5 mt-2">
-            <MapPin className="w-3.5 h-3.5 text-orange-500" />
-            <span className="text-[10px] font-black text-stone-950 uppercase tracking-widest">Erbil, IQ</span>
+            <MapPin className="w-3.5 h-3.5 text-pink-500" />
+            <span className="text-[10px] font-black text-stone-950 uppercase tracking-widest">Hawler, IQ</span>
           </div>
         </div>
 

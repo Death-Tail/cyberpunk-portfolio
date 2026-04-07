@@ -56,7 +56,7 @@ const MusicWidget = () => {
 
       {/* Background visualizer overlay */}
       {isPlaying && (
-        <div className="absolute inset-0 bg-orange-400/5 mix-blend-overlay animate-pulse" />
+        <div className="absolute inset-0 bg-pink-400/5 mix-blend-overlay animate-pulse" />
       )}
 
       {/* Info */}
@@ -66,9 +66,9 @@ const MusicWidget = () => {
           {/* Mini Audio Bars */}
           {isPlaying && (
             <div className="flex items-end gap-px h-3">
-              <div className="w-0.5 bg-orange-400 animate-bounce_1s_infinite h-2" />
-              <div className="w-0.5 bg-orange-400 animate-bounce_1.2s_infinite h-3" />
-              <div className="w-0.5 bg-orange-400 animate-bounce_0.8s_infinite h-1.5" />
+              <div className="w-0.5 bg-pink-400 animate-bounce_1s_infinite h-2" />
+              <div className="w-0.5 bg-pink-400 animate-bounce_1.2s_infinite h-3" />
+              <div className="w-0.5 bg-pink-400 animate-bounce_0.8s_infinite h-1.5" />
             </div>
           )}
         </div>
@@ -80,12 +80,12 @@ const MusicWidget = () => {
       <div className="flex items-center gap-3 z-10">
         <button
           onClick={togglePlay}
-          className="w-12 h-12 rounded-full bg-stone-950 text-white flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-xl shadow-orange-950/10 ring-1 ring-white/10"
+          className="w-12 h-12 rounded-full bg-stone-950 text-white flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-xl shadow-pink-950/10 ring-1 ring-white/10"
         >
           {isPlaying ? (
-            <Pause className="w-4 h-4 fill-current text-orange-400" />
+            <Pause className="w-4 h-4 fill-current text-pink-400" />
           ) : (
-            <Play className="w-4 h-4 fill-current ml-0.5 text-orange-400" />
+            <Play className="w-4 h-4 fill-current ml-0.5 text-pink-400" />
           )}
         </button>
         {/* Volume control */}
@@ -98,7 +98,7 @@ const MusicWidget = () => {
             max={100}
             value={Math.round(volume * 100)}
             onChange={(e) => handleVolumeChange(Number(e.target.value) / 100)}
-            className="w-24 h-1 bg-stone-950/10 rounded-full accent-orange-400"
+            className="w-24 h-1 bg-stone-950/10 rounded-full accent-pink-400"
           />
         </div>
       </div>

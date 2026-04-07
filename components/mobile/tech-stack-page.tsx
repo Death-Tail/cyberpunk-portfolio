@@ -26,8 +26,8 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       name: "REACT",
       icon: <SiReact className="w-7 h-7" />,
       category: "frontend",
-      bgColor: "bg-linear-to-br from-orange-100 to-rose-100",
-      iconColor: "text-orange-600",
+      bgColor: "bg-linear-to-br from-pink-100 to-rose-100",
+      iconColor: "text-pink-600",
       projects: 3,
       description: "Advanced React development with hooks, context, and performance optimization",
       features: ["Hooks & Context", "Performance Optimization", "Component Architecture", "State Management"],
@@ -60,7 +60,7 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       name: "JAVA",
       icon: <DiJava className="w-7 h-7" />,
       category: "language",
-      bgColor: "bg-linear-to-br from-amber-100 to-orange-100",
+      bgColor: "bg-linear-to-br from-amber-100 to-pink-100",
       iconColor: "text-amber-700",
       projects: 0,
       description: "Object-oriented programming and backend development with Java",
@@ -127,8 +127,8 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       name: "FIREBASE",
       icon: <SiFirebase className="w-7 h-7" />,
       category: "database",
-      bgColor: "bg-linear-to-br from-amber-100 to-orange-100",
-      iconColor: "text-orange-600",
+      bgColor: "bg-linear-to-br from-amber-100 to-pink-100",
+      iconColor: "text-pink-600",
       projects: 0,
       description: "Realtime database, authentication, and cloud functions with Firebase",
       features: ["Realtime Database", "Authentication", "Cloud Functions"],
@@ -138,7 +138,7 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       name: "FLUTTER",
       icon: <SiFlutter className="w-7 h-7" />,
       category: "frontend",
-      bgColor: "bg-linear-to-br from-orange-50 to-rose-50",
+      bgColor: "bg-linear-to-br from-pink-50 to-rose-50",
       iconColor: "text-stone-950",
       projects: 1,
       description: "Cross-platform mobile development with Flutter and Dart",
@@ -167,22 +167,18 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
       <div className="relative space-y-6">
         {/* Tech Overview Stats */}
         {/* Keeping the overall stats for context, but the individual skill stats below are changed */}
-        <div className="grid grid-cols-4 gap-2 mb-8">
+        <div className="grid grid-cols-3 gap-2 mb-8">
           <div className="p-3 bg-white/40 border border-white/60 text-center rounded-2xl shadow-sm ring-1 ring-white/40">
             <div className="text-base font-black text-stone-950">{skillNodes.length}</div>
             <div className="text-stone-950/40 font-black text-[9px] uppercase tracking-widest">Total</div>
           </div>
           <div className="p-3 bg-white/40 border border-white/60 text-center rounded-2xl shadow-sm ring-1 ring-white/40">
-            <div className="text-base font-black text-stone-950">2+Y</div>
+            <div className="text-base font-black text-stone-950">3+ Years</div>
             <div className="text-stone-950/40 font-black text-[9px] uppercase tracking-widest">Exp</div>
           </div>
           <div className="p-3 bg-white/40 border border-white/60 text-center rounded-2xl shadow-sm ring-1 ring-white/40">
-            <div className="text-base font-black text-stone-950">4</div>
+            <div className="text-base font-black text-stone-950">5</div>
             <div className="text-stone-950/40 font-black text-[9px] uppercase tracking-widest">Shipped</div>
-          </div>
-          <div className="p-3 bg-white/40 border border-white/60 text-center rounded-2xl shadow-sm ring-1 ring-white/40">
-            <div className="text-base font-black text-stone-950">HQ</div>
-            <div className="text-stone-950/40 font-black text-[9px] uppercase tracking-widest">Qual</div>
           </div>
         </div>
 
@@ -248,13 +244,13 @@ export default function TechStackPage({ onBack }: TechStackPageProps) {
                   {/* Key Features */}
                   <div>
                     <div className="text-[10px] text-stone-950/40 mb-3 font-black flex items-center tracking-widest uppercase">
-                      <Zap className="w-3.5 h-3.5 mr-2 text-orange-400" />
+                      <Zap className="w-3.5 h-3.5 mr-2 text-pink-400" />
                       Capabilities
                     </div>
                     <div className="grid grid-cols-1 gap-2">
                       {skill.features.map((feature, i) => (
                         <div key={i} className="text-stone-950 text-xs font-black flex items-center bg-white/40 p-2 rounded-lg ring-1 ring-white/20">
-                          <div className="w-1.5 h-1.5 bg-orange-400 rounded-full mr-3 shadow-[0_0_5px_rgba(251,146,60,0.5)]" />
+                          <div className="w-1.5 h-1.5 bg-pink-400 rounded-full mr-3 shadow-[0_0_5px_rgba(251,146,60,0.5)]" />
                           {feature}
                         </div>
                       ))}

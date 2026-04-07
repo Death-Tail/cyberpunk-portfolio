@@ -109,7 +109,8 @@ export function BaseWindow({
         bg-white/80 backdrop-blur-2xl
         border rounded-[20px]
         flex flex-col
-        transition-all duration-300 outline outline-white/40
+        transition-all outline outline-white/40
+        animate-in zoom-in-95 fade-in duration-300
         ${isActive
           ? 'border-white/60 shadow-[0_16px_40px_rgba(249,168,212,0.2)]'
           : 'border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.1)]'

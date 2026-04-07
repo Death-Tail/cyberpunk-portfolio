@@ -41,9 +41,9 @@ export class ErrorBoundary extends Component<Props, State> {
           <div className="max-w-lg mx-auto text-center relative z-10">
             <div className="border border-white/80 bg-white/40 backdrop-blur-3xl p-10 rounded-[2.5rem] shadow-2xl ring-1 ring-white/60">
               <div className="flex items-center justify-center mb-8">
-                <div className="p-5 bg-orange-100 rounded-full shadow-inner relative">
-                  <div className="absolute inset-0 bg-orange-400/20 animate-ping rounded-full" />
-                  <AlertTriangle className="w-10 h-10 text-orange-500 drop-shadow-sm relative z-10" />
+                <div className="p-5 bg-pink-100 rounded-full shadow-inner relative">
+                  <div className="absolute inset-0 bg-pink-400/20 animate-ping rounded-full" />
+                  <AlertTriangle className="w-10 h-10 text-pink-500 drop-shadow-sm relative z-10" />
                 </div>
               </div>
 
@@ -58,7 +58,7 @@ export class ErrorBoundary extends Component<Props, State> {
                 onClick={() => this.setState({ hasError: false, error: undefined })}
                 className="flex items-center justify-center gap-3 mx-auto px-8 py-4 bg-stone-950 text-white hover:bg-stone-800 transition-all rounded-2xl font-black text-xs tracking-[0.3em] uppercase shadow-lg active:scale-95"
               >
-                <RefreshCw className="w-4 h-4 text-orange-400" />
+                <RefreshCw className="w-4 h-4 text-pink-400" />
                 RESYNC HARMONY
               </button>
             </div>
