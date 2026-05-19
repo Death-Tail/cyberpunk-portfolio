@@ -1,19 +1,8 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { RefreshCw, Home, AlertTriangle } from "lucide-react"
+import { useEffect } from "react"
 import Link from "next/link"
-
-
-const generateId = () => {
-  if (typeof globalThis.crypto?.randomUUID === "function") {
-    return globalThis.crypto.randomUUID()
-  }
-  return Math.random().toString(36).slice(2) + Date.now().toString(36)
-}
-
-const errorId = generateId()
-
+import { RefreshCw, Home } from "lucide-react"
 
 export default function GlobalError({
   error,
@@ -22,134 +11,100 @@ export default function GlobalError({
   error: Error & { digest?: string }
   reset: () => void
 }) {
-  const [particles, setParticles] = useState<Array<{ left: number; delay: number; duration: number; width: number; height: number; rotation: number }>>([])
-
   useEffect(() => {
     console.error("Global error:", error)
-    const particleData = Array.from({ length: 15 }, () => ({
-      left: Math.random() * 100,
-      delay: Math.random() * 10,
-      duration: 8 + Math.random() * 5,
-      width: 8 + Math.random() * 12,
-      height: 6 + Math.random() * 10,
-      rotation: Math.random() * 360,
-    }))
-    setParticles(particleData)
   }, [error])
 
   return (
-    <html>
-      <body className="bg-[#fffcf5] text-stone-900 font-sans select-none">
-        <div className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden">
-          {/* Warm Sunset Gradient */}
-          <div className="absolute inset-0 bg-linear-to-br from-[#fff7ed] via-[#ffedd5] to-[#fecaca] -z-10" />
+    <html lang="en">
+      <body className="bg-ink text-bone font-sans antialiased">
+        <main className="fixed inset-0 bg-ink text-bone overflow-hidden grain">
+          {/* Vignette + radials */}
+          <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,#000000_120%)]" />
+          <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_60%_40%_at_75%_25%,rgba(217,119,87,0.10),transparent_60%)]" />
 
-          {/* Floating Sunset Petals */}
-          <div className="absolute inset-0 pointer-events-none z-0">
-            {particles.map((particle: { left: number; delay: number; duration: number; width: number; height: number; rotation: number }, i: number) => (
-              <div
-                key={i}
-                className="absolute floating-petals"
-                style={{
-                  left: `${particle.left}%`,
-                  top: `-10%`,
-                  width: `${particle.width}px`,
-                  height: `${particle.height}px`,
-                  backgroundColor: i % 2 === 0 ? '#fb923c' : '#f87171',
-                  borderRadius: '100% 0% 100% 0% / 100% 0% 100% 0%',
-                  animationDelay: `${particle.delay}s`,
-                  animationDuration: `${particle.duration}s`,
-                  transform: `rotate(${particle.rotation}deg)`,
-                  opacity: 0.2,
-                }}
-              />
-            ))}
-          </div>
+          {/* HUD corners */}
+          <div className="hud-corner tl" />
+          <div className="hud-corner tr" />
+          <div className="hud-corner bl" />
+          <div className="hud-corner br" />
 
-          <div className="
-            w-full max-w-lg text-center
-            bg-white/40 backdrop-blur-3xl
-            border border-white/80
-            rounded-4xl shadow-2xl relative
-            p-12 ring-1 ring-white/60
-          ">
+          {/* Decorative kana */}
+          <span
+            className="kana-stamp z-0 select-none"
+            style={{ top: "-3rem", right: "-3rem", color: "var(--color-ember)" }}
+          >
+            乱
+          </span>
 
-            {/* Header */}
-            <div className="mb-10">
-              <div className="text-3xl font-black text-stone-950 tracking-tighter uppercase drop-shadow-sm">
-                Harmonic Syncing
-              </div>
-              <p className="text-stone-800 font-bold text-sm mt-4 leading-relaxed max-w-75 mx-auto">
-                A melodic fragment is currently vibrating out of sync.<br />
-                Allow us to retune your experience.
-              </p>
-            </div>
-
-            {/* Icon */}
-            <div className="flex justify-center mb-10">
-              <div className="
-                h-24 w-24 flex items-center justify-center rounded-4xl
-                bg-white shadow-inner border border-stone-50 relative
-              ">
-                <div className="absolute inset-0 bg-pink-400/10 animate-ping rounded-4xl" />
-                <AlertTriangle className="w-12 h-12 text-pink-500 relative z-10 animate-pulse" />
-              </div>
-            </div>
-
-            {/* Error Details */}
-            <div className="bg-white/60 border border-white/60 rounded-3xl p-8 mb-10 text-left shadow-sm">
-              <div className="text-[10px] text-stone-950/40 font-black mb-4 tracking-[0.4em] uppercase">
-                COMPOSITION_LOG
+          <div className="relative z-10 h-full grid place-items-center px-8">
+            <div className="max-w-xl">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-8 h-px bg-[var(--color-ember)]" />
+                <span className="eyebrow !text-[var(--color-ember)]">Fatal · 乱 · System</span>
               </div>
 
-              <p className="text-sm text-stone-950 font-bold font-mono leading-relaxed break-all">
-                {error.message || "Unknown harmonic anomaly."}
+              <h1 className="font-display text-bone text-[3.5rem] lg:text-[5rem] leading-[0.92] mb-6">
+                Something broke<span className="text-[var(--color-ember)]">.</span>
+              </h1>
+
+              <p className="font-display italic text-[var(--color-amber)] text-xl lg:text-2xl leading-tight mb-3">
+                The archive caught fire for a second.
               </p>
 
-              {error.digest && (
-                <div className="mt-5 pt-5 border-t border-stone-100">
-                  <p className="text-[10px] text-stone-950/30 font-black uppercase tracking-[0.2em]">
-                    TOKEN: {error.digest}
-                  </p>
-                </div>
-              )}
-            </div>
+              <p className="font-sans text-bone-dim text-[13px] leading-[1.75] max-w-md mb-8">
+                A page failed to render. You can try reloading the section, or return to the
+                index and start fresh. If this keeps happening, it&apos;s a real bug — feel free to flag it.
+              </p>
 
-            {/* Actions */}
-            <div className="grid grid-cols-1 gap-4">
-              <button
-                onClick={reset}
-                className="
-                  w-full flex items-center justify-center gap-4 py-5
-                  bg-stone-950 text-white
-                  rounded-2xl font-black text-xs tracking-[0.4em] uppercase
-                  hover:bg-stone-800 transition-all shadow-[0_20px_40px_rgba(45,27,30,0.2)] active:scale-95
-                "
-              >
-                <RefreshCw className="w-4 h-4 text-pink-400" />
-                REALIGN NOTES
-              </button>
+              {/* Error capsule */}
+              <div className="surface-ink-2 border border-[var(--color-line)] p-5 mb-10 max-w-lg">
+                <div className="eyebrow mb-2">Log</div>
+                <p className="font-mono-tight text-[11px] text-bone-dim leading-relaxed break-all">
+                  {error.message || "Unknown error."}
+                </p>
+                {error.digest && (
+                  <div className="mt-3 pt-3 border-t border-[var(--color-line)]">
+                    <span className="font-mono-tight text-[9px] uppercase tracking-[0.25em] text-bone-mute">
+                      Digest · <span className="text-bone-dim">{error.digest}</span>
+                    </span>
+                  </div>
+                )}
+              </div>
 
-              <Link
-                href="/"
-                className="
-                  flex w-full items-center justify-center gap-4 py-5
-                  bg-white border border-stone-100
-                  rounded-2xl text-stone-950 font-black text-xs tracking-[0.4em] uppercase
-                  hover:bg-pink-50 transition-all shadow-sm active:scale-95
-                "
-              >
-                <Home className="w-4 h-4 text-amber-500" />
-                RETURN HOME
-              </Link>
-            </div>
+              <div className="flex items-center gap-8 flex-wrap">
+                <button
+                  onClick={reset}
+                  className="group inline-flex items-center gap-3 font-mono-tight text-[11px] uppercase tracking-[0.3em] text-bone hover:text-[var(--color-amber)] transition-colors"
+                >
+                  <RefreshCw className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-500" />
+                  <span className="relative pb-1">
+                    Try again
+                    <span className="absolute left-0 -bottom-0 h-px w-full bg-[var(--color-amber)]" />
+                  </span>
+                </button>
 
-            {/* Error ID */}
-            <div className="mt-10 text-[10px] text-stone-950/30 font-black uppercase tracking-[0.5em]">
-              SYNC_ID: {errorId.split('-')[0].toUpperCase()}
+                <Link
+                  href="/"
+                  className="group inline-flex items-center gap-3 font-mono-tight text-[11px] uppercase tracking-[0.3em] text-bone-mute hover:text-[var(--color-ember)] transition-colors"
+                >
+                  <Home className="w-3.5 h-3.5" />
+                  <span>Return to the archive</span>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+
+          {/* Bottom strip */}
+          <footer className="absolute bottom-0 left-0 right-0 z-20 h-6 border-t border-[var(--color-line)] flex items-center px-8 lg:px-12 text-[10px] font-mono-tight uppercase tracking-[0.2em] text-bone-mute bg-ink/70 backdrop-blur-sm">
+            <span className="text-bone-dim">!!</span>
+            <span className="mx-3 text-bone-mute/40">/</span>
+            <span>乱</span>
+            <span className="mx-3 text-bone-mute/40">·</span>
+            <span className="text-bone-dim">UNHANDLED EXCEPTION</span>
+            <span className="ml-auto hidden md:inline">DYARI ALI TAHIR · 2026</span>
+          </footer>
+        </main>
       </body>
     </html>
   )

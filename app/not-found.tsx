@@ -1,215 +1,85 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { ArrowLeft, AlertTriangle, Zap, Eye } from "lucide-react"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { version } from "../package.json"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 
 export default function NotFound() {
-  const [glitchText, setGlitchText] = useState("404")
-  const [scanLines, setScanLines] = useState(0)
-  const [isScanning, setIsScanning] = useState(true)
-  const [foxEyes, setFoxEyes] = useState(true)
   const router = useRouter()
-  const [mounted, setMounted] = useState(false)
-  const [particles, setParticles] = useState<Array<{ left: number; delay: number; duration: number; width: number; height: number; rotation: number }>>([])
-
-  useEffect(() => {
-    setMounted(true)
-    const particleData = Array.from({ length: 25 }, () => ({
-      left: Math.random() * 100,
-      delay: Math.random() * 10,
-      duration: 8 + Math.random() * 5,
-      width: 8 + Math.random() * 12,
-      height: 6 + Math.random() * 10,
-      rotation: Math.random() * 360,
-    }))
-    setParticles(particleData)
-  }, [])
-
-  // Glitch effect for 404 text
-  useEffect(() => {
-    const glitchChars = ["4", "0", "4", "█", "▓", "▒", "░", "■", "□", "▪", "▫", "狐", "九", "尾"]
-    const originalText = "404"
-
-    const glitchInterval = setInterval(() => {
-      if (Math.random() > 0.7) {
-        const glitched = originalText
-          .split("")
-          .map((char) => (Math.random() > 0.8 ? glitchChars[Math.floor(Math.random() * glitchChars.length)] : char))
-          .join("")
-        setGlitchText(glitched)
-
-        setTimeout(() => setGlitchText(originalText), 100)
-      }
-    }, 500)
-
-    return () => clearInterval(glitchInterval)
-  }, [])
-
-  // Fox eyes blinking effect
-  useEffect(() => {
-    const blinkInterval = setInterval(
-      () => {
-        setFoxEyes(false)
-        setTimeout(() => setFoxEyes(true), 150)
-      },
-      3000 + Math.random() * 2000,
-    )
-
-    return () => clearInterval(blinkInterval)
-  }, [])
-
-  // Scanning animation
-  useEffect(() => {
-    const scanInterval = setInterval(() => {
-      setScanLines((prev) => (prev + 1) % 100)
-    }, 50)
-
-    const scanTimeout = setTimeout(() => {
-      setIsScanning(false)
-    }, 3000)
-
-    return () => {
-      clearInterval(scanInterval)
-      clearTimeout(scanTimeout)
-    }
-  }, [])
 
   return (
-    <div className="min-h-screen bg-[#fffcf5] flex items-center justify-center p-4 overflow-hidden relative font-sans">
-      {/* Enhanced Background Effects */}
-      <div className="absolute inset-0">
-        {/* Warm Golden Sunset Gradient */}
-        <div className="absolute inset-0 bg-linear-to-br from-[#fff7ed] via-[#ffedd5] to-[#fecaca] -z-10" />
+    <main className="fixed inset-0 bg-ink text-bone overflow-hidden grain">
+      {/* Vignette + warm/cool radials */}
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,#000000_120%)]" />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_60%_40%_at_75%_25%,rgba(217,119,87,0.10),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_50%_40%_at_15%_85%,rgba(106,144,152,0.08),transparent_70%)]" />
 
-        {/* Floating Sunset Petals */}
-        <div className="absolute inset-0 pointer-events-none z-0">
-          {mounted &&
-            particles.map((particle, i) => (
-              <div
-                key={i}
-                className="absolute floating-petals"
-                style={{
-                  left: `${particle.left}%`,
-                  top: `-10%`,
-                  width: `${particle.width}px`,
-                  height: `${particle.height}px`,
-                  backgroundColor: i % 2 === 0 ? '#fb923c' : '#f87171',
-                  borderRadius: '100% 0% 100% 0% / 100% 0% 100% 0%',
-                  animationDelay: `${particle.delay}s`,
-                  animationDuration: `${particle.duration}s`,
-                  transform: `rotate(${particle.rotation}deg)`,
-                  opacity: 0.3,
-                }}
-              />
-            ))}
-        </div>
+      {/* HUD corners */}
+      <div className="hud-corner tl" />
+      <div className="hud-corner tr" />
+      <div className="hud-corner bl" />
+      <div className="hud-corner br" />
 
-        {/* Organic Corner Accents */}
-        <div className="absolute top-12 left-12 w-16 h-16 border-l-2 border-t-2 border-pink-200/60 rounded-tl-3xl shadow-inner animate-pulse" />
-        <div className="absolute bottom-12 right-12 w-16 h-16 border-r-2 border-b-2 border-pink-200/60 rounded-br-3xl shadow-inner animate-pulse" />
-      </div>
+      {/* Decorative kana */}
+      <span
+        className="kana-stamp z-0 select-none"
+        style={{ top: "-4rem", right: "-4rem", color: "var(--color-ember)" }}
+      >
+        失
+      </span>
 
-      {/* Main Content Grid Layout */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Left Side - Error Info */}
-        <div className="space-y-10">
-          {/* Piano-Key 404 */}
-          <div className="text-center lg:text-left">
-            <div className="relative inline-block">
-              <h1 className="text-8xl md:text-[10rem] font-black text-stone-950 tracking-tighter drop-shadow-xl">
-                {glitchText}
-              </h1>
-              <div className="absolute -inset-1 text-pink-400/30 animate-pulse -z-10 blur-md">{glitchText}</div>
-              <div className="absolute -inset-4 text-amber-200/20 animate-pulse delay-75 -z-20 blur-xl">{glitchText}</div>
-            </div>
-
-            <div className="flex items-center justify-center lg:justify-start gap-4 mt-6">
-              <div className="w-1.5 h-1.5 bg-pink-400 rounded-full animate-ping" />
-              <span className="text-stone-950 font-black text-[13px] tracking-[0.5em] uppercase opacity-40">Composition Error</span>
-            </div>
+      <div className="relative z-10 h-full grid place-items-center px-8">
+        <div className="max-w-2xl">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="w-8 h-px bg-[var(--color-ember)]" />
+            <span className="eyebrow !text-[var(--color-ember)]">Error · 404 · 迷</span>
           </div>
 
-          {/* Error Terminal */}
-          <div className="border border-stone-950/5 bg-white/40 backdrop-blur-3xl rounded-[2.5rem] overflow-hidden shadow-2xl ring-1 ring-white/60">
-            <div className="border-b border-stone-950/5 p-5 bg-white/30 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 bg-pink-300 rounded-full" />
-                <div className="w-2.5 h-2.5 bg-amber-400 rounded-full" />
-                <div className="w-2.5 h-2.5 bg-rose-300 rounded-full" />
-                <span className="text-stone-950/40 text-[9px] font-black uppercase tracking-[0.3em] ml-3 font-mono">Sunset_Lost.txt</span>
-              </div>
-            </div>
+          <h1 className="font-display text-bone text-[6rem] lg:text-[9rem] leading-[0.85] mb-8 tabular-nums">
+            4<span className="text-[var(--color-ember)]">0</span>4<span className="text-[var(--color-ember)]">.</span>
+          </h1>
 
-            <div className="p-10 space-y-6">
-              <h2 className="text-3xl font-black text-stone-950 tracking-tight">MELODY_INTERRUPTED</h2>
-              <div className="space-y-4 font-bold text-stone-800 leading-relaxed max-w-md">
-                <p className="flex items-start gap-3">
-                  <span className="text-pink-500 font-black">/</span>
-                  The specific moment you seek has faded into the golden hour.
-                </p>
-                <p className="flex items-start gap-3">
-                  <span className="text-amber-500 font-black">/</span>
-                  A musical note has been lost in the breeze.
-                </p>
-                <p className="flex items-start gap-3 opacity-40 italic text-xs font-medium">
-                  Wait for the next sunrise?
-                </p>
-              </div>
-            </div>
+          <p className="font-display italic text-[var(--color-amber)] text-2xl lg:text-3xl leading-tight mb-3">
+            You wandered off the page.
+          </p>
+
+          <p className="font-sans text-bone-dim text-[14px] leading-[1.75] max-w-md mb-12">
+            The chapter you&apos;re looking for isn&apos;t in this archive — maybe it was renamed,
+            maybe it was never written. Try the index, or go back the way you came.
+          </p>
+
+          <div className="flex items-center gap-8 flex-wrap">
+            <button
+              onClick={() => router.back()}
+              className="group inline-flex items-center gap-3 font-mono-tight text-[11px] uppercase tracking-[0.3em] text-bone hover:text-[var(--color-amber)] transition-colors"
+            >
+              <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+              <span className="relative pb-1">
+                Go back
+                <span className="absolute left-0 -bottom-0 h-px w-full bg-[var(--color-amber)]" />
+              </span>
+            </button>
+
+            <Link
+              href="/"
+              className="group inline-flex items-center gap-3 font-mono-tight text-[11px] uppercase tracking-[0.3em] text-bone-mute hover:text-[var(--color-ember)] transition-colors"
+            >
+              <span>Return to the archive</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
-
-          {/* Recovery Action */}
-          <button
-            onClick={() => router.back()}
-            className="w-full flex items-center justify-center gap-5 p-6 bg-stone-950 text-white rounded-2xl font-black text-xs tracking-[0.4em] uppercase hover:bg-stone-800 transition-all shadow-[0_20px_40px_rgba(45,27,30,0.2)] group active:scale-95"
-          >
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform text-pink-400" />
-            Return to the previous page
-          </button>
-        </div>
-
-        {/* Right Side - Visual Area (Music Room Vibe) */}
-        <div className="hidden lg:block relative group">
-          <div className="absolute inset-0 bg-pink-200/20 rounded-[4rem] blur-3xl group-hover:bg-pink-300/30 transition-all duration-1000" />
-          <div className="relative border border-white/80 bg-white/30 backdrop-blur-xl rounded-[4rem] p-12 overflow-hidden shadow-2xl">
-            <div className="aspect-square flex items-center justify-center relative">
-              <div className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-pink-400/20 to-transparent top-10" />
-              <div className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-amber-400/20 to-transparent bottom-10" />
-
-              <div className="text-center">
-                <div className="w-72 h-72 mx-auto mb-10 relative">
-                  <div className="absolute inset-0 bg-pink-400/10 rounded-full animate-pulse blur-3xl" />
-                  <img
-                    src="/L.jpg"
-                    alt="Logo"
-                    className="w-full h-full"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <div className="text-stone-950 font-black tracking-[0.6em] text-[11px] uppercase">Harmony_Lost</div>
-                  <div className="text-stone-400 font-black text-[9px] uppercase tracking-[0.3em]">Drifting into the void</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Decorative bits */}
-          <div className="absolute -top-6 -right-6 w-20 h-20 border-r-2 border-t-2 border-pink-400/40 rounded-tr-[3rem]" />
-          <div className="absolute -bottom-6 -left-6 w-20 h-20 border-l-2 border-b-2 border-amber-400/40 rounded-bl-[3rem]" />
         </div>
       </div>
 
-      {/* Footer */}
-      <div className="absolute bottom-12 left-0 right-0 text-center space-y-2 opacity-40">
-        <div className="text-stone-950 font-black text-[10px] uppercase tracking-[0.5em]">
-          Memory Protocol v{version} | Echo 404
-        </div>
-        <div className="text-stone-950 font-black text-[8px] uppercase tracking-[0.3em] font-mono">
-          SN: {mounted ? Date.now().toString(16).toUpperCase() : "SYNCING"}
-        </div>
-      </div>
-    </div>
+      {/* Bottom status strip */}
+      <footer className="absolute bottom-0 left-0 right-0 z-20 h-6 border-t border-[var(--color-line)] flex items-center px-8 lg:px-12 text-[10px] font-mono-tight uppercase tracking-[0.2em] text-bone-mute bg-ink/70 backdrop-blur-sm">
+        <span className="text-bone-dim">XX</span>
+        <span className="mx-3 text-bone-mute/40">/</span>
+        <span>迷</span>
+        <span className="mx-3 text-bone-mute/40">·</span>
+        <span className="text-bone-dim">PAGE NOT FOUND</span>
+        <span className="ml-auto hidden md:inline">DYARI ALI TAHIR · 2026</span>
+      </footer>
+    </main>
   )
 }

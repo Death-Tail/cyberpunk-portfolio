@@ -1,8 +1,5 @@
-"use client"
-
-import { CyberpunkBoot } from "@/components/cyberpunk-boot"
+import { ArchiveLoader } from "@/components/archive/archive-loader"
 
 export default function Loading() {
-  // Delegate to the cyberpunk boot screen for a richer loading experience
-  return <CyberpunkBoot onComplete={() => {}} />
+  return <ArchiveLoader />
 }

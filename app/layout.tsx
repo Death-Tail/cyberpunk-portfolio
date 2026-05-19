@@ -1,34 +1,52 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
+import { Fraunces, JetBrains_Mono, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ThemeProvider } from "@/components/theme-provider"
 
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  axes: ["opsz", "SOFT", "WONK"],
+  display: "swap",
+})
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+})
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+})
+
 export const metadata: Metadata = {
-  title: "Dyari Ali Tahir",
+  title: "Dyari Ali Tahir — Archive",
   authors: [{ name: "Dyari Ali Tahir", url: "https://dyariali.com" }],
-  applicationName: "Dyari Ali Tahir Portfolio",
+  applicationName: "SHIN尾 Archive",
   generator: "Next.js",
   metadataBase: new URL("https://dyariali.com"),
-  alternates: {
-    canonical: './',
-  },
+  alternates: { canonical: "./" },
   referrer: "origin-when-cross-origin",
-  description: "Full-stack developer specializing in Next.js ecosystem and modern web architecture.",
-  keywords: "full-stack developer, Dyari Ali Tahir, SHIN尾, Death Tail, portfolio, web architecture, Next.js, React, Node.js, TypeScript, Tailwind CSS, PostgreSQL, Erbil developer, Hawler, frontend developer, backend developer, Iraq developer, cyberpunk portfolio, kitsune branding",
+  description: "Personal archive of Dyari Ali Tahir — works, watched, read, played, written.",
+  keywords: "full-stack developer, Dyari Ali Tahir, SHIN尾, Death Tail, portfolio, anime log, watch log, archive",
   creator: "Dyari Ali Tahir",
   openGraph: {
-    title: "Dyari Ali Tahir",
-    description: "Full-stack developer specializing in Next.js ecosystem and modern web architecture.",
+    title: "Dyari Ali Tahir — Archive",
+    description: "Personal archive of works, watched, read, played, written.",
     url: "https://dyariali.com",
-    siteName: "Dyari Ali Tahir Portfolio",
+    siteName: "SHIN尾 Archive",
     images: [
       {
         url: "https://dyariali.com/openGraph.jpg",
         width: 3000,
         height: 1567,
-        alt: "Dyari Ali Tahir Portfolio",
+        alt: "Dyari Ali Tahir",
         type: "image/jpg",
       },
     ],
@@ -37,13 +55,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dyari Ali Tahir",
-    description: "Full-stack developer specializing in Next.js ecosystem and modern web architecture.",
+    title: "Dyari Ali Tahir — Archive",
+    description: "Personal archive of works, watched, read, played, written.",
     site: "@dyariali",
     creator: "@death_tail0331",
-    images: [
-      "https://dyariali.com/openGraph.jpg",
-    ],
+    images: ["https://dyariali.com/openGraph.jpg"],
   },
   manifest: "/manifest.json",
   robots: { index: true, follow: true },
@@ -51,47 +67,40 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${fraunces.variable} ${jetbrains.variable} ${inter.variable}`}>
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon" />
-        <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon.ico" />
-        <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <meta name="theme-color" content="#18181b" />
         <link rel="apple-touch-icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <meta name="theme-color" content="#0a0a0b" />
         <meta property="fb:app_id" content="1574339983752418" />
 
-
-        {/* JSON-LD structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              "name": "Dyari Ali Tahir",
-              "alternateName": ["SHIN尾", "Death Tail"],
-              "url": "https://dyariali.com",
-              "jobTitle": "Full-Stack Developer",
-              "knowsAbout": ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Web Development", "UI/UX Design"],
-              "sameAs": [
+              name: "Dyari Ali Tahir",
+              alternateName: ["SHIN尾", "Death Tail"],
+              url: "https://dyariali.com",
+              jobTitle: "Full-Stack Developer",
+              knowsAbout: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL"],
+              sameAs: [
                 "https://github.com/Death-Tail",
                 "https://www.linkedin.com/in/dyarialitahir/",
                 "https://discord.com/users/death_tail",
                 "https://x.com/Death_Tail0331",
-                "https://www.instagram.com/dyari_ali_taher/"
-              ]
-            })
+                "https://www.instagram.com/dyari_ali_taher/",
+              ],
+            }),
           }}
         />
       </head>
-      <body>
+      <body className="font-sans bg-ink text-bone antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>

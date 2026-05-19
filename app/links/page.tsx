@@ -1,93 +1,143 @@
-import React from 'react';
-import Image from 'next/image';
-import bgImg from "@/public/bg.jpg";
+import Image from "next/image"
+import { ArrowUpRight } from "lucide-react"
 
 export const metadata = {
-  title: "Links | Dyari Ali Tahir",
-  description: "Connect with me across various platforms.",
+  title: "Links · Dyari Ali Tahir",
+  description: "Channels for reaching Dyari Ali Tahir.",
 }
 
-const links = [
-  { name: "Email", url: "mailto:dyarialitaher03@gmail.com", icon: "/Icons/gmail.avif", handle: "dyarialitaher03@gmail.com" },
-  { name: "GitHub", url: "https://github.com/Death-Tail", icon: "/Icons/github.avif", handle: "Death-Tail" },
-  { name: "LinkedIn", url: "https://www.linkedin.com/in/dyarialitahir/", icon: "/Icons/linkedin.avif", handle: "Dyari Ali Tahir" },
-  { name: "X", url: "https://x.com/Death_Tail0331", icon: "/Icons/x.avif", handle: "@Death_Tail0331" },
-  { name: "Instagram", url: "https://www.instagram.com/dyari_ali_taher/", icon: "/Icons/instagram.avif", handle: "@dyari_ali_taher" },
-];
+const links: { name: string; url: string; handle: string; kana: string; tone: "ember" | "teal" | "amber" }[] = [
+  { name: "Email", url: "mailto:dyarialitaher03@gmail.com", handle: "dyarialitaher03@gmail.com", kana: "信", tone: "ember" },
+  { name: "GitHub", url: "https://github.com/Death-Tail", handle: "Death-Tail", kana: "源", tone: "teal" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/dyarialitahir/", handle: "in/dyarialitahir", kana: "職", tone: "amber" },
+  { name: "X", url: "https://x.com/Death_Tail0331", handle: "@Death_Tail0331", kana: "声", tone: "ember" },
+  { name: "Instagram", url: "https://www.instagram.com/dyari_ali_taher/", handle: "@dyari_ali_taher", kana: "像", tone: "teal" },
+  { name: "Discord", url: "https://discord.com/users/death_tail", handle: "death_tail", kana: "話", tone: "amber" },
+]
 
-const LinksPage = () => {
+const toneVar = (t: "ember" | "teal" | "amber") =>
+  t === "ember" ? "var(--color-ember)" : t === "teal" ? "var(--color-teal)" : "var(--color-amber)"
+
+export default function LinksPage() {
   return (
-    <div className="min-h-screen flex flex-col items-center py-20 px-4 relative overflow-hidden font-sans selection:bg-memory-pink/30 text-stone-900">
+    <main className="fixed inset-0 bg-ink text-bone overflow-hidden grain">
+      {/* Vignette + radials */}
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,#000000_120%)]" />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_60%_40%_at_75%_20%,rgba(217,119,87,0.10),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_50%_40%_at_15%_85%,rgba(106,144,152,0.08),transparent_70%)]" />
 
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src={bgImg}
-          alt="Background"
-          fill
-          className="object-cover object-center select-none pointer-events-none opacity-90"
-          priority
-        />
-      </div>
+      {/* HUD corners */}
+      <div className="hud-corner tl" />
+      <div className="hud-corner tr" />
+      <div className="hud-corner bl" />
+      <div className="hud-corner br" />
 
-      {/* Subtle overlay */}
-      <div className="absolute inset-0 bg-memory-pink/5 mix-blend-overlay pointer-events-none z-0"></div>
+      {/* Background kana */}
+      <span className="kana-stamp z-0 select-none" style={{ top: "-5rem", right: "-4rem" }}>連</span>
 
-      <div className="relative z-10 w-full max-w-md flex flex-col items-center animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out">
+      {/* Top strip */}
+      <header className="relative z-20 flex items-center justify-between px-8 lg:px-12 h-14 border-b border-[var(--color-line)] bg-ink/70 backdrop-blur-sm">
+        <div className="flex items-center gap-3">
+          <div className="w-7 h-7 border border-bone-dim/60 flex items-center justify-center">
+            <span className="font-display italic text-bone text-base leading-none">尾</span>
+          </div>
+          <span className="font-mono-tight text-[10px] uppercase tracking-[0.35em] text-bone">SHIN</span>
+        </div>
+        <a
+          href="/"
+          className="font-mono-tight text-[10px] uppercase tracking-[0.25em] text-bone-mute hover:text-[var(--color-ember)] transition-colors"
+        >
+          ← back to archive
+        </a>
+      </header>
 
-        {/* Profile Image - Glassmorphic Container Style */}
-        <div className="relative mb-6 group cursor-pointer rounded-full p-1.5 bg-white/40 backdrop-blur-md shadow-lg border border-white/60 flex items-center justify-center hover:bg-white/60 transition-colors">
-          <div className="relative w-28 h-28 rounded-full overflow-hidden shadow-inner">
-            <Image
-              src="/L.jpg"
-              alt="Dyari Ali Tahir"
-              fill
-              className="object-cover group-hover:scale-110 transition-transform duration-500"
-              priority
-            />
+      <div className="relative z-10 h-[calc(100dvh-3.5rem-1.5rem)] overflow-auto px-8 lg:px-12 py-12">
+        <div className="max-w-2xl mx-auto">
+          {/* Profile block */}
+          <div className="flex flex-col items-center text-center mb-12">
+            <div className="relative w-28 h-28 mb-6">
+              <div className="absolute inset-0 border border-[var(--color-line-strong)]" />
+              <Image
+                src="/L.jpg"
+                alt="Dyari Ali Tahir"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute -bottom-2 -right-2 w-6 h-6 border border-[var(--color-ember)] bg-ink flex items-center justify-center">
+                <span className="font-display italic text-[var(--color-ember)] text-xs leading-none">尾</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 mb-3">
+              <span className="w-8 h-px bg-[var(--color-ember)]" />
+              <span className="eyebrow !text-[var(--color-ember)]">06 · 連絡 · Channels</span>
+              <span className="w-8 h-px bg-[var(--color-ember)]" />
+            </div>
+            <h1 className="font-display text-bone text-[2.75rem] leading-[0.95] mb-2">
+              Dyari Ali Tahir
+            </h1>
+            <p className="font-mono-tight text-[10px] uppercase tracking-[0.3em] text-bone-mute">
+              SHIN<span className="text-[var(--color-ember)]">尾</span> · @death_tail
+            </p>
+          </div>
+
+          {/* Links list */}
+          <ul className="border-t border-[var(--color-line)]">
+            {links.map((link, i) => (
+              <li key={link.name}>
+                <a
+                  href={link.url}
+                  target={link.url.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  className="group grid grid-cols-[2.5rem_2.5rem_minmax(0,1fr)_auto] items-baseline gap-4 border-b border-[var(--color-line)] py-5 px-2 hover:bg-[var(--color-ink-2)] transition-colors"
+                >
+                  <span className="font-mono-tight text-[10px] tabular-nums text-bone-mute">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span
+                    className="font-display italic text-2xl leading-none"
+                    style={{ color: toneVar(link.tone), opacity: 0.85 }}
+                  >
+                    {link.kana}
+                  </span>
+                  <span className="min-w-0">
+                    <span className="font-display italic text-bone text-xl leading-tight block group-hover:text-[var(--color-amber)] transition-colors">
+                      {link.name}
+                    </span>
+                    <span className="font-mono-tight text-[10px] uppercase tracking-[0.2em] text-bone-mute mt-1 block truncate">
+                      {link.handle}
+                    </span>
+                  </span>
+                  <ArrowUpRight
+                    className="w-4 h-4 text-bone-mute group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                    style={{ color: undefined }}
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="pt-8 text-center">
+            <a
+              href="/"
+              className="font-mono-tight text-[10px] uppercase tracking-[0.3em] text-bone-mute hover:text-[var(--color-ember)] transition-colors"
+            >
+              ← return to the archive
+            </a>
           </div>
         </div>
-
-        {/* Info */}
-        <h1 className="text-2xl font-black text-stone-900 mb-2 tracking-wider drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]">Dyari Ali Tahir</h1>
-        <div className="bg-white/40 backdrop-blur-md shadow-sm border border-white/60 py-1.5 px-4 rounded-full max-w-fit mb-8 hover:bg-white/60 transition-colors cursor-default">
-          <p className="text-stone-700 tracking-widest text-[10px] font-black uppercase text-center w-full">@death_tail</p>
-        </div>
-
-        {/* Links - Memory Theme Light Glass Style */}
-        <div className="w-full space-y-4">
-          {links.map((link, i) => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-4 w-full p-4 rounded-2xl bg-white/40 border border-white/60 hover:bg-white/60 hover:-translate-y-1 transition-all duration-300 group backdrop-blur-xl shadow-lg relative overflow-hidden"
-              style={{ animationDelay: `${i * 100}ms`, animationFillMode: 'both' }}
-            >
-              {/* Icon Container */}
-              <div className="shrink-0 w-12 h-12 rounded-xl bg-white/80 shadow-inner p-2.5 flex items-center justify-center group-hover:scale-110 transition-transform relative z-10 border border-white/50">
-                <img src={link.icon} alt={link.name} className="w-full h-full object-contain" />
-              </div>
-
-              <div className="flex-1 min-w-0 relative z-10">
-                <h2 className="text-stone-900 font-bold text-sm tracking-wide">{link.name}</h2>
-                <p className="text-stone-600 text-xs font-bold truncate tracking-tight">{link.handle}</p>
-              </div>
-
-              {/* Arrow Icon */}
-              <div className="shrink-0 text-stone-400 group-hover:text-memory-pink group-hover:translate-x-1 transition-all">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </div>
-            </a>
-          ))}
-        </div>
       </div>
-    </div>
-  );
-};
 
-export default LinksPage;
+      {/* Bottom strip */}
+      <footer className="absolute bottom-0 left-0 right-0 z-20 h-6 border-t border-[var(--color-line)] flex items-center px-8 lg:px-12 text-[10px] font-mono-tight uppercase tracking-[0.2em] text-bone-mute bg-ink/70 backdrop-blur-sm">
+        <span className="text-bone-dim">06</span>
+        <span className="mx-3 text-bone-mute/40">/</span>
+        <span>連</span>
+        <span className="mx-3 text-bone-mute/40">·</span>
+        <span className="text-bone-dim">CHANNELS</span>
+        <span className="ml-auto hidden md:inline">DYARI ALI TAHIR · 2026</span>
+      </footer>
+    </main>
+  )
+}
