@@ -41,7 +41,7 @@ export function ChapterRead() {
     <div className="relative min-h-full">
       <span className="kana-stamp" style={{ top: "-4rem", right: "-4rem" }}>読</span>
 
-      <div className="relative z-10 px-10 lg:px-14 pt-10 pb-6">
+      <div className="relative z-10 px-5 sm:px-8 md:px-10 lg:px-14 pt-10 pb-6">
         <div className="flex items-center gap-3 mb-3">
           <span className="w-6 h-px bg-[var(--color-amber)]" />
           <span className="eyebrow !text-[var(--color-amber)]">03 · 読了 · Read</span>
@@ -74,7 +74,7 @@ export function ChapterRead() {
         </div>
       </div>
 
-      <div className="relative z-10 px-10 lg:px-14 pb-12 space-y-12">
+      <div className="relative z-10 px-5 sm:px-8 md:px-10 lg:px-14 pb-12 space-y-12">
         {STATUS_ORDER.map((st) => {
           const items = byStatus[st]
           if (!items || items.length === 0) return null

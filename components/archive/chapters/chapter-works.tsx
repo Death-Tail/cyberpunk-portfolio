@@ -15,7 +15,7 @@ export function ChapterWorks() {
       <span className="kana-stamp" style={{ top: "-3rem", right: "-5rem" }}>作</span>
 
       {/* ── Chapter masthead ─────────────────────────────────────── */}
-      <header className="relative z-10 px-10 lg:px-14 pt-10 pb-8 border-b border-[var(--color-line)]">
+      <header className="relative z-10 px-5 sm:px-8 md:px-10 lg:px-14 pt-10 pb-8 border-b border-[var(--color-line)]">
         <div className="flex items-center gap-3 mb-3">
           <span className="w-6 h-px bg-[var(--color-ember)]" />
           <span className="eyebrow !text-[var(--color-ember)]">01 · 作品 · Works</span>
@@ -49,7 +49,7 @@ export function ChapterWorks() {
         })}
 
         {/* End ornament */}
-        <div className="relative z-10 px-10 lg:px-14 py-14 flex items-center gap-6">
+        <div className="relative z-10 px-5 sm:px-8 md:px-10 lg:px-14 py-14 flex items-center gap-6">
           <span className="flex-1 h-px hairline" />
           <span className="font-display italic text-bone-mute text-2xl leading-none">— 終 —</span>
           <span className="flex-1 h-px hairline" />
@@ -82,7 +82,7 @@ function ProjectSpread({ project, index, total, accent, reverse }: SpreadProps) 
     >
         {/* Page break above (skip for first) */}
         {index > 0 && (
-          <div className="relative z-10 px-10 lg:px-14 py-8 flex items-center gap-6">
+          <div className="relative z-10 px-5 sm:px-8 md:px-10 lg:px-14 py-8 flex items-center gap-6">
             <span className="flex-1 h-px hairline" />
             <span
               className="font-display italic text-2xl leading-none"
@@ -98,7 +98,7 @@ function ProjectSpread({ project, index, total, accent, reverse }: SpreadProps) 
         )}
 
         {/* Spread body */}
-        <div className="grid lg:grid-cols-2 gap-0 px-10 lg:px-14 py-10">
+        <div className="grid lg:grid-cols-2 gap-0 px-5 sm:px-8 md:px-10 lg:px-14 py-10">
           {/* TEXT COLUMN */}
           <div
             className={`flex flex-col justify-start lg:py-6 ${

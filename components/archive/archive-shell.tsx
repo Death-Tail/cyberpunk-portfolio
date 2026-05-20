@@ -19,6 +19,7 @@ export function ArchiveShell() {
   const [time, setTime] = useState<string>("")
   const [hour, setHour] = useState<number>(new Date().getHours())
   const [progress, setProgress] = useState(0)
+  const [navOpen, setNavOpen] = useState(false)
   const stageRef = useRef<HTMLDivElement>(null)
 
   /* Clock + hour-of-day */
@@ -53,12 +54,22 @@ export function ArchiveShell() {
     (id: ChapterId) => {
       const oldIdx = chapters.findIndex((c) => c.id === active)
       const newIdx = chapters.findIndex((c) => c.id === id)
+      setNavOpen(false)
       if (newIdx === oldIdx) return
       setDirection(newIdx > oldIdx ? "forward" : "back")
       setActive(id)
     },
     [active]
   )
+
+  /* Close drawer on Esc */
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setNavOpen(false)
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [])
 
   /* Keyboard navigation */
   useEffect(() => {
@@ -94,8 +105,8 @@ export function ArchiveShell() {
       <FireflyAmbient />
 
       {/* ── Top strip ───────────────────────────────────── */}
-      <header className="relative z-20 flex items-center justify-between px-8 lg:px-12 h-14 border-b border-[var(--color-line)] bg-ink/70 backdrop-blur-sm">
-        <div className="flex items-center gap-7">
+      <header className="relative z-30 flex items-center justify-between px-4 sm:px-8 lg:px-12 h-14 border-b border-[var(--color-line)] bg-ink/70 backdrop-blur-sm">
+        <div className="flex items-center gap-4 sm:gap-7 min-w-0">
           <Monogram />
           <div className="hidden md:flex items-center gap-3 text-[10px] font-mono-tight text-bone-mute uppercase tracking-[0.2em]">
             <span>SHIN<span className="text-[var(--color-ember)]">尾</span></span>
@@ -108,20 +119,62 @@ export function ArchiveShell() {
               {activeChapter.title}
             </span>
           </div>
+          {/* Mobile-only chapter chip — replaces the breadcrumb at small widths */}
+          <div className="md:hidden flex items-baseline gap-2 min-w-0">
+            <span className="font-mono-tight text-[10px] tabular-nums text-[var(--color-ember)]">
+              {activeChapter.index}
+            </span>
+            <span className="font-display italic text-[var(--color-amber)] text-sm leading-none truncate">
+              {activeChapter.title}
+            </span>
+          </div>
         </div>
-        <div className="flex items-center gap-5 text-[10px] font-mono-tight uppercase tracking-[0.2em] text-bone-mute">
+        <div className="flex items-center gap-3 sm:gap-5 text-[10px] font-mono-tight uppercase tracking-[0.2em] text-bone-mute">
           <DayGlyph isDay={isDay} />
           <span className="hidden sm:inline">{time}</span>
           <span className="hidden md:inline text-bone-mute/40">·</span>
           <span className="hidden md:inline text-[var(--color-teal)]">HAWLER · KRG</span>
-
+          {/* Hamburger — mobile only */}
+          <button
+            type="button"
+            aria-label={navOpen ? "Close index" : "Open index"}
+            aria-expanded={navOpen}
+            onClick={() => setNavOpen((v) => !v)}
+            className="md:hidden ml-1 w-9 h-9 -mr-1 flex flex-col items-center justify-center gap-[5px] border border-[var(--color-line-strong)] hover:border-[var(--color-line-ember)] transition-colors"
+          >
+            <span
+              className={`block w-4 h-px bg-bone transition-transform duration-200 ${
+                navOpen ? "translate-y-[3px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block w-4 h-px bg-bone transition-transform duration-200 ${
+                navOpen ? "-translate-y-[3px] -rotate-45" : ""
+              }`}
+            />
+          </button>
         </div>
       </header>
 
       {/* ── Body grid ──────────────────────────────────── */}
-      <div className="relative z-10 grid h-[calc(100dvh-3.5rem-1.5rem)] grid-cols-[15rem_minmax(0,1fr)] lg:grid-cols-[17rem_minmax(0,1fr)_20rem]">
-        {/* SPINE */}
-        <aside className="relative border-r border-[var(--color-line)] flex flex-col surface-ink-2">
+      <div className="relative z-10 grid h-[calc(100dvh-3.5rem-1.5rem)] grid-cols-1 md:grid-cols-[15rem_minmax(0,1fr)] lg:grid-cols-[17rem_minmax(0,1fr)_20rem]">
+        {/* Drawer backdrop — mobile only */}
+        {navOpen && (
+          <button
+            type="button"
+            aria-label="Close index"
+            onClick={() => setNavOpen(false)}
+            className="md:hidden fixed inset-0 top-14 bottom-6 z-30 bg-ink/70 backdrop-blur-sm fade-in"
+          />
+        )}
+
+        {/* SPINE — inline on md+, off-canvas drawer on mobile */}
+        <aside
+          className={`border-r border-[var(--color-line)] flex flex-col surface-ink-2
+            fixed top-14 bottom-6 left-0 z-40 w-[18rem] max-w-[85vw] transform transition-transform duration-300 ease-out
+            ${navOpen ? "translate-x-0" : "-translate-x-full"}
+            md:relative md:top-0 md:bottom-0 md:w-auto md:max-w-none md:translate-x-0 md:z-auto`}
+        >
           <div className="px-7 pt-10 pb-5">
             <div className="flex items-center gap-2 mb-2">
               <span className="w-4 h-px bg-[var(--color-ember)]" />
@@ -218,7 +271,7 @@ export function ArchiveShell() {
       </div>
 
       {/* ── Bottom status strip ─────────────────────────── */}
-      <footer className="relative z-20 h-6 border-t border-[var(--color-line)] flex items-center px-8 lg:px-12 text-[10px] font-mono-tight uppercase tracking-[0.2em] text-bone-mute bg-ink/70 backdrop-blur-sm">
+      <footer className="relative z-20 h-6 border-t border-[var(--color-line)] flex items-center px-4 sm:px-8 lg:px-12 text-[10px] font-mono-tight uppercase tracking-[0.2em] text-bone-mute bg-ink/70 backdrop-blur-sm">
         <span className="text-bone-dim">{activeChapter.index}</span>
         <span className="mx-3 text-bone-mute/40">/</span>
         <span>{activeChapter.kana}</span>
@@ -248,9 +301,12 @@ function KeyHint({ children }: { children: React.ReactNode }) {
 function Monogram() {
   return (
     <div className="relative flex items-center gap-3">
-      <div className="w-7 h-7 border border-bone-dim/60 flex items-center justify-center">
-        <span className="font-display italic text-bone text-base leading-none">尾</span>
-      </div>
+      <img
+        src="/logo.jpg"
+        alt="SHIN尾"
+        className="w-7 h-7 object-cover"
+        draggable={false}
+      />
       <span className="font-mono-tight text-[10px] uppercase tracking-[0.35em] text-bone">SHIN</span>
     </div>
   )

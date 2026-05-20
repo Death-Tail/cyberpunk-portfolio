@@ -33,7 +33,7 @@ export function ChapterWatch() {
 
   return (
     <div className="h-full overflow-auto">
-      <div className="px-8 md:px-12 pt-10 pb-6">
+      <div className="px-5 sm:px-8 md:px-12 pt-10 pb-6">
         <div className="eyebrow mb-3">02 · 観た · Watch Log</div>
         <h1 className="font-display text-bone text-[2.5rem] md:text-[3.5rem] leading-[0.95] mb-3">
           What I&apos;ve been&nbsp;
@@ -65,7 +65,7 @@ export function ChapterWatch() {
       </div>
 
       {/* Sections */}
-      <div className="px-8 md:px-12 pb-12 space-y-12">
+      <div className="px-5 sm:px-8 md:px-12 pb-12 space-y-12">
         {STATUSES.map((st) => {
           const items = byStatus[st]
           if (!items || items.length === 0) return null

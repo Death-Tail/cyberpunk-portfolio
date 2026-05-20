@@ -32,9 +32,7 @@ export function ArchiveLoader({ label = "Opening the archive" }: { label?: strin
       {/* Top strip placeholder */}
       <div className="relative z-10 px-8 lg:px-12 h-14 flex items-center justify-between border-b border-[var(--color-line)]">
         <div className="flex items-center gap-3">
-          <div className="w-7 h-7 border border-bone-dim/60 flex items-center justify-center">
-            <span className="font-display italic text-bone text-base leading-none">尾</span>
-          </div>
+          <img src="/logo.jpg" alt="SHIN尾" className="w-7 h-7 object-cover" draggable={false} />
           <span className="font-mono-tight text-[10px] uppercase tracking-[0.35em] text-bone">SHIN</span>
         </div>
         <span className="font-mono-tight text-[10px] uppercase tracking-[0.25em] text-bone-mute">

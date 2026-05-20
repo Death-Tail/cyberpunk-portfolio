@@ -28,9 +28,9 @@ export function ChapterHome({ onNavigate }: { onNavigate: (id: ChapterId) => voi
       </span>
 
       {/* Content */}
-      <div className="relative z-10 min-h-full grid grid-rows-[1fr_auto] px-12 lg:px-20">
+      <div className="relative z-10 min-h-full grid grid-rows-[1fr_auto] px-5 sm:px-8 md:px-12 lg:px-20">
         {/* Hero block */}
-        <div className="flex flex-col justify-center max-w-2xl pt-10 pb-6">
+        <div className="flex flex-col justify-center max-w-2xl pt-8 sm:pt-10 pb-6">
           <div className="flex items-center gap-3 mb-5 lamp-pulse">
             <span className="w-10 h-px bg-[var(--color-ember)]" />
             <span className="eyebrow !text-[var(--color-ember)]">00 · 序 · Introduction</span>
@@ -40,7 +40,7 @@ export function ChapterHome({ onNavigate }: { onNavigate: (id: ChapterId) => voi
             Late light. Working alone.
           </p>
 
-          <h1 className="font-display text-bone text-[3.5rem] lg:text-[5.25rem] leading-[0.92] mb-4">
+          <h1 className="font-display text-bone text-[2.75rem] sm:text-[3.5rem] lg:text-[5.25rem] leading-[0.92] mb-4">
             Dyari Ali<br />
             <span className="text-[var(--color-bone-dim)]">Tahir<span className="text-[var(--color-ember)]">.</span></span>
           </h1>
@@ -84,7 +84,7 @@ export function ChapterHome({ onNavigate }: { onNavigate: (id: ChapterId) => voi
           </div>
 
           {/* Calls */}
-          <div className="flex items-center gap-8 flex-wrap">
+          <div className="flex items-center gap-x-6 gap-y-3 flex-wrap">
             <button
               onClick={() => onNavigate("works")}
               className="group inline-flex items-center gap-3 font-mono-tight text-[11px] uppercase tracking-[0.3em] text-bone hover:text-[var(--color-amber)] transition-colors"
@@ -119,7 +119,7 @@ export function ChapterHome({ onNavigate }: { onNavigate: (id: ChapterId) => voi
             </div>
             <span className="eyebrow !text-bone-mute/40">07 chapters · always under construction</span>
           </div>
-          <div className="grid grid-cols-6 gap-px bg-[var(--color-line)]">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-[var(--color-line)]">
             {([
               { id: "works", num: "01", title: "Works", kana: "作品", tone: "ember" },
               { id: "watch", num: "02", title: "Watch", kana: "観た", tone: "teal" },

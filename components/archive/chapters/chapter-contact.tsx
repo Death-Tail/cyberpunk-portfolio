@@ -12,7 +12,7 @@ const channels: { label: string; handle: string; href: string; kana: string }[] 
 export function ChapterContact() {
   return (
     <div className="h-full overflow-auto">
-      <div className="px-8 md:px-12 py-12 max-w-3xl">
+      <div className="px-5 sm:px-8 md:px-12 py-12 max-w-3xl">
         <div className="eyebrow mb-3">06 · 連絡 · Channels</div>
         <h1 className="font-display text-bone text-[2.75rem] md:text-[4rem] leading-[0.95] mb-6">
           Open the&nbsp;
