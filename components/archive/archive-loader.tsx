@@ -10,11 +10,10 @@ export function ArchiveLoader({ label = "Opening the archive" }: { label?: strin
     <div className="fixed inset-0 bg-ink text-bone overflow-hidden grain">
       {/* Vignette */}
       <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,#000000_120%)]" />
-      {/* Warm haze + cool haze (window vs lamp) */}
-      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_60%_40%_at_75%_25%,rgba(217,119,87,0.10),transparent_60%)]" />
-      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_50%_40%_at_15%_85%,rgba(106,144,152,0.08),transparent_70%)]" />
+      {/* Single cinnabar bloom — no second teal haze, no operator chrome */}
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_55%_40%_at_50%_30%,rgba(200,72,58,0.08),transparent_65%)]" />
 
-      {/* Drifting motes */}
+      {/* One drifting mote — quieter than two */}
       <span
         className="absolute float-slow pointer-events-none"
         style={{
@@ -23,33 +22,12 @@ export function ArchiveLoader({ label = "Opening the archive" }: { label?: strin
           width: 2,
           height: 2,
           borderRadius: 9999,
-          background: "var(--color-ember)",
-          boxShadow: "0 0 12px 2px rgba(217,119,87,0.4)",
-          opacity: 0.5,
-          animationDuration: "9s",
-        }}
-      />
-      <span
-        className="absolute float-slow pointer-events-none"
-        style={{
-          right: "24%",
-          top: "62%",
-          width: 2,
-          height: 2,
-          borderRadius: 9999,
           background: "var(--color-amber)",
-          boxShadow: "0 0 10px 2px rgba(226,181,110,0.35)",
+          boxShadow: "0 0 10px 2px rgba(201,168,106,0.35)",
           opacity: 0.4,
           animationDuration: "11s",
-          animationDelay: "-3s",
         }}
       />
-
-      {/* HUD corners */}
-      <div className="hud-corner tl" />
-      <div className="hud-corner tr" />
-      <div className="hud-corner bl" />
-      <div className="hud-corner br" />
 
       {/* Top strip placeholder */}
       <div className="relative z-10 px-8 lg:px-12 h-14 flex items-center justify-between border-b border-[var(--color-line)]">

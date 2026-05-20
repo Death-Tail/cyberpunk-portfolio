@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "SHIN尾 Archive",
     images: [
       {
-        url: "https://dyariali.com/openGraph.jpg",
+        url: "https://dyariali.com/bg.jpg",
         width: 3000,
         height: 1567,
         alt: "Dyari Ali Tahir",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     description: "Personal archive of works, watched, read, played, written.",
     site: "@dyariali",
     creator: "@death_tail0331",
-    images: ["https://dyariali.com/openGraph.jpg"],
+    images: ["https://dyariali.com/bg.jpg"],
   },
   manifest: "/manifest.json",
   robots: { index: true, follow: true },

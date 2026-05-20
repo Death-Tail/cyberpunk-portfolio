@@ -121,11 +121,10 @@ export function ChapterRead() {
           )
         })}
 
-        <div className="pt-6 border-t border-[var(--color-line)] flex items-center justify-between">
-          <span className="eyebrow">End of file</span>
-          <span className="font-mono-tight text-[10px] uppercase tracking-[0.25em] text-bone-mute">
-            Edit&nbsp;<span className="text-bone">data/read.ts</span>&nbsp;to append
-          </span>
+        <div className="pt-8 flex items-center gap-6">
+          <span className="flex-1 h-px hairline" />
+          <span className="font-display italic text-bone-mute text-xl leading-none">— 終 —</span>
+          <span className="flex-1 h-px hairline" />
         </div>
       </div>
     </div>

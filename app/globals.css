@@ -1,33 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  /* Dusk-through-a-window palette — warm dark plum + persimmon + dusty teal + amber */
-  --color-ink: #13121a;              /* deep plum-black, not flat black */
-  --color-ink-2: #1c1822;            /* surface */
-  --color-ink-3: #262029;            /* raised surface */
-  --color-bone: #ece3d2;             /* warm bone */
-  --color-bone-dim: #a89e8a;
-  --color-bone-mute: #7a7062;
+  /* Ink-wash & cinnabar — old book bound in indigo cloth, single vermilion seal */
+  --color-ink: #0e1118;              /* deep ink-wash navy, near-black */
+  --color-ink-2: #161a23;            /* surface — folded page shadow */
+  --color-ink-3: #1f2430;            /* raised surface */
+  --color-bone: #ece3d0;             /* washi cream */
+  --color-bone-dim: #a59e8c;
+  --color-bone-mute: #6f6a60;
 
-  /* Primary accent — faded persimmon */
-  --color-ember: #d97757;
-  --color-ember-soft: #a86850;
-  --color-ember-glow: rgba(217, 119, 87, 0.18);
+  /* Primary accent — cinnabar 朱, the hanko seal */
+  --color-ember: #c8483a;
+  --color-ember-soft: #8e352c;
+  --color-ember-glow: rgba(200, 72, 58, 0.16);
 
-  /* Cool counterpoint — dusty teal (the "lonely" colour) */
-  --color-teal: #6a9098;
-  --color-teal-soft: #486870;
+  /* Cool counterpoint — celadon jade (quiet, weathered) */
+  --color-teal: #6e8c87;
+  --color-teal-soft: #44615d;
 
-  /* Warm highlight — gold lamplight */
-  --color-amber: #e2b56e;
+  /* Warm highlight — antique gold leaf (less yellow, more bronze) */
+  --color-amber: #c9a86a;
 
   /* Surface accents */
-  --color-wine: #3a1f2e;             /* mulberry-aubergine surface */
+  --color-wine: #2a1b27;             /* deep mulberry — used sparingly */
   --color-moss: #7a8a6e;             /* dusty olive */
 
-  --color-line: rgba(236, 227, 210, 0.08);
-  --color-line-strong: rgba(236, 227, 210, 0.16);
-  --color-line-ember: rgba(217, 119, 87, 0.25);
+  --color-line: rgba(236, 227, 208, 0.07);
+  --color-line-strong: rgba(236, 227, 208, 0.14);
+  --color-line-ember: rgba(200, 72, 58, 0.22);
 
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
@@ -89,18 +89,32 @@
   color: var(--color-bone-mute);
 }
 
-/* ── Operator chrome ──────────────────────────────────────── */
-.hud-corner {
+/* ── Editorial chrome — kept quiet on purpose ───────────────── */
+/* Corner brackets removed; a single faint seal mark replaces them. */
+.hud-corner { display: none; }
+
+/* Vermilion hanko 朱 — a small printed seal in the bottom-right of the stage. */
+.seal-mark {
   position: absolute;
-  width: 22px;
-  height: 22px;
-  border-color: var(--color-line-ember);
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-bone);
+  font-family: var(--font-serif), serif;
+  font-style: italic;
+  font-size: 0.7rem;
+  letter-spacing: -0.02em;
+  background: var(--color-ember);
+  opacity: 0.62;
   pointer-events: none;
+  user-select: none;
+  z-index: 5;
+  box-shadow: inset 0 0 0 1px rgba(14, 17, 24, 0.35);
 }
-.hud-corner.tl { top: 0; left: 0; border-top: 1px solid; border-left: 1px solid; }
-.hud-corner.tr { top: 0; right: 0; border-top: 1px solid; border-right: 1px solid; }
-.hud-corner.bl { bottom: 0; left: 0; border-bottom: 1px solid; border-left: 1px solid; }
-.hud-corner.br { bottom: 0; right: 0; border-bottom: 1px solid; border-right: 1px solid; }
 
 .hairline { background: var(--color-line); }
 .hairline-strong { background: var(--color-line-strong); }
@@ -112,11 +126,12 @@
   font-family: var(--font-serif), serif;
   font-style: italic;
   color: var(--color-ember);
-  opacity: 0.06;
-  font-size: 28rem;
+  opacity: 0.05;
+  font-size: 30rem;
   line-height: 0.8;
   pointer-events: none;
   user-select: none;
+  letter-spacing: -0.04em;
 }
 
 /* Japanese paper grid texture */
@@ -127,26 +142,25 @@
   background-size: 32px 32px;
 }
 
-/* Film grain (warm) */
+/* Film grain (paper) — quieter than before so it reads as texture, not noise */
 .grain::before {
   content: "";
   position: absolute;
   inset: 0;
   background-image: url("/noise.svg");
-  opacity: 0.06;
+  opacity: 0.035;
   mix-blend-mode: overlay;
   pointer-events: none;
   z-index: 1;
 }
 
-/* Lamplight cast */
+/* Lamplight cast — a single quiet pool, no second teal accent */
 .lamplight::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(60% 70% at 12% 5%, rgba(226, 181, 110, 0.10), transparent 65%),
-    radial-gradient(50% 50% at 95% 95%, rgba(106, 144, 152, 0.08), transparent 70%);
+    radial-gradient(70% 60% at 10% 0%, rgba(201, 168, 106, 0.08), transparent 60%);
   pointer-events: none;
   z-index: 1;
 }
@@ -177,10 +191,10 @@
 
 /* ── Animations ───────────────────────────────────────────── */
 @keyframes lamp-pulse {
-  0%, 100% { opacity: 0.55; }
-  50% { opacity: 0.9; }
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
 }
-.lamp-pulse { animation: lamp-pulse 4.2s ease-in-out infinite; }
+.lamp-pulse { animation: lamp-pulse 5.4s ease-in-out infinite; }
 
 @keyframes stage-in {
   from { opacity: 0; transform: translateY(10px); }
@@ -215,6 +229,27 @@
 .dropcap-amber::first-letter { color: var(--color-amber); }
 .dropcap-teal::first-letter { color: var(--color-teal); }
 
+/* Rule with a small seal mark in the middle — Japanese book divider */
+.rule-seal {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.rule-seal::before,
+.rule-seal::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-line);
+}
+.rule-seal > span {
+  font-family: var(--font-serif), serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--color-ember);
+  opacity: 0.7;
+}
+
 @keyframes draw-in {
   from { transform: scaleX(0); }
   to   { transform: scaleX(1); }
@@ -248,4 +283,20 @@
 .loader-dots::after {
   content: "";
   animation: loader-dots 1.4s steps(1, end) infinite;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+.fade-out {
+  animation: fade-out 0.5s ease-in forwards;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.fade-in {
+  animation: fade-in 0.6s ease-out both;
 }

@@ -5,20 +5,18 @@ import type { ChapterId } from "@/data/chapters"
 
 export function ChapterHome({ onNavigate }: { onNavigate: (id: ChapterId) => void }) {
   return (
-    <div className="relative h-full overflow-hidden lamplight">
-      {/* Cinematic backdrop */}
+    <div className="relative min-h-full overflow-hidden lamplight">
+      {/* Cinematic backdrop — quieter, more "indigo cloth binding" than dusk window */}
       <div className="absolute inset-0 z-0">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/bg.jpg')" }}
         />
-        {/* Warm dusk overlays — keep enough image visible to feel like a window */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/92 via-ink/65 to-ink/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
-        {/* Warm haze in upper-right (sunset feel) */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_85%_15%,rgba(217,119,87,0.18),transparent_60%)]" />
-        {/* Cool haze opposite (window vs lamp) */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_10%_90%,rgba(106,144,152,0.12),transparent_70%)]" />
+        {/* Ink wash — heavy left, fading to a sliver of image on the right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/75 to-ink/45" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+        {/* A single cinnabar bloom — replaces the warm/cool double haze */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_38%_at_88%_18%,rgba(200,72,58,0.10),transparent_65%)]" />
       </div>
 
       {/* Big decorative kana */}
@@ -30,24 +28,24 @@ export function ChapterHome({ onNavigate }: { onNavigate: (id: ChapterId) => voi
       </span>
 
       {/* Content */}
-      <div className="relative z-10 h-full grid grid-rows-[1fr_auto] px-12 lg:px-20">
+      <div className="relative z-10 min-h-full grid grid-rows-[1fr_auto] px-12 lg:px-20">
         {/* Hero block */}
-        <div className="flex flex-col justify-center max-w-2xl pt-16">
-          <div className="flex items-center gap-3 mb-8 lamp-pulse">
+        <div className="flex flex-col justify-center max-w-2xl pt-10 pb-6">
+          <div className="flex items-center gap-3 mb-5 lamp-pulse">
             <span className="w-10 h-px bg-[var(--color-ember)]" />
             <span className="eyebrow !text-[var(--color-ember)]">00 · 序 · Introduction</span>
           </div>
 
-          <p className="font-display italic text-[var(--color-amber)] text-2xl lg:text-3xl mb-3 leading-tight">
+          <p className="font-display italic text-[var(--color-amber)] text-xl lg:text-2xl mb-2 leading-tight">
             Late light. Working alone.
           </p>
 
-          <h1 className="font-display text-bone text-[4.5rem] lg:text-[6.5rem] leading-[0.92] mb-6">
+          <h1 className="font-display text-bone text-[3.5rem] lg:text-[5.25rem] leading-[0.92] mb-4">
             Dyari Ali<br />
             <span className="text-[var(--color-bone-dim)]">Tahir<span className="text-[var(--color-ember)]">.</span></span>
           </h1>
 
-          <div className="flex items-center gap-3 mb-3 flex-wrap">
+          <div className="flex items-center gap-3 mb-5 flex-wrap">
             <span className="font-mono-tight text-[11px] uppercase tracking-[0.3em] text-bone">
               SHIN<span className="text-[var(--color-ember)]">尾</span>
             </span>
@@ -61,29 +59,26 @@ export function ChapterHome({ onNavigate }: { onNavigate: (id: ChapterId) => voi
             </span>
           </div>
 
-          <div className="inline-flex items-center gap-2.5 mb-8 self-start px-3 py-1.5 tag-teal">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-teal)] lamp-pulse" />
-            <span className="font-mono-tight text-[10px] uppercase tracking-[0.25em]">
-              Currently · Data Engineer Consultant at&nbsp;
-              <a
-                href="https://kanidata.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--color-amber)] hover:text-bone transition-colors"
-              >
-                Kani Data
-              </a>
-            </span>
-          </div>
-
-          <p className="font-sans text-bone-dim text-[15px] leading-[1.75] max-w-lg mb-10">
-            I build things on the web, and I keep a quiet record of what I make and what
-            I&apos;m moved by. This is that record — works, films, books, the rest.
-            Some of it is for clients. Most of it is just for me.
+          <p className="font-display italic text-bone text-[1.1rem] lg:text-[1.25rem] leading-[1.45] mb-5 max-w-xl">
+            By day, I engineer data for{" "}
+            <a
+              href="https://kanidata.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--color-ember)] underline decoration-[var(--color-line-ember)] underline-offset-[6px] decoration-1 hover:decoration-[var(--color-ember)] transition-colors"
+            >
+              Kani Data
+            </a>
+            . By night, I build for the web.
           </p>
 
-          <div className="font-mono-tight text-[11px] uppercase tracking-[0.25em] text-bone-mute mb-10 max-w-lg leading-relaxed">
-            Not looking for a contract role.
+          <p className="font-sans text-bone-dim text-[14px] leading-[1.7] max-w-lg mb-6">
+            A quiet record of both — works I&apos;ve shipped and the films, books, games
+            I&apos;ve been moved by. Some for clients. Most just for me.
+          </p>
+
+          <div className="font-mono-tight text-[11px] uppercase tracking-[0.25em] text-bone-mute mb-6 max-w-lg leading-relaxed">
+            Not seeking another contract role.
             <br />
             Open to web projects that share this register — quiet, considered, made well.
           </div>
@@ -116,8 +111,8 @@ export function ChapterHome({ onNavigate }: { onNavigate: (id: ChapterId) => voi
         </div>
 
         {/* Quiet contents row */}
-        <div className="pb-12">
-          <div className="flex items-end justify-between mb-4">
+        <div className="pb-10">
+          <div className="flex items-end justify-between mb-3">
             <div className="flex items-center gap-3">
               <span className="w-6 h-px bg-[var(--color-teal)]" />
               <span className="eyebrow">Contents</span>
@@ -144,16 +139,16 @@ export function ChapterHome({ onNavigate }: { onNavigate: (id: ChapterId) => voi
                   <button
                     key={c.id}
                     onClick={() => onNavigate(c.id)}
-                    className="group relative bg-ink/75 hover:bg-[var(--color-ink-2)] backdrop-blur-sm px-5 py-5 text-left transition-colors"
+                    className="group relative bg-ink/75 hover:bg-[var(--color-ink-2)] backdrop-blur-sm px-4 py-4 text-left transition-colors"
                   >
                     <span className={`absolute top-0 left-0 h-px w-0 group-hover:w-full ${toneClass.replace("text-", "bg-")} transition-all duration-500`} />
-                    <div className="flex items-baseline justify-between mb-3">
+                    <div className="flex items-baseline justify-between mb-2">
                       <span className="font-mono-tight text-[10px] tabular-nums text-bone-mute">{c.num}</span>
-                      <span className={`font-display italic ${toneClass} opacity-50 group-hover:opacity-100 transition-opacity text-lg leading-none`}>
+                      <span className={`font-display italic ${toneClass} opacity-50 group-hover:opacity-100 transition-opacity text-base leading-none`}>
                         {c.kana}
                       </span>
                     </div>
-                    <div className="font-display italic text-bone text-xl leading-tight group-hover:text-[var(--color-amber)] transition-colors">
+                    <div className="font-display italic text-bone text-lg leading-tight group-hover:text-[var(--color-amber)] transition-colors">
                       {c.title}
                     </div>
                   </button>

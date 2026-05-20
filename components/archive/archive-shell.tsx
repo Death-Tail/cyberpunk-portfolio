@@ -184,10 +184,8 @@ export function ArchiveShell() {
 
         {/* STAGE */}
         <section className="relative overflow-hidden">
-          <div className="hud-corner tl" />
-          <div className="hud-corner tr" />
-          <div className="hud-corner bl" />
-          <div className="hud-corner br" />
+          {/* Vermilion hanko — a single printed seal, the only "chrome" the stage carries */}
+          <span className="seal-mark" aria-hidden="true">尾</span>
 
           <div
             ref={stageRef}
@@ -290,37 +288,22 @@ function DayGlyph({ isDay }: { isDay: boolean }) {
   )
 }
 
-/** Two slowly drifting motes of light. Pure CSS. */
+/** A single drifting mote — was two, kept just one so the page feels more still. */
 function FireflyAmbient() {
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       <span
         className="absolute float-slow"
         style={{
-          left: "20%",
-          top: "30%",
-          width: 2,
-          height: 2,
-          borderRadius: 9999,
-          background: "var(--color-ember)",
-          boxShadow: "0 0 12px 2px rgba(217,119,87,0.4)",
-          opacity: 0.5,
-          animationDuration: "9s",
-        }}
-      />
-      <span
-        className="absolute float-slow"
-        style={{
           right: "25%",
-          top: "60%",
+          top: "62%",
           width: 2,
           height: 2,
           borderRadius: 9999,
           background: "var(--color-amber)",
-          boxShadow: "0 0 10px 2px rgba(226,181,110,0.35)",
-          opacity: 0.4,
-          animationDuration: "11s",
-          animationDelay: "-3s",
+          boxShadow: "0 0 10px 2px rgba(201,168,106,0.32)",
+          opacity: 0.35,
+          animationDuration: "13s",
         }}
       />
     </div>
@@ -345,7 +328,7 @@ function Margin({ chapterId }: { chapterId: ChapterId }) {
           <div className="eyebrow mb-3">Now</div>
           <ul className="font-mono-tight text-[11px] text-bone-dim space-y-2">
             <li className="flex items-baseline gap-3">
-              <span className="text-bone-mute/40">consulting</span>
+              <span className="text-bone-mute/40">engineering</span>
               <a
                 href="https://kanidata.com"
                 target="_blank"
@@ -544,7 +527,7 @@ function Margin({ chapterId }: { chapterId: ChapterId }) {
             Open — web projects only.
           </div>
           <p className="font-mono-tight text-[10px] text-bone-dim leading-relaxed">
-            Not looking for a contract role. Day job is consulting at Kani Data.
+            Days go to data engineering at Kani Data — not seeking another contract role.
             Web projects that share this register are welcome.
           </p>
         </div>

@@ -61,7 +61,6 @@ export const watchEntries: WatchEntry[] = [
   { id: "kimi-no-na-wa", title: "Your Name", jpTitle: "君の名は。", kind: "film", year: 2016, status: "finished" },
   { id: "ghibli", title: "Studio Ghibli — the whole family", kind: "film", year: 1986, status: "finished", note: "Miyazaki / Takahata. Most of them. Some twice." },
   { id: "dead-poets", title: "Dead Poets Society", kind: "film", year: 1989, status: "finished" },
-  { id: "polisias-2003", title: "Polisías (2003)", kind: "film", year: 2003, status: "finished", note: "Spanish — flag for correct title." },
 
   /* ── Series ──────────────────────────────────────── */
   { id: "chernobyl", title: "Chernobyl", kind: "series", year: 2019, status: "finished", episodes: 5, note: "HBO. The kitchen scene." },
@@ -75,4 +74,7 @@ export const watchEntries: WatchEntry[] = [
   { id: "family-guy", title: "Family Guy", kind: "series", year: 1999, status: "finished" },
   { id: "american-dad", title: "American Dad!", kind: "series", year: 2005, status: "finished" },
   { id: "mind-your-language", title: "Mind Your Language", kind: "series", year: 1977, status: "finished" },
+  { id: "policias", title: "Policías, en el corazón de la calle", kind: "series", year: 2003, status: "finished", note: "Spanish" },
+  { id: "el-internado", title: "El internado", kind: "series", year: 2007, status: "finished", note: "Spanish" },
+  { id: "the-boarding-school-las-cumbres", title: "The Boarding School: Las Cumbres", kind: "series", year: 2021, status: "finished", note: "Spanish" },
 ]

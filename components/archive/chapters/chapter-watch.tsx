@@ -85,7 +85,7 @@ export function ChapterWatch() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div>
-                      <div className="font-display italic text-bone text-xl leading-tight group-hover:text-[var(--color-cream)] transition-colors">
+                      <div className="font-display italic text-bone text-xl leading-tight group-hover:text-[var(--color-ember)] transition-colors">
                         {e.title}
                       </div>
                       <div className="font-mono-tight text-[10px] uppercase tracking-[0.2em] text-bone-mute mt-1">
@@ -113,12 +113,10 @@ export function ChapterWatch() {
           )
         })}
 
-        <div className="pt-6 border-t border-[var(--color-line)] flex items-center justify-between">
-          <span className="eyebrow">End of file</span>
-          <span className="font-mono-tight text-[10px] uppercase tracking-[0.25em] text-bone-mute">
-            Add an entry by editing&nbsp;
-            <span className="text-bone">data/watch.ts</span>
-          </span>
+        <div className="pt-8 flex items-center gap-6">
+          <span className="flex-1 h-px hairline" />
+          <span className="font-display italic text-bone-mute text-xl leading-none">— 終 —</span>
+          <span className="flex-1 h-px hairline" />
         </div>
       </div>
     </div>

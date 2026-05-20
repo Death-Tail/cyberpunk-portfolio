@@ -19,11 +19,11 @@ export function ChapterContact() {
           <span className="text-[var(--color-ember)]">line.</span>
         </h1>
         <p className="font-sans text-bone-dim text-[13px] leading-relaxed max-w-lg mb-4">
-          Day job is consulting as a Data Engineer at&nbsp;
+          Days go to data engineering at&nbsp;
           <a href="https://kanidata.com" target="_blank" rel="noopener noreferrer" className="text-[var(--color-amber)] hover:text-[var(--color-ember)] transition-colors">
             Kani Data
           </a>
-          &nbsp;— I&apos;m <span className="text-bone">not</span> looking for a contract role.
+          . I&apos;m <span className="text-bone">not</span> looking for another contract role.
         </p>
         <p className="font-sans text-bone-dim text-[13px] leading-relaxed max-w-lg mb-12">
           Open to <span className="text-[var(--color-amber)]">web projects</span> that share the register
@@ -47,7 +47,7 @@ export function ChapterContact() {
                   {c.kana}
                 </span>
                 <span>
-                  <span className="font-display italic text-bone text-xl leading-tight block group-hover:text-[var(--color-cream)] transition-colors">
+                  <span className="font-display italic text-bone text-xl leading-tight block group-hover:text-[var(--color-amber)] transition-colors">
                     {c.label}
                   </span>
                   <span className="font-mono-tight text-[10px] uppercase tracking-[0.2em] text-bone-mute mt-1 block">

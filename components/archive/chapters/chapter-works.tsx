@@ -1,6 +1,5 @@
 "use client"
 
-import { forwardRef, useEffect, useRef, useState } from "react"
 import { projects } from "@/components/projects-data"
 import { ArrowUpRight, ExternalLink } from "lucide-react"
 
@@ -10,39 +9,13 @@ const accentVar = (a: Accent) =>
   a === "ember" ? "var(--color-ember)" : a === "teal" ? "var(--color-teal)" : "var(--color-amber)"
 
 export function ChapterWorks() {
-  const [activeIdx, setActiveIdx] = useState(0)
-  const sectionRefs = useRef<Array<HTMLElement | null>>([])
-
-  /* Scroll-spy — highlight the current project in the TOC as you scroll */
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
-        if (visible[0]) {
-          const i = Number((visible[0].target as HTMLElement).dataset.index)
-          if (!Number.isNaN(i)) setActiveIdx(i)
-        }
-      },
-      { rootMargin: "-30% 0px -50% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
-    )
-    sectionRefs.current.forEach((el) => el && obs.observe(el))
-    return () => obs.disconnect()
-  }, [])
-
-  const jumpTo = (i: number) => {
-    const el = sectionRefs.current[i]
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" })
-  }
-
   return (
     <div className="relative min-h-full">
       {/* Decorative kana */}
       <span className="kana-stamp" style={{ top: "-3rem", right: "-5rem" }}>作</span>
 
       {/* ── Chapter masthead ─────────────────────────────────────── */}
-      <header className="relative z-10 px-10 lg:px-14 pt-10 pb-6 border-b border-[var(--color-line)]">
+      <header className="relative z-10 px-10 lg:px-14 pt-10 pb-8 border-b border-[var(--color-line)]">
         <div className="flex items-center gap-3 mb-3">
           <span className="w-6 h-px bg-[var(--color-ember)]" />
           <span className="eyebrow !text-[var(--color-ember)]">01 · 作品 · Works</span>
@@ -53,52 +26,9 @@ export function ChapterWorks() {
           </h1>
           <p className="font-sans text-bone-dim text-[13px] leading-relaxed max-w-md">
             A magazine of selected work — shipped sites, one in development.
-            Each entry is its own spread. Scroll, or use the index below.
+            Each entry is its own spread.
           </p>
         </div>
-
-        {/* TOC */}
-        <nav className="mt-7 -mx-1 flex items-stretch gap-px bg-[var(--color-line)]">
-          {projects.map((p: any, i: number) => {
-            const accent = ACCENTS[i % ACCENTS.length]
-            const isActive = i === activeIdx
-            return (
-              <button
-                key={p.title}
-                onClick={() => jumpTo(i)}
-                className={`group relative flex-1 min-w-[8rem] text-left px-4 py-3 transition-colors duration-300 ${
-                  isActive ? "bg-[var(--color-ink-3)]" : "bg-ink/40 hover:bg-[var(--color-ink-2)]"
-                }`}
-              >
-                <span
-                  className="absolute top-0 left-0 h-px transition-all duration-500"
-                  style={{
-                    width: isActive ? "100%" : "0",
-                    background: accentVar(accent),
-                  }}
-                />
-                <div className="flex items-baseline justify-between mb-1">
-                  <span
-                    className="font-mono-tight text-[10px] tabular-nums tracking-widest"
-                    style={{ color: isActive ? accentVar(accent) : undefined }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="font-mono-tight text-[9px] uppercase tracking-widest text-bone-mute">
-                    {p.year || "—"}
-                  </span>
-                </div>
-                <div
-                  className={`font-display italic text-[0.95rem] leading-tight line-clamp-1 ${
-                    isActive ? "text-bone" : "text-bone-dim group-hover:text-bone"
-                  }`}
-                >
-                  {p.title}
-                </div>
-              </button>
-            )
-          })}
-        </nav>
       </header>
 
       {/* ── Project spreads ─────────────────────────────────────── */}
@@ -109,9 +39,6 @@ export function ChapterWorks() {
           return (
             <ProjectSpread
               key={p.title}
-              ref={(el: HTMLElement | null) => {
-                sectionRefs.current[i] = el
-              }}
               project={p}
               index={i}
               total={projects.length}
@@ -126,9 +53,6 @@ export function ChapterWorks() {
           <span className="flex-1 h-px hairline" />
           <span className="font-display italic text-bone-mute text-2xl leading-none">— 終 —</span>
           <span className="flex-1 h-px hairline" />
-        </div>
-        <div className="text-center pb-12 eyebrow !text-bone-mute/40">
-          end of file · edit&nbsp;<span className="text-bone-mute">components/projects-data.tsx</span>&nbsp;to add a project
         </div>
       </div>
     </div>
@@ -145,21 +69,17 @@ interface SpreadProps {
   reverse: boolean
 }
 
-const ProjectSpread = forwardRef<HTMLElement, SpreadProps>(function ProjectSpread(
-  { project, index, total, accent, reverse },
-  ref
-) {
-    const images: any[] = Array.isArray(project.images) ? project.images : []
-    const accentColor = accentVar(accent)
-    const isLive = (project.status ?? "").toUpperCase() === "DEPLOYED"
+function ProjectSpread({ project, index, total, accent, reverse }: SpreadProps) {
+  const images: any[] = Array.isArray(project.images) ? project.images : []
+  const accentColor = accentVar(accent)
+  const isLive = (project.status ?? "").toUpperCase() === "DEPLOYED"
 
-    return (
-      <section
-        ref={ref}
-        data-index={index}
-        id={`project-${index}`}
-        className="relative scroll-mt-4"
-      >
+  return (
+    <section
+      data-index={index}
+      id={`project-${index}`}
+      className="relative scroll-mt-4"
+    >
         {/* Page break above (skip for first) */}
         {index > 0 && (
           <div className="relative z-10 px-10 lg:px-14 py-8 flex items-center gap-6">
@@ -313,9 +233,9 @@ const ProjectSpread = forwardRef<HTMLElement, SpreadProps>(function ProjectSprea
             )}
           </div>
         </div>
-      </section>
-    )
-})
+    </section>
+  )
+}
 
 /* ────────────────────────────────────────────────────────────── */
 
