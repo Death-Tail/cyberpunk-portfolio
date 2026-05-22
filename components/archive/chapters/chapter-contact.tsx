@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react"
 
 const channels: { label: string; handle: string; href: string; kana: string }[] = [
-  { label: "Email", handle: "hello@dyariali.com", href: "mailto:hello@dyariali.com", kana: "信" },
+  { label: "Email", handle: "dyarialitaher03@gmail.com", href: "mailto:dyarialitaher03@gmail.com", kana: "信" },
   { label: "GitHub", handle: "@Death-Tail", href: "https://github.com/Death-Tail", kana: "源" },
   { label: "LinkedIn", handle: "in/dyarialitahir", href: "https://www.linkedin.com/in/dyarialitahir/", kana: "職" },
   { label: "X / Twitter", handle: "@Death_Tail0331", href: "https://x.com/Death_Tail0331", kana: "声" },
