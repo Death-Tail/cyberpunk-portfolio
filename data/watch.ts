@@ -55,12 +55,18 @@ export const watchEntries: WatchEntry[] = [
   { id: "spy-x-family", title: "Spy × Family", jpTitle: "SPY×FAMILY", kind: "anime", year: 2022, status: "finished" },
   { id: "witch-and-beast", title: "The Witch and the Beast", jpTitle: "魔女と野獣", kind: "anime", year: 2024, status: "finished" },
   { id: "dandadan", title: "Dandadan", jpTitle: "ダンダダン", kind: "anime", year: 2024, status: "finished" },
+  { id: "claymore", title: "Claymore", jpTitle: "クレイモア", kind: "anime", year: 2007, status: "finished", episodes: 26 },
+  { id: "vampire-hunter-d-bloodlust", title: "Vampire Hunter D: Bloodlust", jpTitle: "バンパイアハンターD", kind: "film", year: 2000, status: "finished" },
 
   /* ── Films ───────────────────────────────────────── */
   { id: "koe-no-katachi", title: "A Silent Voice", jpTitle: "聲の形", kind: "film", year: 2016, status: "finished" },
   { id: "kimi-no-na-wa", title: "Your Name", jpTitle: "君の名は。", kind: "film", year: 2016, status: "finished" },
   { id: "ghibli", title: "Studio Ghibli — the whole family", kind: "film", year: 1986, status: "finished", note: "Miyazaki / Takahata. Most of them. Some twice." },
   { id: "dead-poets", title: "Dead Poets Society", kind: "film", year: 1989, status: "finished" },
+  { id: "detachment", title: "Detachment", kind: "film", year: 2011, status: "finished" },
+  { id: "house-of-d", title: "House of D", kind: "film", year: 2004, status: "finished" },
+  { id: "pursuit-of-happyness", title: "The Pursuit of Happyness", kind: "film", year: 2006, status: "finished" },
+  { id: "devils-advocate", title: "The Devil's Advocate", kind: "film", year: 1997, status: "finished" },
 
   /* ── Series ──────────────────────────────────────── */
   { id: "chernobyl", title: "Chernobyl", kind: "series", year: 2019, status: "finished", episodes: 5, note: "HBO. The kitchen scene." },
