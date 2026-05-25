@@ -265,24 +265,60 @@
 }
 .float-slow { animation: float-slow 6s ease-in-out infinite; }
 
-/* ── Loader ───────────────────────────────────────────────── */
-@keyframes loader-bar {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(400%); }
+/* ── Loader — ink settling onto washi ─────────────────────── */
+/* Each kana in the tategaki column blots in: blurred + lifted, then settles. */
+@keyframes ink-settle {
+  0%   { opacity: 0; transform: translateY(-8px); filter: blur(3px); }
+  55%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
-.loader-bar {
-  animation: loader-bar 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+.ink-settle {
+  opacity: 0;
+  animation: ink-settle 0.95s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-@keyframes loader-dots {
-  0%, 20%  { content: ""; }
-  40%      { content: "."; }
-  60%      { content: ".."; }
-  80%, 100%{ content: "..."; }
+/* Hanko press — wet stamp settles into place, slight off-axis rotate */
+@keyframes hanko-press {
+  0%   { opacity: 0; transform: scale(1.5) rotate(-9deg); }
+  55%  { opacity: 0.95; transform: scale(0.94) rotate(2.5deg); }
+  100% { opacity: 0.88; transform: scale(1) rotate(0); }
 }
-.loader-dots::after {
-  content: "";
-  animation: loader-dots 1.4s steps(1, end) infinite;
+.hanko-press {
+  animation: hanko-press 0.7s cubic-bezier(0.2, 1.2, 0.4, 1) both;
+}
+
+/* Ink bloom behind the seal — diffuses outward as it lands */
+@keyframes hanko-bloom {
+  0%   { opacity: 0; transform: scale(0.4); }
+  40%  { opacity: 1; }
+  100% { opacity: 0; transform: scale(2.4); }
+}
+.hanko-bloom {
+  opacity: 0;
+  animation: hanko-bloom 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* The page's edge — a single hairline draws inward from center */
+@keyframes hairline-draw {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+.hairline-draw {
+  transform: scaleX(0);
+  animation: hairline-draw 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ink-settle,
+  .hanko-press,
+  .hanko-bloom,
+  .hairline-draw {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .hanko-bloom { opacity: 0 !important; }
 }
 
 @keyframes fade-out {

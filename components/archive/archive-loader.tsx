@@ -1,100 +1,93 @@
 "use client"
 
 /**
- * Aesthetic loader — same dusk register as the archive shell.
+ * Loader — 序 (prelude). Ink settles onto washi, the seal is pressed,
+ * the page is ready. No status lines, no progress chrome.
+ *
+ * 一期一会 — ichi-go ichi-e — "this moment, never again."
  * Used by app/loading.tsx (Next.js streaming fallback) and as the
- * first-paint loader for the home page if needed in the future.
+ * first-paint loader for the home page in app/page.tsx.
  */
-export function ArchiveLoader({ label = "Opening the archive" }: { label?: string }) {
+const COLUMN = ["一", "期", "一", "会"] as const
+const CHAR_STEP_MS = 180
+
+export function ArchiveLoader() {
+  const sealDelay = COLUMN.length * CHAR_STEP_MS + 60
+
   return (
     <div className="fixed inset-0 bg-ink text-bone overflow-hidden grain">
-      {/* Vignette */}
-      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,#000000_120%)]" />
-      {/* Single cinnabar bloom — no second teal haze, no operator chrome */}
-      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_55%_40%_at_50%_30%,rgba(200,72,58,0.08),transparent_65%)]" />
+      {/* Vignette — single quiet pool, no competing blooms */}
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,#000000_120%)]" />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_45%_30%_at_50%_50%,rgba(201,168,106,0.05),transparent_70%)]" />
 
-      {/* One drifting mote — quieter than two */}
-      <span
-        className="absolute float-slow pointer-events-none"
-        style={{
-          left: "22%",
-          top: "32%",
-          width: 2,
-          height: 2,
-          borderRadius: 9999,
-          background: "var(--color-amber)",
-          boxShadow: "0 0 10px 2px rgba(201,168,106,0.35)",
-          opacity: 0.4,
-          animationDuration: "11s",
-        }}
-      />
-
-      {/* Top strip placeholder */}
-      <div className="relative z-10 px-8 lg:px-12 h-14 flex items-center justify-between border-b border-[var(--color-line)]">
+      {/* Top strip — minimal, no "syncing" copy */}
+      <div className="relative z-10 px-4 sm:px-8 lg:px-12 h-14 flex items-center border-b border-[var(--color-line)]">
         <div className="flex items-center gap-3">
           <img src="/logo.jpg" alt="SHIN尾" className="w-7 h-7 object-cover" draggable={false} />
-          <span className="font-mono-tight text-[10px] uppercase tracking-[0.35em] text-bone">SHIN</span>
-        </div>
-        <span className="font-mono-tight text-[10px] uppercase tracking-[0.25em] text-bone-mute">
-          syncing
-        </span>
-      </div>
-
-      {/* Center stage */}
-      <div className="relative z-10 absolute inset-0 flex flex-col items-center justify-center px-6">
-        <div className="flex flex-col items-center text-center">
-          {/* Big italic kana with breathing pulse */}
-          <div className="relative mb-10">
-            <span className="absolute inset-0 blur-2xl opacity-50 font-display italic text-[var(--color-ember)] text-[8rem] leading-none select-none">
-              章
-            </span>
-            <span className="relative font-display italic text-[var(--color-amber)] text-[8rem] leading-none lamp-pulse">
-              章
-            </span>
-          </div>
-
-          {/* Title + label */}
-          <div className="flex items-center gap-3 mb-3">
-            <span className="w-8 h-px bg-[var(--color-ember)]" />
-            <span className="eyebrow !text-[var(--color-ember)]">Archive · v7.0</span>
-            <span className="w-8 h-px bg-[var(--color-ember)]" />
-          </div>
-          <h1 className="font-display italic text-bone text-[2.25rem] leading-none mb-6">
-            {label}
-            <span className="loader-dots ml-0.5" />
-          </h1>
-
-          {/* Indeterminate hairline */}
-          <div className="relative w-72 h-px bg-[var(--color-line-strong)] overflow-hidden mb-5">
-            <div className="absolute inset-y-0 w-1/3 bg-[var(--color-ember)] loader-bar" />
-          </div>
-
-          {/* Status block — mono, like a terminal but quiet */}
-          <ul className="font-mono-tight text-[10px] uppercase tracking-[0.25em] text-bone-mute space-y-1.5 text-center">
-            <li className="flex items-center gap-2 justify-center">
-              <span className="w-1 h-1 rounded-full bg-[var(--color-moss)]" />
-              <span>indexing chapters · 07</span>
-            </li>
-            <li className="flex items-center gap-2 justify-center">
-              <span className="w-1 h-1 rounded-full bg-[var(--color-ember)] lamp-pulse" />
-              <span>composing the spreads</span>
-            </li>
-            <li className="flex items-center gap-2 justify-center text-bone-mute/40">
-              <span className="w-1 h-1 rounded-full bg-[var(--color-teal)]" />
-              <span>lighting the lamp</span>
-            </li>
-          </ul>
+          <span className="font-mono-tight text-[10px] uppercase tracking-[0.35em] text-bone">
+            SHIN<span className="text-[var(--color-ember)]">尾</span>
+          </span>
         </div>
       </div>
 
-      {/* Bottom strip placeholder */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 h-6 border-t border-[var(--color-line)] flex items-center px-8 lg:px-12 text-[10px] font-mono-tight uppercase tracking-[0.2em] text-bone-mute bg-ink/70 backdrop-blur-sm">
+      {/* Center — tategaki column, then the seal */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center px-6">
+        <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center gap-2 mb-9 select-none">
+            {COLUMN.map((ch, i) => (
+              <span
+                key={i}
+                className="ink-settle font-display italic text-bone text-[2.5rem] sm:text-[3rem] leading-none"
+                style={{ animationDelay: `${i * CHAR_STEP_MS}ms` }}
+                aria-hidden="true"
+              >
+                {ch}
+              </span>
+            ))}
+            <span className="sr-only">Loading the archive</span>
+          </div>
+
+          {/* Hanko — vermilion seal stamps last */}
+          <span
+            className="hanko-press relative inline-flex items-center justify-center font-display italic text-bone"
+            style={{
+              animationDelay: `${sealDelay}ms`,
+              width: "2.25rem",
+              height: "2.25rem",
+              background: "var(--color-ember)",
+              fontSize: "1rem",
+              opacity: 0,
+              boxShadow: "inset 0 0 0 1px rgba(14,17,24,0.4)",
+            }}
+            aria-hidden="true"
+          >
+            {/* Ink bloom — diffuses outward as the seal settles */}
+            <span
+              className="hanko-bloom absolute inset-0 -z-10 rounded-full"
+              style={{
+                animationDelay: `${sealDelay}ms`,
+                background:
+                  "radial-gradient(circle, rgba(200,72,58,0.35) 0%, transparent 65%)",
+              }}
+            />
+            尾
+          </span>
+
+          {/* One single hairline beneath — the page's edge */}
+          <div
+            className="hairline-draw mt-7 h-px w-24 bg-[var(--color-line-strong)] origin-center"
+            style={{ animationDelay: `${sealDelay + 200}ms` }}
+          />
+        </div>
+      </div>
+
+      {/* Bottom strip — quiet signature, no PLEASE WAIT, no copyright */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 h-6 border-t border-[var(--color-line)] flex items-center px-4 sm:px-8 lg:px-12 text-[10px] font-mono-tight uppercase tracking-[0.25em] text-bone-mute bg-ink/70 backdrop-blur-sm">
         <span className="text-bone-dim">00</span>
         <span className="mx-3 text-bone-mute/40">/</span>
         <span>序</span>
         <span className="mx-3 text-bone-mute/40">·</span>
-        <span className="text-bone-dim">PLEASE WAIT</span>
-        <span className="ml-auto hidden md:inline">DYARI ALI TAHIR · 2026</span>
+        <span className="text-bone-mute/60">prelude</span>
       </div>
     </div>
   )
