@@ -81,3 +81,19 @@ INSERT INTO public.play_entries (title, kind, year, status, favorite, note, tags
   ('Empire Earth', 'single', 2001, 'finished', false, NULL, '{rts}', 12),
   ('Age of Empires III', 'single', 2005, 'finished', false, NULL, '{rts}', 13),
   ('Dragon Raja', 'live', 2019, 'playing', false, NULL, '{mmo}', 14);
+
+-- ── Tracker Items (PC Upgrade Tracker) ───────────────────
+INSERT INTO public.tracker_items (section, name, cat, price, note, date, priority, status, sort_order) VALUES
+  ('bought', 'Attack Shark X98 Pro', 'Keyboard', 103500, 'item 99k + 4,500k delivery', '2026-06-06', NULL, NULL, 0),
+  ('wish', 'Desk', 'Desk', 0, 'Next purchase — looking for 160–200cm aesthetic setup', NULL, 'high', 'next', 0),
+  ('wish', 'PC Case', 'Case', 0, 'Aesthetic build — 3D animation, gaming & work', NULL, 'high', 'hold', 1),
+  ('wish', 'Monitor', 'Monitor', 0, 'On hold until desk is sorted', NULL, 'high', 'hold', 2),
+  ('wish', 'GPU', 'GPU', 0, 'High-end for 3D animation & gaming', NULL, 'high', 'hold', 3),
+  ('wish', 'CPU', 'CPU', 0, 'On hold until order is confirmed', NULL, 'medium', 'hold', 4),
+  ('wish', 'Motherboard', 'Motherboard', 0, 'On hold', NULL, 'medium', 'hold', 5),
+  ('wish', 'RAM', 'RAM', 0, 'On hold', NULL, 'medium', 'hold', 6),
+  ('wish', 'Storage', 'Storage', 0, 'On hold', NULL, 'medium', 'hold', 7),
+  ('wish', 'PSU', 'PSU', 0, 'On hold', NULL, 'medium', 'hold', 8),
+  ('wish', 'Cooling', 'Cooling', 0, 'On hold', NULL, 'low', 'hold', 9),
+  ('wish', 'Chair', 'Chair', 0, 'On hold', NULL, 'low', 'hold', 10);
+

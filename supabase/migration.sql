@@ -148,3 +148,31 @@ create policy "Auth can delete play_entries"
   on public.play_entries for delete
   to authenticated
   using (true);
+
+-- ── Tracker Items (PC Upgrade Tracker) ───────────────────
+-- Private table — only accessible server-side via service role
+create table if not exists public.tracker_items (
+  id          uuid primary key default gen_random_uuid(),
+  section     text not null check (section in ('bought', 'wish')),
+  name        text not null,
+  cat         text not null,
+  price       numeric(12,0) default 0,
+  note        text default '',
+  date        text,           -- ISO date string, bought items only
+  priority    text check (priority in ('high', 'medium', 'low')),  -- wish only
+  status      text check (status in ('next', 'hold', 'tbd')),      -- wish only
+  sort_order  int default 0,
+  created_at  timestamptz default now(),
+  updated_at  timestamptz default now()
+);
+
+create trigger tracker_items_updated_at
+  before update on public.tracker_items
+  for each row execute function public.set_updated_at();
+
+-- RLS: completely private — no public read, service role only
+alter table public.tracker_items enable row level security;
+
+-- No public read policy (unlike media tables)
+-- All access goes through service-role API routes server-side
+
