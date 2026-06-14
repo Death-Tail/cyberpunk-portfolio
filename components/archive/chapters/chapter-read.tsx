@@ -1,7 +1,8 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { readEntries, type ReadKind, type ReadStatus } from "@/data/read"
+import { useReadEntries } from "@/lib/supabase/hooks"
+import type { ReadKind, ReadStatus } from "@/lib/supabase/types"
 
 const KINDS: { id: ReadKind | "all"; label: string }[] = [
   { id: "all", label: "All" },
@@ -19,11 +20,12 @@ const STATUS_LABEL: Record<ReadStatus, string> = {
 }
 
 export function ChapterRead() {
+  const { entries: readEntries, loading } = useReadEntries()
   const [kind, setKind] = useState<ReadKind | "all">("all")
 
   const filtered = useMemo(
     () => readEntries.filter((e) => (kind === "all" ? true : e.kind === kind)),
-    [kind]
+    [kind, readEntries]
   )
 
   const byStatus = useMemo(() => {
@@ -43,19 +45,19 @@ export function ChapterRead() {
 
       <div className="relative z-10 px-5 sm:px-8 md:px-10 lg:px-14 pt-10 pb-6">
         <div className="flex items-center gap-3 mb-3">
-          <span className="w-6 h-px bg-[var(--color-amber)]" />
-          <span className="eyebrow !text-[var(--color-amber)]">03 · 読了 · Read</span>
+          <span className="w-6 h-px bg-amber" />
+          <span className="eyebrow text-amber!">03 · 読了 · Read</span>
         </div>
         <h1 className="font-display text-bone text-[2.75rem] lg:text-[3.5rem] leading-[0.95] mb-3">
           What I&apos;ve been&nbsp;
-          <span className="text-[var(--color-amber)]">reading.</span>
+          <span className="text-amber">reading.</span>
         </h1>
         <p className="dropcap dropcap-amber font-sans text-bone-dim text-[13px] leading-relaxed max-w-xl">
           Mostly manga and manhwa. A running shelf. Most entries are honest reads, not skims —
           if I dropped it after a chapter, it&apos;s not here.
         </p>
 
-        <div className="mt-8 flex items-center gap-1 border-b border-[var(--color-line)]">
+        <div className="mt-8 flex items-center gap-1 border-b border-line">
           {KINDS.map((k) => (
             <button
               key={k.id}
@@ -66,11 +68,13 @@ export function ChapterRead() {
             >
               {k.label}
               {kind === k.id && (
-                <span className="absolute left-2 right-2 -bottom-px h-[1px] bg-[var(--color-amber)]" />
+                <span className="absolute left-2 right-2 -bottom-px h-px bg-amber" />
               )}
             </button>
           ))}
-          <span className="ml-auto eyebrow pr-2">{filtered.length} entries</span>
+          <span className="ml-auto eyebrow pr-2">
+            {loading ? "…" : `${filtered.length} entries`}
+          </span>
         </div>
       </div>
 
@@ -89,17 +93,17 @@ export function ChapterRead() {
                 {items.map((e, i) => (
                   <li
                     key={e.id}
-                    className="group border-t border-[var(--color-line)] py-5 grid grid-cols-[2.5rem_minmax(0,1fr)_auto] md:grid-cols-[3rem_minmax(0,2fr)_minmax(0,3fr)_auto] gap-4 items-baseline"
+                    className="group border-t border-line py-5 grid grid-cols-[2.5rem_minmax(0,1fr)_auto] md:grid-cols-[3rem_minmax(0,2fr)_minmax(0,3fr)_auto] gap-4 items-baseline"
                   >
                     <span className="font-mono-tight text-[10px] tabular-nums text-bone-mute pt-1">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div>
-                      <div className="font-display italic text-bone text-xl leading-tight group-hover:text-[var(--color-amber)] transition-colors">
+                      <div className="font-display italic text-bone text-xl leading-tight group-hover:text-amber transition-colors">
                         {e.title}
                       </div>
                       <div className="font-mono-tight text-[10px] uppercase tracking-[0.2em] text-bone-mute mt-1">
-                        {e.jpTitle ? `${e.jpTitle} · ` : ""}{e.year ? `${e.year} · ` : ""}{e.kind}
+                        {e.jp_title ? `${e.jp_title} · ` : ""}{e.year ? `${e.year} · ` : ""}{e.kind}
                         {e.chapters ? ` · ${e.chapters} ch` : ""}
                       </div>
                     </div>
@@ -107,12 +111,12 @@ export function ChapterRead() {
                       {e.note}
                     </p>
                     <div className="text-right">
-                      {typeof e.rating === "number" ? (
+                      {typeof e.rating === "number" && e.rating !== null ? (
                         <Rating value={e.rating} />
                       ) : (
                         <span className="eyebrow">—</span>
                       )}
-                      {e.finishedOn && <div className="eyebrow mt-1">{e.finishedOn}</div>}
+                      {e.finished_on && <div className="eyebrow mt-1">{e.finished_on}</div>}
                     </div>
                   </li>
                 ))}

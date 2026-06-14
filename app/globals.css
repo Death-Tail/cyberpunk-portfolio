@@ -336,3 +336,28 @@
 .fade-in {
   animation: fade-in 0.6s ease-out both;
 }
+
+/* ── Admin CMS inputs ────────────────────────────────────── */
+.admin-input {
+  width: 100%;
+  background: var(--color-ink);
+  border: 1px solid var(--color-line-strong);
+  color: var(--color-bone);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  padding: 0.625rem 0.875rem;
+  transition: border-color 0.2s;
+}
+.admin-input::placeholder {
+  color: var(--color-bone-mute);
+  opacity: 0.4;
+}
+.admin-input:focus {
+  border-color: var(--color-ember);
+  outline: none;
+}
+.admin-input option {
+  background: var(--color-ink-2);
+  color: var(--color-bone);
+}

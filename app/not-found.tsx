@@ -31,15 +31,15 @@ export default function NotFound() {
       <div className="relative z-10 h-full grid place-items-center px-8">
         <div className="max-w-2xl">
           <div className="flex items-center gap-3 mb-6">
-            <span className="w-8 h-px bg-[var(--color-ember)]" />
-            <span className="eyebrow !text-[var(--color-ember)]">Error · 404 · 迷</span>
+            <span className="w-8 h-px bg-ember" />
+            <span className="eyebrow text-ember!">Error · 404 · 迷</span>
           </div>
 
           <h1 className="font-display text-bone text-[6rem] lg:text-[9rem] leading-[0.85] mb-8 tabular-nums">
-            4<span className="text-[var(--color-ember)]">0</span>4<span className="text-[var(--color-ember)]">.</span>
+            4<span className="text-ember">0</span>4<span className="text-ember">.</span>
           </h1>
 
-          <p className="font-display italic text-[var(--color-amber)] text-2xl lg:text-3xl leading-tight mb-3">
+          <p className="font-display italic text-amber text-2xl lg:text-3xl leading-tight mb-3">
             You wandered off the page.
           </p>
 
@@ -51,18 +51,18 @@ export default function NotFound() {
           <div className="flex items-center gap-8 flex-wrap">
             <button
               onClick={() => router.back()}
-              className="group inline-flex items-center gap-3 font-mono-tight text-[11px] uppercase tracking-[0.3em] text-bone hover:text-[var(--color-amber)] transition-colors"
+              className="group inline-flex items-center gap-3 font-mono-tight text-[11px] uppercase tracking-[0.3em] text-bone hover:text-amber transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
               <span className="relative pb-1">
                 Go back
-                <span className="absolute left-0 -bottom-0 h-px w-full bg-[var(--color-amber)]" />
+                <span className="absolute left-0 bottom-0 h-px w-full bg-amber" />
               </span>
             </button>
 
             <Link
               href="/"
-              className="group inline-flex items-center gap-3 font-mono-tight text-[11px] uppercase tracking-[0.3em] text-bone-mute hover:text-[var(--color-ember)] transition-colors"
+              className="group inline-flex items-center gap-3 font-mono-tight text-[11px] uppercase tracking-[0.3em] text-bone-mute hover:text-ember transition-colors"
             >
               <span>Return to the archive</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -72,7 +72,7 @@ export default function NotFound() {
       </div>
 
       {/* Bottom status strip */}
-      <footer className="absolute bottom-0 left-0 right-0 z-20 h-6 border-t border-[var(--color-line)] flex items-center px-8 lg:px-12 text-[10px] font-mono-tight uppercase tracking-[0.2em] text-bone-mute bg-ink/70 backdrop-blur-sm">
+      <footer className="absolute bottom-0 left-0 right-0 z-20 h-6 border-t border-line flex items-center px-8 lg:px-12 text-[10px] font-mono-tight uppercase tracking-[0.2em] text-bone-mute bg-ink/70 backdrop-blur-sm">
         <span className="text-bone-dim">XX</span>
         <span className="mx-3 text-bone-mute/40">/</span>
         <span>迷</span>

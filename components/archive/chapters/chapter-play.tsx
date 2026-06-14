@@ -1,7 +1,8 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { playEntries, type PlayKind, type PlayStatus } from "@/data/play"
+import { usePlayEntries } from "@/lib/supabase/hooks"
+import type { PlayKind, PlayStatus } from "@/lib/supabase/types"
 
 const KINDS: { id: PlayKind | "all"; label: string }[] = [
   { id: "all", label: "All" },
@@ -19,11 +20,12 @@ const STATUS_LABEL: Record<PlayStatus, string> = {
 }
 
 export function ChapterPlay() {
+  const { entries: playEntries, loading } = usePlayEntries()
   const [kind, setKind] = useState<PlayKind | "all">("all")
 
   const filtered = useMemo(
     () => playEntries.filter((e) => (kind === "all" ? true : e.kind === kind)),
-    [kind]
+    [kind, playEntries]
   )
 
   const byStatus = useMemo(() => {
@@ -44,19 +46,19 @@ export function ChapterPlay() {
 
       <div className="relative z-10 px-5 sm:px-8 md:px-10 lg:px-14 pt-10 pb-6">
         <div className="flex items-center gap-3 mb-3">
-          <span className="w-6 h-px bg-[var(--color-teal)]" />
-          <span className="eyebrow !text-[var(--color-teal)]">04 · 遊 · Play</span>
+          <span className="w-6 h-px bg-teal" />
+          <span className="eyebrow text-teal!">04 · 遊 · Play</span>
         </div>
         <h1 className="font-display text-bone text-[2.75rem] lg:text-[3.5rem] leading-[0.95] mb-3">
           What I&apos;ve been&nbsp;
-          <span className="text-[var(--color-teal)]">playing.</span>
+          <span className="text-teal">playing.</span>
         </h1>
         <p className="dropcap dropcap-teal font-sans text-bone-dim text-[13px] leading-relaxed max-w-xl">
           Single-player works I&apos;ve actually finished, plus the live / endless games I keep returning to.
           Favourites are marked.
         </p>
 
-        <div className="mt-8 flex items-center gap-1 border-b border-[var(--color-line)]">
+        <div className="mt-8 flex items-center gap-1 border-b border-line">
           {KINDS.map((k) => (
             <button
               key={k.id}
@@ -67,11 +69,13 @@ export function ChapterPlay() {
             >
               {k.label}
               {kind === k.id && (
-                <span className="absolute left-2 right-2 -bottom-px h-[1px] bg-[var(--color-teal)]" />
+                <span className="absolute left-2 right-2 -bottom-px h-px bg-teal" />
               )}
             </button>
           ))}
-          <span className="ml-auto eyebrow pr-2">{filtered.length} entries</span>
+          <span className="ml-auto eyebrow pr-2">
+            {loading ? "…" : `${filtered.length} entries`}
+          </span>
         </div>
       </div>
 
@@ -90,14 +94,14 @@ export function ChapterPlay() {
                 {items.map((e, i) => (
                   <li
                     key={e.id}
-                    className="group border-t border-[var(--color-line)] py-5 grid grid-cols-[2.5rem_minmax(0,1fr)_auto] md:grid-cols-[3rem_minmax(0,2fr)_minmax(0,3fr)_auto] gap-4 items-baseline"
+                    className="group border-t border-line py-5 grid grid-cols-[2.5rem_minmax(0,1fr)_auto] md:grid-cols-[3rem_minmax(0,2fr)_minmax(0,3fr)_auto] gap-4 items-baseline"
                   >
                     <span className="font-mono-tight text-[10px] tabular-nums text-bone-mute pt-1">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div>
                       <div className="flex items-baseline gap-2 flex-wrap">
-                        <span className="font-display italic text-bone text-xl leading-tight group-hover:text-[var(--color-teal)] transition-colors">
+                        <span className="font-display italic text-bone text-xl leading-tight group-hover:text-teal transition-colors">
                           {e.title}
                         </span>
                         {e.favorite && (
@@ -115,12 +119,12 @@ export function ChapterPlay() {
                       {e.note}
                     </p>
                     <div className="text-right">
-                      {typeof e.rating === "number" ? (
+                      {typeof e.rating === "number" && e.rating !== null ? (
                         <Rating value={e.rating} />
                       ) : (
                         <span className="eyebrow">—</span>
                       )}
-                      {e.finishedOn && <div className="eyebrow mt-1">{e.finishedOn}</div>}
+                      {e.finished_on && <div className="eyebrow mt-1">{e.finished_on}</div>}
                     </div>
                   </li>
                 ))}

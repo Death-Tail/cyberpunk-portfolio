@@ -40,15 +40,15 @@ export default function GlobalError({
           <div className="relative z-10 h-full grid place-items-center px-8">
             <div className="max-w-xl">
               <div className="flex items-center gap-3 mb-6">
-                <span className="w-8 h-px bg-[var(--color-ember)]" />
-                <span className="eyebrow !text-[var(--color-ember)]">Fatal · 乱 · System</span>
+                <span className="w-8 h-px bg-ember" />
+                <span className="eyebrow text-ember!">Fatal · 乱 · System</span>
               </div>
 
               <h1 className="font-display text-bone text-[3.5rem] lg:text-[5rem] leading-[0.92] mb-6">
-                Something broke<span className="text-[var(--color-ember)]">.</span>
+                Something broke<span className="text-ember">.</span>
               </h1>
 
-              <p className="font-display italic text-[var(--color-amber)] text-xl lg:text-2xl leading-tight mb-3">
+              <p className="font-display italic text-amber text-xl lg:text-2xl leading-tight mb-3">
                 The archive caught fire for a second.
               </p>
 
@@ -58,13 +58,13 @@ export default function GlobalError({
               </p>
 
               {/* Error capsule */}
-              <div className="surface-ink-2 border border-[var(--color-line)] p-5 mb-10 max-w-lg">
+              <div className="surface-ink-2 border border-line p-5 mb-10 max-w-lg">
                 <div className="eyebrow mb-2">Log</div>
                 <p className="font-mono-tight text-[11px] text-bone-dim leading-relaxed break-all">
                   {error.message || "Unknown error."}
                 </p>
                 {error.digest && (
-                  <div className="mt-3 pt-3 border-t border-[var(--color-line)]">
+                  <div className="mt-3 pt-3 border-t border-line">
                     <span className="font-mono-tight text-[9px] uppercase tracking-[0.25em] text-bone-mute">
                       Digest · <span className="text-bone-dim">{error.digest}</span>
                     </span>
@@ -75,18 +75,18 @@ export default function GlobalError({
               <div className="flex items-center gap-8 flex-wrap">
                 <button
                   onClick={reset}
-                  className="group inline-flex items-center gap-3 font-mono-tight text-[11px] uppercase tracking-[0.3em] text-bone hover:text-[var(--color-amber)] transition-colors"
+                  className="group inline-flex items-center gap-3 font-mono-tight text-[11px] uppercase tracking-[0.3em] text-bone hover:text-amber transition-colors"
                 >
                   <RefreshCw className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-500" />
                   <span className="relative pb-1">
                     Try again
-                    <span className="absolute left-0 -bottom-0 h-px w-full bg-[var(--color-amber)]" />
+                    <span className="absolute left-0 bottom-0 h-px w-full bg-amber" />
                   </span>
                 </button>
 
                 <Link
                   href="/"
-                  className="group inline-flex items-center gap-3 font-mono-tight text-[11px] uppercase tracking-[0.3em] text-bone-mute hover:text-[var(--color-ember)] transition-colors"
+                  className="group inline-flex items-center gap-3 font-mono-tight text-[11px] uppercase tracking-[0.3em] text-bone-mute hover:text-ember transition-colors"
                 >
                   <Home className="w-3.5 h-3.5" />
                   <span>Return to the archive</span>
@@ -96,7 +96,7 @@ export default function GlobalError({
           </div>
 
           {/* Bottom strip */}
-          <footer className="absolute bottom-0 left-0 right-0 z-20 h-6 border-t border-[var(--color-line)] flex items-center px-8 lg:px-12 text-[10px] font-mono-tight uppercase tracking-[0.2em] text-bone-mute bg-ink/70 backdrop-blur-sm">
+          <footer className="absolute bottom-0 left-0 right-0 z-20 h-6 border-t border-line flex items-center px-8 lg:px-12 text-[10px] font-mono-tight uppercase tracking-[0.2em] text-bone-mute bg-ink/70 backdrop-blur-sm">
             <span className="text-bone-dim">!!</span>
             <span className="mx-3 text-bone-mute/40">/</span>
             <span>乱</span>

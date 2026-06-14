@@ -1,7 +1,8 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { watchEntries, type WatchKind, type WatchStatus } from "@/data/watch"
+import { useWatchEntries } from "@/lib/supabase/hooks"
+import type { WatchKind, WatchStatus } from "@/lib/supabase/types"
 
 const KINDS: { id: WatchKind | "all"; label: string }[] = [
   { id: "all", label: "All" },
@@ -13,11 +14,12 @@ const KINDS: { id: WatchKind | "all"; label: string }[] = [
 const STATUSES: WatchStatus[] = ["watching", "finished", "queued"]
 
 export function ChapterWatch() {
+  const { entries: watchEntries, loading } = useWatchEntries()
   const [kind, setKind] = useState<WatchKind | "all">("all")
 
   const filtered = useMemo(
     () => watchEntries.filter((e) => (kind === "all" ? true : e.kind === kind)),
-    [kind]
+    [kind, watchEntries]
   )
 
   const byStatus = useMemo(() => {
@@ -37,7 +39,7 @@ export function ChapterWatch() {
         <div className="eyebrow mb-3">02 · 観た · Watch Log</div>
         <h1 className="font-display text-bone text-[2.5rem] md:text-[3.5rem] leading-[0.95] mb-3">
           What I&apos;ve been&nbsp;
-          <span className="text-[var(--color-ember)]">watching.</span>
+          <span className="text-ember">watching.</span>
         </h1>
         <p className="dropcap font-sans text-bone-dim text-[13px] leading-relaxed max-w-xl">
           A running log. Mostly anime and films. Sometimes series. Notes are honest, ratings drift,
@@ -45,7 +47,7 @@ export function ChapterWatch() {
         </p>
 
         {/* Filters */}
-        <div className="mt-8 flex items-center gap-1 border-b border-[var(--color-line)]">
+        <div className="mt-8 flex items-center gap-1 border-b border-line">
           {KINDS.map((k) => (
             <button
               key={k.id}
@@ -56,11 +58,13 @@ export function ChapterWatch() {
             >
               {k.label}
               {kind === k.id && (
-                <span className="absolute left-2 right-2 -bottom-px h-[1px] bg-[var(--color-ember)]" />
+                <span className="absolute left-2 right-2 -bottom-px h-px bg-ember" />
               )}
             </button>
           ))}
-          <span className="ml-auto eyebrow pr-2">{filtered.length} entries</span>
+          <span className="ml-auto eyebrow pr-2">
+            {loading ? "…" : `${filtered.length} entries`}
+          </span>
         </div>
       </div>
 
@@ -80,16 +84,16 @@ export function ChapterWatch() {
               </div>
               <ul>
                 {items.map((e, i) => (
-                  <li key={e.id} className="group border-t border-[var(--color-line)] py-5 grid grid-cols-[2.5rem_minmax(0,1fr)_auto] md:grid-cols-[3rem_minmax(0,2fr)_minmax(0,3fr)_auto] gap-4 items-baseline">
+                  <li key={e.id} className="group border-t border-line py-5 grid grid-cols-[2.5rem_minmax(0,1fr)_auto] md:grid-cols-[3rem_minmax(0,2fr)_minmax(0,3fr)_auto] gap-4 items-baseline">
                     <span className="font-mono-tight text-[10px] tabular-nums text-bone-mute pt-1">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div>
-                      <div className="font-display italic text-bone text-xl leading-tight group-hover:text-[var(--color-ember)] transition-colors">
+                      <div className="font-display italic text-bone text-xl leading-tight group-hover:text-ember transition-colors">
                         {e.title}
                       </div>
                       <div className="font-mono-tight text-[10px] uppercase tracking-[0.2em] text-bone-mute mt-1">
-                        {e.jpTitle ? `${e.jpTitle} · ` : ""}{e.year} · {e.kind}
+                        {e.jp_title ? `${e.jp_title} · ` : ""}{e.year} · {e.kind}
                         {e.episodes ? ` · ${e.episodes} eps` : ""}
                       </div>
                     </div>
@@ -97,13 +101,13 @@ export function ChapterWatch() {
                       {e.note}
                     </p>
                     <div className="text-right">
-                      {typeof e.rating === "number" ? (
+                      {typeof e.rating === "number" && e.rating !== null ? (
                         <Rating value={e.rating} />
                       ) : (
                         <span className="eyebrow">—</span>
                       )}
-                      {e.finishedOn && (
-                        <div className="eyebrow mt-1">{e.finishedOn}</div>
+                      {e.finished_on && (
+                        <div className="eyebrow mt-1">{e.finished_on}</div>
                       )}
                     </div>
                   </li>

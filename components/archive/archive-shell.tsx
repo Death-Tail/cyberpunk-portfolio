@@ -105,26 +105,26 @@ export function ArchiveShell() {
       <FireflyAmbient />
 
       {/* ── Top strip ───────────────────────────────────── */}
-      <header className="relative z-30 flex items-center justify-between px-4 sm:px-8 lg:px-12 h-14 border-b border-[var(--color-line)] bg-ink/70 backdrop-blur-sm">
+      <header className="relative z-30 flex items-center justify-between px-4 sm:px-8 lg:px-12 h-14 border-b border-line bg-ink/70 backdrop-blur-sm">
         <div className="flex items-center gap-4 sm:gap-7 min-w-0">
           <Monogram />
           <div className="hidden md:flex items-center gap-3 text-[10px] font-mono-tight text-bone-mute uppercase tracking-[0.2em]">
-            <span>SHIN<span className="text-[var(--color-ember)]">尾</span></span>
+            <span>SHIN<span className="text-ember">尾</span></span>
             <span className="text-bone-mute/40">/</span>
             <span>ARCHIVE</span>
             <span className="text-bone-mute/40">/</span>
             <span className="text-bone">{activeChapter.index}</span>
             <span className="text-bone-mute/40">·</span>
-            <span className="font-display italic text-[var(--color-amber)] text-sm normal-case tracking-normal">
+            <span className="font-display italic text-amber text-sm normal-case tracking-normal">
               {activeChapter.title}
             </span>
           </div>
           {/* Mobile-only chapter chip — replaces the breadcrumb at small widths */}
           <div className="md:hidden flex items-baseline gap-2 min-w-0">
-            <span className="font-mono-tight text-[10px] tabular-nums text-[var(--color-ember)]">
+            <span className="font-mono-tight text-[10px] tabular-nums text-ember">
               {activeChapter.index}
             </span>
-            <span className="font-display italic text-[var(--color-amber)] text-sm leading-none truncate">
+            <span className="font-display italic text-amber text-sm leading-none truncate">
               {activeChapter.title}
             </span>
           </div>
@@ -133,23 +133,23 @@ export function ArchiveShell() {
           <DayGlyph isDay={isDay} />
           <span className="hidden sm:inline">{time}</span>
           <span className="hidden md:inline text-bone-mute/40">·</span>
-          <span className="hidden md:inline text-[var(--color-teal)]">HAWLER · KRG</span>
+          <span className="hidden md:inline text-teal">HAWLER · KRG</span>
           {/* Hamburger — mobile only */}
           <button
             type="button"
             aria-label={navOpen ? "Close index" : "Open index"}
             aria-expanded={navOpen}
             onClick={() => setNavOpen((v) => !v)}
-            className="md:hidden ml-1 w-9 h-9 -mr-1 flex flex-col items-center justify-center gap-[5px] border border-[var(--color-line-strong)] hover:border-[var(--color-line-ember)] transition-colors"
+            className="md:hidden ml-1 w-9 h-9 -mr-1 flex flex-col items-center justify-center gap-1.25 border border-line-strong hover:border-line-ember transition-colors"
           >
             <span
               className={`block w-4 h-px bg-bone transition-transform duration-200 ${
-                navOpen ? "translate-y-[3px] rotate-45" : ""
+                navOpen ? "translate-y-0.75 rotate-45" : ""
               }`}
             />
             <span
               className={`block w-4 h-px bg-bone transition-transform duration-200 ${
-                navOpen ? "-translate-y-[3px] -rotate-45" : ""
+                navOpen ? "-translate-y-0.75 -rotate-45" : ""
               }`}
             />
           </button>
@@ -170,17 +170,17 @@ export function ArchiveShell() {
 
         {/* SPINE — inline on md+, off-canvas drawer on mobile */}
         <aside
-          className={`border-r border-[var(--color-line)] flex flex-col surface-ink-2
+          className={`border-r border-line flex flex-col surface-ink-2
             fixed top-14 bottom-6 left-0 z-40 w-[18rem] max-w-[85vw] transform transition-transform duration-300 ease-out
             ${navOpen ? "translate-x-0" : "-translate-x-full"}
             md:relative md:top-0 md:bottom-0 md:w-auto md:max-w-none md:translate-x-0 md:z-auto`}
         >
           <div className="px-7 pt-10 pb-5">
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-4 h-px bg-[var(--color-ember)]" />
-              <div className="eyebrow !text-[var(--color-ember)]">Index</div>
+              <span className="w-4 h-px bg-ember" />
+              <div className="eyebrow text-ember!">Index</div>
             </div>
-            <div className="font-display text-[var(--color-amber)] text-3xl leading-none">章</div>
+            <div className="font-display text-amber text-3xl leading-none">章</div>
           </div>
           <nav className="flex-1 px-3 pb-4">
             {chapters.map((c) => {
@@ -191,19 +191,19 @@ export function ArchiveShell() {
                   key={c.id}
                   onClick={() => navigate(c.id)}
                   className={`group relative w-full text-left px-4 py-3.5 flex items-baseline gap-4 transition-all duration-300 ${isActive
-                    ? "text-bone bg-[var(--color-ember-glow)]"
-                    : "text-bone-mute hover:text-bone hover:bg-[var(--color-ink-3)]/40"
+                    ? "text-bone bg-ember-glow"
+                    : "text-bone-mute hover:text-bone hover:bg-ink-3/40"
                     }`}
                 >
                   {isActive && (
-                    <span className="absolute left-0 top-0 bottom-0 w-[2px] bg-[var(--color-ember)] draw-in" />
+                    <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-ember draw-in" />
                   )}
-                  <span className={`font-mono-tight text-[10px] tabular-nums tracking-widest ${isActive ? "text-[var(--color-ember)]" : "opacity-70"
+                  <span className={`font-mono-tight text-[10px] tabular-nums tracking-widest ${isActive ? "text-ember" : "opacity-70"
                     }`}>
                     {c.index}
                   </span>
                   <span className="flex-1 min-w-0">
-                    <span className={`font-display italic text-[1.35rem] leading-none block ${isActive ? "text-[var(--color-amber)]" : ""
+                    <span className={`font-display italic text-[1.35rem] leading-none block ${isActive ? "text-amber" : ""
                       }`}>
                       {c.title}
                     </span>
@@ -213,7 +213,7 @@ export function ArchiveShell() {
                   </span>
                   {counts && (
                     <span
-                      className={`font-mono-tight text-[10px] tabular-nums transition-opacity ${isActive ? "text-[var(--color-amber)] opacity-100" : "text-bone-mute opacity-0 group-hover:opacity-100"
+                      className={`font-mono-tight text-[10px] tabular-nums transition-opacity ${isActive ? "text-amber opacity-100" : "text-bone-mute opacity-0 group-hover:opacity-100"
                         }`}
                     >
                       {counts.total}
@@ -227,7 +227,7 @@ export function ArchiveShell() {
               <span className="font-display italic text-[1.35rem] leading-none">___</span>
             </div>
           </nav>
-          <div className="px-7 py-5 border-t border-[var(--color-line)]">
+          <div className="px-7 py-5 border-t border-line">
             <div className="eyebrow mb-1">v7.0</div>
             <div className="font-mono-tight text-[10px] text-bone-mute leading-relaxed">
               hand-kept · always under construction
@@ -256,22 +256,22 @@ export function ArchiveShell() {
           </div>
 
           {/* Reading thread — sits on stage right edge, fills as you scroll */}
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-20 w-[2px] bg-[var(--color-line)]">
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-20 w-0.5 bg-line">
             <div
-              className="origin-top bg-[var(--color-ember)] transition-transform duration-150 ease-out"
+              className="origin-top bg-ember transition-transform duration-150 ease-out"
               style={{ width: "100%", height: "100%", transform: `scaleY(${progress})` }}
             />
           </div>
         </section>
 
         {/* MARGIN */}
-        <aside className="hidden lg:flex border-l border-[var(--color-line)] flex-col p-8 gap-7 overflow-auto">
+        <aside className="hidden lg:flex border-l border-line flex-col p-8 gap-7 overflow-auto">
           <Margin chapterId={active} />
         </aside>
       </div>
 
       {/* ── Bottom status strip ─────────────────────────── */}
-      <footer className="relative z-20 h-6 border-t border-[var(--color-line)] flex items-center px-4 sm:px-8 lg:px-12 text-[10px] font-mono-tight uppercase tracking-[0.2em] text-bone-mute bg-ink/70 backdrop-blur-sm">
+      <footer className="relative z-20 h-6 border-t border-line flex items-center px-4 sm:px-8 lg:px-12 text-[10px] font-mono-tight uppercase tracking-[0.2em] text-bone-mute bg-ink/70 backdrop-blur-sm">
         <span className="text-bone-dim">{activeChapter.index}</span>
         <span className="mx-3 text-bone-mute/40">/</span>
         <span>{activeChapter.kana}</span>
@@ -292,7 +292,7 @@ export function ArchiveShell() {
 
 function KeyHint({ children }: { children: React.ReactNode }) {
   return (
-    <kbd className="font-mono-tight text-[10px] tracking-normal border border-[var(--color-line-strong)] px-1.5 py-px text-bone bg-ink/60">
+    <kbd className="font-mono-tight text-[10px] tracking-normal border border-line-strong px-1.5 py-px text-bone bg-ink/60">
       {children}
     </kbd>
   )
@@ -319,7 +319,7 @@ function DayGlyph({ isDay }: { isDay: boolean }) {
       title={isDay ? "Daylight" : "Lamplight"}
     >
       {isDay ? (
-        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-[var(--color-amber)]" fill="none">
+        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-amber" fill="none">
           <circle cx="12" cy="12" r="4" fill="currentColor" />
           {[0, 45, 90, 135, 180, 225, 270, 315].map((d) => (
             <line
@@ -335,7 +335,7 @@ function DayGlyph({ isDay }: { isDay: boolean }) {
           ))}
         </svg>
       ) : (
-        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-[var(--color-amber)]" fill="none">
+        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-amber" fill="none">
           <path d="M19.5 14.5A8 8 0 0 1 9.5 4.5 7 7 0 1 0 19.5 14.5Z" fill="currentColor" />
         </svg>
       )}
@@ -389,7 +389,7 @@ function Margin({ chapterId }: { chapterId: ChapterId }) {
                 href="https://kanidata.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[var(--color-amber)] hover:text-bone transition-colors"
+                className="text-amber hover:text-bone transition-colors"
               >
                 Kani Data
               </a>
@@ -410,7 +410,7 @@ function Margin({ chapterId }: { chapterId: ChapterId }) {
         </div>
         <div className="h-px hairline" />
         <div>
-          <div className="eyebrow !text-[var(--color-teal)] mb-2">Open / Web only</div>
+          <div className="eyebrow text-teal! mb-2">Open / Web only</div>
           <p className="font-mono-tight text-[10px] text-bone-dim leading-relaxed">
             Not seeking contracts. Open to web projects that match this register —
             quiet, considered, made well.
@@ -423,7 +423,7 @@ function Margin({ chapterId }: { chapterId: ChapterId }) {
     return (
       <>
         <div>
-          <div className="eyebrow !text-[var(--color-ember)] mb-3">Now / Building</div>
+          <div className="eyebrow text-ember! mb-3">Now / Building</div>
           <div className="font-display italic text-xl leading-tight text-bone mb-1">DCVAW</div>
           <div className="font-mono-tight text-[10px] uppercase tracking-widest text-bone-mute mb-3">
             2026 · in development
@@ -447,10 +447,10 @@ function Margin({ chapterId }: { chapterId: ChapterId }) {
               <li key={row.t} className="flex items-center gap-2.5">
                 <span
                   className={`w-1 h-1 rounded-full ${row.c === "ember"
-                    ? "bg-[var(--color-ember)]"
+                    ? "bg-ember"
                     : row.c === "teal"
-                      ? "bg-[var(--color-teal)]"
-                      : "bg-[var(--color-amber)]"
+                      ? "bg-teal"
+                      : "bg-amber"
                     }`}
                 />
                 <span className="text-bone">{row.t}</span>
@@ -472,7 +472,7 @@ function Margin({ chapterId }: { chapterId: ChapterId }) {
     return (
       <>
         <div>
-          <div className="eyebrow !text-[var(--color-ember)] mb-3">Currently</div>
+          <div className="eyebrow text-ember! mb-3">Currently</div>
           <div className="font-display italic text-xl leading-tight text-bone mb-1">Scum&apos;s Wish</div>
           <div className="font-mono-tight text-[10px] uppercase tracking-widest text-bone-mute mb-3">
             クズの本懐 · 2017
@@ -507,7 +507,7 @@ function Margin({ chapterId }: { chapterId: ChapterId }) {
     return (
       <>
         <div>
-          <div className="eyebrow !text-[var(--color-amber)] mb-3">Currently reading</div>
+          <div className="eyebrow text-amber! mb-3">Currently reading</div>
           <div className="font-display italic text-xl leading-tight text-bone mb-1">Dorohedoro</div>
           <div className="font-mono-tight text-[10px] uppercase tracking-widest text-bone-mute mb-3">
             ドロヘドロ · 2000
@@ -521,15 +521,15 @@ function Margin({ chapterId }: { chapterId: ChapterId }) {
           <div className="eyebrow mb-3">Genres I keep finding</div>
           <ul className="font-mono-tight text-[11px] text-bone-dim space-y-1.5">
             <li className="flex items-center gap-2">
-              <span className="w-1 h-1 rounded-full bg-[var(--color-amber)]" />
+              <span className="w-1 h-1 rounded-full bg-amber" />
               <span className="text-bone">Action with dread</span>
             </li>
             <li className="flex items-center gap-2">
-              <span className="w-1 h-1 rounded-full bg-[var(--color-ember)]" />
+              <span className="w-1 h-1 rounded-full bg-ember" />
               <span className="text-bone">Slow-burn romance</span>
             </li>
             <li className="flex items-center gap-2">
-              <span className="w-1 h-1 rounded-full bg-[var(--color-teal)]" />
+              <span className="w-1 h-1 rounded-full bg-teal" />
               <span className="text-bone">Beautiful ugliness</span>
             </li>
           </ul>
@@ -541,7 +541,7 @@ function Margin({ chapterId }: { chapterId: ChapterId }) {
     return (
       <>
         <div>
-          <div className="eyebrow !text-[var(--color-teal)] mb-3">Currently playing</div>
+          <div className="eyebrow text-teal! mb-3">Currently playing</div>
           <div className="font-display italic text-xl leading-tight text-bone mb-1">Warzone</div>
           <div className="font-mono-tight text-[10px] uppercase tracking-widest text-bone-mute mb-3">
             COD · 2020 · live service
@@ -552,7 +552,7 @@ function Margin({ chapterId }: { chapterId: ChapterId }) {
         </div>
         <div className="h-px hairline" />
         <div>
-          <div className="eyebrow !text-[var(--color-amber)] mb-3">Favourites</div>
+          <div className="eyebrow text-amber! mb-3">Favourites</div>
           <ul className="font-mono-tight text-[11px] text-bone-dim space-y-1.5">
             <li className="flex items-baseline gap-2">
               <span className="text-bone-mute/40 tabular-nums">01</span>
@@ -578,7 +578,7 @@ function Margin({ chapterId }: { chapterId: ChapterId }) {
     return (
       <>
         <div>
-          <div className="eyebrow !text-[var(--color-ember)] mb-3">Status</div>
+          <div className="eyebrow text-ember! mb-3">Status</div>
           <div className="font-display italic text-xl leading-tight text-bone mb-2">
             Open — web projects only.
           </div>
